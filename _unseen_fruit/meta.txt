@@ -1,0 +1,11 @@
+kind = architecture
+no_score = true
+title = "Unseen Fruit"
+size = [-256, -256, 255, 255]
+dialogue = [
+  (alien_centered, "The most noteworthy thing on your planet is the fruit. It is very tasty.
+
+That's why we are having a fruit tasting event in the canteen."),
+  (alien_centered, "But we want to make sure we don’t get the same fruit twice as that would obviously be embarrassing."),
+  (info, "Scan the conveyor belt for the fruit incoming at regular intervals. As soon as you see the same kind of fruit twice, turn and press the control panel."),
+]

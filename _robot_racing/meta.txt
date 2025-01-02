@@ -1,0 +1,14 @@
+kind = architecture
+title = "Robot Racing"
+tests = 1
+size = [-256, -256, 255, 255]
+background = 4
+dialogue = [
+  (alien_centered, "Robot racing is the favorite sport on the spaceship. Differently programmed robots complete an obstacle course. Among the robots that complete the course, the winner is the one who had the smallest program."),
+  (alien_centered, "This time you are controlling Fastbot, he doesn't see what is in front of him, but he can turn to a new direction and move in the same tick. Also he wears fancy red running shoes."),
+  (info, "Fastbot controls:
+[code][color=#e49f44]0[/color] Go right
+[color=#e49f44]1[/color] Go down
+[color=#e49f44]2[/color] Go left
+[color=#e49f44]3[/color] Go up[/code]")
+]

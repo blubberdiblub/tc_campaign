@@ -1,0 +1,70 @@
+var position = [5,9]
+var direction = 1
+var path_position = 0
+var path = [
+  3,0,1,0,0,3,2,3,0,3,2,2,1,2,3,
+  3,0,3,2,3,3,0,1,0,3,0,1,1,2,1,0,
+  0,0,3,2,3,3,0,1,0,3,0,1,1,2,1,0,
+  1,1,2,3,2,2,1,0,1,2,1,0,0,3,0,1,
+  4
+] # 4 is extra padding, to make sure we don't crash
+def arch_get_input($scratch_space: [Int], test: Int) Int {
+  return 0
+}
+def arch_check_output(test: Int, input: Int, output: Int) TestResult {
+  if output > 3 {
+    return "Fastbot only takes inputs 0, 1, 2 and 3"
+  }
+  direction = output
+  var moved = false
+  if output == path[path_position] {
+    path_position = path_position + 1
+    moved = true
+  } elif path_position != 0{
+    if output == (path[path_position - 1] + 2) % 4 {
+      path_position = path_position - 1
+      moved = true
+    }
+  }
+  if moved {
+    if output == 0 {
+      position[0] = position[0] + 1
+    } elif output == 1 {
+      position[1] = position[1] + 1
+    } elif output == 2 {
+      position[0] = position[0] - 1
+    } elif output == 3 {
+      position[1] = position[1] - 1
+    }
+  }
+  if path_position == 63 {
+    return win
+  }
+}
+func arch_rpg_move(action: Int){
+  if action > 3 {
+    return 0
+  }
+  direction = action
+  var moved = false
+  if action == path[path_position] && path_position + 1 < path.len() {
+    path_position = path_position + 1
+    moved = true
+  } elif path_position != 0{
+    if action == (path[path_position - 1] + 2) % 4 {
+      path_position = path_position - 1
+      moved = true
+    }
+  }
+  if moved {
+    if action == 0 {
+      position[0] = position[0] + 1
+    } elif action == 1 {
+      position[1] = position[1] + 1
+    } elif action == 2 {
+      position[0] = position[0] - 1
+    } elif action == 3 {
+      position[1] = position[1] - 1
+    }
+  }
+}

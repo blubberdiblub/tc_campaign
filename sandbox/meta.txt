@@ -2,3 +2,4 @@ kind = architecture
 background = 4
 title = "The Sandbox"
 size = [-256, -256, 255, 255]
+arch_input_word_size = 16

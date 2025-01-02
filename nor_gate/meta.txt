@@ -7,7 +7,7 @@ tick_past_fail = 4
 output_history_pins = 1
 background = 4
 dialogue = [
-  (alien_centered, "Most creatures on Earth are aggressive and cannot focus.
+  (alien_centered, "Most creatures on Earth are aggressive and can not focus.
 
 To succeed you must learn to think logically, while not destroying things."),
   (info, "Create the circuit that matches the table.

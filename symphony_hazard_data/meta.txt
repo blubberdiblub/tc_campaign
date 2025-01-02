@@ -9,10 +9,10 @@ add_components = [com_probe_memory_word: -1]
 dialogue = [
     (alien, `The next optimization we are going to implement is making the architecture superscalar.
 
-Superscalarity means we will execute more than one instruction per tick, in this case two. 
+Superscalar means we will execute more than one instruction per tick, in this case two. 
 
-However, certain pairs of instructions cannot be executed simultaneously. In this level the input will be a pair of instructions, you should output 1 if they can be executed together.`)
-    (alien, `There are three main situations where we can't execute two instructions together: 
+However, certain pairs of instructions can not be executed simulataniously. In this level the input will be a pair of instructions, you should output 1 if they can be executed together.`)
+    (alien, `There are three main situations where we can't execute two instructions together. 
 
 A: The first instruction is a JUMP.
 

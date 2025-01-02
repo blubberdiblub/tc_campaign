@@ -7,15 +7,15 @@ input_labels = [["Start"]]
 output_labels = ["In progress"]
 add_components = [com_probe_memory_word: -1]
 dialogue = [
-    (alien, `We need you to work on creating a new version of Symphony we call Allegro, which runs the same instructions as Symphony, but super fast, so we can play games on it.
+    (alien, `We need you to work on create a new version of Symphony we call Allegro, which runs the same instructions as Symphony, but super fast, so we can play games on it.
 
-It would also be nice if the computer was energy efficient, but mainly we need it to be fast enough to run our games. For this reason, all level solutions from here on must have 60 delay or less.`),
+It would also be nice if the computer was energy effecient, but mainly we need it to be fast enough to run our games. For this reason, all level solutions form here on must have 60 delay or less.`),
     (alien, `To make Allegro fast enough, you have to implement several CPU optimization techniques.
 
 The final goal will be to build a pipelined, superscalar, memory caching and speculatively executing version of Symphony.`),
     (info, `Build a timer that will later be used in pipelining.
 
-When the input is [ON], the timer is activated. When the timer is activated output this sequence: [OFF][ON][ON]. That is [OFF] on the first tick and [ON] the two ticks after that.
+When the input is [ON], the timer is activated. When the timer is activated output this sequence [OFF][ON][ON]. That is [OFF] on the first tick and [ON] the two ticks after that.
 If the timer is in the middle of a sequence, it cannot be reactivated. Another way to say this is ignore the input, if the output is [ON].
 `)
 ]

@@ -4,7 +4,7 @@ size = [-46, -46, 46, 46]
 tick_past_fail = 0xff
 unlocks_components = [com_inc]
 dialogue = [
-  (alien_centered, "Energy is finite and if we consume it all, we will be at the heat death of the universe. This is why efficiency is important.
+  (alien_centered, "Exergy is finite and if we consume it all, we will be at the heat death of the universe. This is why effeciency is important.
 
 In our society, we find inefficiency ugly and efficiency beautiful.
 
@@ -14,12 +14,12 @@ In fact, we measure beauty in units of energy."),
 ((A + B) + C) + D
 (A + B) + (C + D)
 
-They produce the same result, but parallelism allows one of them to be more effecient than the other."),
+They produce the same results, but parallelism allows for one of them to be more effecient than the other."),
   (alien_centered, `Each of the basic gates (NAND, NOR, AND, OR) have a delay of one, meaning they take a unit of time to complete.
 
-However, different parts of a circuit can happen simultaneously, so we only have to wait for the slowest path, called "the critical path".
+However, different parts of a circuit can happen simultaniously, so we only have to wait for the slowest path, called "the critical path".
 
-Click the hourglass in the upper right to see the critical path.`),
+Click the hour glass in the upper right to see the critical path.`),
   (alien_centered, "Each of the four basic gates consume one unit of energy in each unit of time.
 
 So the total energy cost of your solution is the delay of the critical path multiplied with the number of fundamental gates used."),
@@ -27,8 +27,8 @@ So the total energy cost of your solution is the delay of the critical path mult
 
 If you want to optimize the cost of a component, you can go back and improve your solution in the level that unlocks it.
 
-In fact, to beat this level, your XOR gate should cost 3 gates and have a delay of 2.")
-  (info, "Add 1 to the input number and output the result.
+In fact, to beat this level, your XOR gate should cost 3 gate and 2 delay score.")
+  (info, "Add 1 to the input number of this level and output the result.
 
 If the result doesn't fit in 8 bits, just discard the bit that doesn't fit.
 

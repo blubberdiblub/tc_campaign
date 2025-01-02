@@ -6,7 +6,7 @@ copy_solution_to_level = ["symphony_3_alu"]
 immutable_program = true
 immutable_spec = true
 dialogue = [
-  (info, `In this level we add a way to input and output values to [color=#e49f44]Symphony[/color].
+  (info, `In this level we add a way input and output values to [color=#e49f44]Symphony[/color].
 
 Again, this is how instructions are encoded:
 
@@ -26,7 +26,7 @@ Just like with [color=#e49f44]Overture[/color] there are 4 modes:
 2 JUMP
 3 RAM[/code]
 
-However, in this level you only have to worry about IO and ALU mode. When in ALU mode, execute the NAND instruction as in the previous level. When in IO mode, execute one of the following instructions, based on the opcode:
+However, in this level yoou only have to worry about IO and ALU mode. When in ALU mode, execute the NAND instruction as in the previous level. When in IO mode, execute one of the following instructions, based on the opcode:
 
 [code]0 nop (Do nothing)
 1 in  (Send input to the [color=#ffe666]destination register[/color])

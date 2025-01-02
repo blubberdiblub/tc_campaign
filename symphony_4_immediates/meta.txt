@@ -6,7 +6,7 @@ copy_solution_to_level = ["symphony_5_jumps"]
 immutable_program = true
 immutable_spec = true
 dialogue = [
-  (info, `Sometimes it is useful to load a value directly from the program instead of from registers. A value directly encoded in an instruction is called an immediate value. With [color=#e49f44]Symphony[/color], we can replace argument B with an immediate in any instruction. This is done by setting the fourth bit to 1 and encoding the value in the last two bytes like so:
+  (info, `Sometimes it is useful to load a value directly from the program instead of from registers. A value directly encoding into an instruction is called an immediate value. With [color=#e49f44]Symphony[/color], we can replace argument B with an immediate in any instruction. This is done by setting the forth bit to 1 and encode the value in the two last two bytes like so:
 
 [code]
 [color=#ff6680]O[/color] = Opcode

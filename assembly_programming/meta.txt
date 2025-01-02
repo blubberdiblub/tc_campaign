@@ -7,8 +7,8 @@ add_components = [com_assembler: -1]
 unlocks_components = [com_assembler]
 copy_solution_to_architecture = "Overture"
 dialogue = [
-  (alien_centered, "Programming by setting bits manually is tedious. We need you to learn assembly programming."),
-  (alien_centered, `I replaced the front panel component with an assembly component that looks almost identical. Click on the "edit" button to start programming in assembly. This level is identical to the last - read an input, add 5 and move it to output.`),
+  (alien_centered, "Programming by setting bits manually tedious. We need you to learn assembly programming."),
+  (alien_centered, `I replaced the front panel component with an assembly component that looks almost identical. Click on the "edit" button to start programming in assembly. This level is identical to the last, read an input add 5 and move it to output.`),
   (overture),
 ]
 default_isa_spec = `

@@ -8,9 +8,9 @@ background = 6
 components_available = [com_static_indexer: 7]
 dialogue = [
   (info, `
-Build a circuit that splits Symphony instructions into their different parts. This will be very helpful later.
+Build a circuit that splits Symphony instructions into its different parts. This will be very helpful later.
 
-There are two encodings for Symphony instructions, depending on whether we are using immediate values or not:
+There are two encodings for Symphony instructions, depending on wether we are using immediate values or not:
 
 [code][color=#ff9800]M[/color] = Mode
 [color=#ff6680]O[/color] = Opcode

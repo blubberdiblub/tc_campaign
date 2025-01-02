@@ -11,6 +11,6 @@ It doesn't really surprise me."),
 
 The challenge is that you only have 8 ticks to output the desired result.
 
-Note: You don't need to change your hardware, you just have to figure out the trick to do modulo 4 quickly.
+Note, you don't need to change your hardware, you just have to figure out the trick to do modulo 4 quickly.
 Use [color=#e63e5b][url=masking_time]this hint[/url][/color] if you get stuck."),
 ]

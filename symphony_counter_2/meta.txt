@@ -7,6 +7,6 @@ input_labels = [["Store"], ["Store value"], ["Hold"]]
 output_labels = ["Output"]
 add_components = [com_probe_memory_word: -1]
 dialogue = [
-    (alien, `For pipelining, we need a version of the counter which can have counting disabled.`),
-    (info, `Create a new version of the Symphony counter which has a hold pin. When the pin is [ON], we do not increment the counter value. It may however still be overwritten if the store pin is [ON]`),
+    (alien, `For pipelining, need a version of the counter which can have counting disabled.`),
+    (info, `Create a new version of the Symphony counter which has a hold pin. When the pin is [ON], we do not increment the counter value. We may however still be overwritten if the store pin is [ON]`),
 ]

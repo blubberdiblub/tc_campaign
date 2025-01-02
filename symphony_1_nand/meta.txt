@@ -8,6 +8,7 @@ immutable_spec = true
 dialogue = [
   (alien_centered, `Finally it is time for you to start building the [color=#e49f44]Symphony[/color] architecture!`),
   (info, `
+
 Most instructions take 2 arguments and produce 1 result (like ADD, OR etc). 
 
 [color=#e49f44]Symphony[/color] uses 4 bytes per instruction and can encode all three in each instruction. This means we can for example ADD any two registers and store the result in any other register.`),
@@ -29,8 +30,8 @@ Most instructions take 2 arguments and produce 1 result (like ADD, OR etc).
   (info, `Do the following to complete this level:
     
 [b]1.[/b] Place an assembler and set it to 32 bit.
-[b]2.[/b] Add 7 registers, using the custom component build in an earlier level
-[b]3.[/b] Click "Edit link components" on the program component and connect the 7 registers. (do not connect the zr register)
+[b]2.[/b] Add 7 registers (using the custom component build in an earlier level)
+[b]3.[/b] Click "Edit link components" on the program component and connect the 7 registers.
 `),
   (info, `Finally, implement the NAND instruction.
 
@@ -45,7 +46,7 @@ This is how the instructions are encoded:
 
 [code][color=#ff9800]MM[/color][color=#bbbbbb]00[/color][color=#ff6680]OOOO[/color] [color=#bbbbbb]0[/color][color=#ffe666]DDD[/color][color=#bbbbbb]0[/color][color=#66ff99]AAA[/color] [color=#bbbbbb]00000[/color][color=#66ccff]BBB[/color] [color=#bbbbbb]00000000[/color][/code]
 
-Use the decoder to separate the destination and argument registers. Also, in this level the [color=#ff9800]Mode[/color] is always 3 and the [color=#ff6680]Opcode[/color] is always 0. This means we NAND the first argument with the second and store the result to the result register. 
+Use decoder to seperate the destination and argument registers. Also, in this level the [color=#ff9800]Mode[/color] is always 3 and the [color=#ff6680]Opcode[/color] is always 0. This means we NAND the first argument with the second and store the result to the result register. 
 
 
 [img]dialogue/symphony_diagram_1.png[/img]

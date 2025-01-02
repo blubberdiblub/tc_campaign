@@ -7,9 +7,9 @@ arch_input_word_size = 16
 dialogue = [
   (alien_centered, "We all like the way Robot moves on the dance floor. That's why we want him to lead our dance team. 
   
-The only problem is to make him come up with original dance sequences. How do you make creativity out of deterministic logic, you ask?
+The only problem is to make him come up with original dance sequences. How do you make creativity out of deterministic logic you ask?
 
-The answer is pseudorandom number generators."),
+The answer pseudorandom number generators."),
   (level_centered, `In this level you only get one input, we call this the initial seed. The seed is put through the following steps to produce a pseudorandom number.
 
 Remember, "lsl" is logic shift left and "lsr" is logic shift right

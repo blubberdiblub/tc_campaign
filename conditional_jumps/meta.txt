@@ -11,7 +11,7 @@ Then output a count of how many times you read the input."),
 
 A jump is an instruction that overwrites the counter. 
 
-Overwriting the counter means we "jump" to an instruction somewhere else in our program, instead of just proceeding to the next.`),
+Overwriting the counter means we "jump" to an instruction somewhere else in our program, instead of just proceding to the next.`),
   (info, `Note: If you use a fixed number for where you jump to, you have to update it every time you add or remove code above the jump destination. 
 
 Instead you can use a feature called a "label" to mark a location in the program that automatically updates when you change anything, like so:

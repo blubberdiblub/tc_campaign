@@ -31,62 +31,52 @@ def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
     switch code
         0 { 
 
-            ui_set_text("description", `{a} NAND {b} = {<U16> ~(a & b)}`)
-            set_custom_input_text(`NAND`)
+            set_custom_input_text("NAND")
 
         }
         1 { 
 
-            ui_set_text("description", `{a} OR {b} = {a | b}`) 
-            set_custom_input_text(`OR`)
+            set_custom_input_text("OR")
 
         }
         2 { 
 
-            set_custom_input_text(`AND`)
-            ui_set_text("description", `{a} AND {b} = {a & b}`) 
+            set_custom_input_text("AND")
 
         }
         3 { 
 
-            set_custom_input_text(`NOR`)
-            ui_set_text("description", `{a} NOR {b} = {<U16> ~(a | b)}`) 
+            set_custom_input_text("NOR")
 
         }
         4 { 
 
-            set_custom_input_text(`ADD`)
-            ui_set_text("description", `{a} ADD {b} = {<U16> (a + b)}`) 
+            set_custom_input_text("ADD")
 
         }
         5 { 
 
-            set_custom_input_text(`SUB`)
-            ui_set_text("description", `{a} SUB {b} = {a - b}`) 
+            set_custom_input_text("SUB")
 
         }
         6 { 
 
-            set_custom_input_text(`XOR`)
-            ui_set_text("description", `{a} XOR {b} = {a ^ b}`) 
+            set_custom_input_text("XOR")
 
         }
         7 { 
 
-            set_custom_input_text(`SHL`)
-            ui_set_text("description", `{a} SHL {b} = {<U16> (a << b)}`) 
+            set_custom_input_text("SHL")
 
         }
         8 { 
 
-            set_custom_input_text(`SHR`)
-            ui_set_text("description", `{a} SHR {b} = {a >> b}`) 
+            set_custom_input_text("SHR")
 
         }
         9 { 
 
-            set_custom_input_text(`FLAGS`)
-            ui_set_text("description", `FLAGS {a}, {b} = {flag_result(a, b)}`) 
+            set_custom_input_text("FLAGS")
 
         }
 

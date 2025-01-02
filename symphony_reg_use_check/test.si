@@ -138,17 +138,43 @@ def get_random_instruction() Int {
 
     let d_vec = random(8) << 20
     let a_vec = random(8) << 16
-    let b_vec = random(2) == 0 ? 1 << 28 | random(0xffff) : random(8) << 8
+    let b_vec = random(2) == 0 ? 1 << 28 | random(0x10000) : random(8) << 8
 
     switch mode
 
-
         OP_IO {
 
-            switch random(3) 
-                0 { return 0 }
-                1 { return OP_IO << 30 | d_vec }
-                2 { return OP_IO << 30 | 1 << 24 | a_vec }
+            const NOP         = 0
+            const IO_OUT      = 2
+            const IO_CONSOLE  = 3
+
+            let opcode = random(10)
+
+            switch opcode
+
+                NOP {
+
+                    return OP_IO << 30 | opcode << 24
+
+                }
+
+                IO_OUT {
+
+                    return OP_IO << 30 | opcode << 24 | b_vec
+
+                }
+
+                IO_CONSOLE {
+
+                    return OP_IO << 30 | opcode << 24 | b_vec
+
+                }
+
+                default {
+
+                    return OP_IO << 30 | opcode << 24 | d_vec
+
+                }
 
         }
 
@@ -158,14 +184,25 @@ def get_random_instruction() Int {
 
             if opcode == 9 {
 
-                return OP_ALU << 30 | opcode << 24 | 6 << 20 | a_vec | b_vec
+                return OP_ALU << 30 | opcode << 24 | 7 << 20 | a_vec | b_vec
 
             }
 
             return OP_ALU << 30 | opcode << 24 | d_vec | a_vec | b_vec
 
         }
-        
+
+        OP_JMP {
+
+            var opcode = random(14)
+            while opcode != 0b0001 && opcode != 0b1001 && opcode != 0b0010 && opcode != 0b1010 && opcode != 0b0011 && opcode != 0b1011 && opcode != 0b0100 && opcode != 0b1100 && opcode != 0b0101 && opcode != 0b1101 {
+                opcode = random(14)
+            }
+
+            return OP_JMP << 30 | opcode << 24 | 0b111 << 16 | ((b_vec >> 2) << 2)
+
+        }
+
         OP_RAM {
 
             let opcode = random(2)
@@ -178,25 +215,13 @@ def get_random_instruction() Int {
                 }
                 1 {
 
-                    return OP_RAM << 30 | opcode << 24 | 1 << 24 | b_vec | a_vec
+                    return OP_RAM << 30 | opcode << 24 | a_vec | b_vec
 
                 }
 
         }
 
-        OP_JMP {
-
-            var opcode = random(14)
-            while opcode != 0b0001 && opcode != 0b1001 && opcode != 0b0010 && opcode != 0b1010 && opcode != 0b0011 && opcode != 0b1011 && opcode != 0b0100 && opcode != 0b1100 && opcode != 0b0101 && opcode != 0b1101 {
-                opcode = random(14)
-            }
-
-            return OP_JMP << 30 | opcode << 24 | 0b111 << 20 | ((b_vec >> 2) << 2) 
-
-        }
-
 }
-
 
 def get_reg_name(register: Int) String {
 

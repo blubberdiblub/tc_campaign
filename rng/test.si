@@ -5,11 +5,8 @@ const COUNT = 1
 def show_calculations(seed: Int) {
     
     var result = ((seed >> 7) ^ seed) & 0xffff
-    ui_set_text("line_1", `({result}) temp1  = seed  xor (seed  lsr 7)`)
     result = ((result << 9) ^ result) & 0xffff
-    ui_set_text("line_2", `({result}) temp2  = temp1 xor (temp1 lsl 9)`)
     result = ((result >> 8) ^ result) & 0xffff
-    ui_set_text("line_3", `({result}) result = temp2 xor (temp2 lsr 8)`)
 
 }
 

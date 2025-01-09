@@ -1,6 +1,8 @@
 
 def on_reset($scratch_space: [Int], test: Int) {
+
     ui_set_text("description", `Multiply two numbers`)
+
 }
 
 def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
@@ -11,7 +13,7 @@ def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
     inputs[0] = a
     inputs[1] = b
 
-    ui_set_text("description", `What is {a} * {b}?`)
+    //ui_set_text("description", `What is {a} * {b}?`)
 
 }
 
@@ -29,3 +31,12 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     }
 
 }
+
+
+
+
+
+
+
++84 70 8570803
+

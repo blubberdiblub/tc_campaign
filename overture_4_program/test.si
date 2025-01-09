@@ -24,19 +24,19 @@ def on_reset($scratch_space: [Int], test: Int) {
 
     var s = <U8> 0
     var d = <U8> 0
-    front_panel_push(MOVE | INPUT | OUTPUT)
-    front_panel_push(MOVE | INPUT | 0)
-    front_panel_push(MOVE | INPUT | 1)
-    front_panel_push(MOVE | INPUT | 2)
-    front_panel_push(MOVE | INPUT | 3)
-    front_panel_push(MOVE | INPUT | 4)
-    front_panel_push(MOVE | INPUT | 5)
+    punch_card_push(MOVE | INPUT | OUTPUT)
+    punch_card_push(MOVE | INPUT | 0)
+    punch_card_push(MOVE | INPUT | 1)
+    punch_card_push(MOVE | INPUT | 2)
+    punch_card_push(MOVE | INPUT | 3)
+    punch_card_push(MOVE | INPUT | 4)
+    punch_card_push(MOVE | INPUT | 5)
   
     while s <= 6 {
         d = 0
-        front_panel_push(MOVE | INPUT | s)
+        punch_card_push(MOVE | INPUT | s)
         while d <= 6 {
-            front_panel_push(MOVE | (s << 3) | d)
+            punch_card_push(MOVE | (s << 3) | d)
             d += 1
         }
         s += 1
@@ -54,7 +54,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
         return fail
     }
 
-    if !has_front_panel() {
+    if !has_punch_card() {
         set_error("Add a front panel component.")
         return fail
     }

@@ -86,8 +86,8 @@ def instruction_to_str(instruction: Int) String {
 
     switch dest
         0 { dest_str = "rz" }
-        6 { dest_str = "sp" }
-        7 { dest_str = "flags" }
+        14 { dest_str = "sp" }
+        15 { dest_str = "flags" }
         default { dest_str = "r" + str(dest) }
 
 
@@ -95,8 +95,8 @@ def instruction_to_str(instruction: Int) String {
 
     switch a
         0 { a_str = "rz" }
-        6 { a_str = "sp" }
-        7 { a_str = "flags" }
+        14 { a_str = "sp" }
+        15 { a_str = "flags" }
         default { a_str = "r" + str(a) }
 
     var b_str = ""
@@ -109,8 +109,8 @@ def instruction_to_str(instruction: Int) String {
 
         switch b
             0 { b_str = "rz" }
-            6 { b_str = "sp" }
-            7 { b_str = "flags" }
+            14 { b_str = "sp" }
+            15 { b_str = "flags" }
             default { b_str = "r" + str(b) }
 
     }

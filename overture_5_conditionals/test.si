@@ -38,115 +38,115 @@ def on_reset($scratch_space: [Int], test: Int) {
 
     // Test against 0
 
-    front_panel_push(COND | NEVER)
+    punch_card_push(COND | NEVER)
 
-    front_panel_push(<U8> .program_length + 3)
-    front_panel_push(COND | EQ)
-    front_panel_push(NOOP)
+    punch_card_push(<U8> .program_length + 3)
+    punch_card_push(COND | EQ)
+    punch_card_push(NOOP)
 
-    front_panel_push(COND | LT)
+    punch_card_push(COND | LT)
 
-    front_panel_push(<U8> .program_length + 3)
-    front_panel_push(COND | LE)
-    front_panel_push(NOOP)
+    punch_card_push(<U8> .program_length + 3)
+    punch_card_push(COND | LE)
+    punch_card_push(NOOP)
 
-    front_panel_push(<U8> .program_length + 3)
-    front_panel_push(COND | ALWAYS)
-    front_panel_push(NOOP)
+    punch_card_push(<U8> .program_length + 3)
+    punch_card_push(COND | ALWAYS)
+    punch_card_push(NOOP)
 
-    front_panel_push(COND | NE)
+    punch_card_push(COND | NE)
 
-    front_panel_push(<U8> .program_length + 3)
-    front_panel_push(COND | GE)
-    front_panel_push(NOOP)
+    punch_card_push(<U8> .program_length + 3)
+    punch_card_push(COND | GE)
+    punch_card_push(NOOP)
 
-    front_panel_push(COND | GT)
+    punch_card_push(COND | GT)
 
 
     // Test against 1
 
-    front_panel_push(1)
-    front_panel_push(MOVE | 0 | 3)
+    punch_card_push(1)
+    punch_card_push(MOVE | 0 | 3)
 
-    front_panel_push(COND | NEVER)
-    front_panel_push(COND | EQ)
-    front_panel_push(COND | LT)
-    front_panel_push(COND | LE)
+    punch_card_push(COND | NEVER)
+    punch_card_push(COND | EQ)
+    punch_card_push(COND | LT)
+    punch_card_push(COND | LE)
 
-    front_panel_push(<U8> .program_length + 3)
-    front_panel_push(COND | ALWAYS)
-    front_panel_push(NOOP)
+    punch_card_push(<U8> .program_length + 3)
+    punch_card_push(COND | ALWAYS)
+    punch_card_push(NOOP)
 
-    front_panel_push(<U8> .program_length + 3)
-    front_panel_push(COND | NE)
-    front_panel_push(NOOP)
+    punch_card_push(<U8> .program_length + 3)
+    punch_card_push(COND | NE)
+    punch_card_push(NOOP)
 
-    front_panel_push(<U8> .program_length + 3)
-    front_panel_push(COND | GE)
-    front_panel_push(NOOP)
+    punch_card_push(<U8> .program_length + 3)
+    punch_card_push(COND | GE)
+    punch_card_push(NOOP)
 
-    front_panel_push(<U8> .program_length + 3)
-    front_panel_push(COND | GT)
-    front_panel_push(NOOP)
+    punch_card_push(<U8> .program_length + 3)
+    punch_card_push(COND | GT)
+    punch_card_push(NOOP)
 
 
     // Test against -1
 
-    front_panel_push(MOVE | (<U8> 3 << 3) | 2)
-    front_panel_push(CALC | SUB)
+    punch_card_push(MOVE | (<U8> 3 << 3) | 2)
+    punch_card_push(CALC | SUB)
 
-    front_panel_push(COND | NEVER)
-    front_panel_push(COND | EQ)
+    punch_card_push(COND | NEVER)
+    punch_card_push(COND | EQ)
 
-    front_panel_push(<U8> .program_length + 3)
-    front_panel_push(COND | LT)
-    front_panel_push(NOOP)
+    punch_card_push(<U8> .program_length + 3)
+    punch_card_push(COND | LT)
+    punch_card_push(NOOP)
 
-    front_panel_push(<U8> .program_length + 3)
-    front_panel_push(COND | LE)
-    front_panel_push(NOOP)
+    punch_card_push(<U8> .program_length + 3)
+    punch_card_push(COND | LE)
+    punch_card_push(NOOP)
 
-    front_panel_push(<U8> .program_length + 3)
-    front_panel_push(COND | ALWAYS)
-    front_panel_push(NOOP)
+    punch_card_push(<U8> .program_length + 3)
+    punch_card_push(COND | ALWAYS)
+    punch_card_push(NOOP)
 
-    front_panel_push(<U8> .program_length + 3)
-    front_panel_push(COND | NE)
-    front_panel_push(NOOP)
+    punch_card_push(<U8> .program_length + 3)
+    punch_card_push(COND | NE)
+    punch_card_push(NOOP)
 
-    front_panel_push(COND | GE)
-    front_panel_push(COND | GT)
+    punch_card_push(COND | GE)
+    punch_card_push(COND | GT)
 
     var imm = <U8> 0
     while imm < 64 {
-        front_panel_push(imm)
+        punch_card_push(imm)
         imm += 1
     }
 
     var alu_opp = <U8> 0
     while alu_opp < 6 {
-        front_panel_push(MOVE | INPUT | 1)
-        front_panel_push(MOVE | INPUT | 2)
-        front_panel_push(CALC | alu_opp)
-        front_panel_push(MOVE | <U8> 3 << 3 | OUTPUT)
+        punch_card_push(MOVE | INPUT | 1)
+        punch_card_push(MOVE | INPUT | 2)
+        punch_card_push(CALC | alu_opp)
+        punch_card_push(MOVE | <U8> 3 << 3 | OUTPUT)
         alu_opp += 1
     }
 
     var s = <U8> 0
     var d = <U8> 0
-    front_panel_push(MOVE | INPUT | OUTPUT)
-    front_panel_push(MOVE | INPUT | 0)
-    front_panel_push(MOVE | INPUT | 1)
-    front_panel_push(MOVE | INPUT | 2)
-    front_panel_push(MOVE | INPUT | 3)
-    front_panel_push(MOVE | INPUT | 4)
-    front_panel_push(MOVE | INPUT | 5)
+    punch_card_push(MOVE | INPUT | OUTPUT)
+    punch_card_push(MOVE | INPUT | 0)
+    punch_card_push(MOVE | INPUT | 1)
+    punch_card_push(MOVE | INPUT | 2)
+    punch_card_push(MOVE | INPUT | 3)
+    punch_card_push(MOVE | INPUT | 4)
+    punch_card_push(MOVE | INPUT | 5)
 
     while s <= 6 {
         d = 0
-        front_panel_push(MOVE | INPUT | s)
+        punch_card_push(MOVE | INPUT | s)
         while d <= 6 {
-            front_panel_push(MOVE | (s << 3) | d)
+            punch_card_push(MOVE | (s << 3) | d)
             d += 1
         }
         s += 1
@@ -164,7 +164,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
         return fail
     }
 
-    if !has_front_panel() {
+    if !has_punch_card() {
         set_error("Add a front panel component.")
         return fail
     }

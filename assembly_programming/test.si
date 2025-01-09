@@ -1,10 +1,13 @@
 
+def on_reset($scratch_space: [Int], test: Int) {
+
+    scratch_space[0] = random(250)
+
+}
+
 def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
-    
-    if inputs[1] == 0 {
-        inputs[1] = 1
-        inputs[0] = random(250)
-    }
+
+    inputs[0] = scratch_space[0]
 
 }
 
@@ -14,11 +17,11 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
         return pass
     }
 
-    if inputs[0] + 5 != outputs[1] {
+    if scratch_space[0] + 5 != outputs[1] {
         if outputs[1] == Z_STATE {
-            set_error(`{inputs[1]} + 5 is {inputs[1] + 5}, not Z.`)
+            set_error(`{scratch_space[0]} + 5 is {scratch_space[0] + 5}, not Z.`)
         } else {
-            set_error(`{inputs[1]} + 5 is {inputs[1] + 5}, not {outputs[1]}.`)
+            set_error(`{scratch_space[0]} + 5 is {scratch_space[0] + 5}, not {outputs[1]}.`)
         }
         return fail
     }

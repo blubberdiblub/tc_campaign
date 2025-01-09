@@ -2,9 +2,9 @@ kind = sequential
 title = "Add 5 again"
 tests = 32
 size = [-75, -50, 43, 45]
-remove_components = [com_front_panel]
-add_components = [com_assembler: -1]
-unlocks_components = [com_assembler]
+remove_components = [com_punch_card]
+add_components = [com_rom: -1]
+unlocks_components = [com_rom]
 copy_solution_to_architecture = "Overture"
 dialogue = [
   (alien_centered, "Programming by setting bits manually is tedious. We need you to learn assembly programming."),

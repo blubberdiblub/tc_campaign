@@ -105,7 +105,7 @@ def set_state($scratch_space: [Int], x: Int, y: Int, rotation: Int) {
     ui_set_hidden("robot_2", true)
     ui_set_hidden("robot_3", true)
 
-    let x_px = - 13 * 24 - 12 + x * 24
+    let x_px = - 13 * 24 + x * 24
     let y_px = y * 24 + 8
 
     var lx = 0

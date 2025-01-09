@@ -16,17 +16,17 @@ Overwriting the counter means we "jump" to an instruction somewhere else in our 
 
 Instead you can use a feature called a "label" to mark a location in the program that automatically updates when you change anything, like so:
 
-my_label:         ; This is a label
-load my_label  ; Load the offset of the label
+my_label:     ; This is a label
+imm my_label  ; Load the offset of the label
   `),
 ]
 default_assembly = `
-load 5 ; Moves 5 to r0
+imm 5 ; Moves 5 to r0
 jmp   ; Jumps to byte 5 of the program
 
 ; <- Click Assembly to see the other jump instructions
 
-my_label:     ; This is a label
-load my_label ; You can load it's offset like this
+my_label:    ; This is a label
+imm my_label ; You can load it's offset like this
 
 `

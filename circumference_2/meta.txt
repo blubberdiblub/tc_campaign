@@ -11,12 +11,10 @@ A replacement for it would need to be able to calculate a series of formulas."),
 RPN is a notation where first you state the operands, and the operator is after them, and not between like in standard infix notation.
 
 Example in infix (standard) notation:
-3 + (4 * 5)
+3 + (4 & 5)
 The same formula in RPN:
-3 4 5 * +"),
-  (info, "When you encounter an operation, you take the 2 last operands you've encountered, calculate the result and store it instead of the operands and the operation"),
-  (alien, "Your computer will receive an ASCII text describing a formula in Reverse Polish Notation, and should return the result of evaluating that formula. Here is a list of the operations we support:
-
+3 4 5 & +"),
+  (info, "When you encounter an operation, you take the 2 last operands you've encountered, calculate the result and store it instead of the operands and the operation. Here is a list of the operations we support:
 [code]
 add +
 sub -
@@ -25,9 +23,8 @@ and &
 xor ^
 lsl <<
 lsr >>
-[/code]
-
-  "),
+[/code]"),
+  (alien, "Your computer will receive an ASCII text describing a formula in Reverse Polish Notation, and should return the result of evaluating that formula (just a value, not in ASCII)."),
 ]
 default_isa_spec = `
 

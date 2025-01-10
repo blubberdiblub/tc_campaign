@@ -35,8 +35,3 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
 
 
-
-
-
-+84 70 8570803
-

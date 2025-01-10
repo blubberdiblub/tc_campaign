@@ -423,7 +423,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     let instruction = scratch_space[INSTRUCTION_2]
     let output = retire_instruction(instruction, $scratch_space, inputs[0])
 
-    if output != Z_STATE && output != outputs[1] {
+    if output != Z_STATE && output != outputs[1] & 0xffff {
 
         set_error(`Output should have been {output}.`)
         return fail
@@ -431,7 +431,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     }
 
     var reg = 1
-    while reg < 8 {
+    while reg < 16 {
 
         let value = get_register_value(reg - 1)
 

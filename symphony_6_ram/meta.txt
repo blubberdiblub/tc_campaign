@@ -23,7 +23,7 @@ And the encoding looks like this:
 [color=#66ccff]B[/color] = Argument B
 [color=#bbbbbb]0[/color] = Unused / zero[/code]
 
-[code][color=#ff9800]MM[/color][color=#bbbbbb]O[/color][color=#9966ff]I[/color][color=#ff6680]OOOO[/color] [color=#bbbbbb]0[/color][color=#ffe666]DDD[/color][color=#bbbbbb]0[/color][color=#66ff99]AAA[/color] [color=#bbbbbb]00000[/color][color=#66ccff]BBB[/color] [color=#bbbbbb]00000000[/color][/code]
+[code][color=#ff9800]MM[/color][color=#bbbbbb]O[/color][color=#9966ff]I[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color][/code]
 
 In this level we implement the RAM mode. There are two opcodes in this mode:
 [code]0 load

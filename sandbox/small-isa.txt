@@ -1,0 +1,141 @@
+Instruction Set
+
+=======================================================
+
+00 0 ooooo	   32	BRA offset
+	(00000000)	NOP
+	(00011111)	HLT
+
+00 1d iiii	   32	NIB Ad, #imm
+
+01 00 sss d	   16	XOR Ad, Rs
+01 01 sss d	   16	ADC Ad, Rs
+01 10 sss d	   16	SBC Ad, Rs
+01 11 sss d	   16	CPC Ad, Rs
+
+10 00 sss d	   16	OR Rs, Ad
+10 00 000 0		SHR A0
+10 00 001 1		SHR A1
+
+10 01 sss d	   16	AND Rs, Ad
+10 01 000 0		NOT A0
+10 01 001 1		NOT A1
+
+10 10 ss dd	   16	LET Rd:Rd+1, Rs:Rs+1
+	(10 10 00 00)	TST R0:R1
+	(10 10 01 01)	TST R2:R3
+	(10 10 10 10)	TST R4:R5
+	(10 10 11 11)	TST R6:R7
+
+10 11 ss dd	   16	LET Rd, Rs
+	(10 11 00 00)	TST R0
+	(10 11 01 01)	TST R1
+	(10 11 10 10)	TST R2
+	(10 11 11 11)	TST R3
+
+11 00 00 dd <U16>   4	LET Rd:Rd+1, #imm
+11 00 01 00 <U16>   4	JMP imm
+11 00 01 01 <U16>	JSR imm
+11 00 01 10		JMP A0:A1
+11 00 01 11		JSR A0:A1
+
+11 00 1 000	    8	SKIPEV
+11 00 1 001		SKIPOD
+11 00 1 010		SKIPEQ
+11 00 1 011		SKIPNE
+11 00 1 100		SKIPGE
+11 00 1 101		SKIPLT
+11 00 1 110		SKIPCC
+11 00 1 111		SKIPCS
+
+11 01 s 0 sd	    8	LET Ad, Rs+4
+11 01 d 1 sd	    8	LET Rd+4, As
+
+11 10 0 iii	    8	CFG IO #imm
+
+11 10 10 ss	    4	PUSH Rs:Rs+1
+11 10 11 dd	    4	POP Rd:Rd+1
+
+11 11 00 00	    4	INC HL
+11 11 00 01		INC x2 HL
+11 11 00 10		DEC x2 HL
+11 11 00 11		DEC HL
+
+11 11 01 00	    4	CLC
+11 11 01 01		SEC
+11 11 01 10		SCO (set carry to odd flag)
+11 11 01 11		SCS (set carry to sign flag)
+
+11 11 10 00	    1	OUT A0:A1
+11 11 10 01	    1	IN A0:A1
+
+11 11 10 10	    2	DEC C
+11 11 10 11		DEC CD
+
+11 11 11 00	    1	PUSH SR
+11 11 11 01	    1	POP SR
+
+11 11 11 10	    1	SWAP HL, ToS
+11 11 11 11	    1	RTS
+
+=======================================================
+
+			ADD cy, A0
+			ADD cy, A1
+
+			BTST #imm, A0:A1
+			BSET #imm, A0:A1
+			BCLR #imm, A0:A1
+			BCHG #imm, A0:A1
+
+=======================================================
+
+   ,----------------------- select 16-bit output
+  /  ,--------------------- select  8-bit output
+ :  /  ,------------------- select high byte
+ | :  /  ,----------------- select low byte
+ | | :  /
+ | | | :     ,------------- take old high byte
+ | | | |    /  ,----------- take new low byte
+ | | | |   :  /  ,--------- take new high byte
+ | | | |   | :  /
+ | | | |   | | :     ,----- take old low byte
+ | | | |   | | |    /  ,--- take new low byte
+ | | | |   | | |   :  /
+ | | | |   | | |   | :
+ | | | |   | | |   | |
+
+ . . . 1   - - -   - -
+ . . . .   - - -   - -
+ . 1 . 1   1 . .   . 1
+ . 1 1 .   . 1 .   1 .
+ 1 . . 1   . . 1   . 1
+ 1 . . .   . . 1   . 1
+
+=======================================================
+
++1	001+0
++2	001+1
+-2	110+0
+-1	110+1
+
+=======================================================
+
+. == 0	- == Hi-Z	in-8	out-8	EN orig	EN dly	2-1-det	detect	OUT sk	SAV sk	IN sk
+
+	skip not taken	cf	cf	1	.	. . .	.	.	1	.
+        normal inst	20	20	1	.	. . .	.	.	1	.
+	skip not taken	cf	cf	1	.	. . .	.	.	1	.
+        3-byte inst	c0	--	.	.	. . 1	1	.	.	.
+        3-byte hi imm	fe	--	.	.	. 1 .	./1	.	.	.
+        3-byte lo imm	87	c0	.	1	1 . .	./1	.	1	.
+
+	skip taken	ce	ce	1	.	. . .	.	.	1	1
+skipped normal inst	20	--	.	.	. . .	.	1	1	.
+	skip taken	ce	ce	1	.	. . .	.	.	1	1
+skipped 3-byte inst	c0	--	.	.	. . 1	1	1	.	.
+skipped 3-byte hi imm	fe	--	.	.	. 1 .	./1	1	.	.
+skipped 3-byte lo imm	87	--	.	.	1 . .	./1	1	1	.
+	skip taken	ce	ce	1	.	. . .	.	.	1	1
+skipped skip taken	ce	--	.	.	. . .	.	1	1	.
+	normal inst	20	20	1	.	. . .	.	.	1	.

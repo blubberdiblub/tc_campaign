@@ -3,3 +3,684 @@ arch_input_word_size = 16
 background = 6
 title = "The Sandbox"
 size = [-256, -256, 255, 255]
+tests = 1
+immutable_spec = true
+default_isa_spec = `
+
+[settings]
+name = "Small"
+variant = "vanilla"
+endianness = big
+
+
+[fields]
+
+nibdst
+x 0
+X 0
+c 1
+C 1
+
+acc8
+a 000
+A 000
+b 001
+B 001
+
+acc16
+ab 00
+AB 00
+
+reg8
+a 000
+A 000
+b 001
+B 001
+x 010
+X 010
+y 011
+Y 011
+h 100
+H 100
+l 101
+L 101
+c 110
+C 110
+d 111
+D 111
+
+lower8
+a 000
+A 000
+b 001
+B 001
+x 010
+X 010
+y 011
+Y 011
+
+upper8
+h 100
+H 100
+l 101
+L 101
+c 110
+C 110
+d 111
+D 111
+
+reg16
+ab 00
+AB 00
+xy 01
+XY 01
+hl 10
+HL 10
+cd 11
+CD 11
+
+jmpreg
+xy 01
+XY 01
+
+addrreg
+hl 10
+HL 10
+
+cond
+ev 000
+EV 000
+od 001
+OD 001
+eq 010
+EQ 010
+ne 011
+NE 011
+ge 100
+GE 100
+lt 101
+LT 101
+cc 110
+CC 110
+cs 111
+CS 111
+
+
+[instructions]
+
+nop
+00000000
+
+NOP
+00000000
+
+hlt
+00011111
+
+HLT
+00011111
+
+bra %address(immediate | label)
+%displacement:S5 = %address - ($ + 1)
+00 0d dddd
+
+BRA %address(immediate | label)
+%displacement:S5 = %address - ($ + 1)
+00 0d dddd
+
+nib %dst(nibdst), #%imm:U4(immediate)
+00 1d iiii
+
+NIB %dst(nibdst), #%imm:U4(immediate)
+00 1d iiii
+
+xor %dst(acc8), %src(reg8)
+01 00 sss d
+
+XOR %dst(acc8), %src(reg8)
+01 00 sss d
+
+adc %dst(acc8), %src(reg8)
+01 01 sss d
+
+ADC %dst(acc8), %src(reg8)
+01 01 sss d
+
+sbc %dst(acc8), %src(reg8)
+01 10 sss d
+
+SBC %dst(acc8), %src(reg8)
+01 10 sss d
+
+cpc %dst(acc8), %src(reg8)
+01 11 sss d
+
+CPC %dst(acc8), %src(reg8)
+01 11 sss d
+
+shr %dst(acc8)
+%src = %dst
+10 00 00s d
+
+SHR %dst(acc8)
+10 00 00 %dst[0:0] %dst[0:0]
+
+or %dst(acc8), %src(reg8)
+10 00 sss d
+
+OR %dst(acc8), %src(reg8)
+10 00 sss d
+
+not %dst(acc8)
+%src = %dst
+10 01 00s d
+
+NOT %dst(acc8)
+10 01 00 %dst[0:0] %dst[0:0]
+
+and %dst(acc8), %src(reg8)
+10 01 sss d
+
+AND %dst(acc8), %src(reg8)
+10 01 sss d
+
+tst %dst(reg16)
+10 10 %dst[1:0] %dst[1:0]
+
+TST %dst(reg16)
+10 10 %dst[1:0] %dst[1:0]
+
+let %dst(reg16), %src(reg16)
+10 10 ss dd
+
+LET %dst(reg16), %src(reg16)
+10 10 ss dd
+
+tst %dst(lower8)
+10 11 %dst[1:0] %dst[1:0]
+
+TST %dst(lower8)
+10 11 %dst[1:0] %dst[1:0]
+
+let %dst(lower8), %src(lower8)
+10 11 ss dd
+
+LET %dst(lower8), %src(lower8)
+10 11 ss dd
+
+let %dst(reg16), #%imm(immediate | label)
+11 00 00 dd iiiiiiii iiiiiiii
+
+LET %dst(reg16), #%imm(immediate | label)
+11 00 00 dd iiiiiiii iiiiiiii
+
+jmp %imm(immediate | label)
+11 00 01 00 iiiiiiii iiiiiiii
+
+JMP %imm(immediate | label)
+11 00 01 00 iiiiiiii iiiiiiii
+
+jsr %imm(immediate | label)
+11 00 01 01 iiiiiiii iiiiiiii
+
+JSR %imm(immediate | label)
+11 00 01 01 iiiiiiii iiiiiiii
+
+jmp %reg(acc16)
+11 00 01 10
+
+JMP %reg(acc16)
+11 00 01 10
+
+jsr %reg(acc16)
+11 00 01 11
+
+JSR %reg(acc16)
+11 00 01 11
+
+skip%cond(cond)
+11 00 1 ccc
+
+SKIP%cond(cond)
+11 00 1 ccc
+
+let %dst(acc8), %upper(upper8)
+%src:U2 = %upper & 0b11
+11 01 s 0 sd
+
+LET %dst(acc8), %upper(upper8)
+%src:U2 = %upper & 0b11
+11 01 s 0 sd
+
+let %upper(upper8), %src(acc8)
+%dst:U2 = %upper & 0b11
+11 01 d 1 sd
+
+LET %upper(upper8), %src(acc8)
+%dst:U2 = %upper & 0b11
+11 01 d 1 sd
+
+cfg io, #%imm(immediate)
+11 10 0 iii
+
+CFG IO, #%imm(immediate)
+11 10 0 iii
+
+push %src(reg16)
+11 10 10 ss
+
+PUSH %src(reg16)
+11 10 10 ss
+
+pop %dst(reg16)
+11 10 11 dd
+
+POP %dst(reg16)
+11 10 11 dd
+
+inc %reg(addrreg)
+11 11 00 00
+
+INC %reg(addrreg)
+11 11 00 00
+
+incinc %reg(addrreg)
+11 11 00 01
+
+INCINC %reg(addrreg)
+11 11 00 01
+
+decdec %reg(addrreg)
+11 11 00 10
+
+DECDEC %reg(addrreg)
+11 11 00 10
+
+dec %reg(addrreg)
+11 11 00 11
+
+DEC %reg(addrreg)
+11 11 00 11
+
+clc
+11 11 01 00
+
+CLC
+11 11 01 00
+
+sec
+11 11 01 01
+
+SEC
+11 11 01 01
+
+sco
+11 11 01 10
+
+SCO
+11 11 01 10
+
+scs
+11 11 01 11
+
+SCS
+11 11 01 11
+
+
+`
+default_assembly = `
+; test relative branching
+BRA disp15
+dispneg16:
+BRA disp8
+dispneg3:
+BRA disp6
+dispneg4:
+BRA disp7
+dispneg5:
+BRA dispneg3
+dispneg7:
+BRA disp1
+dispneg8:
+BRA dispneg4
+disp1:
+BRA disp0  ; same as NOP
+disp0:
+BRA dispneg5
+disp6:
+BRA disp2
+disp8:
+BRA disp3
+disp7:
+BRA dispneg7
+disp2:
+BRA disp4
+dispneg2:
+BRA dispneg8
+disp3:
+BRA dispneg2
+dispneg1:
+BRA dispneg1  ; same as HLT
+disp15:
+BRA dispneg16
+disp4:
+
+; test nibble-wise immediate loading
+NIB X, #15
+NIB X, #0
+NIB C, #8
+NIB C, #7
+NIB X, #0
+NIB X, #1
+NIB C, #12
+NIB C, #2
+NIB X, #3
+NIB X, #15
+NIB C, #0
+NIB X, #15
+NIB C, #0
+NIB X, #15
+NIB C, #4
+NIB C, #14
+NIB X, #11
+NIB X, #5
+NIB C, #6
+NIB C, #13
+NIB X, #9
+NIB X, #10
+
+; test 16-bit LET and TST
+CLC
+TST AB
+TST XY
+TST HL
+TST CD
+SEC
+TST AB
+TST XY
+TST HL
+TST CD
+LET AB, CD
+LET CD, XY
+LET XY, HL
+LET HL, AB
+LET AB, XY
+LET XY, CD
+LET CD, HL
+LET HL, XY
+
+; test 8-bit LET and TST
+CLC
+TST A
+TST B
+TST X
+TST Y
+SEC
+TST A
+TST B
+TST X
+TST Y
+LET A, Y
+LET Y, X
+LET X, B
+LET B, A
+LET A, X
+LET X, Y
+LET Y, B
+LET B, X
+
+; test XOR
+XOR A, C
+XOR A, B
+XOR A, X
+XOR A, Y
+XOR A, H
+XOR A, L
+XOR A, D
+XOR A, A
+
+; test ADC
+ADC B, C
+ADC A, B
+ADC A, A
+ADC B, A
+ADC B, X
+ADC B, Y
+ADC B, H
+ADC B, L
+ADC B, D
+ADC A, B
+
+; test SBC
+SBC B, C
+SBC A, B
+SBC A, A
+SBC B, A
+SBC B, X
+SBC B, Y
+SBC B, H
+SBC B, L
+SBC B, D
+SBC A, B
+
+; test CPC
+CPC B, C
+CPC A, B
+CPC A, A
+CPC B, A
+CPC B, X
+CPC B, Y
+CPC B, H
+CPC B, L
+CPC B, D
+CPC A, B
+
+; test OR and SHR
+SHR B
+OR A, D
+OR B, C
+OR B, L
+OR A, H
+OR A, Y
+OR B, X
+SHR B
+OR A, B
+SHR A
+
+; test AND and NOT
+NOT B
+AND A, D
+AND B, C
+AND B, L
+AND A, H
+AND A, Y
+AND B, X
+NOT B
+AND A, B
+NOT A
+
+; test LET with 16-bit immediate operand
+LET AB, #0x0000
+LET XY, #0x1234
+LET HL, #0xABCD
+LET CD, #0xFFFF
+LET XY, #0x0000
+LET CD, #0x580B
+LET HL, #0x8000
+LET AB, #0x7FFF
+LET CD, #0x9E42
+LET HL, #0x0777
+LET XY, #0x270F
+LET AB, #0xC003
+
+; test JMP with immediate target
+JMP jmptarget1
+HLT
+jmptarget2:
+
+; test JSR with immediate target
+;;; TODO
+
+; test JMP with target in AB
+LET AB, #jmptarget3
+JMP AB
+HLT
+jmptarget4:
+
+; test JSR with target in AB
+;;; TODO
+
+; test SKIPxx
+NIB X, #0
+NIB X, #0
+CLC
+
+SKIPEV
+HLT
+SKIPOD
+BRA next_skip_test_01
+HLT
+next_skip_test_01:
+
+SKIPEQ
+HLT
+SKIPNE
+BRA next_skip_test_02
+HLT
+next_skip_test_02:
+
+SKIPGE
+HLT
+SKIPLT
+BRA next_skip_test_03
+HLT
+next_skip_test_03:
+
+SKIPCC
+HLT
+SKIPCS
+BRA next_skip_test_04
+HLT
+next_skip_test_04:
+
+NIB C, #15
+NIB C, #15
+SEC
+
+SKIPOD
+HLT
+SKIPEV
+BRA next_skip_test_05
+HLT
+next_skip_test_05:
+
+SKIPNE
+HLT
+SKIPEQ
+BRA next_skip_test_06
+HLT
+next_skip_test_06:
+
+SKIPLT
+HLT
+SKIPGE
+BRA next_skip_test_07
+HLT
+next_skip_test_07:
+
+SKIPCS
+HLT
+SKIPCC
+BRA next_skip_test_08
+HLT
+next_skip_test_08:
+
+; test LET A/B from upper half of 8-bit registers
+LET A, H
+LET B, D
+LET A, L
+LET B, C
+LET A, C
+LET B, L
+LET A, D
+LET B, H
+
+; test LET 8-bit register of the upper half from A/B
+LET H, A
+LET C, B
+LET L, A
+LET D, B
+LET C, A
+LET H, B
+LET D, A
+LET L, B
+
+; test CFG IO
+CFG IO, #3
+CFG IO, #7
+CFG IO, #2
+CFG IO, #5
+CFG IO, #6
+CFG IO, #1
+CFG IO, #4
+CFG IO, #0
+
+; test PUSH and POP
+PUSH AB
+XOR A, A
+XOR B, B
+POP AB
+
+PUSH XY
+LET XY, #0xFF00
+POP XY
+
+PUSH HL
+LET HL, #0
+POP HL
+
+PUSH CD
+LET CD, #0
+POP CD
+
+; test INC(INC) HL and DEC(DEC) HL
+INC HL
+DECDEC HL
+DEC HL
+INCINC HL
+
+LET HL, #1
+DEC HL          ;  1 ->  0
+DECDEC HL       ;  0 -> -2
+INCINC HL       ; -2 ->  0
+INCINC HL       ;  0 ->  2
+DECDEC HL       ;  2 ->  0
+DEC HL          ;  0 -> -1
+INC HL          ; -1 ->  0
+INC HL          ;  0 ->  1
+DECDEC HL       ;  1 -> -1
+INCINC HL       ; -1 ->  1
+
+; test carry ops
+SEC
+CLC
+NIB X, #0
+NIB X, #0x9
+SCO
+SCS
+NIB X, #0
+SCO
+SCS
+
+; end of tests
+HLT
+
+; trampoline for JMP with immediate target
+jmptarget1:
+JMP jmptarget2
+
+; trampoline for JMP with target in AB
+jmptarget3:
+LET AB, #jmptarget4
+JMP AB
+`

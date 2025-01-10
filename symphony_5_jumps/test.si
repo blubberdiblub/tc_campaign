@@ -1,27 +1,27 @@
 
 const REGS = 0
-const COUNTER = 8
-
+const COUNTER = 16
 
 const OP_IO  = 0
 const OP_ALU = 1
 const OP_JMP = 2
 const OP_RAM = 3
+const FLAG_REG = 15
 
 def instruction_to_str(instruction: Int) String {
 
     let mode            = (instruction >> 30)
     let opcode          = (instruction >> 24) & 0b1111
-    let dest            = (instruction >> 20) & 0b111
-    let a               = (instruction >> 16) & 0b111
-    let b               = (instruction >> 8) & 0b111
+    let dest            = (instruction >> 20) & 0b1111
+    let a               = (instruction >> 16) & 0b1111
+    let b               = (instruction >> 8) & 0b1111
     let immediate       = (instruction >> 28) & 1 != 0
     let immediate_value =  instruction & 0xffff
 
     var dest_str = ""
 
     switch dest
-        0 { dest_str = "rz" }
+        0 { dest_str = "zr" }
         14 { dest_str = "sp" }
         15 { dest_str = "flags" }
         default { dest_str = "r" + str(dest) }
@@ -30,7 +30,7 @@ def instruction_to_str(instruction: Int) String {
     var a_str = ""
 
     switch a
-        0 { a_str = "rz" }
+        0 { a_str = "zr" }
         14 { a_str = "sp" }
         15 { a_str = "flags" }
         default { a_str = "r" + str(a) }
@@ -44,7 +44,7 @@ def instruction_to_str(instruction: Int) String {
     } else {
 
         switch b
-            0 { b_str = "rz" }
+            0 { b_str = "zr" }
             14 { b_str = "sp" }
             15 { b_str = "flags" }
             default { b_str = "r" + str(b) }
@@ -135,9 +135,9 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
     
     let mode            = (instruction >> 30)
     let opcode          = (instruction >> 24) & 0b1111
-    let dest            = (instruction >> 20) & 0b111
-    let a               = (instruction >> 16) & 0b111
-    let b               = (instruction >> 8) & 0b111
+    let dest            = (instruction >> 20) & 0b1111
+    let a               = (instruction >> 16) & 0b1111
+    let b               = (instruction >> 8) & 0b1111
     let immediate       = (instruction >> 28) & 1 != 0
     let immediate_value =  instruction & 0xffff
 
@@ -212,11 +212,7 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
                     result = flag_result(a_value, b_value)
                 }
 
-            if dest < 8 {
-            
-                scratch_space[REGS + dest] = result & 0xffff
-            
-            }
+            scratch_space[REGS + dest] = result & 0xffff
 
         }
 
@@ -225,6 +221,7 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
             let flags   = a_value & 0b111
             let matched = (opcode & flags) > 0
             let met     = matched != ((opcode & 0b1000) > 0)
+            scratch_space[REGS + FLAG_REG] = scratch_space[COUNTER] + 4
 
             if met {
                 

@@ -10,8 +10,8 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     let instruction     =  inputs[0]
     let mode            = (instruction >> 30)
     let opcode          = (instruction >> 24) & 0b1111
-    let dest            = (instruction >> 20) & 0b1111
-    let a               = (instruction >> 16) & 0b1111
+    let dest            = (instruction >> 20) & 0b11111
+    let a               = (instruction >> 16) & 0b11111
     let b               = (instruction >>  8) & 0b1111
     let immediate       = (instruction >> 28) & 1
     let immediate_value =  instruction & 0xffff

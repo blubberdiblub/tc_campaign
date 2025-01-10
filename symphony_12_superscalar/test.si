@@ -15,7 +15,7 @@ const FLUSH_0 = CONSOLE + 1
 const REGS = FLUSH_0 + 1
 
 
-const COUNTER_3 = REGS + 12
+const COUNTER_3 = REGS + 16
 const COUNTER_2 = COUNTER_3 + 1
 const COUNTER_1 = COUNTER_2 + 1
 const COUNTER_0 = COUNTER_1 + 1
@@ -29,6 +29,7 @@ const OP_IO  = 0
 const OP_ALU = 1
 const OP_JMP = 2
 const OP_RAM = 3
+const FLAG_REG = 15
 
 def timer(input: Bool, $scratch_space: [Int], index: Int) Bool {
 
@@ -51,16 +52,16 @@ def instruction_to_str(instruction: Int) String {
 
     let mode            = (instruction >> 30)
     let opcode          = (instruction >> 24) & 0b1111
-    let dest            = (instruction >> 20) & 0b111
-    let a               = (instruction >> 16) & 0b111
-    let b               = (instruction >> 8) & 0b111
+    let dest            = (instruction >> 20) & 0b1111
+    let a               = (instruction >> 16) & 0b1111
+    let b               = (instruction >> 8) & 0b1111
     let immediate       = (instruction >> 28) & 1 != 0
     let immediate_value =  instruction & 0xffff
 
     var dest_str = ""
 
     switch dest
-        0 { dest_str = "rz" }
+        0 { dest_str = "zr" }
         14 { dest_str = "sp" }
         15 { dest_str = "flags" }
         default { dest_str = "r" + str(dest) }
@@ -69,7 +70,7 @@ def instruction_to_str(instruction: Int) String {
     var a_str = ""
 
     switch a
-        0 { a_str = "rz" }
+        0 { a_str = "zr" }
         14 { a_str = "sp" }
         15 { a_str = "flags" }
         default { a_str = "r" + str(a) }
@@ -83,7 +84,7 @@ def instruction_to_str(instruction: Int) String {
     } else {
 
         switch b
-            0 { b_str = "rz" }
+            0 { b_str = "zr" }
             14 { b_str = "sp" }
             15 { b_str = "flags" }
             default { b_str = "r" + str(b) }
@@ -184,8 +185,8 @@ def flag_result(a: Int, b: Int) Int {
 def check_io(instruction: Int) Bool {
 
     let immediate       = ((instruction >> 28) & 1) == 1
-    let dest            = ((instruction >> 20) & 0b111) == 0b111
-    let a               = ((instruction >> 16) & 0b111) == 0b111
+    let dest            = ((instruction >> 20) & 0b1111) == 0b111
+    let a               = ((instruction >> 16) & 0b1111) == 0b111
     let b_value         = ((instruction >>  8) & 0b111) == 0b111
     let b               = immediate ? false : b_value
 
@@ -239,9 +240,9 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
     
     let mode            = (instruction >> 30)
     let opcode          = (instruction >> 24) & 0b1111
-    let dest            = (instruction >> 20) & 0b111
-    let a               = (instruction >> 16) & 0b111
-    let b               = (instruction >> 8) & 0b111
+    let dest            = (instruction >> 20) & 0b1111
+    let a               = (instruction >> 16) & 0b1111
+    let b               = (instruction >> 8) & 0b1111
     let immediate       = (instruction >> 28) & 1 != 0
     let immediate_value =  instruction & 0xffff
 
@@ -360,11 +361,7 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
                     result = flag_result(a_value, b_value)
                 }
 
-            if dest < 8 {
-            
-                scratch_space[REGS + dest] = result & 0xffff
-            
-            }
+            scratch_space[REGS + dest] = result & 0xffff
 
         }
 
@@ -373,6 +370,7 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
             let flags   = a_value & 0b111
             let matched = (opcode & flags) > 0
             let met     = matched != ((opcode & 0b1000) > 0)
+            scratch_space[REGS + FLAG_REG] = scratch_space[COUNTER_1]
 
             if met {
 
@@ -587,9 +585,9 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
             let mode            = (instruction >> 30)
             let opcode          = (instruction >> 24) & 0b1111
-            let dest            = (instruction >> 20) & 0b111
-            let a               = (instruction >> 16) & 0b111
-            let b               = (instruction >> 8)  & 0b111
+            let dest            = (instruction >> 20) & 0b1111
+            let a               = (instruction >> 16) & 0b1111
+            let b               = (instruction >> 8)  & 0b1111
             let immediate       = (instruction >> 28) & 1 != 0
             let immediate_value =  instruction & 0xffff
 
@@ -639,9 +637,9 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
             let mode            = (instruction >> 30)
             let opcode          = (instruction >> 24) & 0b1111
-            let dest            = (instruction >> 20) & 0b111
-            let a               = (instruction >> 16) & 0b111
-            let b               = (instruction >> 8)  & 0b111
+            let dest            = (instruction >> 20) & 0b1111
+            let a               = (instruction >> 16) & 0b1111
+            let b               = (instruction >> 8)  & 0b1111
             let immediate       = (instruction >> 28) & 1 != 0
             let immediate_value =  instruction & 0xffff
 

@@ -131,6 +131,7 @@ def instruction_to_str(instruction: Int) String {
         }
 
 }
+
 def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int {
     
     let mode            = (instruction >> 30)
@@ -264,16 +265,14 @@ def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
 def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
 
-    
-
     if get_assembler_register_count() == 0 {
 
         set_error(`Connect your registers to the assembler`)
         return fail
 
-    } elif get_assembler_register_count() < 6 {
+    } elif get_assembler_register_count() < 15 {
     
-        set_error(`Connect {7 - get_assembler_register_count()} more registers to the assembler`)
+        set_error(`Connect {15 - get_assembler_register_count()} more registers to the assembler`)
         return fail
     
     }
@@ -332,6 +331,13 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
     }
 
+    if get_ram_width() != 16 {
+
+        set_error(`Set RAM width to 16.`)
+        return fail
+
+    }
+
     var addr = 0
     while addr < 0xfffe {
 
@@ -348,7 +354,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
     }
 
-    if tick == 1000 {
+    if tick == 2000 {
         return win
     }
 

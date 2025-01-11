@@ -129,6 +129,7 @@ def instruction_to_str(instruction: Int) String {
         }
 
 }
+
 def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) { }
 
 def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {

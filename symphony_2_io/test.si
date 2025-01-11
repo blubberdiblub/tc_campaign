@@ -247,9 +247,9 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
         set_error(`Connect your registers to the assembler`)
         return fail
 
-    } elif get_assembler_register_count() < 6 {
+    } elif get_assembler_register_count() < 15 {
     
-        set_error(`Connect {7 - get_assembler_register_count()} more registers to the assembler`)
+        set_error(`Connect {15 - get_assembler_register_count()} more registers to the assembler`)
         return fail
     
     }

@@ -250,7 +250,7 @@ load %dest(register), [%address(register)]
 Loads %address from RAM and stores it to %dest
 
 store [%address(register)], %value(register)
-11000001 0000bvvv 0000aaaa 00000000
+11000001 0000vvvv 0000aaaa 00000000
 Store %value to %address in RAM
 
 load %dest(register), [%address(immediate)]

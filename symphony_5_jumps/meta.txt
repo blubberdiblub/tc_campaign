@@ -25,9 +25,14 @@ In this level we implement the JUMP mode. As always the instruction encoding is 
 
 [code][color=#ff9800]MM[/color][color=#bbbbbb]O[/color][color=#9966ff]I[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color][/code]
 
-In JUMP mode, [color=#66ff99]argument A[/color] are the flags and should be compared with the condition, which is the [color=#ff6680]opcode[/color]. To compare them, use the "cond" custom component you built earlier.
+A JUMP instruction does two things. 
 
-If the flags match the condition, overwrite the counter value with [color=#66ccff]argument B[/color].`)]
+1. It stores the current address + 4 (the next instruction) in the [color=#ffe666]destination register[/color]. You will see why this is useful later. 
+
+2. It compares [color=#66ff99]argument A[/color] (the flags) with the [color=#ff6680]opcode[/color] (the condition). To compare them, use the "cond" custom component you built earlier.
+
+If the flags match the condition, overwrite the counter value with [color=#66ccff]argument B[/color].`),
+]
 default_isa_spec = `
 
 [settings]

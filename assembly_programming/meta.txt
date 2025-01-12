@@ -1,7 +1,7 @@
 kind = sequential
 title = "Add 5 again"
 tests = 32
-size = [-75, -50, 43, 45]
+size = [-80, -50, 43, 45]
 remove_components = [com_punch_card]
 add_components = [com_rom: -1]
 unlocks_components = [com_rom]

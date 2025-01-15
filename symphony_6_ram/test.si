@@ -1,12 +1,12 @@
 const REGS = 0
 const COUNTER = 16
 const RAM = 17
+const SSD = 0x10000 + RAM
 
 const OP_IO  = 0
 const OP_ALU = 1
 const OP_JMP = 2
 const OP_RAM = 3
-const FLAG_REG = 15
 
 def instruction_to_str(instruction: Int) String {
 
@@ -121,14 +121,19 @@ def instruction_to_str(instruction: Int) String {
 
         OP_RAM {
 
-            const LOAD  = 0
-            const STORE = 1
+            const LOAD   = 0
+            const STORE  = 1
+            const PLOAD  = 2
+            const PSTORE = 3
 
             switch opcode
-                LOAD  { return `load {dest_str}, [{b_str}]` }
-                STORE { return `store [{b_str}], {a_str}` }
+                LOAD   { return `load {dest_str}, [{b_str}]` }
+                STORE  { return `store [{b_str}], {a_str}` }
+                PLOAD  { return `pload {dest_str}, [{b_str}]` }
+                PSTORE { return `pstore [{b_str}], {a_str}` }
 
         }
+
 
 }
 
@@ -210,7 +215,6 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
             let flags   = a_value & 0b111
             let matched = (opcode & flags) > 0
             let met     = matched != ((opcode & 0b1000) > 0)
-            scratch_space[REGS + FLAG_REG] = scratch_space[COUNTER] + 4
 
             if met {
                 
@@ -256,6 +260,18 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
 }
 
 
+def on_reset($scratch_space: [Int], test: Int) {
+
+    var addr = 0
+    while addr < 0xfffe {
+
+        scratch_space[RAM + addr] = get_ram_value(addr)
+        addr += 1
+
+    }
+
+}
+
 def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
     let result = random(0xff)
@@ -277,12 +293,41 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     
     }
 
-    if !has_ram() {
+    if !has_dual_load_ram() {
 
-        set_error(`No RAM component found`)
+        set_error(`Add a dual load RAM.`)
         return fail
 
     }
+
+    if get_ram_count() > 1 {
+
+        set_error(`Use only one RAM component.`)
+        return fail
+
+    }
+
+    if get_ram_size() != 65536 {
+
+        set_error(`Set RAM size to 65536.`)
+        return fail
+
+    }
+
+    if get_ram_width() != 16 {
+
+        set_error(`Set the primary RAM width to 16.`)
+        return fail
+
+    }
+
+    if get_ram_width_2() != 32 {
+
+        set_error(`Set the secondary RAM width to 32.`)
+        return fail
+
+    }
+
 
     if get_program_address() != scratch_space[COUNTER] {
 
@@ -292,6 +337,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     }
 
     let instruction = get_program_output()
+
     ui_set_text("description", instruction_to_str(instruction))
     let output = retire_instruction(instruction, $scratch_space, inputs[0])
 
@@ -324,36 +370,26 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
     }
 
-    if get_ram_size() != 65536 {
+    {
 
-        set_error(`Set RAM size to 65536.`)
-        return fail
+        var addr = 0
+        while addr < 0xfffe {
 
-    }
+            let value = get_ram_value(addr)
 
-    if get_ram_width() != 16 {
+            if value != scratch_space[RAM + addr] {
 
-        set_error(`Set RAM width to 16.`)
-        return fail
+                set_error(`RAM should contain value {scratch_space[RAM + addr]}, at address {addr}, not {value}.`)
+                return fail
 
-    }
+            }
 
-    var addr = 0
-    while addr < 0xfffe {
-
-        let value = get_ram_value(addr)
-
-        if value != scratch_space[RAM + addr] {
-
-            set_error(`RAM should contain value {scratch_space[RAM + addr]}, at address {addr}, not {value}.`)
-            return fail
+            addr += 1
 
         }
-
-        addr += 1
-
     }
 
+    
     if tick == 2000 {
         return win
     }

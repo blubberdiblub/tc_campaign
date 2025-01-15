@@ -138,7 +138,6 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
             let flags   = a_value & 0b111
             let matched = (opcode & flags) > 0
             let met     = matched != ((opcode & 0b1000) > 0)
-            scratch_space[REGS + FLAG_REG] = scratch_space[COUNTER_0] + 4
 
             if met {
 
@@ -181,7 +180,6 @@ const OP_IO  = 0
 const OP_ALU = 1
 const OP_JMP = 2
 const OP_RAM = 3
-const FLAG_REG = 15
 
 def flag_result(a: Int, b: Int) Int {
 

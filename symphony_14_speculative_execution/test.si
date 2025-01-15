@@ -26,19 +26,12 @@ const FLUSH_0 = IO_2 + 1
 const FLUSH_1 = FLUSH_0 + 1
 const FLUSH_2 = FLUSH_1 + 1
 
-const RAM_IN_PIPE = FLUSH_2 + 1
-const RAM_WAS_BUSY = RAM_IN_PIPE + 1
-
-const RAM_LOAD_REG = RAM_WAS_BUSY + 1
-const RAM_LOAD_VALUE = RAM_LOAD_REG + 1
-
-const RAM = RAM_LOAD_VALUE + 1
+const RAM = FLUSH_2 + 1
 
 const OP_IO  = 0
 const OP_ALU = 1
 const OP_JMP = 2
 const OP_RAM = 3
-const FLAG_REG = 15
 
 def timer(input: Bool, $scratch_space: [Int], index: Int) Bool {
 
@@ -170,17 +163,21 @@ def instruction_to_str(instruction: Int) String {
 
         OP_RAM {
 
-            const LOAD  = 0
-            const STORE = 1
+            const LOAD   = 0
+            const STORE  = 1
+            const PLOAD  = 2
+            const PSTORE = 3
 
             switch opcode
-                LOAD  { return `load {dest_str}, [{b_str}]` }
-                STORE { return `store [{b_str}], {a_str}` }
+                LOAD   { return `load {dest_str}, [{b_str}]` }
+                STORE  { return `store [{b_str}], {a_str}` }
+                PLOAD  { return `pload {dest_str}, [{b_str}]` }
+                PSTORE { return `pstore [{b_str}], {a_str}` }
 
         }
 
-}
 
+}
 def flag_result(a: Int, b: Int) Int {
 
     let equal = <Int> (a == b)
@@ -242,29 +239,6 @@ def hazard_data(instruction_0: Int, instruction_1: Int) Bool {
     }
 
     return true
-
-}
-
-def hazard_structural(instruction: Int, ram_ready: Bool, $scratch_space: [Int]) Bool {
-
-    if ram_ready {
-
-        scratch_space[RAM_IN_PIPE] = 0
-
-    }
-
-    let result = scratch_space[RAM_IN_PIPE] != 1
-    _reg_alloc_use result
-
-    let mode = (instruction >> 30)
-
-    if mode == OP_RAM {
-
-        scratch_space[RAM_IN_PIPE] = 1
-
-    }
-
-    return result
 
 }
 
@@ -394,7 +368,7 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
                 }
 
             scratch_space[REGS + dest] = result & 0xffff
-            
+
         }
 
         OP_JMP {
@@ -402,7 +376,6 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
             let flags   = a_value & 0b111
             let matched = (opcode & flags) > 0
             let met     = matched != ((opcode & 0b1000) > 0)
-            scratch_space[REGS + FLAG_REG] = scratch_space[COUNTER_1]
 
             if met {
 
@@ -422,29 +395,25 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
                 LOAD {
 
                     var value = scratch_space[RAM + b_value] << 8 + scratch_space[RAM + b_value + 1]
-                    //scratch_space[REGS + dest] = value
 
-                    scratch_space[RAM_LOAD_REG] = dest
-                    scratch_space[RAM_LOAD_VALUE] = value
+                    scratch_space[REGS + dest] = value
 
                 }
                 STORE {
 
                     scratch_space[RAM + b_value + 1] = a_value & 0xff
                     scratch_space[RAM + b_value + 0] = a_value >> 8
-                    scratch_space[RAM_LOAD_REG] = 0
-
 
                 }
 
         }
+
 
     scratch_space[REGS + 0] = 0
 
     return Z_STATE
 
 }
-
 
 def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
@@ -490,24 +459,11 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     let instruction_a = scratch_space[INSTRUCTION_A_0]
     let instruction_b = scratch_space[INSTRUCTION_B_0]
 
-    let ram_ready = scratch_space[RAM_WAS_BUSY] == 1 && !get_latency_ram_is_busy()
-    _reg_alloc_use ram_ready
-    scratch_space[RAM_WAS_BUSY] = get_latency_ram_is_busy()
-
-    if ram_ready && scratch_space[RAM_LOAD_REG] != 0 {
-
-        scratch_space[REGS + scratch_space[RAM_LOAD_REG]] = scratch_space[RAM_LOAD_VALUE]
-
-    }
-
-    let mispredicted = (scratch_space[FLUSH_2] == 1) && (scratch_space[FLUSH_1] == 1)
-
     let stall         = timer(instruction_a >> 30 == OP_JMP, $scratch_space, STALL_COUNT)
-    let no_data_hazard   = hazard_data(instruction_a, instruction_b)
-    let no_structural_hazard = hazard_structural(instruction_a, ram_ready || mispredicted, $scratch_space)
+    let data_hazard   = hazard_data(instruction_a, instruction_b)
 
-    let enable_a = no_structural_hazard
-    let enable_b = no_data_hazard && no_structural_hazard
+    let enable_a = true
+    let enable_b = data_hazard
 
     if enable_a {
 
@@ -535,6 +491,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
         scratch_space[INSTRUCTION_B_2] = 0
 
     }
+
 
     // Retire instructions
 
@@ -769,3 +726,9 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     }
 
 }
+
+
+
+
+
+

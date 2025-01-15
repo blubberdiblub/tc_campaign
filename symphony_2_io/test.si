@@ -3,7 +3,6 @@ const OP_IO  = 0
 const OP_ALU = 1
 const OP_JMP = 2
 const OP_RAM = 3
-const FLAG_REG = 15
 const REGS = 0
 
 def instruction_to_str(instruction: Int) String {
@@ -119,14 +118,19 @@ def instruction_to_str(instruction: Int) String {
 
         OP_RAM {
 
-            const LOAD  = 0
-            const STORE = 1
+            const LOAD   = 0
+            const STORE  = 1
+            const PLOAD  = 2
+            const PSTORE = 3
 
             switch opcode
-                LOAD  { return `load {dest_str}, [{b_str}]` }
-                STORE { return `store [{b_str}], {a_str}` }
+                LOAD   { return `load {dest_str}, [{b_str}]` }
+                STORE  { return `store [{b_str}], {a_str}` }
+                PLOAD  { return `pload {dest_str}, [{b_str}]` }
+                PSTORE { return `pstore [{b_str}], {a_str}` }
 
         }
+
 
 }
 

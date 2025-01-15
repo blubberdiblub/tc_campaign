@@ -10,7 +10,10 @@ const STALL_COUNT = INSTRUCTION_B_2 + 1
 const KEYBOARD = STALL_COUNT + 1
 const CONSOLE = KEYBOARD + 1
 
-const REGS = CONSOLE + 1
+const FLUSH_0 = CONSOLE + 1
+
+const REGS = FLUSH_0 + 1
+
 
 const COUNTER_3 = REGS + 16
 const COUNTER_2 = COUNTER_3 + 1
@@ -20,25 +23,12 @@ const COUNTER_0 = COUNTER_1 + 1
 const IO_1 = COUNTER_0 + 1
 const IO_2 = IO_1 + 1
 
-const FLUSH_0 = IO_2 + 1
-const FLUSH_1 = FLUSH_0 + 1
-const FLUSH_2 = FLUSH_1 + 1
-
-const RAM_IN_PIPE = FLUSH_2 + 1
-const RAM_WAS_BUSY = RAM_IN_PIPE + 1
-
-const RAM_LOAD_REG = RAM_WAS_BUSY + 1
-const RAM_LOAD_VALUE = RAM_LOAD_REG + 1
-
-const RAM = RAM_LOAD_VALUE + 1
-
-
+const RAM = IO_2 + 1
 
 const OP_IO  = 0
 const OP_ALU = 1
 const OP_JMP = 2
 const OP_RAM = 3
-const FLAG_REG = 15
 
 def timer(input: Bool, $scratch_space: [Int], index: Int) Bool {
 
@@ -170,14 +160,19 @@ def instruction_to_str(instruction: Int) String {
 
         OP_RAM {
 
-            const LOAD  = 0
-            const STORE = 1
+            const LOAD   = 0
+            const STORE  = 1
+            const PLOAD  = 2
+            const PSTORE = 3
 
             switch opcode
-                LOAD  { return `load {dest_str}, [{b_str}]` }
-                STORE { return `store [{b_str}], {a_str}` }
+                LOAD   { return `load {dest_str}, [{b_str}]` }
+                STORE  { return `store [{b_str}], {a_str}` }
+                PLOAD  { return `pload {dest_str}, [{b_str}]` }
+                PSTORE { return `pstore [{b_str}], {a_str}` }
 
         }
+
 
 }
 
@@ -242,37 +237,6 @@ def hazard_data(instruction_0: Int, instruction_1: Int) Bool {
     }
 
     return true
-
-}
-
-def hazard_branch(instruction: Int, stall: Bool, $scratch_space: [Int]) Bool {
-
-    let mode = (instruction >> 30)
-
-    return mode == OP_ALU || !stall
-
-}
-
-def hazard_structural(instruction: Int, ram_ready: Bool, $scratch_space: [Int]) Bool {
-
-    if ram_ready {
-
-        scratch_space[RAM_IN_PIPE] = 0
-
-    }
-
-    let result = scratch_space[RAM_IN_PIPE] != 1
-    _reg_alloc_use result
-
-    let mode = (instruction >> 30)
-
-    if mode == OP_RAM {
-
-        scratch_space[RAM_IN_PIPE] = 1
-
-    }
-
-    return result
 
 }
 
@@ -359,7 +323,7 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
                 }
                 IO_COUNTER {
 
-                    scratch_space[REGS + dest] = scratch_space[COUNTER_0] - 4
+                    scratch_space[REGS + dest] = scratch_space[COUNTER_3]
 
                 }
 
@@ -402,7 +366,7 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
                 }
 
             scratch_space[REGS + dest] = result & 0xffff
-            
+
         }
 
         OP_JMP {
@@ -410,7 +374,6 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
             let flags   = a_value & 0b111
             let matched = (opcode & flags) > 0
             let met     = matched != ((opcode & 0b1000) > 0)
-            scratch_space[REGS + FLAG_REG] = scratch_space[COUNTER_1]
 
             if met {
 
@@ -430,29 +393,25 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
                 LOAD {
 
                     var value = scratch_space[RAM + b_value] << 8 + scratch_space[RAM + b_value + 1]
-                    //scratch_space[REGS + dest] = value
 
-                    scratch_space[RAM_LOAD_REG] = dest
-                    scratch_space[RAM_LOAD_VALUE] = value
+                    scratch_space[REGS + dest] = value
 
                 }
                 STORE {
 
                     scratch_space[RAM + b_value + 1] = a_value & 0xff
                     scratch_space[RAM + b_value + 0] = a_value >> 8
-                    scratch_space[RAM_LOAD_REG] = 0
-
 
                 }
 
         }
+
 
     scratch_space[REGS + 0] = 0
 
     return Z_STATE
 
 }
-
 
 def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
@@ -479,43 +438,17 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     scratch_space[INSTRUCTION_B_1] = scratch_space[INSTRUCTION_B_0]
     scratch_space[INSTRUCTION_B_0] = output & 0xffffffff
 
-    scratch_space[FLUSH_2] = scratch_space[FLUSH_1] | scratch_space[FLUSH_0]
-    scratch_space[FLUSH_1] = scratch_space[FLUSH_0]
-    scratch_space[FLUSH_0] = 0
-
     scratch_space[IO_2] = scratch_space[IO_1]
     scratch_space[IO_1] = inputs[0]
-
-    ui_set_text("instruction_a_0", instruction_to_str(scratch_space[INSTRUCTION_A_0]))
-    ui_set_text("instruction_a_1", instruction_to_str(scratch_space[INSTRUCTION_A_1]))
-    ui_set_text("instruction_a_2", instruction_to_str(scratch_space[INSTRUCTION_A_2]))
-
-    ui_set_text("instruction_b_0", instruction_to_str(scratch_space[INSTRUCTION_B_0]))
-    ui_set_text("instruction_b_1", instruction_to_str(scratch_space[INSTRUCTION_B_1]))
-    ui_set_text("instruction_b_2", instruction_to_str(scratch_space[INSTRUCTION_B_2]))
-
 
     let instruction_a = scratch_space[INSTRUCTION_A_0]
     let instruction_b = scratch_space[INSTRUCTION_B_0]
 
-    var ram_ready = scratch_space[RAM_WAS_BUSY] == 1 && !get_latency_ram_is_busy()
-    _reg_alloc_use ram_ready
-    scratch_space[RAM_WAS_BUSY] = get_latency_ram_is_busy()
+    let stall          = timer(instruction_a >> 30 == OP_JMP, $scratch_space, STALL_COUNT)
+    let no_data_hazard = hazard_data(instruction_a, instruction_b)
 
-    if ram_ready && scratch_space[RAM_LOAD_REG] != 0 {
-
-        scratch_space[REGS + scratch_space[RAM_LOAD_REG]] = scratch_space[RAM_LOAD_VALUE]
-
-    }
-
-    let mispredicted = (scratch_space[FLUSH_2] == 1) && (scratch_space[FLUSH_1] == 1)
-
-    let stall                = timer(instruction_a >> 30 == OP_JMP, $scratch_space, STALL_COUNT)
-    let no_data_hazard       = hazard_data(instruction_a, instruction_b)
-    let no_structural_hazard = hazard_structural(instruction_a, ram_ready || mispredicted, $scratch_space)
-
-    let enable_a = no_structural_hazard
-    let enable_b = no_data_hazard && no_structural_hazard
+    let enable_a = !stall
+    let enable_b = !stall && no_data_hazard
 
     if enable_a {
 
@@ -537,12 +470,13 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
     }
 
-    if scratch_space[FLUSH_2] == 1 {
+    ui_set_text("instruction_a_0", instruction_to_str(scratch_space[INSTRUCTION_A_0]))
+    ui_set_text("instruction_a_1", instruction_to_str(scratch_space[INSTRUCTION_A_1]))
+    ui_set_text("instruction_a_2", instruction_to_str(scratch_space[INSTRUCTION_A_2]))
 
-        scratch_space[INSTRUCTION_A_2] = 0
-        scratch_space[INSTRUCTION_B_2] = 0
-
-    }
+    ui_set_text("instruction_b_0", instruction_to_str(scratch_space[INSTRUCTION_B_0]))
+    ui_set_text("instruction_b_1", instruction_to_str(scratch_space[INSTRUCTION_B_1]))
+    ui_set_text("instruction_b_2", instruction_to_str(scratch_space[INSTRUCTION_B_2]))
 
 
     // Retire instructions
@@ -556,6 +490,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
         return fail
 
     }
+
 
     var reg = 1
     while reg < 16 {
@@ -578,6 +513,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
         reg += 1
 
     }
+
 
     if get_ram_size() != 65536 {
 
@@ -604,57 +540,27 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
     // Check pipeline values, (do this after updating registers)
 
-    const INSTR_A  = 0
-    const MODE_A   = 1
-    const OPCODE_A = 2
-    const DEST_A   = 3
-    const ARG_A_1  = 4
-    const ARG_B_1  = 5
-    const COUNTER  = 6
-    const INSTR_B  = 7
-    const MODE_B   = 8
-    const OPCODE_B = 9
-    const DEST_B   = 10
-    const ARG_A_2  = 11
-    const ARG_B_2  = 12
-
     {
-
-        const IO = REGS + 7
-        let dest = (scratch_space[INSTRUCTION_A_2] >> 20) & 0b111
-
-        if dest == IO {
-
-            if outputs[2] & 1 != 1 {
-                set_error(`Output should be enabled`)
-                return fail
-            }
-
-            if outputs[1] != scratch_space[IO] {
-                set_error(`Output should be {scratch_space[IO]}`)
-                return fail
-            }
-
-        }
 
         if scratch_space[INSTRUCTION_A_0] != get_level_memory("INSTR") {
 
-            set_error(`The "INSTR" delay line should contain the last instruction: {scratch_space[INSTRUCTION_A_0]}.`)
+            if scratch_space[INSTRUCTION_A_0] == 0 {
+
+                set_error(`Stall for two ticks after a jump. ("INSTR" delay line should contain 0)`)
+
+            } else {
+
+                set_error(`The "INSTR" delay line should contain the last instruction: {scratch_space[INSTRUCTION_A_0]}`)
+
+            }
+
             return fail
 
         }
 
         if scratch_space[INSTRUCTION_B_0] != get_level_memory("INSTR 2") {
 
-            if scratch_space[INSTRUCTION_B_0] == 0 {
-
-                set_error(`The second instruction should be disabled, so "INSTR 2" should contain 0.`)
-
-            } else {
-            
-                set_error(`The "INSTR 2" delay line should contain the last instruction: {scratch_space[INSTRUCTION_B_0]}.`)
-
-            }
+            set_error(`The "INSTR 2" delay line should contain the last instruction: {scratch_space[INSTRUCTION_B_0]}`)
 
             return fail
 
@@ -667,8 +573,13 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
         {
 
             if scratch_space[COUNTER_1] != get_level_memory("COUNTER 1") {
+                set_error(`The "COUNTER 1" delay line should contain value {scratch_space[COUNTER_1]}, not {get_level_memory("COUNTER 1")}`)
+                return fail
 
-                set_error(`The "COUNTER 1" delay line should contain value {scratch_space[COUNTER_1]}, not {get_level_memory("COUNTER 1")}.`)
+            }
+
+            if scratch_space[COUNTER_2] != get_level_memory("COUNTER 2") {
+                set_error(`The "COUNTER 2" delay line should contain value {scratch_space[COUNTER_2]}, not {get_level_memory("COUNTER 2")}`)
                 return fail
 
             }
@@ -702,7 +613,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
             if dest != get_level_memory("DEST") {
 
-                set_error(`The "DEST" delay line should contain value {dest}, not {get_level_memory("DEST_A")}`)
+                set_error(`The "DEST A" delay line should contain value {dest}, not {get_level_memory("DEST")}`)
                 return fail
 
             }
@@ -737,6 +648,13 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
             let a_value = scratch_space[REGS + a]
             let b_value = immediate ? immediate_value : scratch_space[REGS + b]
+
+            if opcode != get_level_memory("OPCODE 2") {
+
+                set_error(`The "OPCODE 2" delay line should contain value {opcode}, not {get_level_memory("OPCODE 2")}`)
+                return fail
+
+            }
 
             if dest != get_level_memory("DEST 2") {
 
@@ -777,3 +695,9 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     }
 
 }
+
+
+
+
+
+

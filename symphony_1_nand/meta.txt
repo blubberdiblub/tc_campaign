@@ -20,15 +20,23 @@ Most instructions take 2 arguments and produce 1 result (like ADD, OR etc).
 3 r3
 4 r4
 5 r5
-6 sp
-7 flags
+6 r6
+7 r7
+8 r8
+9 r9
+10 r10
+11 r11
+12 r12
+13 r13
+14 sp
+15 flags
 [/code]
 
 "zr" will always produce 0 when read, so we do not need to attach address 0 to any hardware. "sp" and "flags" are normal registers that just happen to have different names. They will be reserved for special purposes later.
 `),
   (info, `Do the following to complete this level:
     
-[b]1.[/b] Place an assembler and set it to 32 bit.
+[b]1.[/b] Place a ROM and set the output width it to 32 bit. Click on it and set the byte size to 65536.
 [b]2.[/b] Add 7 registers, using the custom component build in an earlier level
 [b]3.[/b] Click "Edit link components" on the program component and connect the 7 registers. (do not connect the zr register)
 `),

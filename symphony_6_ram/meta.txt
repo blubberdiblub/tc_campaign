@@ -29,7 +29,7 @@ And the encoding looks like this:
 
 [code][color=#ff9800]MM[/color][color=#bbbbbb]O[/color][color=#9966ff]I[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color][/code]
 
-In this level we implement the RAM mode. There are four opcodes in this mode:
+In this level we implement the RAM mode. There are two opcodes in this mode:
 [code]0 load
 1 store[/code]
 
@@ -143,7 +143,7 @@ lsr %a(register), %b(register), %c(immediate)
 LSR %b and %c and store the result in %a.
 
 cmp %a(register), %b(immediate)
-01011001 0111aaaa bbbbbbbb bbbbbbbb
+01011001 1111aaaa bbbbbbbb bbbbbbbb
 Compares %a and %b and store the resulting flags in r6.
 
 

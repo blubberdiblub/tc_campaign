@@ -149,7 +149,7 @@ lsr %a(register), %b(register), %c(immediate)
 LSR %b and %c and store the result in %a.
 
 cmp %a(register), %b(immediate)
-01011001 0111aaaa bbbbbbbb bbbbbbbb
+01011001 1111aaaa bbbbbbbb bbbbbbbb
 Compares %a and %b and store the resulting flags in r6.
 
 

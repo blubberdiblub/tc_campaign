@@ -135,7 +135,7 @@ lsr %a(register), %b(register), %c(immediate)
 LSR %b and %c and store the result in %a.
 
 cmp %a(register), %b(immediate)
-01011001 0111aaaa bbbbbbbb bbbbbbbb
+01011001 1111aaaa bbbbbbbb bbbbbbbb
 Compares %a and %b and store the resulting flags in r6.
 
 
@@ -253,27 +253,27 @@ nop
 Does nothing
 
 mov %a(register), %b(register)
-01000001 0aaa0bbb 00000000 00000000
+01000001 aaaabbbb 00000000 00000000
 Move from %a to %b
 
 neg %a(register), %b(register)
-01000101 0aaa0000 00000bbb 00000000
+01000101 aaaa0000 0000bbbb 00000000
 Neg %b and store the result in %a.
 
 not %a(register), %b(register)
-01000011 0aaa0000 00000bbb 00000000
+01000011 aaaa0000 0000bbbb 00000000
 Not %b and store the result in %a.
 
 mov %a(register), %b(immediate)
-01010001 0aaa0000 bbbbbbbb bbbbbbbb
+01010001 aaaa0000 bbbbbbbb bbbbbbbb
 Move from %a to %b
 
 neg %a(register), %b(immediate)
-01010101 0aaa0000 bbbbbbbb bbbbbbbb
+01010101 aaaa0000 bbbbbbbb bbbbbbbb
 Neg %b and store the result in %a.
 
 not %a(register), %b(immediate)
-01010011 0aaa0000 bbbbbbbb bbbbbbbb
+01010011 aaaa0000 bbbbbbbb bbbbbbbb
 Not %b and store the result in %a.
 
 nop

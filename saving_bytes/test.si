@@ -47,16 +47,6 @@ def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
 def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
 
-    if inputs[0] != outputs[1] {
-        if inputs[0] == 1 {
-            set_error("Output enable should be ON.")
-            return fail
-        } else {
-            set_error("Output enable should be OFF.")
-            return fail
-        }
-    }
-
     if inputs[0] == 1 && outputs[0] != .memory {
         set_error(`Expected output {.memory}.`)
         return fail

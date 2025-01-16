@@ -134,6 +134,7 @@ def instruction_to_str(instruction: Int) String {
 
 
 }
+
 def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int {
     
     let mode            = (instruction >> 30)
@@ -222,6 +223,14 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
 
 }
 
+def val_str(input: Int) String {
+    
+    if input == Z_STATE { return "Z" }
+
+    return str(input)
+
+}
+
 def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
     
     inputs[0] = random(0xffff)
@@ -253,7 +262,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
     if get_program_address() != tick * 4 {
 
-        set_error(`You should read address {tick * 4} from the assembler, not {get_program_address()}`)
+        set_error(`You should read address {tick * 4} from the assembler, not {val_str(get_program_address())}`)
         return fail
 
     }
@@ -284,11 +293,11 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
             if tick == 1 && value == 39046 {
 
-                set_error(`Register {register} should have value {scratch_space[reg]}, not {value}. It looks like you swapped the arguments of the subtraction.`)
+                set_error(`Register {register} should have value {scratch_space[reg]}, not {val_str(value)}. It looks like you swapped the arguments of the subtraction.`)
 
             } else {
 
-                set_error(`Register {register} should have value {scratch_space[reg]}, not {value}`)
+                set_error(`Register {register} should have value {scratch_space[reg]}, not {val_str(value)}`)
 
             }
 

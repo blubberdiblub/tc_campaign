@@ -5,8 +5,8 @@ immutable_program = true
 immutable_spec = true
 no_score = true
 copy_solution_to_level = ["symphony_8_io_devices"]
-unlocks_components = [com_ram_dual_load, com_ssd]
-add_components = [com_ram_dual_load: -1, com_ssd: -1]
+unlocks_components = [com_ssd]
+add_components = [com_ssd: -1]
 dialogue = [
     (info, `In this level we add an SSD component, which functions like RAM but can store data between restarts (when used in the sandbox). Place the SSD and set the width to 16, and the byte size to 65536.
 

@@ -222,6 +222,13 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
 
 }
 
+def val_str(input: Int) String {
+    
+    if input == Z_STATE { return "Z" }
+
+    return str(input)
+
+}
 
 def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) { 
 
@@ -260,7 +267,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
     if get_program_address() != tick * 4 {
 
-        set_error(`You should read address {tick * 4} from the assembler, not {get_program_address()}`)
+        set_error(`You should read address {tick * 4} from the assembler, not {val_str(get_program_address())}`)
         return fail
 
     }
@@ -289,7 +296,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
                 15 { register = "'flags'" }
                 default { register = `r{reg}`}
 
-            set_error(`{register} should have value {scratch_space[REGS + reg]}, not {value}`)
+            set_error(`{register} should have value {scratch_space[REGS + reg]}, not {val_str(value)}`)
             return fail
 
         }

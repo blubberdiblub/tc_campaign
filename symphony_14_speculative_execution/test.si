@@ -27,6 +27,7 @@ const FLUSH_1 = FLUSH_0 + 1
 const FLUSH_2 = FLUSH_1 + 1
 
 const RAM = FLUSH_2 + 1
+const SSD = RAM + 0x10000
 
 const OP_IO  = 0
 const OP_ALU = 1
@@ -178,6 +179,7 @@ def instruction_to_str(instruction: Int) String {
 
 
 }
+
 def flag_result(a: Int, b: Int) Int {
 
     let equal = <Int> (a == b)
@@ -388,8 +390,10 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
 
         OP_RAM {
 
-            const LOAD  = 0
-            const STORE = 1
+            const LOAD   = 0
+            const STORE  = 1
+            const DLOAD  = 2
+            const DSTORE = 3
 
             switch opcode
                 LOAD {
@@ -405,6 +409,19 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
                     scratch_space[RAM + b_value + 0] = a_value >> 8
 
                 }
+                DLOAD {
+
+                    var value = scratch_space[SSD + b_value] << 8 + scratch_space[SSD + b_value + 1]
+
+                    scratch_space[REGS + dest] = value
+
+                }
+                DSTORE {
+
+                    scratch_space[SSD + b_value + 1] = a_value & 0xff
+                    scratch_space[SSD + b_value + 0] = a_value >> 8
+
+                }
 
         }
 
@@ -412,6 +429,14 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
     scratch_space[REGS + 0] = 0
 
     return Z_STATE
+
+}
+
+def val_str(input: Int) String {
+    
+    if input == Z_STATE { return "Z" }
+
+    return str(input)
 
 }
 
@@ -518,7 +543,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
                 15 { register = "'flags'" }
                 default { register = `r{reg}`}
 
-            set_error(`{register} should have value {scratch_space[REGS + reg]}, not {value}`)
+            set_error(`{register} should have value {scratch_space[REGS + reg]}, not {val_str(value)}`)
             return fail
 
         }
@@ -541,7 +566,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
         if value != scratch_space[RAM + addr] {
 
-            set_error(`RAM should contain value {scratch_space[RAM + addr]}, at address {addr}, not {value}.`)
+            set_error(`RAM should contain value {scratch_space[RAM + addr]}, at address {addr}, not {val_str(value)}.`)
             return fail
 
         }
@@ -617,7 +642,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
             if scratch_space[COUNTER_1] != get_level_memory("COUNTER 1") {
 
-                set_error(`The "COUNTER 1" delay line should contain value {scratch_space[COUNTER_1]}, not {get_level_memory("COUNTER 1")}.`)
+                set_error(`The "COUNTER 1" delay line should contain value {scratch_space[COUNTER_1]}, not {val_str(get_level_memory("COUNTER 1"))}.`)
                 return fail
 
             }
@@ -637,35 +662,35 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
             if mode != get_level_memory("MODE") {
 
-                set_error(`The "MODE A" delay line should contain value {mode}, not {get_level_memory("MODE")}`)
+                set_error(`The "MODE A" delay line should contain value {mode}, not {val_str(get_level_memory("MODE"))}`)
                 return fail
 
             }
 
             if opcode != get_level_memory("OPCODE") {
 
-                set_error(`The "OPCODE A" delay line should contain value {opcode}, not {get_level_memory("OPCODE")}`)
+                set_error(`The "OPCODE A" delay line should contain value {opcode}, not {val_str(get_level_memory("OPCODE"))}`)
                 return fail
 
             }
 
             if dest != get_level_memory("DEST") {
 
-                set_error(`The "DEST" delay line should contain value {dest}, not {get_level_memory("DEST_A")}`)
+                set_error(`The "DEST" delay line should contain value {dest}, not {val_str(get_level_memory("DEST_A"))}`)
                 return fail
 
             }
 
             if a_value != get_level_memory("ARG_A") {
 
-                set_error(`The "ARG_A" delay line should contain value {a_value & 0xffff}, not {get_level_memory("ARG_A")}`)
+                set_error(`The "ARG_A" delay line should contain value {a_value & 0xffff}, not {val_str(get_level_memory("ARG_A"))}`)
                 return fail
 
             }
 
             if b_value != get_level_memory("ARG_B") {
 
-                set_error(`The "ARG_B" delay line should contain value {b_value & 0xffff}, not {get_level_memory("ARG_B")}`)
+                set_error(`The "ARG_B" delay line should contain value {b_value & 0xffff}, not {val_str(get_level_memory("ARG_B"))}`)
                 return fail
 
             }
@@ -689,21 +714,21 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
             if dest != get_level_memory("DEST 2") {
 
-                set_error(`The "DEST B" delay line should contain value {dest}, not {get_level_memory("DEST 2")}`)
+                set_error(`The "DEST B" delay line should contain value {dest}, not {val_str(get_level_memory("DEST 2"))}`)
                 return fail
 
             }
 
             if a_value != get_level_memory("ARG_A 2") {
 
-                set_error(`The "ARG_A 2" delay line should contain value {a_value & 0xffff}, not {get_level_memory("ARG_A 2")}`)
+                set_error(`The "ARG_A 2" delay line should contain value {a_value & 0xffff}, not {val_str(get_level_memory("ARG_A 2"))}`)
                 return fail
 
             }
 
             if b_value != get_level_memory("ARG_B 2") {
 
-                set_error(`The "ARG_B 2" delay line should contain value {b_value & 0xffff}, not {get_level_memory("ARG_B 2")}`)
+                set_error(`The "ARG_B 2" delay line should contain value {b_value & 0xffff}, not {val_str(get_level_memory("ARG_B 2"))}`)
                 return fail
 
             }

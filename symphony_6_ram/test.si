@@ -272,6 +272,14 @@ def on_reset($scratch_space: [Int], test: Int) {
 
 }
 
+def val_str(input: Int) String {
+    
+    if input == Z_STATE { return "Z" }
+
+    return str(input)
+
+}
+
 def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
     let result = random(0xff)
@@ -331,7 +339,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
     if get_program_address() != scratch_space[COUNTER] {
 
-        set_error(`You should read address {scratch_space[COUNTER]} from the assembler, not {get_program_address()}`)
+        set_error(`You should read address {scratch_space[COUNTER]} from the assembler, not {val_str(get_program_address())}`)
         return fail
 
     }
@@ -361,7 +369,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
                 15 { register = "'flags'" }
                 default { register = `r{reg}`}
 
-            set_error(`{register} should have value {scratch_space[REGS + reg]}, not {value}`)
+            set_error(`{register} should have value {scratch_space[REGS + reg]}, not {val_str(value)}`)
             return fail
 
         }
@@ -379,7 +387,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
             if value != scratch_space[RAM + addr] {
 
-                set_error(`RAM should contain value {scratch_space[RAM + addr]}, at address {addr}, not {value}.`)
+                set_error(`RAM should contain value {scratch_space[RAM + addr]}, at address {addr}, not {val_str(value)}.`)
                 return fail
 
             }

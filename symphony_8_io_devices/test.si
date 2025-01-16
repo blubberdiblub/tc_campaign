@@ -4,7 +4,7 @@ const KEYBOARD = 17
 const CONSOLE = 18
 const FLUSH_0 = 19
 const RAM = 20
-const SSD = 20 + 0x10000
+const SSD = RAM + 0x10000
 
 const OP_IO  = 0
 const OP_ALU = 1
@@ -138,6 +138,7 @@ def instruction_to_str(instruction: Int) String {
         }
 
 }
+
 def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int {
     
     let mode            = (instruction >> 30)
@@ -338,6 +339,14 @@ def on_reset($scratch_space: [Int], test: Int) {
 
 }
 
+def val_str(input: Int) String {
+    
+    if input == Z_STATE { return "Z" }
+
+    return str(input)
+
+}
+
 def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
     let result = random(0xff)
@@ -396,7 +405,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
     if get_program_address() != scratch_space[COUNTER_0] {
 
-        set_error(`You should read address {scratch_space[COUNTER_0]} from the assembler, not {get_program_address()}.`)
+        set_error(`You should read address {scratch_space[COUNTER_0]} from the assembler, not {val_str(get_program_address())}.`)
         return fail
 
     }
@@ -434,7 +443,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
                 15 { register = "'flags'" }
                 default { register = `r{reg}`}
 
-            set_error(`{register} should have value {scratch_space[reg]}, not {value}.`)
+            set_error(`{register} should have value {scratch_space[reg]}, not {val_str(value)}.`)
             return fail
 
         }
@@ -480,7 +489,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
             if value != scratch_space[RAM + addr] {
 
-                set_error(`RAM should contain value {scratch_space[RAM + addr]}, at address {addr}, not {value}.`)
+                set_error(`RAM should contain value {scratch_space[RAM + addr]}, at address {addr}, not {val_str(value)}.`)
                 return fail
 
             }
@@ -514,7 +523,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
             if value != scratch_space[SSD + addr] {
 
-                set_error(`The SSD should contain value {scratch_space[SSD + addr]}, at address {addr}, not {value}.`)
+                set_error(`The SSD should contain value {scratch_space[SSD + addr]}, at address {addr}, not {val_str(value)}.`)
                 return fail
 
             }

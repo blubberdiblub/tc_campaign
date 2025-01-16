@@ -237,6 +237,22 @@ store [%address(immediate)], %value(register)
 11010001 0000vvvv aaaaaaaa aaaaaaaa
 Store %value to %address in RAM
 
+pload %dest(register), [%address(register)]
+11000010 dddd0000 0000aaaa 00000000
+Loads %address from SSD and stores it to %dest
+
+pstore [%address(register)], %value(register)
+11000011 0000vvvv 0000aaaa 00000000
+Store %value to %address in SSD
+
+pload %dest(register), [%address(immediate)]
+11010010 dddd0000 aaaaaaaa aaaaaaaa
+Loads %address from SSD and stores it to %dest
+
+pstore [%address(immediate)], %value(register)
+11010011 0000vvvv aaaaaaaa aaaaaaaa
+Store %value to %address in SSD
+
 nop
 00000000 00000000 00000000 00000000
 Does nothing

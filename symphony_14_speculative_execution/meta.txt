@@ -312,7 +312,7 @@ counter r1
 
 xor r5, r5, r12
 lsr r2, r10, r12
-load sp, [2380]
+load sp, [4380]
 add r2, r4, 3235
 xor zr, r3, 59245
 jae label_6
@@ -353,12 +353,12 @@ label_34:
 jge label_37
 and r9, r8, r8
 label_37:
-store [2380], r13
+store [4380], r13
 lsl r2, r9, r7
-load r3, [2380]
+load r3, [4380]
 lsr r4, r8, r9
 pstore [494], flags
-store [2380], r7
+store [4380], r7
 cmp r4, r11
 xor r8, r8, 16885
 jmp label_48
@@ -367,7 +367,7 @@ label_48:
 sub r12, zr, 14630
 pstore [494], r5
 nor r1, flags, 53197
-load r4, [2380]
+load r4, [4380]
 xor r7, flags, r2
 lsl r6, r2, r12
 pstore [494], r3
@@ -384,14 +384,14 @@ lsr r9, zr, 60637
 jmp label_68
 lsr r11, r5, r3
 label_68:
-store [2380], r2
+store [4380], r2
 cmp r7, r13
 xor r5, r13, 28091
 cmp sp, sp
 nor r1, r1, 35113
 cmp r13, r4
 lsl r3, r11, r9
-store [2380], r10
+store [4380], r10
 pload r13, [494]
 jmp label_80
 sub r1, r6, r6
@@ -399,12 +399,12 @@ label_80:
 lsl r9, sp, r11
 add r10, r3, r10
 or r1, r6, 62120
-store [2380], r11
+store [4380], r11
 pstore [494], r11
 add r1, flags, 27123
 xor r1, r9, 7776
 cmp r1, r2
-store [2380], r9
+store [4380], r9
 and r6, r13, 63313
 sub r12, r5, 7924
 or r2, flags, 5672
@@ -429,12 +429,12 @@ lsl r6, zr, r6
 sub r11, r4, r2
 and r7, r1, 60877
 cmp r4, r11
-store [2380], r10
+store [4380], r10
 lsl r3, r3, r7
 nand flags, r1, 50849
-store [2380], r8
+store [4380], r8
 cmp r7, r10
-store [2380], r11
+store [4380], r11
 xor sp, zr, r8
 jmp label_119
 jmp label_120
@@ -446,7 +446,7 @@ and flags, r2, r10
 label_124:
 and r2, r13, 29459
 lsl r5, r10, r1
-store [2380], flags
+store [4380], flags
 or r2, r2, 30188
 pstore [494], r8
 pstore [494], r3
@@ -462,7 +462,7 @@ or r4, r12, 28742
 jmp label_142
 or r7, r1, r1
 label_142:
-store [2380], r5
+store [4380], r5
 xor r1, zr, r1
 nor r4, r11, 40902
 cmp r2, r10
@@ -492,8 +492,8 @@ nand r9, r11, r2
 label_170:
 label_169:
 lsr r10, r10, 34469
-store [2380], r4
-load r4, [2380]
+store [4380], r4
+load r4, [4380]
 jmp label_177
 and r1, r11, 32372
 label_177:
@@ -527,7 +527,7 @@ or r4, r2, r3
 label_201:
 pload r9, [4]
 nor flags, r7, r8
-store [2380], zr
+store [4380], zr
 cmp r5, r12
 je label_208
 sub r5, zr, 32581
@@ -583,11 +583,11 @@ label_256:
 jmp label_259
 sub r10, r13, r4
 label_259:
-store [2380], r5
+store [4380], r5
 nand r6, r5, r5
 cmp r11, r1
 add flags, r5, r5
-store [2380], r12
+store [4380], r12
 nand r12, r4, r6
 lsr r8, r11, r3
 cmp r5, r3
@@ -598,7 +598,7 @@ label_271:
 add zr, zr, r11
 nor r11, r6, r8
 lsr sp, r13, r6
-load r11, [2380]
+load r11, [4380]
 jmp label_278
 nor r12, r11, r5
 label_278:
@@ -606,8 +606,8 @@ lsl flags, sp, r11
 jmp label_282
 and r8, r2, sp
 label_282:
-store [2380], flags
-store [2380], r7
+store [4380], flags
+store [4380], r7
 pstore [494], zr
 pstore [494], r9
 sub zr, r12, zr
@@ -648,7 +648,7 @@ lsl r5, r5, 17877
 and r1, r9, r9
 lsr r1, flags, r12
 sub r5, r5, r6
-load flags, [2380]
+load flags, [4380]
 jb label_324
 pload r11, [4]
 label_324:
@@ -679,7 +679,7 @@ nor r13, r13, r9
 label_349:
 pstore [494], r5
 xor r3, r9, 61316
-store [2380], zr
+store [4380], zr
 add r7, r7, r7
 add zr, r2, r4
 jmp label_357
@@ -711,8 +711,8 @@ lsl r11, sp, 18841
 or r8, r13, 60570
 nand r2, r1, 50706
 or r12, r11, 53871
-store [2380], flags
-load r4, [2380]
+store [4380], flags
+load r4, [4380]
 ja label_384
 and r10, r8, 37364
 label_384:
@@ -736,7 +736,7 @@ or r7, r4, 8414
 lsl r5, flags, r3
 sub r2, r7, 11076
 pstore [494], r10
-store [2380], r3
+store [4380], r3
 xor r13, r7, r13
 lsl r8, r11, r7
 nor flags, r6, r10
@@ -786,7 +786,7 @@ jl label_445
 lsr flags, r5, 18745
 label_445:
 and r10, r12, 20897
-store [2380], r7
+store [4380], r7
 jmp label_450
 or r2, r6, 15260
 label_450:
@@ -802,7 +802,7 @@ lsl r2, sp, 31982
 pstore [4], r10
 sub r1, r4, 34078
 sub r9, zr, 35708
-store [2380], zr
+store [4380], zr
 or r1, r9, 5287
 jmp label_467
 pstore [4], r3
@@ -813,20 +813,20 @@ and r3, r12, r6
 label_471:
 and r10, r10, 41093
 add r8, r7, 4628
-store [2380], zr
+store [4380], zr
 or r10, r9, sp
-store [2380], r12
+store [4380], r12
 nand r10, r11, r13
 and r1, r1, 64108
 and r3, r9, r8
 lsl r8, zr, r3
-load r5, [2380]
+load r5, [4380]
 nand r5, r13, r11
 add r13, r9, 25955
 xor r7, r2, r12
 nand r12, r1, 46834
 nor r7, flags, r7
-store [2380], sp
+store [4380], sp
 jne label_490
 or r1, zr, 0
 or r2, zr, 1
@@ -870,10 +870,10 @@ and r5, r10, r12
 lsl zr, r2, r9
 xor r4, r6, r5
 jmp label_528
-load r6, [2380]
+load r6, [4380]
 label_528:
 jmp label_531
-store [2380], r9
+store [4380], r9
 label_531:
 and r5, r5, 46385
 xor r11, r10, 24027
@@ -947,8 +947,8 @@ cmp r3, sp
 pstore [494], r1
 lsl r5, r1, r11
 nor r7, r11, r11
-load r10, [2380]
-store [2380], r5
+load r10, [4380]
+store [4380], r5
 cmp r6, r2
 cmp r5, r1
 and r8, r3, 45381
@@ -970,7 +970,7 @@ cmp r12, sp
 xor r3, r11, 24088
 pstore [4], sp
 sub r11, r8, 40826
-store [2380], sp
+store [4380], sp
 nor zr, r12, r8
 jmp label_627
 lsl r3, r12, r9
@@ -978,7 +978,7 @@ label_627:
 add r7, r6, r6
 cmp r1, r4
 or r9, r10, 57933
-load r10, [2380]
+load r10, [4380]
 jmp label_634
 jmp label_635
 xor r2, r7, r6
@@ -988,7 +988,7 @@ or r4, r8, zr
 nand r4, sp, sp
 pload zr, [494]
 nand r7, r11, r8
-store [2380], r1
+store [4380], r1
 jmp label_644
 add r1, zr, r13
 label_644:
@@ -1016,11 +1016,11 @@ pstore [4], r5
 pstore [4], r6
 cmp r9, r9
 lsr flags, r6, 54235
-store [2380], r8
+store [4380], r8
 or r11, sp, r5
 nand r9, r6, r7
 nor r5, flags, 50563
-store [2380], r10
+store [4380], r10
 lsl r1, r9, r12
 nor r1, r3, 12398
 lsl r11, r4, 18375
@@ -1037,7 +1037,7 @@ jmp label_680
 nand r1, zr, 32487
 label_680:
 jmp label_683
-store [2380], sp
+store [4380], sp
 label_683:
 and zr, r3, r2
 pload r2, [494]
@@ -1053,7 +1053,7 @@ sub r1, r8, sp
 lsr r8, r4, r10
 pstore [4], r7
 sub r3, r13, 54910
-store [2380], r4
+store [4380], r4
 lsr sp, sp, 20128
 cmp r2, r12
 add r6, r7, 9341
@@ -1086,7 +1086,7 @@ cmp r7, r4
 pload r9, [4]
 nor r9, r2, 48440
 lsr r11, r13, r10
-store [2380], r2
+store [4380], r2
 or r6, r10, 23820
 jmp label_731
 jl label_732
@@ -1107,9 +1107,9 @@ nand r6, r11, 40675
 pstore [4], r5
 or r4, r3, r6
 xor flags, zr, 41497
-store [2380], r12
+store [4380], r12
 nand r13, r11, r6
-store [2380], r5
+store [4380], r5
 cmp zr, r10
 nor r9, r4, 36204
 pload r13, [4]
@@ -1131,7 +1131,7 @@ nor r4, r6, 39265
 pstore [4], r13
 nand r8, r2, 23125
 and r1, r12, r7
-load r13, [2380]
+load r13, [4380]
 pstore [494], r11
 add r4, zr, r7
 xor r3, r3, 56773
@@ -1144,7 +1144,7 @@ pstore [4], r4
 lsl r12, r13, 56157
 nor r10, r1, r4
 add r4, r7, 30701
-store [2380], r8
+store [4380], r8
 jl label_788
 lsr r7, r10, r4
 label_788:
@@ -1176,7 +1176,7 @@ label_805:
 lsl r12, r9, 35712
 nand r13, zr, r8
 and r9, r3, 9830
-store [2380], r4
+store [4380], r4
 sub r3, r1, r7
 lsl r7, flags, sp
 add r3, r3, 18775
@@ -1199,8 +1199,8 @@ label_828:
 and flags, r4, 8746
 or flags, r6, r12
 add r2, r6, sp
-store [2380], flags
-store [2380], flags
+store [4380], flags
+store [4380], flags
 add r7, r12, 42272
 or r1, zr, 0
 or r2, zr, 1
@@ -1315,14 +1315,14 @@ cmp r1, r2
 label_924:
 nand r1, zr, r1
 jbe label_924
-store [2380], sp
+store [4380], sp
 pstore [4], r2
 or r7, r11, r10
 jmp label_929
 and r11, r5, 44058
 label_929:
-store [2380], r11
-store [2380], r7
+store [4380], r11
+store [4380], r7
 pload r2, [494]
 cmp r3, r7
 jmp label_936
@@ -1364,7 +1364,7 @@ pstore [494], zr
 label_966:
 and r5, r4, r10
 or r11, r8, 4082
-store [2380], r7
+store [4380], r7
 lsr r10, r12, 817
 xor r2, r12, 58423
 nor r7, r13, r2
@@ -1392,7 +1392,7 @@ nor sp, r5, r12
 xor sp, r11, 65262
 and r13, r2, 21449
 and r9, sp, r12
-load r4, [2380]
+load r4, [4380]
 or r1, zr, 0
 or r2, zr, 1
 cmp r1, r2

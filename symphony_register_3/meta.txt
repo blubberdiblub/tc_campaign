@@ -3,10 +3,9 @@ title = "Superscalar register"
 size = [-48, -48, 49, 33]
 background = 6
 save_solution_as_custom = "Symphony/Allegro/super_reg"
-copy_solution_to_level = ["symphony_register_4"]
-input_labels = [["Load A 0"], ["Load A 1"], ["Store A"], ["Store A value"], ["Load B 0"], ["Load B 1"], ["Store B"], ["Store B value"]]
+//copy_solution_to_level = ["symphony_register_4"]
+input_labels = [["Load A 0"], ["Load A 1"], ["Store A"], ["Store A value"], ["Load B 0"], ["Load B 1"], ["Store B"], ["Store B value"], ["Register"]]
 output_labels = ["Load A 0", "Load A 1", "Load B 0", "Load B 1"]
-add_components = [com_probe_memory_word: -1]
 dialogue = [
     (alien_center, `Build a register with 4 loads and 2 stores. When both stores are enabled, the second value overwrites the first one.`),
 ]

@@ -453,7 +453,6 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
     let stall = timer(instruction_0 >> 30 == OP_JMP, $scratch_space, STALL_COUNT)
 
-    print(`{tick}, {stall} {scratch_space[COUNTER_0]}`)
 
     if stall {
 

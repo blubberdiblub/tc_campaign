@@ -154,7 +154,7 @@ Compares %a and %b and store the resulting flags in r6.
 
 
 jmp %a(register)
-10001000 00000000 0000aaaa 00000000
+10001000 00001111 0000aaaa 00000000
 Jump to %a
 
 

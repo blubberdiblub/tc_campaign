@@ -3,12 +3,6 @@ const MEMORY = 0
 
 def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
-    var i = 0
-    while i < 16 {
-        scratch_space[MEMORY + i] = scratch_space[MEMORY + i]
-        i += 1
-    }
-
     let store_register = random(16)
     let value = random(0xffff + 1)
 

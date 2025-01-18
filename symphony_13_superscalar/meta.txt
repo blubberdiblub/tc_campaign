@@ -14,7 +14,7 @@ As I mentioned before, superscalar means we are executing more than one instruct
 1. Make the assembler 64 bit and split the output into two instructions
 2. Add the data hazard component. When it is [ON] (and the JUMP timer is [OFF]) we can execute the second instruction
 3. Place the updated counter
-4. Place the updated registers
+4. Place the updated register file
 5. Add a second ALU and wire everything together for the second pipeline
 `)]
 default_isa_spec = `

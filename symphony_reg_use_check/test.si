@@ -207,14 +207,22 @@ def get_reg_name(register: Int) String {
         3 { return `r3` }
         4 { return `r4` }
         5 { return `r5` }
-        6 { return `sp` }
-        7 { return `flags` }
+        6 { return `r6` }
+        7 { return `r7` }
+        8 { return `r8` }
+        9 { return `r9` }
+        10 { return `r10` }
+        11 { return `r11` }
+        12 { return `r12` }
+        13 { return `r13` }
+        14 { return `sp` }
+        15 { return `flags` }
     
 }
 
 def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
-    let register = random(8)
+    let register = random(16)
 
     set_custom_input_text(get_reg_name(register))
 

@@ -173,6 +173,7 @@ def instruction_to_str(instruction: Int) String {
 
 
 }
+
 def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int {
     
     let mode            = (instruction >> 30)

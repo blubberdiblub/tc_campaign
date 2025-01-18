@@ -187,26 +187,15 @@ def flag_result(a: Int, b: Int) Int {
 
 }
 
-def check_io(instruction: Int) Bool {
-
-    let immediate       = ((instruction >> 28) & 1) == 1
-    let dest            = ((instruction >> 20) & 0b1111) == 0b111
-    let a               = ((instruction >> 16) & 0b1111) == 0b111
-    let b_value         = ((instruction >>  8) & 0b111) == 0b111
-    let b               = immediate ? false : b_value
-
-    return dest || a || b
-
-}
 
 def hazard_data(instruction_0: Int, instruction_1: Int) Bool {
 
     let mode_a        = (instruction_0 >> 30)
-    let dest_a        = (instruction_0 >> 20) & 0b111
+    let dest_a        = (instruction_0 >> 20) & 0b1111
 
     let mode_b        = (instruction_1 >> 30)
-    let a             = (instruction_1 >> 16) & 0b111
-    let b             = (instruction_1 >> 8) & 0b111
+    let a             = (instruction_1 >> 16) & 0b1111
+    let b             = (instruction_1 >> 8) & 0b1111
     let immediate     = (instruction_1 >> 28) & 1 != 0
 
     if mode_a == OP_JMP {
@@ -437,6 +426,18 @@ def val_str(input: Int) String {
 
 }
 
+def on_reset($scratch_space: [Int], test: Int) {
+
+    var addr = 0
+    while addr < 0xfffe {
+
+        scratch_space[RAM + addr] = get_ram_value(addr)
+        addr += 1
+
+    }
+
+}
+
 def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
     let result = random(0xff)
@@ -637,7 +638,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
             if dest != get_level_memory("DEST") {
 
-                set_error(`The "DEST A" delay line should contain value {dest}, not {val_str(get_level_memory("DEST"))}`)
+                set_error(`The "DEST" delay line should contain value {dest}, not {val_str(get_level_memory("DEST"))}`)
                 return fail
 
             }
@@ -682,7 +683,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
             if dest != get_level_memory("DEST 2") {
 
-                set_error(`The "DEST B" delay line should contain value {dest}, not {val_str(get_level_memory("DEST 2"))}`)
+                set_error(`The "DEST 2" delay line should contain value {dest}, not {val_str(get_level_memory("DEST 2"))}`)
                 return fail
 
             }

@@ -12,9 +12,7 @@ const CONSOLE = KEYBOARD + 1
 
 const REGS = CONSOLE + 1
 
-const RESET_REGS = REGS + 16
-
-const COUNTER_3 = RESET_REGS + 16
+const COUNTER_3 = REGS + 16
 const COUNTER_2 = COUNTER_3 + 1
 const COUNTER_1 = COUNTER_2 + 1
 const COUNTER_0 = COUNTER_1 + 1
@@ -190,26 +188,15 @@ def flag_result(a: Int, b: Int) Int {
 
 }
 
-def check_io(instruction: Int) Bool {
-
-    let immediate       = ((instruction >> 28) & 1) == 1
-    let dest            = ((instruction >> 20) & 0b1111) == 0b111
-    let a               = ((instruction >> 16) & 0b1111) == 0b111
-    let b_value         = ((instruction >>  8) & 0b111) == 0b111
-    let b               = immediate ? false : b_value
-
-    return dest || a || b
-
-}
 
 def hazard_data(instruction_0: Int, instruction_1: Int) Bool {
 
     let mode_a        = (instruction_0 >> 30)
-    let dest_a        = (instruction_0 >> 20) & 0b111
+    let dest_a        = (instruction_0 >> 20) & 0b1111
 
     let mode_b        = (instruction_1 >> 30)
-    let a             = (instruction_1 >> 16) & 0b111
-    let b             = (instruction_1 >> 8) & 0b111
+    let a             = (instruction_1 >> 16) & 0b1111
+    let b             = (instruction_1 >> 8) & 0b1111
     let immediate     = (instruction_1 >> 28) & 1 != 0
 
     if mode_a == OP_JMP {
@@ -327,7 +314,7 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
                 }
                 IO_COUNTER {
 
-                    scratch_space[REGS + dest] = scratch_space[COUNTER_0] - 4
+                    scratch_space[REGS + dest] = scratch_space[COUNTER_3]
 
                 }
 
@@ -437,6 +424,18 @@ def val_str(input: Int) String {
     if input == Z_STATE { return "Z" }
 
     return str(input)
+
+}
+
+def on_reset($scratch_space: [Int], test: Int) {
+
+    var addr = 0
+    while addr < 0xfffe {
+
+        scratch_space[RAM + addr] = get_ram_value(addr)
+        addr += 1
+
+    }
 
 }
 
@@ -593,23 +592,6 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
     {
 
-        const IO = REGS + 7
-        let dest = (scratch_space[INSTRUCTION_A_2] >> 20) & 0b111
-
-        if dest == IO {
-
-            if outputs[2] & 1 != 1 {
-                set_error(`Output should be enabled`)
-                return fail
-            }
-
-            if outputs[1] != scratch_space[IO] {
-                set_error(`Output should be {scratch_space[IO]}`)
-                return fail
-            }
-
-        }
-
         if scratch_space[INSTRUCTION_A_0] != get_level_memory("INSTR") {
 
 
@@ -676,7 +658,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
             if dest != get_level_memory("DEST") {
 
-                set_error(`The "DEST" delay line should contain value {dest}, not {val_str(get_level_memory("DEST_A"))}`)
+                set_error(`The "DEST" delay line should contain value {dest}, not {val_str(get_level_memory("DEST"))}`)
                 return fail
 
             }
@@ -714,7 +696,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
             if dest != get_level_memory("DEST 2") {
 
-                set_error(`The "DEST B" delay line should contain value {dest}, not {val_str(get_level_memory("DEST 2"))}`)
+                set_error(`The "DEST 2" delay line should contain value {dest}, not {val_str(get_level_memory("DEST 2"))}`)
                 return fail
 
             }

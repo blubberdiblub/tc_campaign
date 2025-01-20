@@ -9,5 +9,7 @@ background = 4
 dialogue = [
   (info, `The input decides which output should be turned [ON]. So if the input is 7, send [ON] to the 7th output and [OFF] to all the others.
 
-Also, you may not use any of the decoders you built before.`),
+Also, you may not use any of the decoders you built before.
+
+Use this [color=#e63e5b][url=one_hot]hint[/url][/color] if you get stuck.`),
 ]

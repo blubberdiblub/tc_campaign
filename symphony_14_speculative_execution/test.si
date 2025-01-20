@@ -433,6 +433,7 @@ def on_reset($scratch_space: [Int], test: Int) {
     while addr < 0xfffe {
 
         scratch_space[RAM + addr] = get_ram_value(addr)
+        scratch_space[SSD + addr] = get_ssd_value(addr)
         addr += 1
 
     }

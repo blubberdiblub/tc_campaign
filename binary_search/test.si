@@ -3,16 +3,26 @@
 const MIN = 0
 const MAX = 1
 const OVER = 2
+const PASSCODE = 3
+
+const ADVERSARIAL_TESTS = 10
 
 def on_reset($scratch_space: [Int], test: Int) {
     scratch_space[MAX] = 255 // Inclusive
+
+    if test >= ADVERSARIAL_TESTS {
+        // XORSHIFT scrambling to make it slightly harder for someone who finds a way to keep state between tests
+        scratch_space[PASSCODE] = test                    ^ (test                    << 2) & 0xff
+        scratch_space[PASSCODE] = scratch_space[PASSCODE] ^ (scratch_space[PASSCODE] >> 1)
+        scratch_space[PASSCODE] = scratch_space[PASSCODE] ^ (scratch_space[PASSCODE] << 1) & 0xff
+    }
 }
 
 def arch_get_input($scratch_space: [Int], test: Int) Int {
     return scratch_space[OVER]
 }
 
-def arch_check_output($scratch_space: [Int], test: Int, input: Int, output: Int) TestResult {
+def adversarial($scratch_space: [Int], output: Int) TestResult {
 
     if (scratch_space[MIN] == scratch_space[MAX]) && (scratch_space[MIN] == output) {
 
@@ -59,6 +69,26 @@ def arch_check_output($scratch_space: [Int], test: Int, input: Int, output: Int)
         scratch_space[OVER] = 0
 
     }
+
+    return pass
+
+}
+
+def arch_check_output($scratch_space: [Int], test: Int, input: Int, output: Int) TestResult {
+
+    if test < ADVERSARIAL_TESTS {
+
+        return adversarial($scratch_space, output)
+
+    }
+
+    if output == scratch_space[PASSCODE] {
+
+        return win
+
+    }
+
+    scratch_space[OVER] = <Int> (output > scratch_space[PASSCODE])
 
     return pass
 

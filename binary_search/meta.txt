@@ -1,6 +1,6 @@
 kind = architecture
 title = "Storage cracker"
-tests = 256
+tests = 266
 size = [-256, -256, 255, 255]
 dialogue = [
   (alien_centered, `The security access door to the storage room is broken and it keeps locking our old janitor inside.

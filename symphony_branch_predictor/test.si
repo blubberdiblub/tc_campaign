@@ -65,25 +65,26 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
                 }
                 IO_TIME_0 {
 
-                    scratch_space[REGS + dest] = get_last_time() & 0xffff
+                    scratch_space[TIMER_SNAPSHOT] = get_last_time()
+
+                    scratch_space[REGS + dest] = scratch_space[TIMER_SNAPSHOT] & 0xffff
 
                 }
                 IO_TIME_1 {
 
-                    scratch_space[REGS + dest] = (get_last_time() >> 16) & 0xffff
+                    scratch_space[REGS + dest] = (scratch_space[TIMER_SNAPSHOT] >> 16) & 0xffff
 
                 }
                 IO_TIME_2 {
 
-                    scratch_space[REGS + dest] = (get_last_time() >> 32) & 0xffff
+                    scratch_space[REGS + dest] = (scratch_space[TIMER_SNAPSHOT] >> 32) & 0xffff
 
                 }
                 IO_TIME_3 {
 
-                    scratch_space[REGS + dest] = (get_last_time() >> 48) & 0xffff
+                    scratch_space[REGS + dest] = (scratch_space[TIMER_SNAPSHOT] >> 48) & 0xffff
 
-                }
-                IO_CONSOLE {
+                }                IO_CONSOLE {
 
                     scratch_space[CONSOLE] = b_value
 

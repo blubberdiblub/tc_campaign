@@ -84,7 +84,8 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
 
                     scratch_space[REGS + dest] = (scratch_space[TIMER_SNAPSHOT] >> 48) & 0xffff
 
-                }                IO_CONSOLE {
+                }
+                IO_CONSOLE {
 
                     scratch_space[CONSOLE] = b_value
 

@@ -159,17 +159,17 @@ def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int 
             switch opcode
                 LOAD {
 
-                    var value = scratch_space[RAM + b_value] << 8 + scratch_space[RAM + b_value + 1]
-
+                    var value = scratch_space[RAM + b_value]
                     scratch_space[REGS + dest] = value
 
                 }
+
                 STORE {
 
-                    scratch_space[RAM + b_value + 1] = a_value & 0xff
-                    scratch_space[RAM + b_value + 0] = a_value >> 8
+                    scratch_space[RAM + b_value] = a_value & 0xff
 
                 }
+
 
         }
 

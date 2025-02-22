@@ -1,6 +1,0 @@
-[text id="description_0" text="Stage 1:" align=right size=24 x=-10 y=50]
-[text id="description_1" text="Stage 2:" align=right size=24 x=-10 y=90]
-[text id="description_2" text="Stage 3:" align=right size=24 x=-10 y=130]
-[text id="instruction_0" text="nop (does nothing)" align=left size=24 y=50]
-[text id="instruction_1" text="nop (does nothing)" align=left size=24 y=90]
-[text id="instruction_2" text="nop (does nothing)" align=left size=24 y=130]

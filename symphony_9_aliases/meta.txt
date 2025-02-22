@@ -262,7 +262,11 @@ Does nothing
 default_assembly = `
 in r1
 mov r2, r1
-neg r2, r2
-not r2, r2
+neg r3, r2
+not r4, r2
+store16 r5, r3
+load16 r6, r5
+pstore16 r5, r3
+pload16 r6, r5
 
 `

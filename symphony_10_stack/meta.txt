@@ -22,10 +22,10 @@ post_mortem = [
 
 "push" is a synonym for:
 [code]sub sp, sp, 2
-store [sp], %a[/code]
+store [sp], %value[/code]
 
 "pop" is a synonym for:
-[code]load %a, [sp]
+[code]load %destination, [sp]
 add sp, sp, 2[/code]
 
 You may notice that "push" subtracts from "sp" so that the stack grows downwards from the high addresses. This leaves the low addresses for you to use as you see fit.

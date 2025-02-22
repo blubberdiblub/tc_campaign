@@ -36,7 +36,7 @@ Most instructions take 2 arguments and produce 1 result (like ADD, OR etc).
 `),
   (info, `Do the following to complete this level:
     
-[b]1.[/b] Place a ROM and set the output width it to 32 bit. Click on it and set the byte size to 65536.
+[b]1.[/b] Place a RAM and set the output width it to 32 bit. Click on it and set the byte size to 65536.
 [b]2.[/b] Add 7 registers, using the custom component build in an earlier level
 [b]3.[/b] Click "Edit link components" on the program component and connect the 7 registers. (do not connect the zr register)
 `),

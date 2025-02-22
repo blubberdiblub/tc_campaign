@@ -311,13 +311,6 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     
     }
 
-    if !has_dual_load_ram() {
-
-        set_error(`Add a dual load RAM.`)
-        return fail
-
-    }
-
     if get_ram_count() > 1 {
 
         set_error(`Use only one RAM component.`)

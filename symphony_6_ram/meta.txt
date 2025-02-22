@@ -5,10 +5,10 @@ immutable_program = true
 immutable_spec = true
 no_score = true
 copy_solution_to_level = ["symphony_7_ssd"]
-unlocks_components = [com_ram_dual_load]
-add_components = [com_ram_dual_load: -1]
+unlocks_components = [com_ram_fast, com_pin_load, com_pin_store]
+add_components = [com_ram_fast: -1, com_pin_load: -1, com_pin_store: -1]
 dialogue = [
-    (info, `Replace the assembler ROM with a dual load RAM component. The dual load RAM has more pins than the ROM, which will allow us to add instructions that can read and write to the same memory that our assembly is stored in.
+    (info, `Replace the assembler RAM with a fast RAM component and an extra load and store pin to it. These can be found in the component menu as seperate components. Having two read pins and a write pin, will allow us to add instructions that can read and write to the same memory that our assembly is stored in.
 
 The top input will be for a new memory reading capability, so set it's width to 16. Set the width of the second pin to 32, since this will be used to read our instructions.`)
     (info, `Once again, these are the [color=#ff9800]Modes[/color] of [color=#e49f44]Symphony[/color]:

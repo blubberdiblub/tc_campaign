@@ -335,6 +335,16 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
     }
 
+    {
+        var reg = 0
+        while reg < 16 {
+            print(`{reg} {get_register_value(reg)}`)
+            reg += 1
+        }
+
+
+    }
+
     var reg = 1
     while reg < 16 {
 

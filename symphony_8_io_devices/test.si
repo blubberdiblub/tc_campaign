@@ -473,13 +473,6 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
         }
 
-        if get_ram_width_2() != 32 {
-
-            set_error(`Set the secondary RAM width to 32.`)
-            return fail
-
-        }
-
         var addr = 0
         while addr < 0xfffe {
 

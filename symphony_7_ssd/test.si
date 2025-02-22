@@ -332,13 +332,6 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
     }
 
-    if get_ram_width_2() != 32 {
-
-        set_error(`Set the secondary RAM width to 32.`)
-        return fail
-
-    }
-
     if get_ssd_width() != 16 {
 
         set_error(`Set the SSD width to 16.`)

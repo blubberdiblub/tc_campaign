@@ -3,3 +3,4402 @@ arch_input_word_size = 16
 background = 6
 title = "The Sandbox"
 size = [-256, -256, 255, 255]
+tests = 1
+immutable_spec = true
+default_isa_spec = `
+
+[settings]
+name = "Small"
+variant = "vanilla"
+endianness = big
+
+
+[fields]
+
+lower8
+A 00
+a 00
+B 01
+b 01
+"[HL]" 10
+"[hl]" 10
+"[HL].b" 10
+"[hl].b" 10
+X 10
+x 10
+"[HL+1]" 11
+"[hl+1]" 11
+"[HL+1].b" 11
+"[hl+1].b" 11
+Y 11
+y 11
+
+upper8
+C 00
+c 00
+D 01
+d 01
+H 10
+h 10
+L 11
+l 11
+
+reg16
+AB 00
+ab 00
+"[HL]" 01
+"[hl]" 01
+"[HL].w" 01
+"[hl].w" 01
+XY 01
+xy 01
+CD 10
+cd 10
+HL 11
+hl 11
+
+nibdst
+"[HL]" 0
+"[hl]" 0
+"[HL].b" 0
+"[hl].b" 0
+X 0
+x 0
+D 1
+d 1
+
+extradst
+H 0
+h 0
+L 1
+l 1
+
+extrasrc
+A 0
+a 0
+B 1
+b 1
+
+countreg16
+CD 01
+cd 01
+
+countreg8
+C 10
+c 10
+D 11
+d 11
+
+jmpdst
+"[HL]" 111111111111111111111111111111111111111111111111111111111111111
+"[hl]" 111111111111111111111111111111111111111111111111111111111111111
+"[HL].w" 111111111111111111111111111111111111111111111111111111111111111
+"[hl].w" 111111111111111111111111111111111111111111111111111111111111111
+XY 111111111111111111111111111111111111111111111111111111111111111
+xy 111111111111111111111111111111111111111111111111111111111111111
+
+addrreg
+HL 111111111111111111111111111111111111111111111111111111111111111
+hl 111111111111111111111111111111111111111111111111111111111111111
+
+statusreg
+SR 111111111111111111111111111111111111111111111111111111111111111
+sr 111111111111111111111111111111111111111111111111111111111111111
+
+iocfg
+IO 111111111111111111111111111111111111111111111111111111111111111
+io 111111111111111111111111111111111111111111111111111111111111111
+
+ioreg
+AB 0
+ab 0
+"[HL]" 1
+"[hl]" 1
+"[HL].w" 1
+"[hl].w" 1
+XY 1
+xy 1
+
+cond
+EQ 000
+eq 000
+NE 001
+ne 001
+GE 010
+ge 010
+LT 011
+lt 011
+HS 100
+hs 100
+LO 101
+lo 101
+CC 100
+cc 100
+CS 101
+cs 101
+
+
+[instructions]
+
+NOP
+00000000
+
+nop
+00000000
+
+HLT
+00011111 00000000
+
+hlt
+00011111 00000000
+
+BRA #%displacement:S5(immediate)
+00 0d dddd
+
+bra #%displacement:S5(immediate)
+00 0d dddd
+
+BRA %address(immediate | label)
+%displacement:S5 = %address - ($ + 1)
+00 0d dddd
+
+bra %address(immediate | label)
+%displacement:S5 = %address - ($ + 1)
+00 0d dddd
+
+LET %dst(nibdst), #%imm(immediate)
+00 1%dst[0:0] iiii 00 1%dst[0:0] iiii
+
+let %dst(nibdst), #%imm(immediate)
+00 1%dst[0:0] iiii 00 1%dst[0:0] iiii
+
+NIB %dst(nibdst), #%imm:U4(immediate)
+00 1d iiii
+
+nib %dst(nibdst), #%imm:U4(immediate)
+00 1d iiii
+
+SBZ %dst(lower8)
+%src = %dst
+01 00 dd ss
+
+sbz %dst(lower8)
+%src = %dst
+01 00 dd ss
+
+SBB %dst(lower8), %src(lower8)
+01 00 dd ss
+
+sbb %dst(lower8), %src(lower8)
+01 00 dd ss
+
+CPB %match(upper8), %src(lower8)
+!assert %match ^ 2 == %src "register combination not supported - compare C with X, D with Y, H with A or L with B"
+%dst = %src
+01 01 dd ss
+
+cpb %match(upper8), %src(lower8)
+!assert %match ^ 2 == %src "register combination not supported - compare C with X, D with Y, H with A or L with B"
+%dst = %src
+01 01 dd ss
+
+CPB %dst(lower8), %src(lower8)
+!assert asr(0 - (%dst ^ %src), 63) == -1 "must not compare a register to itself - use TST instead"
+01 01 dd ss
+
+cpb %dst(lower8), %src(lower8)
+!assert asr(0 - (%dst ^ %src), 63) == -1 "must not compare a register to itself - use TST instead"
+01 01 dd ss
+
+SHL %dst(lower8)
+%src = %dst
+01 10 dd ss
+
+shl %dst(lower8)
+%src = %dst
+01 10 dd ss
+
+ADC %dst(lower8), %src(lower8)
+01 10 dd ss
+
+adc %dst(lower8), %src(lower8)
+01 10 dd ss
+
+SHR %dst(lower8)
+%src = %dst
+01 11 dd ss
+
+shr %dst(lower8)
+%src = %dst
+01 11 dd ss
+
+AND %dst(lower8), %src(lower8)
+!assert asr(0 - (%dst ^ %src), 63) == -1 "must not AND a register with itself - use TST instead"
+01 11 dd ss
+
+and %dst(lower8), %src(lower8)
+!assert asr(0 - (%dst ^ %src), 63) == -1 "must not AND a register with itself - use TST instead"
+01 11 dd ss
+
+NOT %dst(lower8)
+%src = %dst
+10 00 dd ss
+
+not %dst(lower8)
+%src = %dst
+10 00 dd ss
+
+OR %dst(lower8), %src(lower8)
+!assert asr(0 - (%dst ^ %src), 63) == -1 "must not OR a register with itself - use TST instead"
+10 00 dd ss
+
+or %dst(lower8), %src(lower8)
+!assert asr(0 - (%dst ^ %src), 63) == -1 "must not OR a register with itself - use TST instead"
+10 00 dd ss
+
+CLR %dst(lower8)
+%src = %dst
+10 01 dd ss
+
+clr %dst(lower8)
+%src = %dst
+10 01 dd ss
+
+XOR %dst(lower8), %src(lower8)
+10 01 dd ss
+
+xor %dst(lower8), %src(lower8)
+10 01 dd ss
+
+TST %dst(reg16)
+%src = %dst
+10 10 dd ss
+
+tst %dst(reg16)
+%src = %dst
+10 10 dd ss
+
+ADC %match(extradst), %src(extrasrc)
+!assert %match == %src "register combination not supported - use H with A or L with B"
+10 10 01 1s
+
+adc %match(extradst), %src(extrasrc)
+!assert %match == %src "register combination not supported - use H with A or L with B"
+10 10 01 1s
+
+SBB %match(extradst), %src(extrasrc)
+!assert %match == %src "register combination not supported - use H with A or L with B"
+%dst = %src ^ 1
+10 10 1d 1s
+
+sbb %match(extradst), %src(extrasrc)
+!assert %match == %src "register combination not supported - use H with A or L with B"
+%dst = %src ^ 1
+10 10 1d 1s
+
+LET %dst(reg16), %src(reg16)
+!assert asr(0 - (%dst ^ %src), 63) == -1 "use a TST instruction, which doesn't affect the carry flag"
+!assert (asr(%dst - 1, 63) | (%src ^ 2)) & 2 == 2 "register combination not supported - use AB or PUSH & POP instead"
+10 10 dd ss
+
+let %dst(reg16), %src(reg16)
+!assert asr(0 - (%dst ^ %src), 63) == -1 "use a TST instruction, which doesn't affect the carry flag"
+!assert (asr(%dst - 1, 63) | (%src ^ 2)) & 2 == 2 "register combination not supported - use AB or PUSH & POP instead"
+10 10 dd ss
+
+TST %dst(lower8)
+%src = %dst
+10 11 dd ss
+
+tst %dst(lower8)
+%src = %dst
+10 11 dd ss
+
+LET %dst(lower8), %src(lower8)
+!assert asr(0 - (%dst ^ %src), 63) == -1 "use a TST instruction, which doesn't affect the carry flag"
+10 11 dd ss
+
+let %dst(lower8), %src(lower8)
+!assert asr(0 - (%dst ^ %src), 63) == -1 "use a TST instruction, which doesn't affect the carry flag"
+10 11 dd ss
+
+LET %match(countreg8), %src(lower8)
+!assert %match & 1 == %src & 1 "register combination not supported - use C with A or X and D with B or Y, respectively"
+11 00 00 ss
+
+let %match(countreg8), %src(lower8)
+!assert %match & 1 == %src & 1 "register combination not supported - use C with A or X and D with B or Y, respectively"
+11 00 00 ss
+
+LET %dst(lower8), %match(countreg8)
+!assert %dst & 1 == %match & 1 "register combination not supported - use A or X with C and B or Y with D, respectively"
+11 00 01 dd
+
+let %dst(lower8), %match(countreg8)
+!assert %dst & 1 == %match & 1 "register combination not supported - use A or X with C and B or Y with D, respectively"
+11 00 01 dd
+
+LET %dst(reg16), #%imm(immediate | label)
+11 00 10 dd iiiiiiii iiiiiiii
+
+let %dst(reg16), #%imm(immediate | label)
+11 00 10 dd iiiiiiii iiiiiiii
+
+JMP %imm(immediate | label)
+11 00 11 00 iiiiiiii iiiiiiii
+
+jmp %imm(immediate | label)
+11 00 11 00 iiiiiiii iiiiiiii
+
+JSR %imm(immediate | label)
+11 00 11 01 iiiiiiii iiiiiiii
+
+jsr %imm(immediate | label)
+11 00 11 01 iiiiiiii iiiiiiii
+
+JMP %match(jmpdst)
+11 00 11 10
+
+jmp %match(jmpdst)
+11 00 11 10
+
+JSR %match(jmpdst)
+11 00 11 11
+
+jsr %match(jmpdst)
+11 00 11 11
+
+SCO
+11 01 11 00
+
+sco
+11 01 11 00
+
+SCS
+11 01 11 01
+
+scs
+11 01 11 01
+
+CLC
+11 01 11 10
+
+clc
+11 01 11 10
+
+SEC
+11 01 11 11
+
+sec
+11 01 11 11
+
+SKIP %cond(cond)
+11 01 ccc 0
+
+skip %cond(cond)
+11 01 ccc 0
+
+SKIP3 %cond(cond)
+11 01 ccc 1
+
+skip3 %cond(cond)
+11 01 ccc 1
+
+B%cond(cond) %address(immediate | label)
+%flipped = %cond ^ 1
+%displacement:S5 = %address - ($ + 2)
+11 01 fff 0 000ddddd
+
+b%cond(cond) %address(immediate | label)
+%flipped = %cond ^ 1
+%displacement:S5 = %address - ($ + 2)
+11 01 fff 0 000ddddd
+
+J%cond(cond) %imm(immediate | label)
+%flipped = %cond ^ 1
+11 01 fff 1 11001100 iiiiiiii iiiiiiii
+
+j%cond(cond) %imm(immediate | label)
+%flipped = %cond ^ 1
+11 01 fff 1 11001100 iiiiiiii iiiiiiii
+
+J%cond(cond) %match(jmpdst)
+%flipped = %cond ^ 1
+11 01 fff 0 11001110
+
+j%cond(cond) %match(jmpdst)
+%flipped = %cond ^ 1
+11 01 fff 0 11001110
+
+INC %match(countreg16)
+11 10 00 00
+
+inc %match(countreg16)
+11 10 00 00
+
+DEC %dst(countreg16 | countreg8)
+11 10 00 dd
+
+dec %dst(countreg16 | countreg8)
+11 10 00 dd
+
+INC %match(addrreg)
+11 10 01 00
+
+inc %match(addrreg)
+11 10 01 00
+
+INCINC %match(addrreg)
+11 10 01 01
+
+incinc %match(addrreg)
+11 10 01 01
+
+DECDEC %match(addrreg)
+11 10 01 10
+
+decdec %match(addrreg)
+11 10 01 10
+
+DEC %match(addrreg)
+11 10 01 11
+
+dec %match(addrreg)
+11 10 01 11
+
+CFG %match(iocfg), #%imm(immediate)
+11 10 1 iii
+
+cfg %match(iocfg), #%imm(immediate)
+11 10 1 iii
+
+OUT %src(ioreg)
+11 11 00 0s
+
+out %src(ioreg)
+11 11 00 0s
+
+IN %dst(ioreg)
+11 11 00 1d
+
+in %dst(ioreg)
+11 11 00 1d
+
+PUSH %src(reg16)
+11 11 01 ss
+
+push %src(reg16)
+11 11 01 ss
+
+POP %dst(reg16)
+11 11 10 dd
+
+pop %dst(reg16)
+11 11 10 dd
+
+PUSH %match(statusreg)
+11 11 11 00
+
+push %match(statusreg)
+11 11 11 00
+
+POP %match(statusreg)
+11 11 11 01
+
+pop %match(statusreg)
+11 11 11 01
+
+STEX %match(addrreg)
+11 11 11 10
+
+stex %match(addrreg)
+11 11 11 10
+
+RTS
+11 11 11 11
+
+rts
+11 11 11 11
+
+
+`
+default_assembly = `
+; test a multitude of instructions
+NIB D, #10        ; 3a
+NIB X, #4         ; 24
+CPB Y, X          ; 5e
+LET HL, #0xb1c9   ; cb b1 c9
+TST X             ; ba
+DEC CD            ; e1
+NIB D, #14        ; 3e
+AND X, B          ; 79
+PUSH HL           ; f7
+AND Y, X          ; 7e
+NIB D, #11        ; 3b
+TST AB            ; a0
+XOR X, B          ; 99
+NOP               ; 00
+DEC C             ; e2
+STEX HL           ; fe
+XOR X, Y          ; 9b
+CFG IO, #7        ; ef
+LET XY, #0xbdb7   ; c9 bd b7
+TST CD            ; aa
+POP HL            ; fb
+TST AB            ; a0
+DECDEC HL         ; e6
+TST CD            ; aa
+OR Y, X           ; 8e
+LET XY, AB        ; a4
+LET CD, XY        ; a9
+XOR X, A          ; 98
+CPB B, X          ; 56
+LET Y, A          ; bc
+SKIP HS           ; d8
+SKIP3 CS          ; db
+SKIP CC           ; d8
+RTS               ; ff
+CLR X             ; 9a
+CLC               ; de
+PUSH CD           ; f6
+OUT AB            ; f0
+TST B             ; b5
+ADC Y, B          ; 6d
+AND A, X          ; 72
+ADC A, Y          ; 63
+STEX HL           ; fe
+NIB X, #2         ; 22
+SHR B             ; 75
+LET A, Y          ; b3
+SHR A             ; 70
+LET AB, #0xd475   ; c8 d4 75
+LET CD, AB        ; a8
+NIB X, #12        ; 2c
+INC HL            ; e4
+NOT B             ; 85
+SHL A             ; 60
+CPB A, B          ; 51
+SBB H, A          ; ae
+LET XY, #0x4a9a   ; c9 4a 9a
+LET CD, AB        ; a8
+POP AB            ; f8
+ADC A, B          ; 61
+LET AB, #0xab5e   ; c8 ab 5e
+NIB D, #2         ; 32
+NIB X, #4         ; 24
+SHR A             ; 70
+NIB D, #0         ; 30
+ADC X, Y          ; 6b
+SBB Y, X          ; 4e
+CFG IO, #0        ; e8
+SBB X, B          ; 49
+PUSH SR           ; fc
+LET X, Y          ; bb
+STEX HL           ; fe
+NIB X, #1         ; 21
+SBZ Y             ; 4f
+NIB X, #10        ; 2a
+NOT A             ; 80
+LET X, A          ; b8
+POP AB            ; f8
+CFG IO, #4        ; ec
+SHR A             ; 70
+CFG IO, #6        ; ee
+NOT X             ; 8a
+LET B, X          ; b6
+SHL Y             ; 6f
+CPB H, A          ; 50
+LET A, X          ; b2
+XOR B, Y          ; 97
+LET CD, XY        ; a9
+LET CD, #0x3c76   ; ca 3c 76
+LET X, C          ; c6
+XOR A, B          ; 91
+TST B             ; b5
+NIB D, #15        ; 3f
+CLR X             ; 9a
+ADC A, B          ; 61
+AND B, A          ; 74
+SHR X             ; 7a
+SBB A, B          ; 41
+SCS               ; dd
+DEC D             ; e3
+NIB D, #7         ; 37
+PUSH HL           ; f7
+NOT X             ; 8a
+SCO               ; dc
+LET XY, #0x2300   ; c9 23 00
+NIB D, #9         ; 39
+TST HL            ; af
+ADC X, A          ; 68
+OR A, B           ; 81
+XOR Y, X          ; 9e
+XOR B, A          ; 94
+XOR B, Y          ; 97
+NOT X             ; 8a
+CFG IO, #5        ; ed
+SBB X, B          ; 49
+AND B, Y          ; 77
+TST XY            ; a5
+XOR A, X          ; 92
+LET A, Y          ; b3
+LET X, B          ; b9
+LET C, A          ; c0
+STEX HL           ; fe
+SBB A, X          ; 42
+ADC A, B          ; 61
+LET B, Y          ; b7
+LET HL, AB        ; ac
+LET C, A          ; c0
+INCINC HL         ; e5
+CFG IO, #3        ; eb
+AND X, Y          ; 7b
+SEC               ; df
+OR A, B           ; 81
+XOR A, B          ; 91
+ADC X, B          ; 69
+LET B, X          ; b6
+POP XY            ; f9
+SHL Y             ; 6f
+NIB X, #0         ; 20
+PUSH CD           ; f6
+SKIP EQ           ; d0
+SKIP NE           ; d2
+CLR B             ; 95
+NIB D, #1         ; 31
+CFG IO, #6        ; ee
+NOT A             ; 80
+CFG IO, #7        ; ef
+SBZ Y             ; 4f
+CPB B, X          ; 56
+AND A, X          ; 72
+CPB B, Y          ; 57
+CPB A, Y          ; 53
+SBB Y, B          ; 4d
+AND B, A          ; 74
+OR B, X           ; 86
+AND Y, A          ; 7c
+AND A, X          ; 72
+STEX HL           ; fe
+ADC X, B          ; 69
+SBB X, B          ; 49
+NIB X, #9         ; 29
+SBB X, Y          ; 4b
+OR B, X           ; 86
+NOT X             ; 8a
+NIB D, #11        ; 3b
+AND Y, A          ; 7c
+NIB X, #4         ; 24
+ADC X, B          ; 69
+LET D, B          ; c1
+NIB D, #12        ; 3c
+LET X, A          ; b8
+CPB X, Y          ; 5b
+SKIP LO           ; da
+SKIP3 HS          ; d9
+SKIP CS           ; da
+RTS               ; ff
+CLR A             ; 90
+SBZ X             ; 4a
+TST HL            ; af
+POP XY            ; f9
+NIB X, #13        ; 2d
+AND B, Y          ; 77
+AND Y, X          ; 7e
+XOR A, B          ; 91
+XOR X, B          ; 99
+AND B, X          ; 76
+LET AB, HL        ; a3
+AND Y, A          ; 7c
+TST Y             ; bf
+SBB B, A          ; 44
+LET X, Y          ; bb
+ADC B, X          ; 66
+ADC X, Y          ; 6b
+TST Y             ; bf
+NIB D, #6         ; 36
+LET A, C          ; c4
+CLR B             ; 95
+CFG IO, #2        ; ea
+CLR B             ; 95
+ADC X, A          ; 68
+OR A, Y           ; 83
+AND B, Y          ; 77
+SBZ Y             ; 4f
+NIB D, #7         ; 37
+OR A, Y           ; 83
+LET HL, XY        ; ad
+TST B             ; b5
+SCS               ; dd
+SKIP GE           ; d4
+SKIP LT           ; d6
+CLR A             ; 90
+LET A, X          ; b2
+LET A, Y          ; b3
+LET X, A          ; b8
+SBB L, B          ; ab
+SBZ B             ; 45
+NIB D, #10        ; 3a
+NIB D, #3         ; 33
+CPB C, X          ; 5a
+LET CD, #0xcf     ; ca 00 cf
+CPB X, B          ; 59
+XOR A, B          ; 91
+SKIP GE           ; d4
+SKIP LT           ; d6
+CLR X             ; 9a
+SBB Y, X          ; 4e
+SHR B             ; 75
+SBB X, A          ; 48
+IN XY             ; f3
+CLC               ; de
+CPB L, B          ; 55
+AND B, Y          ; 77
+XOR Y, B          ; 9d
+LET X, Y          ; bb
+CPB D, Y          ; 5f
+AND X, A          ; 78
+NIB X, #14        ; 2e
+CLR A             ; 90
+ADC Y, B          ; 6d
+SBZ A             ; 40
+NIB X, #9         ; 29
+SHR A             ; 70
+CFG IO, #3        ; eb
+LET A, B          ; b1
+SBZ X             ; 4a
+OR X, A           ; 88
+LET AB, HL        ; a3
+CPB X, B          ; 59
+NIB X, #0         ; 20
+NOT A             ; 80
+CPB A, B          ; 51
+SKIP EQ           ; d0
+SKIP3 NE          ; d3
+SKIP EQ           ; d0
+RTS               ; ff
+CLR Y             ; 9f
+AND A, Y          ; 73
+NIB D, #4         ; 34
+DECDEC HL         ; e6
+NIB D, #7         ; 37
+NIB X, #6         ; 26
+SBB L, B          ; ab
+NIB X, #7         ; 27
+PUSH XY           ; f5
+NIB D, #2         ; 32
+ADC Y, X          ; 6e
+CPB L, B          ; 55
+NIB D, #15        ; 3f
+OR B, A           ; 84
+CPB X, Y          ; 5b
+OR X, A           ; 88
+SKIP GE           ; d4
+SKIP3 LT          ; d7
+SKIP GE           ; d4
+RTS               ; ff
+CLR B             ; 95
+SBB A, B          ; 41
+NIB D, #10        ; 3a
+STEX HL           ; fe
+NIB X, #3         ; 23
+POP AB            ; f8
+LET C, X          ; c2
+OR A, X           ; 82
+CFG IO, #3        ; eb
+TST A             ; b0
+CPB Y, X          ; 5e
+XOR B, Y          ; 97
+LET D, Y          ; c3
+SKIP3 LT          ; d7
+SKIP3 GE          ; d5
+HLT               ; 1f 00
+CLR A             ; 90
+NIB D, #5         ; 35
+PUSH SR           ; fc
+NIB D, #10        ; 3a
+STEX HL           ; fe
+NIB D, #8         ; 38
+LET A, B          ; b1
+LET A, Y          ; b3
+LET Y, X          ; be
+LET AB, CD        ; a2
+NIB X, #4         ; 24
+ADC H, A          ; a6
+NOT A             ; 80
+SHL A             ; 60
+NIB D, #12        ; 3c
+SKIP EQ           ; d0
+SKIP NE           ; d2
+CLR A             ; 90
+SBB X, A          ; 48
+XOR A, Y          ; 93
+LET B, A          ; b4
+CFG IO, #0        ; e8
+OR A, X           ; 82
+POP XY            ; f9
+NIB X, #15        ; 2f
+XOR X, A          ; 98
+ADC H, A          ; a6
+CPB L, B          ; 55
+SCS               ; dd
+TST CD            ; aa
+OR X, A           ; 88
+ADC A, Y          ; 63
+PUSH CD           ; f6
+SBB A, Y          ; 43
+STEX HL           ; fe
+NIB D, #10        ; 3a
+CPB Y, B          ; 5d
+LET AB, #0x3c25   ; c8 3c 25
+SBB A, B          ; 41
+LET Y, X          ; be
+SHL B             ; 65
+NOT Y             ; 8f
+INC CD            ; e0
+LET AB, CD        ; a2
+NIB X, #15        ; 2f
+XOR B, X          ; 96
+OR X, A           ; 88
+SBB B, Y          ; 47
+NIB D, #7         ; 37
+POP SR            ; fd
+ADC Y, B          ; 6d
+CFG IO, #5        ; ed
+NIB X, #1         ; 21
+OR A, X           ; 82
+LET HL, #0x72b3   ; cb 72 b3
+LET X, B          ; b9
+PUSH XY           ; f5
+CPB C, X          ; 5a
+STEX HL           ; fe
+IN XY             ; f3
+LET AB, CD        ; a2
+POP SR            ; fd
+CPB Y, X          ; 5e
+CFG IO, #5        ; ed
+CPB L, B          ; 55
+LET AB, HL        ; a3
+SBB H, A          ; ae
+XOR A, X          ; 92
+PUSH SR           ; fc
+NOT B             ; 85
+AND A, B          ; 71
+OR B, Y           ; 87
+NIB D, #13        ; 3d
+XOR Y, B          ; 9d
+CPB X, B          ; 59
+CPB D, Y          ; 5f
+STEX HL           ; fe
+NOT X             ; 8a
+AND B, A          ; 74
+CPB B, Y          ; 57
+NOT A             ; 80
+NIB X, #12        ; 2c
+SBB A, B          ; 41
+OR B, X           ; 86
+SKIP LT           ; d6
+SKIP3 GE          ; d5
+SKIP LT           ; d6
+RTS               ; ff
+CLR Y             ; 9f
+AND X, B          ; 79
+SKIP LT           ; d6
+SKIP GE           ; d4
+CLR Y             ; 9f
+POP CD            ; fa
+CFG IO, #7        ; ef
+SEC               ; df
+NIB D, #15        ; 3f
+NIB D, #13        ; 3d
+XOR X, B          ; 99
+ADC A, Y          ; 63
+NIB X, #13        ; 2d
+NIB X, #10        ; 2a
+NIB D, #1         ; 31
+SBB A, Y          ; 43
+PUSH XY           ; f5
+TST HL            ; af
+NOT Y             ; 8f
+NIB D, #1         ; 31
+XOR Y, X          ; 9e
+LET A, Y          ; b3
+LET Y, A          ; bc
+SHR X             ; 7a
+SBB X, B          ; 49
+LET X, Y          ; bb
+CLR B             ; 95
+LET HL, #0x41a3   ; cb 41 a3
+LET AB, HL        ; a3
+ADC L, B          ; a7
+SBB B, Y          ; 47
+XOR Y, B          ; 9d
+CFG IO, #7        ; ef
+SBB A, X          ; 42
+NIB X, #2         ; 22
+AND Y, A          ; 7c
+LET D, Y          ; c3
+CPB D, Y          ; 5f
+SBB X, B          ; 49
+STEX HL           ; fe
+XOR A, X          ; 92
+DEC C             ; e2
+LET HL, AB        ; ac
+XOR X, A          ; 98
+SBB L, B          ; ab
+ADC L, B          ; a7
+OUT AB            ; f0
+XOR Y, B          ; 9d
+POP SR            ; fd
+SHL X             ; 6a
+NIB D, #7         ; 37
+DEC HL            ; e7
+PUSH XY           ; f5
+LET Y, A          ; bc
+ADC Y, B          ; 6d
+CFG IO, #4        ; ec
+LET XY, AB        ; a4
+SBB Y, X          ; 4e
+LET HL, AB        ; ac
+OR X, B           ; 89
+NIB D, #9         ; 39
+CLR Y             ; 9f
+NOT Y             ; 8f
+LET XY, AB        ; a4
+SBB H, A          ; ae
+AND B, A          ; 74
+LET XY, #0xa99d   ; c9 a9 9d
+NIB X, #8         ; 28
+OUT AB            ; f0
+SBB B, Y          ; 47
+XOR A, Y          ; 93
+ADC B, A          ; 64
+CFG IO, #5        ; ed
+ADC X, B          ; 69
+SBB Y, A          ; 4c
+LET A, X          ; b2
+LET CD, AB        ; a8
+CLR Y             ; 9f
+CFG IO, #7        ; ef
+NIB D, #1         ; 31
+CPB L, B          ; 55
+SKIP3 EQ          ; d1
+SKIP3 NE          ; d3
+HLT               ; 1f 00
+CLR X             ; 9a
+OR A, B           ; 81
+NIB X, #15        ; 2f
+STEX HL           ; fe
+AND Y, A          ; 7c
+AND A, Y          ; 73
+AND B, A          ; 74
+SHL B             ; 65
+ADC H, A          ; a6
+OUT AB            ; f0
+ADC Y, X          ; 6e
+TST A             ; b0
+SBB A, X          ; 42
+LET AB, CD        ; a2
+SKIP3 GE          ; d5
+SKIP3 LT          ; d7
+HLT               ; 1f 00
+CLR B             ; 95
+LET A, Y          ; b3
+LET A, B          ; b1
+SBB Y, X          ; 4e
+SHL Y             ; 6f
+NIB X, #3         ; 23
+OR B, X           ; 86
+ADC X, B          ; 69
+CFG IO, #6        ; ee
+LET Y, B          ; bd
+SBB X, B          ; 49
+CPB X, A          ; 58
+POP SR            ; fd
+CFG IO, #2        ; ea
+NIB D, #0         ; 30
+SBZ A             ; 40
+LET B, A          ; b4
+IN XY             ; f3
+CFG IO, #5        ; ed
+OR Y, B           ; 8d
+SKIP LO           ; da
+SKIP3 CC          ; d9
+SKIP CS           ; da
+RTS               ; ff
+CLR X             ; 9a
+TST X             ; ba
+XOR A, X          ; 92
+LET HL, XY        ; ad
+CPB H, A          ; 50
+LET Y, X          ; be
+NIB D, #4         ; 34
+LET A, Y          ; b3
+CLC               ; de
+LET Y, D          ; c7
+LET Y, B          ; bd
+SBB A, X          ; 42
+XOR Y, X          ; 9e
+CLR A             ; 90
+SBB Y, B          ; 4d
+NIB D, #1         ; 31
+SEC               ; df
+OR A, B           ; 81
+XOR X, B          ; 99
+CPB A, B          ; 51
+CPB D, Y          ; 5f
+PUSH AB           ; f4
+XOR A, Y          ; 93
+SKIP3 HS          ; d9
+SKIP3 LO          ; db
+HLT               ; 1f 00
+CLR Y             ; 9f
+OR Y, X           ; 8e
+CFG IO, #4        ; ec
+NIB X, #2         ; 22
+DEC C             ; e2
+CFG IO, #4        ; ec
+LET HL, XY        ; ad
+STEX HL           ; fe
+CPB H, A          ; 50
+SBZ A             ; 40
+LET CD, XY        ; a9
+SBB A, Y          ; 43
+OR A, X           ; 82
+ADC B, A          ; 64
+OR B, A           ; 84
+SHL Y             ; 6f
+NIB D, #8         ; 38
+POP AB            ; f8
+NIB X, #6         ; 26
+PUSH SR           ; fc
+INCINC HL         ; e5
+NIB D, #14        ; 3e
+OR B, X           ; 86
+OUT XY            ; f1
+NIB X, #0         ; 20
+SKIP3 LT          ; d7
+SKIP3 GE          ; d5
+HLT               ; 1f 00
+CLR B             ; 95
+NIB X, #10        ; 2a
+SKIP CC           ; d8
+SKIP3 CS          ; db
+SKIP HS           ; d8
+RTS               ; ff
+CLR Y             ; 9f
+INC CD            ; e0
+LET CD, XY        ; a9
+SBB A, Y          ; 43
+SBB L, B          ; ab
+NIB D, #3         ; 33
+NIB X, #15        ; 2f
+TST AB            ; a0
+STEX HL           ; fe
+AND X, A          ; 78
+LET D, Y          ; c3
+NIB D, #7         ; 37
+SKIP3 LO          ; db
+SKIP CC           ; d8
+RTS               ; ff
+CLR Y             ; 9f
+CPB D, Y          ; 5f
+AND Y, B          ; 7d
+CPB X, Y          ; 5b
+LET X, B          ; b9
+XOR B, A          ; 94
+LET D, B          ; c1
+POP HL            ; fb
+SBB B, X          ; 46
+NIB D, #4         ; 34
+SKIP3 NE          ; d3
+SKIP3 EQ          ; d1
+HLT               ; 1f 00
+CLR X             ; 9a
+SBZ Y             ; 4f
+SKIP CS           ; da
+SKIP3 HS          ; d9
+SKIP LO           ; da
+RTS               ; ff
+CLR A             ; 90
+SHL X             ; 6a
+TST CD            ; aa
+SHR A             ; 70
+SKIP3 NE          ; d3
+SKIP EQ           ; d0
+RTS               ; ff
+CLR X             ; 9a
+CLR B             ; 95
+XOR X, B          ; 99
+OR B, Y           ; 87
+SBB L, B          ; ab
+LET HL, #0x765a   ; cb 76 5a
+NIB D, #15        ; 3f
+TST B             ; b5
+DEC CD            ; e1
+CPB Y, X          ; 5e
+NIB D, #0         ; 30
+ADC H, A          ; a6
+ADC B, X          ; 66
+CFG IO, #4        ; ec
+NIB X, #9         ; 29
+LET CD, #0x0      ; ca 00 00
+AND A, B          ; 71
+TST Y             ; bf
+SCO               ; dc
+SKIP3 LT          ; d7
+SKIP GE           ; d4
+RTS               ; ff
+CLR A             ; 90
+PUSH AB           ; f4
+NIB X, #0         ; 20
+OUT XY            ; f1
+XOR X, A          ; 98
+SBB L, B          ; ab
+TST X             ; ba
+ADC X, A          ; 68
+SHR X             ; 7a
+STEX HL           ; fe
+LET B, A          ; b4
+ADC B, A          ; 64
+LET CD, #0x0      ; ca 00 00
+CPB Y, X          ; 5e
+AND B, Y          ; 77
+NIB D, #11        ; 3b
+CPB B, Y          ; 57
+NIB X, #1         ; 21
+LET X, C          ; c6
+LET Y, B          ; bd
+SBZ X             ; 4a
+LET B, X          ; b6
+SBB Y, X          ; 4e
+CPB A, Y          ; 53
+LET AB, #0xd53b   ; c8 d5 3b
+CPB A, X          ; 52
+DEC D             ; e3
+XOR Y, A          ; 9c
+NIB X, #10        ; 2a
+NIB X, #12        ; 2c
+XOR A, B          ; 91
+TST HL            ; af
+AND A, X          ; 72
+POP SR            ; fd
+SBZ A             ; 40
+CPB B, X          ; 56
+NOP               ; 00
+LET A, B          ; b1
+PUSH AB           ; f4
+SHL B             ; 65
+SBB A, X          ; 42
+NIB D, #0         ; 30
+SCS               ; dd
+OR B, X           ; 86
+OR Y, B           ; 8d
+SKIP3 EQ          ; d1
+SKIP3 NE          ; d3
+HLT               ; 1f 00
+CLR A             ; 90
+TST B             ; b5
+SBZ A             ; 40
+TST Y             ; bf
+XOR Y, X          ; 9e
+STEX HL           ; fe
+CFG IO, #4        ; ec
+SBB H, A          ; ae
+XOR X, Y          ; 9b
+POP CD            ; fa
+DEC D             ; e3
+NIB X, #1         ; 21
+AND B, Y          ; 77
+SKIP3 LT          ; d7
+SKIP GE           ; d4
+RTS               ; ff
+CLR B             ; 95
+NIB D, #10        ; 3a
+DEC CD            ; e1
+DECDEC HL         ; e6
+CLR Y             ; 9f
+XOR B, A          ; 94
+SBB Y, X          ; 4e
+ADC B, Y          ; 67
+SHR X             ; 7a
+PUSH AB           ; f4
+ADC Y, X          ; 6e
+LET XY, #0xcb66   ; c9 cb 66
+XOR A, X          ; 92
+AND A, Y          ; 73
+DEC C             ; e2
+DEC CD            ; e1
+DEC D             ; e3
+NIB X, #15        ; 2f
+AND A, Y          ; 73
+XOR Y, X          ; 9e
+INC HL            ; e4
+SKIP3 GE          ; d5
+SKIP3 LT          ; d7
+HLT               ; 1f 00
+CLR Y             ; 9f
+NIB D, #0         ; 30
+SBZ B             ; 45
+LET B, A          ; b4
+AND Y, X          ; 7e
+OUT AB            ; f0
+ADC A, B          ; 61
+LET Y, A          ; bc
+OR A, X           ; 82
+OUT AB            ; f0
+ADC B, X          ; 66
+ADC Y, B          ; 6d
+SBB A, Y          ; 43
+LET A, B          ; b1
+LET B, D          ; c5
+CLC               ; de
+LET A, B          ; b1
+NIB X, #2         ; 22
+NIB D, #7         ; 37
+LET B, X          ; b6
+STEX HL           ; fe
+LET AB, CD        ; a2
+INCINC HL         ; e5
+XOR X, A          ; 98
+OR Y, A           ; 8c
+NIB D, #11        ; 3b
+LET CD, AB        ; a8
+LET C, X          ; c2
+IN XY             ; f3
+LET Y, D          ; c7
+CPB A, Y          ; 53
+OUT XY            ; f1
+NIB X, #7         ; 27
+NIB X, #3         ; 23
+NIB D, #12        ; 3c
+LET D, Y          ; c3
+LET Y, D          ; c7
+SKIP3 CC          ; d9
+SKIP CS           ; da
+RTS               ; ff
+CLR Y             ; 9f
+NIB D, #6         ; 36
+SBZ Y             ; 4f
+NIB D, #8         ; 38
+AND A, B          ; 71
+CLR X             ; 9a
+CLC               ; de
+NIB D, #8         ; 38
+SCO               ; dc
+NIB X, #3         ; 23
+OR A, B           ; 81
+LET AB, HL        ; a3
+OR A, X           ; 82
+ADC A, X          ; 62
+NIB D, #13        ; 3d
+SBB H, A          ; ae
+SBB X, Y          ; 4b
+ADC A, Y          ; 63
+POP XY            ; f9
+LET X, B          ; b9
+NIB D, #4         ; 34
+IN AB             ; f2
+AND B, Y          ; 77
+LET C, X          ; c2
+NIB X, #14        ; 2e
+XOR Y, A          ; 9c
+CPB B, X          ; 56
+SHR A             ; 70
+NIB X, #1         ; 21
+NIB X, #14        ; 2e
+CPB X, A          ; 58
+XOR Y, A          ; 9c
+PUSH XY           ; f5
+SBB A, Y          ; 43
+LET CD, AB        ; a8
+IN AB             ; f2
+NIB X, #5         ; 25
+STEX HL           ; fe
+ADC Y, X          ; 6e
+NIB X, #0         ; 20
+NIB X, #8         ; 28
+OR X, B           ; 89
+LET D, Y          ; c3
+LET HL, AB        ; ac
+NIB X, #12        ; 2c
+LET AB, #0x404f   ; c8 40 4f
+AND Y, A          ; 7c
+LET A, Y          ; b3
+SBB Y, A          ; 4c
+NIB X, #15        ; 2f
+CPB Y, B          ; 5d
+NIB X, #14        ; 2e
+LET C, X          ; c2
+LET HL, AB        ; ac
+OR Y, A           ; 8c
+TST CD            ; aa
+OR Y, A           ; 8c
+OR B, A           ; 84
+ADC Y, A          ; 6c
+POP XY            ; f9
+CLR X             ; 9a
+ADC B, Y          ; 67
+LET B, A          ; b4
+TST AB            ; a0
+TST X             ; ba
+LET C, A          ; c0
+SBB Y, B          ; 4d
+SHL A             ; 60
+NIB D, #5         ; 35
+TST Y             ; bf
+PUSH CD           ; f6
+LET AB, #0x8039   ; c8 80 39
+AND Y, B          ; 7d
+SBB X, Y          ; 4b
+SHR X             ; 7a
+SCS               ; dd
+AND Y, X          ; 7e
+NIB X, #1         ; 21
+CLR X             ; 9a
+SKIP3 GE          ; d5
+SKIP LT           ; d6
+RTS               ; ff
+CLR A             ; 90
+LET B, Y          ; b7
+OR Y, X           ; 8e
+DEC C             ; e2
+STEX HL           ; fe
+CFG IO, #0        ; e8
+DEC CD            ; e1
+CPB B, Y          ; 57
+NIB D, #4         ; 34
+NIB X, #1         ; 21
+SBB B, X          ; 46
+LET D, B          ; c1
+ADC A, X          ; 62
+SBB A, B          ; 41
+NIB D, #4         ; 34
+ADC X, Y          ; 6b
+LET X, Y          ; bb
+LET X, C          ; c6
+SKIP LO           ; da
+SKIP HS           ; d8
+CLR A             ; 90
+OR X, Y           ; 8b
+NIB X, #15        ; 2f
+NIB D, #14        ; 3e
+LET A, B          ; b1
+LET XY, AB        ; a4
+LET Y, X          ; be
+NIB X, #1         ; 21
+SKIP LT           ; d6
+SKIP GE           ; d4
+CLR Y             ; 9f
+NOP               ; 00
+XOR X, A          ; 98
+OUT AB            ; f0
+LET C, A          ; c0
+ADC A, X          ; 62
+POP XY            ; f9
+AND Y, X          ; 7e
+NIB D, #6         ; 36
+ADC Y, B          ; 6d
+OR Y, A           ; 8c
+CPB A, X          ; 52
+LET HL, #0x73d5   ; cb 73 d5
+SBB X, Y          ; 4b
+PUSH SR           ; fc
+SCS               ; dd
+SHL X             ; 6a
+NIB D, #1         ; 31
+DECDEC HL         ; e6
+LET Y, D          ; c7
+CFG IO, #1        ; e9
+XOR A, Y          ; 93
+NIB D, #7         ; 37
+ADC X, B          ; 69
+LET HL, #0x9f8a   ; cb 9f 8a
+NIB X, #7         ; 27
+STEX HL           ; fe
+TST A             ; b0
+LET AB, XY        ; a1
+NIB D, #12        ; 3c
+POP AB            ; f8
+XOR A, Y          ; 93
+CFG IO, #2        ; ea
+CPB Y, B          ; 5d
+SHR B             ; 75
+NIB D, #11        ; 3b
+SKIP3 LT          ; d7
+SKIP GE           ; d4
+RTS               ; ff
+CLR B             ; 95
+CFG IO, #2        ; ea
+SBB B, Y          ; 47
+IN AB             ; f2
+NOP               ; 00
+CLR B             ; 95
+XOR X, B          ; 99
+LET Y, D          ; c7
+NIB D, #8         ; 38
+ADC Y, X          ; 6e
+CPB Y, X          ; 5e
+NIB X, #0         ; 20
+AND X, Y          ; 7b
+PUSH HL           ; f7
+CFG IO, #0        ; e8
+NIB X, #11        ; 2b
+SBB Y, X          ; 4e
+SBB A, B          ; 41
+LET CD, #0xcc16   ; ca cc 16
+OR B, A           ; 84
+SHL B             ; 65
+LET X, Y          ; bb
+AND B, Y          ; 77
+SBB B, X          ; 46
+OR X, B           ; 89
+NIB X, #7         ; 27
+LET B, A          ; b4
+CPB Y, A          ; 5c
+NIB X, #1         ; 21
+ADC A, Y          ; 63
+SBB Y, A          ; 4c
+ADC X, B          ; 69
+STEX HL           ; fe
+AND A, Y          ; 73
+XOR Y, A          ; 9c
+POP SR            ; fd
+OUT XY            ; f1
+XOR A, B          ; 91
+NIB D, #2         ; 32
+OUT XY            ; f1
+OR X, Y           ; 8b
+ADC Y, B          ; 6d
+ADC X, A          ; 68
+ADC Y, A          ; 6c
+SHR X             ; 7a
+CPB B, A          ; 54
+CPB A, B          ; 51
+NIB X, #12        ; 2c
+LET CD, #0x6f24   ; ca 6f 24
+PUSH SR           ; fc
+NIB D, #11        ; 3b
+TST XY            ; a5
+INCINC HL         ; e5
+CPB A, Y          ; 53
+LET AB, XY        ; a1
+DECDEC HL         ; e6
+NOP               ; 00
+NIB D, #1         ; 31
+NIB X, #12        ; 2c
+CFG IO, #3        ; eb
+SBB B, X          ; 46
+SBB B, A          ; 44
+LET X, C          ; c6
+OR A, X           ; 82
+AND X, B          ; 79
+OR B, A           ; 84
+ADC L, B          ; a7
+CLR A             ; 90
+AND A, B          ; 71
+NIB X, #11        ; 2b
+SBB Y, A          ; 4c
+TST A             ; b0
+CFG IO, #6        ; ee
+CFG IO, #0        ; e8
+IN AB             ; f2
+AND A, Y          ; 73
+CPB B, A          ; 54
+XOR B, Y          ; 97
+CPB Y, A          ; 5c
+CPB D, Y          ; 5f
+TST X             ; ba
+STEX HL           ; fe
+NIB D, #3         ; 33
+TST B             ; b5
+SHR B             ; 75
+LET B, Y          ; b7
+TST HL            ; af
+SBB X, Y          ; 4b
+NIB D, #2         ; 32
+LET D, Y          ; c3
+NIB X, #2         ; 22
+LET B, D          ; c5
+AND X, A          ; 78
+CFG IO, #3        ; eb
+NIB D, #14        ; 3e
+SBB L, B          ; ab
+LET D, Y          ; c3
+CPB C, X          ; 5a
+NIB D, #15        ; 3f
+CPB Y, A          ; 5c
+OR B, Y           ; 87
+AND A, B          ; 71
+POP SR            ; fd
+AND B, X          ; 76
+ADC X, A          ; 68
+OR X, B           ; 89
+LET A, C          ; c4
+CFG IO, #2        ; ea
+NIB D, #8         ; 38
+OR Y, A           ; 8c
+SEC               ; df
+NIB X, #0         ; 20
+CPB Y, X          ; 5e
+NIB X, #7         ; 27
+PUSH CD           ; f6
+CPB X, B          ; 59
+SCO               ; dc
+SBZ A             ; 40
+AND Y, B          ; 7d
+NIB D, #15        ; 3f
+CPB H, A          ; 50
+DEC D             ; e3
+SBZ X             ; 4a
+XOR A, Y          ; 93
+LET Y, X          ; be
+SBZ A             ; 40
+AND X, Y          ; 7b
+AND X, A          ; 78
+LET D, B          ; c1
+XOR X, B          ; 99
+OUT AB            ; f0
+SBB X, A          ; 48
+DEC D             ; e3
+ADC L, B          ; a7
+OR A, X           ; 82
+CLC               ; de
+CFG IO, #3        ; eb
+CPB A, B          ; 51
+ADC B, X          ; 66
+OR Y, A           ; 8c
+NIB D, #9         ; 39
+STEX HL           ; fe
+ADC Y, A          ; 6c
+SBB H, A          ; ae
+ADC A, X          ; 62
+OR X, Y           ; 8b
+LET B, D          ; c5
+AND X, Y          ; 7b
+OR B, Y           ; 87
+LET Y, A          ; bc
+CPB X, A          ; 58
+CLR B             ; 95
+IN AB             ; f2
+LET D, B          ; c1
+OR A, X           ; 82
+XOR Y, A          ; 9c
+LET B, D          ; c5
+SBB X, Y          ; 4b
+SKIP EQ           ; d0
+SKIP NE           ; d2
+CLR B             ; 95
+AND A, Y          ; 73
+SBB X, Y          ; 4b
+SHL X             ; 6a
+AND A, X          ; 72
+ADC X, B          ; 69
+AND X, B          ; 79
+SCO               ; dc
+CLR A             ; 90
+ADC Y, B          ; 6d
+NIB D, #9         ; 39
+LET Y, X          ; be
+LET B, A          ; b4
+INC CD            ; e0
+NIB D, #4         ; 34
+DEC CD            ; e1
+OR Y, X           ; 8e
+OR X, Y           ; 8b
+NIB X, #0         ; 20
+AND B, Y          ; 77
+CPB X, B          ; 59
+AND A, Y          ; 73
+CPB A, Y          ; 53
+NIB X, #10        ; 2a
+LET C, A          ; c0
+POP HL            ; fb
+LET CD, AB        ; a8
+CPB X, Y          ; 5b
+SBB B, A          ; 44
+SHR Y             ; 7f
+LET X, B          ; b9
+SBB Y, B          ; 4d
+SBZ B             ; 45
+NIB D, #9         ; 39
+OR X, Y           ; 8b
+NIB D, #9         ; 39
+SKIP3 GE          ; d5
+SKIP LT           ; d6
+RTS               ; ff
+CLR X             ; 9a
+XOR Y, B          ; 9d
+LET X, B          ; b9
+SBB X, B          ; 49
+ADC B, A          ; 64
+IN AB             ; f2
+LET AB, XY        ; a1
+PUSH SR           ; fc
+NIB D, #5         ; 35
+NIB D, #14        ; 3e
+TST Y             ; bf
+NIB D, #14        ; 3e
+NIB X, #15        ; 2f
+LET HL, #0x0      ; cb 00 00
+OR B, Y           ; 87
+OR Y, B           ; 8d
+AND Y, B          ; 7d
+OR A, B           ; 81
+STEX HL           ; fe
+LET HL, #0xe4bf   ; cb e4 bf
+LET C, X          ; c2
+SBB X, Y          ; 4b
+CPB Y, A          ; 5c
+NIB D, #3         ; 33
+TST HL            ; af
+NIB X, #7         ; 27
+TST X             ; ba
+SCS               ; dd
+AND X, Y          ; 7b
+LET X, Y          ; bb
+LET Y, B          ; bd
+NIB X, #4         ; 24
+SHR A             ; 70
+POP XY            ; f9
+OR A, B           ; 81
+LET Y, A          ; bc
+PUSH CD           ; f6
+CFG IO, #1        ; e9
+CFG IO, #2        ; ea
+DEC C             ; e2
+INC CD            ; e0
+NIB X, #11        ; 2b
+NIB X, #12        ; 2c
+XOR B, A          ; 94
+STEX HL           ; fe
+NIB D, #15        ; 3f
+LET X, B          ; b9
+XOR B, Y          ; 97
+TST A             ; b0
+LET A, C          ; c4
+NIB X, #3         ; 23
+NIB X, #4         ; 24
+ADC L, B          ; a7
+LET CD, AB        ; a8
+NIB D, #15        ; 3f
+NIB X, #11        ; 2b
+SKIP3 NE          ; d3
+SKIP EQ           ; d0
+RTS               ; ff
+CLR X             ; 9a
+LET CD, #0xe2bd   ; ca e2 bd
+XOR Y, X          ; 9e
+POP HL            ; fb
+DEC HL            ; e7
+ADC B, Y          ; 67
+INC HL            ; e4
+ADC A, B          ; 61
+NIB X, #14        ; 2e
+SBB Y, X          ; 4e
+ADC H, A          ; a6
+PUSH XY           ; f5
+NIB D, #6         ; 36
+NIB D, #6         ; 36
+ADC B, A          ; 64
+NIB X, #13        ; 2d
+TST XY            ; a5
+SKIP3 NE          ; d3
+SKIP3 EQ          ; d1
+HLT               ; 1f 00
+CLR A             ; 90
+OUT XY            ; f1
+SBZ Y             ; 4f
+LET X, B          ; b9
+CPB B, Y          ; 57
+XOR Y, B          ; 9d
+XOR A, Y          ; 93
+SHR B             ; 75
+STEX HL           ; fe
+SHL X             ; 6a
+ADC A, B          ; 61
+NIB X, #5         ; 25
+TST AB            ; a0
+XOR Y, A          ; 9c
+AND Y, A          ; 7c
+LET AB, HL        ; a3
+LET Y, X          ; be
+SBB Y, B          ; 4d
+CLR Y             ; 9f
+NOP               ; 00
+SKIP CS           ; da
+SKIP CC           ; d8
+CLR A             ; 90
+SHL Y             ; 6f
+OR B, A           ; 84
+OR X, Y           ; 8b
+NIB X, #2         ; 22
+OR B, X           ; 86
+CPB X, Y          ; 5b
+ADC X, A          ; 68
+POP CD            ; fa
+XOR Y, B          ; 9d
+CPB H, A          ; 50
+LET Y, B          ; bd
+LET B, D          ; c5
+CPB B, X          ; 56
+OR X, B           ; 89
+TST Y             ; bf
+XOR A, X          ; 92
+IN AB             ; f2
+CPB L, B          ; 55
+CPB A, B          ; 51
+SBB X, B          ; 49
+CFG IO, #5        ; ed
+NIB X, #6         ; 26
+CPB B, X          ; 56
+SKIP LO           ; da
+SKIP HS           ; d8
+CLR X             ; 9a
+IN XY             ; f3
+NIB X, #3         ; 23
+LET A, B          ; b1
+PUSH HL           ; f7
+AND X, B          ; 79
+SBZ B             ; 45
+NIB X, #11        ; 2b
+CPB A, X          ; 52
+CPB X, A          ; 58
+ADC H, A          ; a6
+OR X, A           ; 88
+NIB X, #7         ; 27
+CFG IO, #7        ; ef
+LET HL, XY        ; ad
+SBB L, B          ; ab
+SKIP3 CC          ; d9
+SKIP3 CS          ; db
+HLT               ; 1f 00
+CLR A             ; 90
+DEC C             ; e2
+CFG IO, #1        ; e9
+XOR X, A          ; 98
+NOT Y             ; 8f
+CPB B, Y          ; 57
+ADC X, A          ; 68
+STEX HL           ; fe
+CPB B, Y          ; 57
+SBB Y, A          ; 4c
+XOR X, Y          ; 9b
+XOR A, B          ; 91
+SBB B, A          ; 44
+ADC Y, A          ; 6c
+SKIP LT           ; d6
+SKIP3 GE          ; d5
+SKIP LT           ; d6
+RTS               ; ff
+CLR B             ; 95
+POP SR            ; fd
+ADC B, A          ; 64
+NIB X, #11        ; 2b
+NOT B             ; 85
+SBB Y, B          ; 4d
+DEC C             ; e2
+TST CD            ; aa
+LET HL, XY        ; ad
+TST XY            ; a5
+AND B, X          ; 76
+SKIP3 HS          ; d9
+SKIP LO           ; da
+RTS               ; ff
+CLR Y             ; 9f
+AND X, B          ; 79
+NIB X, #6         ; 26
+TST HL            ; af
+CFG IO, #6        ; ee
+NIB D, #11        ; 3b
+CPB Y, X          ; 5e
+CLR B             ; 95
+LET AB, HL        ; a3
+CFG IO, #6        ; ee
+NIB D, #12        ; 3c
+NOT A             ; 80
+LET B, Y          ; b7
+SBB B, A          ; 44
+TST CD            ; aa
+LET A, C          ; c4
+SBB B, A          ; 44
+PUSH HL           ; f7
+CPB H, A          ; 50
+CPB H, A          ; 50
+CFG IO, #4        ; ec
+CFG IO, #1        ; e9
+ADC B, X          ; 66
+STEX HL           ; fe
+NIB X, #6         ; 26
+ADC A, Y          ; 63
+NIB D, #9         ; 39
+ADC B, Y          ; 67
+ADC A, B          ; 61
+AND Y, X          ; 7e
+CPB Y, B          ; 5d
+LET X, Y          ; bb
+OUT XY            ; f1
+ADC X, B          ; 69
+AND B, X          ; 76
+SHL X             ; 6a
+ADC L, B          ; a7
+NIB D, #9         ; 39
+NIB X, #13        ; 2d
+SKIP3 CS          ; db
+SKIP3 CC          ; d9
+HLT               ; 1f 00
+CLR A             ; 90
+NIB D, #1         ; 31
+POP XY            ; f9
+XOR A, B          ; 91
+AND X, A          ; 78
+DEC HL            ; e7
+CPB B, Y          ; 57
+PUSH XY           ; f5
+INC CD            ; e0
+SHR Y             ; 7f
+NOT A             ; 80
+ADC Y, X          ; 6e
+CPB B, X          ; 56
+CPB B, A          ; 54
+XOR A, Y          ; 93
+NOT B             ; 85
+SBB A, X          ; 42
+LET B, A          ; b4
+NOT Y             ; 8f
+SBB L, B          ; ab
+SKIP3 LO          ; db
+SKIP3 HS          ; d9
+HLT               ; 1f 00
+CLR B             ; 95
+AND X, B          ; 79
+CPB A, X          ; 52
+NIB D, #12        ; 3c
+STEX HL           ; fe
+LET CD, AB        ; a8
+SBB B, Y          ; 47
+CPB C, X          ; 5a
+SBZ B             ; 45
+POP SR            ; fd
+XOR B, Y          ; 97
+CPB Y, X          ; 5e
+OR X, A           ; 88
+PUSH CD           ; f6
+CFG IO, #1        ; e9
+ADC A, B          ; 61
+ADC A, Y          ; 63
+LET C, A          ; c0
+NIB D, #14        ; 3e
+XOR Y, A          ; 9c
+SBZ A             ; 40
+AND B, X          ; 76
+ADC L, B          ; a7
+ADC Y, A          ; 6c
+SBB X, Y          ; 4b
+AND B, Y          ; 77
+SHL Y             ; 6f
+NIB D, #13        ; 3d
+AND A, X          ; 72
+ADC Y, X          ; 6e
+XOR B, A          ; 94
+AND A, Y          ; 73
+DEC C             ; e2
+CPB B, A          ; 54
+CLR B             ; 95
+XOR B, X          ; 96
+LET AB, #0x0      ; c8 00 00
+SKIP3 LT          ; d7
+SKIP GE           ; d4
+RTS               ; ff
+CLR Y             ; 9f
+CPB H, A          ; 50
+ADC B, Y          ; 67
+TST A             ; b0
+ADC X, A          ; 68
+NIB D, #10        ; 3a
+LET A, B          ; b1
+ADC L, B          ; a7
+ADC X, A          ; 68
+LET A, X          ; b2
+SBZ X             ; 4a
+LET D, Y          ; c3
+OR B, X           ; 86
+SKIP3 NE          ; d3
+SKIP EQ           ; d0
+RTS               ; ff
+CLR Y             ; 9f
+LET HL, AB        ; ac
+NIB X, #5         ; 25
+NOT Y             ; 8f
+TST X             ; ba
+OUT XY            ; f1
+LET AB, XY        ; a1
+STEX HL           ; fe
+CPB X, B          ; 59
+CPB Y, B          ; 5d
+LET X, B          ; b9
+SHR Y             ; 7f
+SBB A, X          ; 42
+AND X, B          ; 79
+POP HL            ; fb
+ADC B, A          ; 64
+OR A, X           ; 82
+CFG IO, #7        ; ef
+AND B, Y          ; 77
+ADC B, Y          ; 67
+LET A, B          ; b1
+NIB D, #2         ; 32
+TST XY            ; a5
+NIB D, #1         ; 31
+NIB X, #11        ; 2b
+NIB X, #1         ; 21
+SBB B, A          ; 44
+TST B             ; b5
+LET B, Y          ; b7
+PUSH AB           ; f4
+SBZ Y             ; 4f
+SCO               ; dc
+NIB D, #10        ; 3a
+STEX HL           ; fe
+TST A             ; b0
+CPB H, A          ; 50
+NIB D, #10        ; 3a
+IN AB             ; f2
+OR Y, X           ; 8e
+SKIP CC           ; d8
+SKIP CS           ; da
+CLR B             ; 95
+OR A, X           ; 82
+SKIP3 HS          ; d9
+SKIP LO           ; da
+RTS               ; ff
+CLR X             ; 9a
+AND A, B          ; 71
+CFG IO, #7        ; ef
+CPB L, B          ; 55
+NIB D, #2         ; 32
+AND A, B          ; 71
+POP XY            ; f9
+DEC C             ; e2
+NIB D, #6         ; 36
+XOR X, Y          ; 9b
+NIB D, #8         ; 38
+NIB D, #11        ; 3b
+ADC X, B          ; 69
+CPB L, B          ; 55
+SBZ Y             ; 4f
+NIB X, #14        ; 2e
+ADC A, B          ; 61
+NIB X, #11        ; 2b
+INC CD            ; e0
+XOR A, Y          ; 93
+NIB X, #8         ; 28
+SBZ Y             ; 4f
+AND X, Y          ; 7b
+SHR Y             ; 7f
+CPB A, X          ; 52
+CPB Y, X          ; 5e
+NIB X, #7         ; 27
+CPB A, B          ; 51
+LET B, D          ; c5
+NIB X, #9         ; 29
+SHL X             ; 6a
+TST X             ; ba
+AND B, A          ; 74
+NIB D, #13        ; 3d
+LET X, B          ; b9
+CFG IO, #4        ; ec
+OR A, Y           ; 83
+DEC C             ; e2
+XOR X, B          ; 99
+NIB D, #2         ; 32
+PUSH CD           ; f6
+OR A, Y           ; 83
+STEX HL           ; fe
+SKIP CC           ; d8
+SKIP CS           ; da
+CLR Y             ; 9f
+CFG IO, #3        ; eb
+SHL B             ; 65
+INCINC HL         ; e5
+NIB X, #0         ; 20
+LET Y, B          ; bd
+NIB X, #5         ; 25
+SKIP HS           ; d8
+SKIP3 LO          ; db
+SKIP CC           ; d8
+RTS               ; ff
+CLR B             ; 95
+AND A, Y          ; 73
+NIB D, #2         ; 32
+ADC B, X          ; 66
+POP AB            ; f8
+SBB B, A          ; 44
+CLC               ; de
+DEC HL            ; e7
+NIB D, #12        ; 3c
+NIB D, #3         ; 33
+SHL A             ; 60
+CPB B, A          ; 54
+TST B             ; b5
+ADC Y, X          ; 6e
+SHL A             ; 60
+TST AB            ; a0
+CPB C, X          ; 5a
+CPB Y, B          ; 5d
+SKIP3 LT          ; d7
+SKIP3 GE          ; d5
+HLT               ; 1f 00
+CLR B             ; 95
+PUSH CD           ; f6
+LET C, A          ; c0
+SKIP GE           ; d4
+SKIP LT           ; d6
+CLR X             ; 9a
+LET AB, #0xa08c   ; c8 a0 8c
+CPB B, X          ; 56
+TST A             ; b0
+STEX HL           ; fe
+CLR B             ; 95
+POP CD            ; fa
+LET AB, #0xf882   ; c8 f8 82
+SBB H, A          ; ae
+ADC B, A          ; 64
+SBB A, X          ; 42
+XOR B, X          ; 96
+LET X, A          ; b8
+LET D, Y          ; c3
+SBB B, X          ; 46
+PUSH AB           ; f4
+AND Y, B          ; 7d
+AND B, Y          ; 77
+NIB X, #0         ; 20
+LET AB, HL        ; a3
+NIB X, #14        ; 2e
+AND Y, X          ; 7e
+SKIP HS           ; d8
+SKIP CS           ; da
+CLR B             ; 95
+NIB D, #2         ; 32
+NOP               ; 00
+INCINC HL         ; e5
+XOR Y, X          ; 9e
+NIB X, #1         ; 21
+OUT XY            ; f1
+STEX HL           ; fe
+SBB Y, A          ; 4c
+LET X, A          ; b8
+NIB X, #2         ; 22
+NIB D, #7         ; 37
+NOT Y             ; 8f
+IN AB             ; f2
+LET B, A          ; b4
+OR A, Y           ; 83
+ADC B, A          ; 64
+CLR A             ; 90
+SBZ A             ; 40
+AND X, A          ; 78
+SBB L, B          ; ab
+NIB D, #5         ; 35
+SBZ B             ; 45
+AND X, B          ; 79
+SKIP3 EQ          ; d1
+SKIP NE           ; d2
+RTS               ; ff
+CLR Y             ; 9f
+XOR Y, B          ; 9d
+SBZ X             ; 4a
+AND X, Y          ; 7b
+SKIP CC           ; d8
+SKIP LO           ; da
+CLR B             ; 95
+CPB H, A          ; 50
+ADC B, Y          ; 67
+LET B, Y          ; b7
+LET Y, D          ; c7
+LET B, X          ; b6
+DEC CD            ; e1
+NIB D, #11        ; 3b
+SBZ B             ; 45
+XOR Y, A          ; 9c
+CPB Y, B          ; 5d
+TST X             ; ba
+TST AB            ; a0
+LET X, Y          ; bb
+LET C, A          ; c0
+XOR A, X          ; 92
+SCO               ; dc
+ADC H, A          ; a6
+AND B, X          ; 76
+IN AB             ; f2
+ADC H, A          ; a6
+LET X, B          ; b9
+SBB A, B          ; 41
+NIB X, #15        ; 2f
+NIB D, #12        ; 3c
+LET D, B          ; c1
+CPB Y, B          ; 5d
+SKIP3 CS          ; db
+SKIP HS           ; d8
+RTS               ; ff
+CLR A             ; 90
+ADC Y, X          ; 6e
+CFG IO, #6        ; ee
+NIB X, #15        ; 2f
+CFG IO, #1        ; e9
+LET HL, XY        ; ad
+OR B, Y           ; 87
+AND A, X          ; 72
+CPB D, Y          ; 5f
+XOR Y, X          ; 9e
+AND X, Y          ; 7b
+XOR B, Y          ; 97
+SBB X, Y          ; 4b
+SHR Y             ; 7f
+LET X, A          ; b8
+NIB X, #8         ; 28
+NIB D, #11        ; 3b
+LET D, Y          ; c3
+LET AB, HL        ; a3
+SHL X             ; 6a
+SBB Y, A          ; 4c
+TST Y             ; bf
+LET Y, X          ; be
+POP HL            ; fb
+SHR Y             ; 7f
+NIB D, #15        ; 3f
+TST XY            ; a5
+CFG IO, #7        ; ef
+SHL B             ; 65
+CPB Y, A          ; 5c
+CPB Y, A          ; 5c
+CFG IO, #7        ; ef
+ADC X, Y          ; 6b
+SBZ B             ; 45
+NIB X, #3         ; 23
+CFG IO, #4        ; ec
+AND X, A          ; 78
+TST XY            ; a5
+CPB X, B          ; 59
+SHR A             ; 70
+CFG IO, #5        ; ed
+CPB C, X          ; 5a
+NIB X, #9         ; 29
+NIB X, #2         ; 22
+XOR B, X          ; 96
+LET Y, A          ; bc
+CLR B             ; 95
+XOR X, A          ; 98
+LET HL, #0x5817   ; cb 58 17
+XOR A, B          ; 91
+PUSH HL           ; f7
+NOT B             ; 85
+SBB Y, X          ; 4e
+SHR A             ; 70
+CPB A, Y          ; 53
+SBB B, X          ; 46
+NIB X, #2         ; 22
+ADC X, A          ; 68
+LET B, D          ; c5
+NIB D, #14        ; 3e
+TST A             ; b0
+STEX HL           ; fe
+ADC A, Y          ; 63
+NIB X, #10        ; 2a
+SKIP LT           ; d6
+SKIP GE           ; d4
+CLR B             ; 95
+NIB D, #9         ; 39
+AND X, A          ; 78
+CLR X             ; 9a
+NIB X, #13        ; 2d
+CLC               ; de
+LET AB, #0x468    ; c8 04 68
+NIB D, #6         ; 36
+NIB D, #14        ; 3e
+OR X, Y           ; 8b
+SBZ X             ; 4a
+NIB X, #3         ; 23
+NIB X, #8         ; 28
+NIB X, #3         ; 23
+NIB D, #0         ; 30
+NIB D, #12        ; 3c
+SBB X, A          ; 48
+INCINC HL         ; e5
+NIB D, #8         ; 38
+SBB A, Y          ; 43
+CFG IO, #3        ; eb
+NIB D, #4         ; 34
+OR A, Y           ; 83
+CPB H, A          ; 50
+OR X, A           ; 88
+CLR X             ; 9a
+XOR Y, X          ; 9e
+NIB D, #4         ; 34
+ADC Y, A          ; 6c
+CFG IO, #3        ; eb
+OR Y, A           ; 8c
+SKIP3 CC          ; d9
+SKIP3 LO          ; db
+HLT               ; 1f 00
+CLR X             ; 9a
+LET HL, AB        ; ac
+SBB A, X          ; 42
+LET D, B          ; c1
+NIB D, #0         ; 30
+SCS               ; dd
+TST Y             ; bf
+OR A, B           ; 81
+TST Y             ; bf
+LET X, Y          ; bb
+NIB D, #8         ; 38
+POP HL            ; fb
+SBB A, Y          ; 43
+SHR X             ; 7a
+SBB X, A          ; 48
+SKIP3 EQ          ; d1
+SKIP3 NE          ; d3
+HLT               ; 1f 00
+CLR A             ; 90
+CPB C, X          ; 5a
+NIB X, #3         ; 23
+AND X, B          ; 79
+NIB D, #15        ; 3f
+PUSH HL           ; f7
+SBB B, X          ; 46
+LET B, Y          ; b7
+LET Y, B          ; bd
+LET Y, D          ; c7
+LET B, D          ; c5
+SBB L, B          ; ab
+SHL A             ; 60
+LET B, A          ; b4
+CPB X, Y          ; 5b
+NOT A             ; 80
+ADC A, Y          ; 63
+NIB X, #3         ; 23
+DEC C             ; e2
+CFG IO, #6        ; ee
+XOR X, A          ; 98
+STEX HL           ; fe
+LET B, X          ; b6
+POP HL            ; fb
+AND Y, X          ; 7e
+IN XY             ; f3
+OR A, Y           ; 83
+NOP               ; 00
+PUSH AB           ; f4
+NIB D, #7         ; 37
+SHR Y             ; 7f
+INC HL            ; e4
+CFG IO, #0        ; e8
+CLR Y             ; 9f
+OR Y, B           ; 8d
+SKIP CS           ; da
+SKIP HS           ; d8
+CLR X             ; 9a
+NIB D, #2         ; 32
+STEX HL           ; fe
+OR Y, B           ; 8d
+SKIP NE           ; d2
+SKIP3 EQ          ; d1
+SKIP NE           ; d2
+RTS               ; ff
+CLR A             ; 90
+NIB D, #6         ; 36
+NIB D, #6         ; 36
+SBB X, B          ; 49
+OR Y, A           ; 8c
+XOR Y, X          ; 9e
+SBB B, Y          ; 47
+POP HL            ; fb
+SBB X, A          ; 48
+LET C, A          ; c0
+XOR A, B          ; 91
+ADC A, X          ; 62
+DEC D             ; e3
+LET A, C          ; c4
+PUSH XY           ; f5
+SBZ A             ; 40
+NIB D, #5         ; 35
+SHL X             ; 6a
+CFG IO, #0        ; e8
+AND Y, X          ; 7e
+DEC CD            ; e1
+CFG IO, #6        ; ee
+ADC B, Y          ; 67
+NIB X, #13        ; 2d
+LET HL, #0x46df   ; cb 46 df
+LET C, A          ; c0
+CFG IO, #2        ; ea
+DEC HL            ; e7
+SKIP LO           ; da
+SKIP3 CC          ; d9
+SKIP CS           ; da
+RTS               ; ff
+CLR B             ; 95
+SEC               ; df
+LET D, B          ; c1
+LET Y, D          ; c7
+STEX HL           ; fe
+CLC               ; de
+NIB X, #4         ; 24
+SBB B, A          ; 44
+LET C, X          ; c2
+POP CD            ; fa
+NIB D, #5         ; 35
+LET B, D          ; c5
+PUSH HL           ; f7
+LET B, Y          ; b7
+CPB X, Y          ; 5b
+NIB X, #10        ; 2a
+TST XY            ; a5
+TST A             ; b0
+NIB D, #9         ; 39
+LET X, C          ; c6
+LET Y, B          ; bd
+ADC Y, A          ; 6c
+ADC X, Y          ; 6b
+NIB X, #5         ; 25
+SBB Y, X          ; 4e
+LET AB, XY        ; a1
+NIB X, #12        ; 2c
+STEX HL           ; fe
+LET B, A          ; b4
+SBB A, Y          ; 43
+LET HL, #0x0      ; cb 00 00
+SBB Y, B          ; 4d
+CPB X, B          ; 59
+CPB A, X          ; 52
+XOR X, A          ; 98
+POP CD            ; fa
+ADC X, Y          ; 6b
+NIB D, #10        ; 3a
+SCO               ; dc
+PUSH XY           ; f5
+NIB D, #5         ; 35
+INC HL            ; e4
+SKIP3 LO          ; db
+SKIP HS           ; d8
+RTS               ; ff
+CLR A             ; 90
+INCINC HL         ; e5
+ADC X, Y          ; 6b
+CLC               ; de
+SHL X             ; 6a
+CPB A, B          ; 51
+AND B, A          ; 74
+CPB B, A          ; 54
+NIB X, #15        ; 2f
+SBB B, Y          ; 47
+CPB X, B          ; 59
+SBZ B             ; 45
+ADC Y, A          ; 6c
+XOR A, B          ; 91
+OR A, B           ; 81
+XOR X, B          ; 99
+SBB B, X          ; 46
+INC CD            ; e0
+XOR X, Y          ; 9b
+SKIP3 CS          ; db
+SKIP3 CC          ; d9
+HLT               ; 1f 00
+CLR Y             ; 9f
+IN XY             ; f3
+SBB B, X          ; 46
+OR B, A           ; 84
+AND A, X          ; 72
+CPB X, A          ; 58
+OUT XY            ; f1
+SBZ A             ; 40
+NIB D, #10        ; 3a
+AND A, B          ; 71
+STEX HL           ; fe
+LET CD, #0xd413   ; ca d4 13
+SBZ A             ; 40
+SBB X, A          ; 48
+SKIP3 EQ          ; d1
+SKIP3 NE          ; d3
+HLT               ; 1f 00
+CLR X             ; 9a
+AND Y, B          ; 7d
+AND B, A          ; 74
+XOR A, X          ; 92
+NIB D, #3         ; 33
+ADC X, Y          ; 6b
+CPB H, A          ; 50
+CFG IO, #2        ; ea
+OR B, X           ; 86
+CPB X, B          ; 59
+TST X             ; ba
+LET CD, #0xe071   ; ca e0 71
+ADC Y, B          ; 6d
+NIB D, #6         ; 36
+CPB A, B          ; 51
+NIB D, #0         ; 30
+SBB A, B          ; 41
+NIB X, #8         ; 28
+LET X, A          ; b8
+CFG IO, #5        ; ed
+POP HL            ; fb
+DECDEC HL         ; e6
+TST HL            ; af
+ADC B, X          ; 66
+TST A             ; b0
+PUSH AB           ; f4
+AND X, Y          ; 7b
+LET D, Y          ; c3
+CPB Y, A          ; 5c
+SBB B, Y          ; 47
+CPB A, B          ; 51
+SBZ B             ; 45
+LET D, Y          ; c3
+AND X, Y          ; 7b
+NIB X, #8         ; 28
+NIB D, #5         ; 35
+LET XY, AB        ; a4
+NIB X, #9         ; 29
+OR B, X           ; 86
+SBB X, A          ; 48
+LET AB, XY        ; a1
+NIB D, #12        ; 3c
+NOT X             ; 8a
+OR B, Y           ; 87
+NIB D, #15        ; 3f
+NIB X, #4         ; 24
+SBB A, B          ; 41
+XOR X, Y          ; 9b
+ADC A, X          ; 62
+XOR Y, X          ; 9e
+STEX HL           ; fe
+SKIP3 GE          ; d5
+SKIP3 LT          ; d7
+HLT               ; 1f 00
+CLR X             ; 9a
+SHL A             ; 60
+DEC CD            ; e1
+SCS               ; dd
+TST X             ; ba
+POP AB            ; f8
+SHR Y             ; 7f
+XOR B, X          ; 96
+CPB A, X          ; 52
+CPB L, B          ; 55
+LET AB, XY        ; a1
+PUSH HL           ; f7
+LET C, X          ; c2
+INC CD            ; e0
+SBB X, B          ; 49
+AND B, A          ; 74
+NIB D, #12        ; 3c
+NIB D, #0         ; 30
+ADC A, Y          ; 63
+ADC B, A          ; 64
+AND A, Y          ; 73
+CFG IO, #4        ; ec
+NIB X, #11        ; 2b
+NIB D, #2         ; 32
+STEX HL           ; fe
+CPB A, B          ; 51
+DECDEC HL         ; e6
+LET C, X          ; c2
+SKIP3 GE          ; d5
+SKIP LT           ; d6
+RTS               ; ff
+CLR X             ; 9a
+SHR B             ; 75
+SBB A, B          ; 41
+XOR X, B          ; 99
+XOR X, Y          ; 9b
+TST A             ; b0
+OR Y, X           ; 8e
+AND B, A          ; 74
+SKIP3 HS          ; d9
+SKIP LO           ; da
+RTS               ; ff
+CLR X             ; 9a
+NIB X, #1         ; 21
+LET X, Y          ; bb
+POP SR            ; fd
+OUT XY            ; f1
+ADC H, A          ; a6
+NIB D, #0         ; 30
+CPB L, B          ; 55
+NIB D, #3         ; 33
+LET A, X          ; b2
+SHR X             ; 7a
+TST B             ; b5
+AND X, A          ; 78
+LET Y, X          ; be
+PUSH XY           ; f5
+CFG IO, #1        ; e9
+AND A, X          ; 72
+NIB X, #5         ; 25
+LET AB, HL        ; a3
+SBB B, X          ; 46
+CPB Y, X          ; 5e
+NIB D, #14        ; 3e
+STEX HL           ; fe
+OR Y, X           ; 8e
+AND A, X          ; 72
+POP AB            ; f8
+NIB X, #5         ; 25
+NIB D, #14        ; 3e
+NIB D, #7         ; 37
+SBB Y, B          ; 4d
+ADC Y, B          ; 6d
+PUSH HL           ; f7
+LET AB, XY        ; a1
+OR Y, X           ; 8e
+LET B, X          ; b6
+SBB A, Y          ; 43
+LET CD, #0x5bf7   ; ca 5b f7
+SKIP LT           ; d6
+SKIP3 GE          ; d5
+SKIP LT           ; d6
+RTS               ; ff
+CLR B             ; 95
+DEC C             ; e2
+INC HL            ; e4
+LET AB, XY        ; a1
+SBB A, B          ; 41
+SCS               ; dd
+NOT B             ; 85
+SBZ B             ; 45
+CPB A, Y          ; 53
+XOR X, Y          ; 9b
+LET D, B          ; c1
+LET A, C          ; c4
+TST XY            ; a5
+OUT AB            ; f0
+SHR A             ; 70
+NOT X             ; 8a
+LET XY, #0x5c52   ; c9 5c 52
+SKIP EQ           ; d0
+SKIP NE           ; d2
+CLR X             ; 9a
+CFG IO, #6        ; ee
+OR X, A           ; 88
+CLR B             ; 95
+SHR Y             ; 7f
+LET A, B          ; b1
+LET AB, CD        ; a2
+STEX HL           ; fe
+XOR B, Y          ; 97
+CPB C, X          ; 5a
+OR X, A           ; 88
+SHL A             ; 60
+SKIP3 GE          ; d5
+SKIP3 LT          ; d7
+HLT               ; 1f 00
+CLR B             ; 95
+TST A             ; b0
+LET HL, XY        ; ad
+TST CD            ; aa
+DEC D             ; e3
+OR X, B           ; 89
+CPB X, Y          ; 5b
+CPB C, X          ; 5a
+NOT B             ; 85
+LET Y, X          ; be
+NIB D, #8         ; 38
+SKIP3 EQ          ; d1
+SKIP NE           ; d2
+RTS               ; ff
+CLR X             ; 9a
+LET XY, AB        ; a4
+TST AB            ; a0
+DEC D             ; e3
+OUT XY            ; f1
+CFG IO, #4        ; ec
+NIB X, #0         ; 20
+CPB A, X          ; 52
+IN XY             ; f3
+XOR A, B          ; 91
+LET Y, D          ; c7
+OR A, Y           ; 83
+LET B, Y          ; b7
+SBB Y, B          ; 4d
+ADC X, B          ; 69
+LET XY, AB        ; a4
+NIB X, #6         ; 26
+LET HL, #0xe960   ; cb e9 60
+POP CD            ; fa
+SKIP CS           ; da
+SKIP3 CC          ; d9
+SKIP LO           ; da
+RTS               ; ff
+CLR A             ; 90
+SBB X, B          ; 49
+NIB D, #14        ; 3e
+TST A             ; b0
+CLR X             ; 9a
+CLR Y             ; 9f
+CPB B, Y          ; 57
+OR X, Y           ; 8b
+CLR A             ; 90
+NIB X, #11        ; 2b
+AND X, A          ; 78
+CLR Y             ; 9f
+CPB B, A          ; 54
+ADC A, X          ; 62
+LET B, A          ; b4
+CLR X             ; 9a
+AND B, X          ; 76
+PUSH HL           ; f7
+SBZ X             ; 4a
+ADC H, A          ; a6
+NIB D, #13        ; 3d
+SBB B, X          ; 46
+XOR B, X          ; 96
+INC HL            ; e4
+XOR X, Y          ; 9b
+SBB Y, B          ; 4d
+SBZ X             ; 4a
+SHL A             ; 60
+SBB B, A          ; 44
+OR Y, X           ; 8e
+ADC A, B          ; 61
+NIB X, #12        ; 2c
+LET XY, #0x8666   ; c9 86 66
+NOT Y             ; 8f
+DEC HL            ; e7
+AND B, X          ; 76
+OR Y, X           ; 8e
+CLR A             ; 90
+NIB X, #15        ; 2f
+CLR A             ; 90
+LET B, X          ; b6
+LET X, A          ; b8
+STEX HL           ; fe
+TST XY            ; a5
+SKIP3 NE          ; d3
+SKIP EQ           ; d0
+RTS               ; ff
+CLR B             ; 95
+NIB D, #15        ; 3f
+INC CD            ; e0
+POP HL            ; fb
+SKIP3 LT          ; d7
+SKIP3 GE          ; d5
+HLT               ; 1f 00
+CLR Y             ; 9f
+OR A, B           ; 81
+SBB Y, A          ; 4c
+CPB Y, B          ; 5d
+NIB X, #8         ; 28
+ADC A, X          ; 62
+INCINC HL         ; e5
+CPB B, Y          ; 57
+LET Y, X          ; be
+SHL Y             ; 6f
+OR X, A           ; 88
+AND B, A          ; 74
+ADC L, B          ; a7
+CPB Y, X          ; 5e
+NIB D, #3         ; 33
+NOT A             ; 80
+SHL B             ; 65
+ADC X, Y          ; 6b
+SBB Y, X          ; 4e
+AND Y, A          ; 7c
+NIB X, #5         ; 25
+SBB X, B          ; 49
+PUSH HL           ; f7
+LET CD, XY        ; a9
+XOR A, X          ; 92
+SHL Y             ; 6f
+SBB X, B          ; 49
+NIB X, #0         ; 20
+SKIP NE           ; d2
+SKIP EQ           ; d0
+CLR A             ; 90
+CFG IO, #0        ; e8
+XOR A, X          ; 92
+OR Y, A           ; 8c
+INC CD            ; e0
+IN AB             ; f2
+OR A, Y           ; 83
+OR Y, B           ; 8d
+TST Y             ; bf
+CPB D, Y          ; 5f
+NIB D, #7         ; 37
+NIB X, #7         ; 27
+AND Y, B          ; 7d
+STEX HL           ; fe
+LET A, X          ; b2
+NIB X, #14        ; 2e
+CPB B, A          ; 54
+DEC D             ; e3
+CPB X, A          ; 58
+TST CD            ; aa
+NIB D, #9         ; 39
+NOT Y             ; 8f
+XOR B, A          ; 94
+SKIP NE           ; d2
+SKIP EQ           ; d0
+CLR Y             ; 9f
+LET X, A          ; b8
+LET CD, XY        ; a9
+DECDEC HL         ; e6
+DEC CD            ; e1
+LET X, A          ; b8
+CFG IO, #5        ; ed
+POP CD            ; fa
+OR X, Y           ; 8b
+SHL B             ; 65
+PUSH AB           ; f4
+LET Y, A          ; bc
+NOT X             ; 8a
+AND A, X          ; 72
+CPB A, B          ; 51
+LET AB, HL        ; a3
+LET AB, #0xe6f9   ; c8 e6 f9
+SHL Y             ; 6f
+OR X, A           ; 88
+NIB X, #1         ; 21
+AND B, X          ; 76
+STEX HL           ; fe
+ADC Y, A          ; 6c
+NIB D, #12        ; 3c
+SHR A             ; 70
+SCO               ; dc
+INC HL            ; e4
+AND Y, X          ; 7e
+NIB X, #6         ; 26
+NIB X, #12        ; 2c
+LET HL, #0x252    ; cb 02 52
+OR Y, B           ; 8d
+SHR A             ; 70
+POP XY            ; f9
+SBB L, B          ; ab
+ADC Y, B          ; 6d
+NIB D, #6         ; 36
+SBZ Y             ; 4f
+NIB X, #1         ; 21
+ADC H, A          ; a6
+LET A, Y          ; b3
+SBZ A             ; 40
+CLR A             ; 90
+LET C, A          ; c0
+CLR Y             ; 9f
+CLR B             ; 95
+SHL A             ; 60
+PUSH CD           ; f6
+NIB X, #9         ; 29
+SHR X             ; 7a
+NIB D, #13        ; 3d
+NIB X, #9         ; 29
+CPB A, Y          ; 53
+CLR X             ; 9a
+ADC Y, A          ; 6c
+SBB X, A          ; 48
+NIB X, #13        ; 2d
+XOR X, Y          ; 9b
+OR X, A           ; 88
+OR Y, B           ; 8d
+DECDEC HL         ; e6
+OR X, B           ; 89
+NIB X, #6         ; 26
+NOT A             ; 80
+XOR B, X          ; 96
+STEX HL           ; fe
+LET AB, CD        ; a2
+CPB X, A          ; 58
+LET X, C          ; c6
+LET X, B          ; b9
+IN AB             ; f2
+LET CD, XY        ; a9
+SBB X, A          ; 48
+LET A, Y          ; b3
+POP AB            ; f8
+SHR B             ; 75
+NIB D, #6         ; 36
+CPB C, X          ; 5a
+PUSH SR           ; fc
+OUT AB            ; f0
+STEX HL           ; fe
+NIB X, #7         ; 27
+XOR B, X          ; 96
+LET AB, HL        ; a3
+SBB Y, X          ; 4e
+SKIP NE           ; d2
+SKIP3 EQ          ; d1
+SKIP NE           ; d2
+RTS               ; ff
+CLR A             ; 90
+CPB C, X          ; 5a
+NOT B             ; 85
+LET A, C          ; c4
+NOT X             ; 8a
+DEC CD            ; e1
+TST Y             ; bf
+SBB B, A          ; 44
+CPB B, X          ; 56
+LET Y, D          ; c7
+ADC X, A          ; 68
+SHR Y             ; 7f
+LET D, Y          ; c3
+POP AB            ; f8
+LET X, A          ; b8
+NIB X, #6         ; 26
+CFG IO, #2        ; ea
+CPB A, Y          ; 53
+SBZ X             ; 4a
+OR Y, A           ; 8c
+AND A, X          ; 72
+AND Y, X          ; 7e
+CLR Y             ; 9f
+NIB X, #4         ; 24
+AND A, X          ; 72
+LET CD, #0x0      ; ca 00 00
+ADC L, B          ; a7
+ADC Y, X          ; 6e
+CFG IO, #5        ; ed
+NIB X, #0         ; 20
+LET AB, XY        ; a1
+NIB D, #5         ; 35
+NIB D, #10        ; 3a
+CPB B, Y          ; 57
+SKIP NE           ; d2
+SKIP EQ           ; d0
+CLR A             ; 90
+NIB D, #2         ; 32
+NIB D, #2         ; 32
+ADC B, X          ; 66
+CLR Y             ; 9f
+PUSH CD           ; f6
+DEC CD            ; e1
+LET D, Y          ; c3
+XOR Y, B          ; 9d
+DEC HL            ; e7
+STEX HL           ; fe
+LET AB, XY        ; a1
+DEC D             ; e3
+POP CD            ; fa
+LET X, C          ; c6
+LET AB, HL        ; a3
+SEC               ; df
+NIB D, #9         ; 39
+SHR B             ; 75
+LET X, A          ; b8
+DEC CD            ; e1
+NIB D, #12        ; 3c
+OR A, Y           ; 83
+TST HL            ; af
+AND A, B          ; 71
+SBB X, A          ; 48
+DEC HL            ; e7
+LET A, X          ; b2
+TST B             ; b5
+OR X, B           ; 89
+ADC A, B          ; 61
+LET X, Y          ; bb
+ADC X, B          ; 69
+OR X, Y           ; 8b
+PUSH HL           ; f7
+CFG IO, #3        ; eb
+SKIP EQ           ; d0
+SKIP NE           ; d2
+CLR A             ; 90
+INCINC HL         ; e5
+CFG IO, #1        ; e9
+LET CD, XY        ; a9
+CPB C, X          ; 5a
+CPB Y, A          ; 5c
+NIB X, #9         ; 29
+DECDEC HL         ; e6
+NIB D, #3         ; 33
+AND Y, B          ; 7d
+CPB A, Y          ; 53
+NIB D, #5         ; 35
+STEX HL           ; fe
+SBB Y, X          ; 4e
+CPB B, X          ; 56
+CFG IO, #5        ; ed
+NIB D, #4         ; 34
+POP CD            ; fa
+LET B, X          ; b6
+NOP               ; 00
+NIB X, #5         ; 25
+NOT A             ; 80
+LET Y, A          ; bc
+PUSH SR           ; fc
+XOR B, X          ; 96
+LET A, C          ; c4
+NIB D, #0         ; 30
+CPB X, Y          ; 5b
+SKIP GE           ; d4
+SKIP LT           ; d6
+CLR B             ; 95
+NIB X, #13        ; 2d
+SKIP3 NE          ; d3
+SKIP3 EQ          ; d1
+HLT               ; 1f 00
+CLR X             ; 9a
+XOR A, Y          ; 93
+NIB X, #5         ; 25
+LET A, C          ; c4
+LET HL, XY        ; ad
+TST X             ; ba
+LET A, Y          ; b3
+OR B, A           ; 84
+XOR B, A          ; 94
+LET CD, XY        ; a9
+INC HL            ; e4
+ADC B, X          ; 66
+XOR Y, X          ; 9e
+SKIP3 GE          ; d5
+SKIP LT           ; d6
+RTS               ; ff
+CLR X             ; 9a
+SBB H, A          ; ae
+LET CD, AB        ; a8
+SKIP LT           ; d6
+SKIP3 GE          ; d5
+SKIP LT           ; d6
+RTS               ; ff
+CLR B             ; 95
+LET A, B          ; b1
+NIB X, #8         ; 28
+NIB X, #11        ; 2b
+LET XY, #0x0      ; c9 00 00
+SCS               ; dd
+DEC D             ; e3
+OUT AB            ; f0
+CPB A, Y          ; 53
+XOR B, A          ; 94
+XOR B, Y          ; 97
+LET B, D          ; c5
+LET C, X          ; c2
+SHR Y             ; 7f
+SCS               ; dd
+XOR B, X          ; 96
+NIB D, #1         ; 31
+NIB D, #11        ; 3b
+STEX HL           ; fe
+XOR Y, X          ; 9e
+NIB X, #9         ; 29
+XOR X, Y          ; 9b
+SBB X, Y          ; 4b
+SHL Y             ; 6f
+POP XY            ; f9
+LET AB, #0x0      ; c8 00 00
+AND Y, X          ; 7e
+OR X, Y           ; 8b
+CPB Y, A          ; 5c
+PUSH XY           ; f5
+SKIP EQ           ; d0
+SKIP3 NE          ; d3
+SKIP EQ           ; d0
+RTS               ; ff
+CLR Y             ; 9f
+SBB B, X          ; 46
+ADC X, Y          ; 6b
+INCINC HL         ; e5
+STEX HL           ; fe
+AND B, X          ; 76
+POP SR            ; fd
+CPB X, A          ; 58
+ADC H, A          ; a6
+XOR X, B          ; 99
+XOR X, A          ; 98
+ADC L, B          ; a7
+PUSH AB           ; f4
+LET Y, D          ; c7
+TST HL            ; af
+SHL Y             ; 6f
+NIB X, #11        ; 2b
+ADC X, Y          ; 6b
+LET A, Y          ; b3
+OR Y, B           ; 8d
+XOR X, B          ; 99
+SKIP EQ           ; d0
+SKIP3 NE          ; d3
+SKIP EQ           ; d0
+RTS               ; ff
+CLR X             ; 9a
+CPB C, X          ; 5a
+NIB D, #14        ; 3e
+NIB D, #3         ; 33
+STEX HL           ; fe
+LET HL, XY        ; ad
+NIB X, #6         ; 26
+CPB Y, B          ; 5d
+SBB L, B          ; ab
+SBB Y, A          ; 4c
+POP AB            ; f8
+NIB D, #4         ; 34
+CFG IO, #2        ; ea
+ADC Y, X          ; 6e
+AND A, X          ; 72
+OR B, Y           ; 87
+NIB X, #14        ; 2e
+CFG IO, #6        ; ee
+ADC L, B          ; a7
+NIB X, #9         ; 29
+LET B, X          ; b6
+NIB D, #13        ; 3d
+OR B, A           ; 84
+AND A, B          ; 71
+NIB X, #6         ; 26
+AND X, B          ; 79
+NIB D, #11        ; 3b
+LET Y, A          ; bc
+LET XY, AB        ; a4
+NIB X, #9         ; 29
+SBZ Y             ; 4f
+INC HL            ; e4
+CPB A, X          ; 52
+OUT AB            ; f0
+NIB X, #6         ; 26
+LET A, C          ; c4
+CLC               ; de
+NOT A             ; 80
+PUSH CD           ; f6
+OR Y, A           ; 8c
+SBZ Y             ; 4f
+ADC B, Y          ; 67
+NIB X, #11        ; 2b
+XOR A, B          ; 91
+CPB Y, A          ; 5c
+NIB D, #7         ; 37
+STEX HL           ; fe
+SCO               ; dc
+POP SR            ; fd
+LET D, B          ; c1
+SBZ X             ; 4a
+LET AB, CD        ; a2
+XOR B, X          ; 96
+AND Y, A          ; 7c
+LET Y, B          ; bd
+CFG IO, #2        ; ea
+NIB X, #8         ; 28
+LET XY, AB        ; a4
+CPB A, X          ; 52
+ADC A, Y          ; 63
+NIB X, #9         ; 29
+CLR B             ; 95
+SHL Y             ; 6f
+IN AB             ; f2
+OR B, Y           ; 87
+INC CD            ; e0
+SKIP3 GE          ; d5
+SKIP LT           ; d6
+RTS               ; ff
+CLR A             ; 90
+CPB B, X          ; 56
+INC CD            ; e0
+OR X, A           ; 88
+NIB D, #13        ; 3d
+CPB D, Y          ; 5f
+AND B, A          ; 74
+NIB X, #5         ; 25
+TST XY            ; a5
+SBB Y, B          ; 4d
+ADC X, B          ; 69
+SBB Y, A          ; 4c
+SBB B, Y          ; 47
+SBB Y, B          ; 4d
+SBB A, Y          ; 43
+PUSH SR           ; fc
+LET A, X          ; b2
+TST B             ; b5
+NIB X, #4         ; 24
+OR Y, X           ; 8e
+LET CD, AB        ; a8
+AND B, X          ; 76
+STEX HL           ; fe
+LET B, Y          ; b7
+LET A, C          ; c4
+POP CD            ; fa
+SBB A, X          ; 42
+ADC A, X          ; 62
+NIB D, #9         ; 39
+AND A, Y          ; 73
+NIB D, #3         ; 33
+NIB D, #1         ; 31
+CPB L, B          ; 55
+XOR B, X          ; 96
+CPB H, A          ; 50
+PUSH SR           ; fc
+TST HL            ; af
+LET B, A          ; b4
+CPB A, B          ; 51
+TST CD            ; aa
+NIB D, #0         ; 30
+ADC X, Y          ; 6b
+SBB B, Y          ; 47
+XOR A, X          ; 92
+SKIP3 HS          ; d9
+SKIP CS           ; da
+RTS               ; ff
+CLR B             ; 95
+OR B, X           ; 86
+LET CD, XY        ; a9
+CPB X, A          ; 58
+XOR X, Y          ; 9b
+OR X, Y           ; 8b
+OR B, Y           ; 87
+TST HL            ; af
+SCS               ; dd
+LET A, Y          ; b3
+OR A, B           ; 81
+LET Y, B          ; bd
+LET Y, D          ; c7
+ADC B, X          ; 66
+AND B, X          ; 76
+AND X, Y          ; 7b
+CFG IO, #5        ; ed
+LET CD, AB        ; a8
+NIB D, #15        ; 3f
+CPB X, A          ; 58
+XOR B, A          ; 94
+ADC X, Y          ; 6b
+LET A, B          ; b1
+LET D, B          ; c1
+STEX HL           ; fe
+NIB D, #1         ; 31
+NIB D, #13        ; 3d
+CLR B             ; 95
+IN XY             ; f3
+NIB D, #9         ; 39
+SKIP NE           ; d2
+SKIP3 EQ          ; d1
+SKIP NE           ; d2
+RTS               ; ff
+CLR B             ; 95
+NIB X, #10        ; 2a
+CPB B, A          ; 54
+CLC               ; de
+POP SR            ; fd
+AND B, A          ; 74
+CPB C, X          ; 5a
+TST AB            ; a0
+SHL A             ; 60
+CPB X, A          ; 58
+OUT XY            ; f1
+LET XY, AB        ; a4
+DEC HL            ; e7
+OR X, B           ; 89
+SKIP3 EQ          ; d1
+SKIP NE           ; d2
+RTS               ; ff
+CLR A             ; 90
+SBB B, X          ; 46
+LET HL, XY        ; ad
+LET Y, B          ; bd
+SBZ X             ; 4a
+LET A, C          ; c4
+NIB D, #5         ; 35
+TST AB            ; a0
+LET XY, #0x0      ; c9 00 00
+LET CD, XY        ; a9
+LET A, X          ; b2
+LET CD, XY        ; a9
+SHL B             ; 65
+SKIP3 LT          ; d7
+SKIP3 GE          ; d5
+HLT               ; 1f 00
+CLR B             ; 95
+SBB A, X          ; 42
+NIB D, #4         ; 34
+OR Y, B           ; 8d
+LET HL, XY        ; ad
+CFG IO, #7        ; ef
+PUSH HL           ; f7
+NIB D, #13        ; 3d
+SBZ B             ; 45
+SBB X, Y          ; 4b
+NIB X, #10        ; 2a
+STEX HL           ; fe
+OR B, Y           ; 87
+AND X, B          ; 79
+DECDEC HL         ; e6
+POP XY            ; f9
+SKIP3 LO          ; db
+SKIP CC           ; d8
+RTS               ; ff
+CLR Y             ; 9f
+CLR X             ; 9a
+CPB Y, A          ; 5c
+DEC D             ; e3
+CLR X             ; 9a
+CLC               ; de
+SBB B, A          ; 44
+CPB Y, A          ; 5c
+CFG IO, #5        ; ed
+LET XY, AB        ; a4
+AND X, Y          ; 7b
+ADC B, Y          ; 67
+PUSH AB           ; f4
+XOR X, A          ; 98
+LET A, X          ; b2
+LET Y, A          ; bc
+XOR A, Y          ; 93
+LET XY, #0x3b3a   ; c9 3b 3a
+SHL X             ; 6a
+AND X, A          ; 78
+NOP               ; 00
+NIB X, #2         ; 22
+XOR B, Y          ; 97
+LET AB, XY        ; a1
+LET AB, CD        ; a2
+OR X, A           ; 88
+NIB X, #9         ; 29
+NIB X, #7         ; 27
+AND Y, B          ; 7d
+LET Y, X          ; be
+NOP               ; 00
+ADC B, Y          ; 67
+NIB X, #13        ; 2d
+STEX HL           ; fe
+NIB D, #3         ; 33
+SHL A             ; 60
+SKIP GE           ; d4
+SKIP3 LT          ; d7
+SKIP GE           ; d4
+RTS               ; ff
+CLR Y             ; 9f
+XOR B, A          ; 94
+LET X, C          ; c6
+SBZ A             ; 40
+POP CD            ; fa
+AND A, B          ; 71
+INCINC HL         ; e5
+SKIP3 LT          ; d7
+SKIP GE           ; d4
+RTS               ; ff
+CLR X             ; 9a
+PUSH CD           ; f6
+AND Y, B          ; 7d
+NIB X, #6         ; 26
+TST AB            ; a0
+OR A, B           ; 81
+XOR Y, A          ; 9c
+CPB D, Y          ; 5f
+STEX HL           ; fe
+NIB D, #12        ; 3c
+CPB A, Y          ; 53
+AND Y, X          ; 7e
+CFG IO, #1        ; e9
+DEC CD            ; e1
+ADC A, X          ; 62
+NIB X, #13        ; 2d
+SKIP NE           ; d2
+SKIP EQ           ; d0
+CLR B             ; 95
+NIB D, #5         ; 35
+SHR A             ; 70
+LET C, X          ; c2
+LET B, A          ; b4
+NIB X, #15        ; 2f
+AND A, B          ; 71
+ADC B, A          ; 64
+OR X, B           ; 89
+SHR X             ; 7a
+TST XY            ; a5
+TST CD            ; aa
+DECDEC HL         ; e6
+SKIP NE           ; d2
+SKIP3 EQ          ; d1
+SKIP NE           ; d2
+RTS               ; ff
+CLR A             ; 90
+ADC X, A          ; 68
+SKIP GE           ; d4
+SKIP3 LT          ; d7
+SKIP GE           ; d4
+RTS               ; ff
+CLR Y             ; 9f
+CPB A, Y          ; 53
+SCO               ; dc
+TST HL            ; af
+SBB Y, A          ; 4c
+NOT B             ; 85
+CFG IO, #1        ; e9
+SBB Y, A          ; 4c
+LET CD, XY        ; a9
+CPB B, X          ; 56
+SHR Y             ; 7f
+LET X, C          ; c6
+NOT X             ; 8a
+LET C, X          ; c2
+NIB D, #4         ; 34
+TST CD            ; aa
+LET CD, #0x0      ; ca 00 00
+NIB X, #14        ; 2e
+XOR Y, X          ; 9e
+LET AB, #0x8749   ; c8 87 49
+CPB L, B          ; 55
+XOR X, B          ; 99
+CPB X, A          ; 58
+AND B, Y          ; 77
+NOT X             ; 8a
+NIB D, #11        ; 3b
+LET HL, AB        ; ac
+NIB X, #5         ; 25
+LET A, X          ; b2
+INCINC HL         ; e5
+CPB X, B          ; 59
+LET X, B          ; b9
+CPB A, X          ; 52
+POP AB            ; f8
+OR B, X           ; 86
+CFG IO, #2        ; ea
+SBB B, A          ; 44
+DEC HL            ; e7
+NIB X, #13        ; 2d
+NIB X, #4         ; 24
+LET X, C          ; c6
+CPB Y, X          ; 5e
+CPB B, Y          ; 57
+TST B             ; b5
+NIB X, #11        ; 2b
+CLR A             ; 90
+SBB X, A          ; 48
+LET C, X          ; c2
+LET D, B          ; c1
+LET Y, D          ; c7
+AND B, Y          ; 77
+ADC A, X          ; 62
+SHL X             ; 6a
+LET B, X          ; b6
+SKIP GE           ; d4
+SKIP LT           ; d6
+CLR X             ; 9a
+LET B, X          ; b6
+LET AB, CD        ; a2
+XOR Y, B          ; 9d
+PUSH XY           ; f5
+CPB A, X          ; 52
+CFG IO, #0        ; e8
+NIB X, #0         ; 20
+LET A, C          ; c4
+SBZ Y             ; 4f
+AND X, Y          ; 7b
+ADC Y, B          ; 6d
+CFG IO, #0        ; e8
+SBB X, A          ; 48
+SHL B             ; 65
+STEX HL           ; fe
+CPB B, A          ; 54
+SEC               ; df
+AND B, Y          ; 77
+INC HL            ; e4
+CPB C, X          ; 5a
+CPB D, Y          ; 5f
+ADC Y, X          ; 6e
+SHR B             ; 75
+TST HL            ; af
+OR B, Y           ; 87
+LET X, C          ; c6
+SHR Y             ; 7f
+LET AB, #0x9543   ; c8 95 43
+TST XY            ; a5
+POP AB            ; f8
+AND A, Y          ; 73
+NIB X, #14        ; 2e
+IN AB             ; f2
+SKIP3 HS          ; d9
+SKIP3 CS          ; db
+HLT               ; 1f 00
+CLR A             ; 90
+NIB D, #3         ; 33
+SHL A             ; 60
+PUSH SR           ; fc
+NIB X, #13        ; 2d
+NIB X, #8         ; 28
+ADC Y, A          ; 6c
+NIB X, #5         ; 25
+SBB Y, A          ; 4c
+AND X, A          ; 78
+CPB X, B          ; 59
+LET AB, CD        ; a2
+SKIP GE           ; d4
+SKIP3 LT          ; d7
+SKIP GE           ; d4
+RTS               ; ff
+CLR Y             ; 9f
+ADC A, Y          ; 63
+XOR Y, A          ; 9c
+CFG IO, #7        ; ef
+CPB D, Y          ; 5f
+SCO               ; dc
+ADC Y, X          ; 6e
+NIB X, #2         ; 22
+NOT A             ; 80
+CFG IO, #2        ; ea
+LET HL, AB        ; ac
+XOR A, X          ; 92
+OR Y, X           ; 8e
+ADC B, X          ; 66
+NIB X, #3         ; 23
+AND Y, B          ; 7d
+AND Y, X          ; 7e
+INC HL            ; e4
+LET CD, XY        ; a9
+AND X, A          ; 78
+TST CD            ; aa
+LET B, D          ; c5
+NOT X             ; 8a
+SBB A, B          ; 41
+OR X, B           ; 89
+NIB D, #10        ; 3a
+NIB X, #7         ; 27
+AND X, A          ; 78
+LET CD, AB        ; a8
+NIB X, #4         ; 24
+CPB X, Y          ; 5b
+ADC L, B          ; a7
+CLR A             ; 90
+NOT Y             ; 8f
+OR B, X           ; 86
+STEX HL           ; fe
+LET C, X          ; c2
+LET AB, CD        ; a2
+LET Y, B          ; bd
+CPB X, B          ; 59
+AND Y, A          ; 7c
+CPB Y, X          ; 5e
+POP CD            ; fa
+XOR A, X          ; 92
+CPB H, A          ; 50
+INCINC HL         ; e5
+LET B, Y          ; b7
+ADC A, Y          ; 63
+TST AB            ; a0
+LET A, Y          ; b3
+PUSH XY           ; f5
+TST X             ; ba
+ADC B, A          ; 64
+CPB X, A          ; 58
+NIB D, #0         ; 30
+NIB X, #12        ; 2c
+ADC B, X          ; 66
+OR B, A           ; 84
+STEX HL           ; fe
+AND X, B          ; 79
+LET CD, AB        ; a8
+POP HL            ; fb
+LET AB, XY        ; a1
+XOR B, A          ; 94
+SHL X             ; 6a
+CFG IO, #5        ; ed
+NIB X, #1         ; 21
+ADC X, A          ; 68
+NIB D, #3         ; 33
+XOR X, Y          ; 9b
+CFG IO, #1        ; e9
+CPB X, Y          ; 5b
+ADC Y, A          ; 6c
+LET XY, AB        ; a4
+DEC CD            ; e1
+NIB D, #6         ; 36
+CFG IO, #7        ; ef
+LET X, B          ; b9
+DEC C             ; e2
+CPB X, Y          ; 5b
+LET HL, XY        ; ad
+NIB X, #13        ; 2d
+OR Y, B           ; 8d
+TST Y             ; bf
+OR A, X           ; 82
+LET B, X          ; b6
+CFG IO, #0        ; e8
+LET HL, AB        ; ac
+NIB D, #5         ; 35
+PUSH SR           ; fc
+AND A, B          ; 71
+SBB X, A          ; 48
+SHR B             ; 75
+OR A, Y           ; 83
+NIB X, #14        ; 2e
+STEX HL           ; fe
+NOT X             ; 8a
+ADC A, Y          ; 63
+XOR X, Y          ; 9b
+SBB Y, A          ; 4c
+NIB D, #9         ; 39
+CPB Y, B          ; 5d
+CPB B, Y          ; 57
+NIB X, #5         ; 25
+LET X, A          ; b8
+NIB X, #8         ; 28
+SBB A, X          ; 42
+LET A, X          ; b2
+SBZ Y             ; 4f
+ADC Y, A          ; 6c
+NIB X, #7         ; 27
+IN XY             ; f3
+SBZ X             ; 4a
+CPB X, A          ; 58
+OR A, Y           ; 83
+NIB D, #8         ; 38
+SKIP3 EQ          ; d1
+SKIP NE           ; d2
+RTS               ; ff
+CLR Y             ; 9f
+LET AB, HL        ; a3
+XOR Y, B          ; 9d
+CPB B, X          ; 56
+NIB D, #1         ; 31
+POP XY            ; f9
+XOR A, B          ; 91
+LET C, A          ; c0
+CPB H, A          ; 50
+NIB X, #2         ; 22
+ADC B, A          ; 64
+PUSH SR           ; fc
+NOT Y             ; 8f
+NOT Y             ; 8f
+LET C, A          ; c0
+DEC C             ; e2
+SKIP GE           ; d4
+SKIP3 LT          ; d7
+SKIP GE           ; d4
+RTS               ; ff
+CLR A             ; 90
+XOR B, X          ; 96
+SKIP LO           ; da
+SKIP CC           ; d8
+CLR Y             ; 9f
+ADC H, A          ; a6
+CPB A, B          ; 51
+NIB X, #10        ; 2a
+SBB X, A          ; 48
+LET Y, X          ; be
+NIB D, #14        ; 3e
+CPB L, B          ; 55
+ADC B, Y          ; 67
+AND A, B          ; 71
+CLR Y             ; 9f
+TST AB            ; a0
+LET C, X          ; c2
+CLR Y             ; 9f
+NOT B             ; 85
+CPB L, B          ; 55
+LET Y, A          ; bc
+CPB B, A          ; 54
+OR B, A           ; 84
+LET AB, HL        ; a3
+IN AB             ; f2
+OR X, Y           ; 8b
+CPB A, B          ; 51
+SKIP3 CS          ; db
+SKIP3 HS          ; d9
+HLT               ; 1f 00
+CLR X             ; 9a
+STEX HL           ; fe
+CFG IO, #1        ; e9
+SHR A             ; 70
+AND Y, A          ; 7c
+CLR A             ; 90
+XOR B, A          ; 94
+LET CD, #0x6a32   ; ca 6a 32
+SHR B             ; 75
+XOR B, A          ; 94
+POP AB            ; f8
+NIB D, #12        ; 3c
+XOR Y, X          ; 9e
+ADC Y, A          ; 6c
+SEC               ; df
+OR Y, A           ; 8c
+AND X, Y          ; 7b
+SKIP LT           ; d6
+SKIP3 GE          ; d5
+SKIP LT           ; d6
+RTS               ; ff
+CLR Y             ; 9f
+LET AB, #0xd3a4   ; c8 d3 a4
+ADC B, Y          ; 67
+CFG IO, #6        ; ee
+CFG IO, #0        ; e8
+OUT AB            ; f0
+AND A, Y          ; 73
+PUSH CD           ; f6
+NIB D, #13        ; 3d
+TST AB            ; a0
+NIB D, #15        ; 3f
+XOR X, A          ; 98
+CPB A, Y          ; 53
+SHR B             ; 75
+STEX HL           ; fe
+XOR Y, B          ; 9d
+POP XY            ; f9
+AND B, X          ; 76
+SBZ X             ; 4a
+CLC               ; de
+NIB D, #2         ; 32
+SBB Y, B          ; 4d
+PUSH XY           ; f5
+SEC               ; df
+LET B, Y          ; b7
+SBB X, B          ; 49
+STEX HL           ; fe
+CFG IO, #4        ; ec
+SBB A, B          ; 41
+CLR X             ; 9a
+LET A, C          ; c4
+SHL B             ; 65
+NOT X             ; 8a
+CLR A             ; 90
+XOR B, Y          ; 97
+TST B             ; b5
+NIB D, #8         ; 38
+CPB B, A          ; 54
+LET XY, AB        ; a4
+NIB D, #15        ; 3f
+CFG IO, #6        ; ee
+SBB A, X          ; 42
+LET AB, CD        ; a2
+SHL B             ; 65
+SBB A, Y          ; 43
+SEC               ; df
+LET Y, A          ; bc
+NIB X, #3         ; 23
+LET Y, D          ; c7
+OR A, Y           ; 83
+XOR Y, B          ; 9d
+XOR B, Y          ; 97
+LET Y, X          ; be
+NIB X, #2         ; 22
+DEC D             ; e3
+ADC B, Y          ; 67
+SBB B, Y          ; 47
+LET X, C          ; c6
+NIB X, #4         ; 24
+SBB H, A          ; ae
+NIB D, #6         ; 36
+CFG IO, #3        ; eb
+AND A, Y          ; 73
+NIB D, #8         ; 38
+NIB X, #6         ; 26
+NIB X, #9         ; 29
+DEC HL            ; e7
+POP SR            ; fd
+LET Y, B          ; bd
+PUSH SR           ; fc
+NIB X, #12        ; 2c
+SHR X             ; 7a
+SHR B             ; 75
+AND Y, A          ; 7c
+STEX HL           ; fe
+OR A, X           ; 82
+OR B, Y           ; 87
+XOR Y, A          ; 9c
+ADC H, A          ; a6
+CPB Y, A          ; 5c
+LET HL, XY        ; ad
+SKIP EQ           ; d0
+SKIP3 NE          ; d3
+SKIP EQ           ; d0
+RTS               ; ff
+CLR X             ; 9a
+IN XY             ; f3
+LET HL, XY        ; ad
+TST AB            ; a0
+NIB X, #4         ; 24
+SCO               ; dc
+CFG IO, #0        ; e8
+POP AB            ; f8
+SEC               ; df
+NIB X, #10        ; 2a
+SBB B, Y          ; 47
+SBB Y, B          ; 4d
+CPB X, A          ; 58
+SBB H, A          ; ae
+CFG IO, #7        ; ef
+ADC B, X          ; 66
+AND Y, B          ; 7d
+LET A, X          ; b2
+CPB Y, B          ; 5d
+AND X, Y          ; 7b
+SBB H, A          ; ae
+PUSH AB           ; f4
+OR X, B           ; 89
+NIB X, #2         ; 22
+NIB D, #1         ; 31
+NIB D, #7         ; 37
+CPB X, Y          ; 5b
+NIB D, #8         ; 38
+XOR X, B          ; 99
+CLR Y             ; 9f
+CFG IO, #0        ; e8
+LET X, A          ; b8
+OR X, B           ; 89
+STEX HL           ; fe
+NIB D, #5         ; 35
+INC HL            ; e4
+TST XY            ; a5
+NIB D, #13        ; 3d
+CPB A, X          ; 52
+NIB D, #10        ; 3a
+NIB D, #8         ; 38
+NIB D, #0         ; 30
+LET C, A          ; c0
+LET Y, B          ; bd
+ADC X, A          ; 68
+POP XY            ; f9
+LET X, Y          ; bb
+CLR Y             ; 9f
+PUSH XY           ; f5
+SBB X, Y          ; 4b
+ADC X, B          ; 69
+SKIP CC           ; d8
+SKIP3 LO          ; db
+SKIP HS           ; d8
+RTS               ; ff
+CLR X             ; 9a
+STEX HL           ; fe
+XOR B, Y          ; 97
+TST X             ; ba
+LET HL, #0x9557   ; cb 95 57
+AND B, X          ; 76
+SHL X             ; 6a
+POP HL            ; fb
+ADC B, A          ; 64
+CPB B, X          ; 56
+CPB Y, A          ; 5c
+LET HL, AB        ; ac
+PUSH AB           ; f4
+SEC               ; df
+LET CD, AB        ; a8
+CFG IO, #3        ; eb
+LET XY, #0x86ea   ; c9 86 ea
+CFG IO, #6        ; ee
+DEC HL            ; e7
+SHL X             ; 6a
+OR Y, X           ; 8e
+CFG IO, #3        ; eb
+LET B, X          ; b6
+LET A, B          ; b1
+CFG IO, #7        ; ef
+SHL A             ; 60
+SBB A, X          ; 42
+CFG IO, #2        ; ea
+CPB L, B          ; 55
+SCS               ; dd
+OR X, Y           ; 8b
+LET XY, #0xace7   ; c9 ac e7
+STEX HL           ; fe
+IN XY             ; f3
+LET A, Y          ; b3
+SHL B             ; 65
+SBB L, B          ; ab
+LET CD, #0xd4c6   ; ca d4 c6
+NIB X, #14        ; 2e
+CPB Y, B          ; 5d
+SBB X, Y          ; 4b
+NOP               ; 00
+ADC L, B          ; a7
+ADC A, B          ; 61
+SBZ B             ; 45
+TST CD            ; aa
+NOT A             ; 80
+ADC B, X          ; 66
+SEC               ; df
+AND Y, B          ; 7d
+POP HL            ; fb
+CFG IO, #1        ; e9
+SHL Y             ; 6f
+XOR A, X          ; 92
+XOR Y, A          ; 9c
+ADC A, X          ; 62
+ADC Y, B          ; 6d
+ADC A, B          ; 61
+LET D, B          ; c1
+SBB B, X          ; 46
+ADC A, B          ; 61
+NIB X, #10        ; 2a
+OR B, A           ; 84
+SBB H, A          ; ae
+ADC Y, B          ; 6d
+PUSH CD           ; f6
+XOR A, B          ; 91
+SHL B             ; 65
+ADC A, Y          ; 63
+XOR Y, B          ; 9d
+NIB X, #8         ; 28
+OR A, X           ; 82
+STEX HL           ; fe
+ADC Y, X          ; 6e
+NIB X, #3         ; 23
+LET D, B          ; c1
+NIB D, #11        ; 3b
+CLR A             ; 90
+ADC H, A          ; a6
+NOT B             ; 85
+CPB Y, B          ; 5d
+DEC HL            ; e7
+OR A, B           ; 81
+NIB D, #11        ; 3b
+XOR A, Y          ; 93
+SHR X             ; 7a
+CPB B, A          ; 54
+SBB H, A          ; ae
+POP CD            ; fa
+SHL A             ; 60
+ADC A, X          ; 62
+LET X, C          ; c6
+XOR X, A          ; 98
+NIB D, #0         ; 30
+IN XY             ; f3
+NIB D, #4         ; 34
+AND Y, A          ; 7c
+AND Y, A          ; 7c
+OR Y, X           ; 8e
+TST X             ; ba
+SKIP3 NE          ; d3
+SKIP3 EQ          ; d1
+HLT               ; 1f 00
+CLR B             ; 95
+LET Y, A          ; bc
+LET A, B          ; b1
+ADC Y, B          ; 6d
+LET HL, AB        ; ac
+LET A, X          ; b2
+CFG IO, #1        ; e9
+SKIP3 GE          ; d5
+SKIP3 LT          ; d7
+HLT               ; 1f 00
+CLR B             ; 95
+SBB A, B          ; 41
+CPB Y, A          ; 5c
+PUSH AB           ; f4
+LET CD, XY        ; a9
+LET HL, #0x0      ; cb 00 00
+CLR A             ; 90
+SBZ A             ; 40
+DECDEC HL         ; e6
+NOP               ; 00
+SBB Y, B          ; 4d
+CPB B, Y          ; 57
+OR X, B           ; 89
+STEX HL           ; fe
+NIB D, #6         ; 36
+SKIP3 CC          ; d9
+SKIP3 CS          ; db
+HLT               ; 1f 00
+CLR B             ; 95
+IN XY             ; f3
+OR B, A           ; 84
+LET AB, XY        ; a1
+XOR Y, B          ; 9d
+NOT A             ; 80
+POP HL            ; fb
+LET A, X          ; b2
+XOR A, X          ; 92
+NIB X, #2         ; 22
+NOT Y             ; 8f
+SBB B, Y          ; 47
+OR Y, A           ; 8c
+NIB D, #10        ; 3a
+CFG IO, #6        ; ee
+PUSH AB           ; f4
+SKIP3 LO          ; db
+SKIP HS           ; d8
+RTS               ; ff
+CLR A             ; 90
+AND X, B          ; 79
+LET Y, A          ; bc
+NIB D, #14        ; 3e
+INC HL            ; e4
+OR Y, X           ; 8e
+TST XY            ; a5
+CFG IO, #4        ; ec
+SCO               ; dc
+SKIP CC           ; d8
+SKIP3 CS          ; db
+SKIP HS           ; d8
+RTS               ; ff
+CLR X             ; 9a
+LET B, D          ; c5
+SBB B, A          ; 44
+SBB B, Y          ; 47
+XOR X, A          ; 98
+SKIP3 NE          ; d3
+SKIP3 EQ          ; d1
+HLT               ; 1f 00
+CLR X             ; 9a
+AND B, A          ; 74
+LET Y, B          ; bd
+LET B, X          ; b6
+XOR Y, A          ; 9c
+CLC               ; de
+CFG IO, #4        ; ec
+SBB Y, X          ; 4e
+ADC B, A          ; 64
+DEC HL            ; e7
+CLR B             ; 95
+NIB X, #10        ; 2a
+NOT Y             ; 8f
+STEX HL           ; fe
+SBB H, A          ; ae
+SBB A, Y          ; 43
+ADC X, Y          ; 6b
+LET B, A          ; b4
+NIB X, #12        ; 2c
+ADC L, B          ; a7
+NIB X, #12        ; 2c
+NIB X, #7         ; 27
+OR A, X           ; 82
+SKIP3 LO          ; db
+SKIP3 CC          ; d9
+HLT               ; 1f 00
+CLR A             ; 90
+LET X, C          ; c6
+XOR B, X          ; 96
+CPB B, X          ; 56
+ADC B, X          ; 66
+NIB X, #10        ; 2a
+CPB A, Y          ; 53
+OR X, B           ; 89
+ADC X, A          ; 68
+ADC X, B          ; 69
+SHR B             ; 75
+CPB X, B          ; 59
+ADC Y, A          ; 6c
+POP CD            ; fa
+NIB D, #2         ; 32
+SKIP NE           ; d2
+SKIP EQ           ; d0
+CLR B             ; 95
+CLR X             ; 9a
+OUT AB            ; f0
+NIB X, #8         ; 28
+NIB D, #1         ; 31
+LET XY, #0x7ea    ; c9 07 ea
+SKIP LT           ; d6
+SKIP GE           ; d4
+CLR A             ; 90
+ADC X, Y          ; 6b
+AND Y, A          ; 7c
+OR Y, A           ; 8c
+XOR A, Y          ; 93
+CPB B, A          ; 54
+LET HL, XY        ; ad
+ADC Y, X          ; 6e
+CFG IO, #4        ; ec
+TST A             ; b0
+NIB X, #8         ; 28
+CFG IO, #3        ; eb
+XOR B, A          ; 94
+OR A, B           ; 81
+LET AB, CD        ; a2
+LET CD, #0x54e1   ; ca 54 e1
+IN XY             ; f3
+AND Y, X          ; 7e
+SBZ B             ; 45
+CFG IO, #5        ; ed
+SBZ Y             ; 4f
+AND X, B          ; 79
+OR Y, B           ; 8d
+LET B, D          ; c5
+NOP               ; 00
+LET B, Y          ; b7
+NIB X, #14        ; 2e
+OR A, Y           ; 83
+NIB X, #7         ; 27
+LET X, Y          ; bb
+AND A, B          ; 71
+XOR A, Y          ; 93
+NIB X, #3         ; 23
+SBB A, B          ; 41
+SHR A             ; 70
+XOR Y, A          ; 9c
+LET D, B          ; c1
+LET Y, D          ; c7
+LET HL, AB        ; ac
+NOT B             ; 85
+XOR B, A          ; 94
+LET AB, XY        ; a1
+LET B, D          ; c5
+NOP               ; 00
+LET X, B          ; b9
+AND X, A          ; 78
+LET XY, AB        ; a4
+LET HL, AB        ; ac
+SBB A, X          ; 42
+XOR B, Y          ; 97
+LET X, Y          ; bb
+OR B, A           ; 84
+DECDEC HL         ; e6
+NIB X, #6         ; 26
+LET A, C          ; c4
+CFG IO, #0        ; e8
+NIB X, #15        ; 2f
+NIB X, #4         ; 24
+NIB X, #0         ; 20
+DEC HL            ; e7
+OUT XY            ; f1
+LET B, Y          ; b7
+AND Y, B          ; 7d
+LET C, X          ; c2
+XOR A, Y          ; 93
+SBB B, Y          ; 47
+CPB Y, B          ; 5d
+INC CD            ; e0
+SKIP HS           ; d8
+SKIP CS           ; da
+CLR Y             ; 9f
+SBZ B             ; 45
+NIB X, #15        ; 2f
+CPB D, Y          ; 5f
+TST B             ; b5
+SHR Y             ; 7f
+NIB D, #3         ; 33
+LET B, Y          ; b7
+LET D, Y          ; c3
+SHR X             ; 7a
+TST CD            ; aa
+TST B             ; b5
+INCINC HL         ; e5
+OR Y, B           ; 8d
+SHL Y             ; 6f
+SHR Y             ; 7f
+CPB A, X          ; 52
+SBB A, Y          ; 43
+CPB X, Y          ; 5b
+CFG IO, #1        ; e9
+SBB X, Y          ; 4b
+OR A, Y           ; 83
+SEC               ; df
+OR B, X           ; 86
+NIB D, #13        ; 3d
+AND A, X          ; 72
+NOT X             ; 8a
+SBB H, A          ; ae
+CPB B, A          ; 54
+LET HL, AB        ; ac
+SHR X             ; 7a
+NIB X, #5         ; 25
+SHL B             ; 65
+SBZ X             ; 4a
+LET B, D          ; c5
+LET CD, AB        ; a8
+CFG IO, #3        ; eb
+CFG IO, #2        ; ea
+NIB X, #10        ; 2a
+INC CD            ; e0
+INC CD            ; e0
+OR B, X           ; 86
+AND B, A          ; 74
+SCO               ; dc
+DEC D             ; e3
+SKIP NE           ; d2
+SKIP3 EQ          ; d1
+SKIP NE           ; d2
+RTS               ; ff
+CLR X             ; 9a
+OR Y, B           ; 8d
+NIB D, #5         ; 35
+SBB X, B          ; 49
+SBB B, X          ; 46
+OR X, A           ; 88
+NIB X, #13        ; 2d
+NIB D, #7         ; 37
+TST Y             ; bf
+AND B, X          ; 76
+OR Y, A           ; 8c
+TST Y             ; bf
+LET Y, X          ; be
+LET X, C          ; c6
+OR B, Y           ; 87
+CPB X, Y          ; 5b
+ADC B, Y          ; 67
+NOT B             ; 85
+SKIP3 EQ          ; d1
+SKIP NE           ; d2
+RTS               ; ff
+CLR Y             ; 9f
+SEC               ; df
+ADC A, X          ; 62
+SBB A, Y          ; 43
+CPB D, Y          ; 5f
+XOR B, Y          ; 97
+SBB B, A          ; 44
+SHR B             ; 75
+LET AB, CD        ; a2
+CPB D, Y          ; 5f
+OR Y, B           ; 8d
+CLR Y             ; 9f
+OUT AB            ; f0
+NIB X, #12        ; 2c
+SHR X             ; 7a
+SKIP EQ           ; d0
+SKIP3 NE          ; d3
+SKIP EQ           ; d0
+RTS               ; ff
+CLR Y             ; 9f
+PUSH HL           ; f7
+CLR X             ; 9a
+OR X, Y           ; 8b
+SKIP3 EQ          ; d1
+SKIP3 NE          ; d3
+HLT               ; 1f 00
+CLR B             ; 95
+LET XY, #0x0      ; c9 00 00
+ADC A, X          ; 62
+TST HL            ; af
+OR A, B           ; 81
+LET XY, AB        ; a4
+XOR X, Y          ; 9b
+ADC A, B          ; 61
+SBB L, B          ; ab
+OR B, Y           ; 87
+NIB X, #14        ; 2e
+SKIP3 NE          ; d3
+SKIP EQ           ; d0
+RTS               ; ff
+CLR Y             ; 9f
+LET X, A          ; b8
+INC HL            ; e4
+STEX HL           ; fe
+LET C, A          ; c0
+CLR X             ; 9a
+XOR X, B          ; 99
+NOT B             ; 85
+NOT B             ; 85
+NIB D, #4         ; 34
+NIB X, #11        ; 2b
+NOT Y             ; 8f
+LET XY, #0xbb0b   ; c9 bb 0b
+CPB X, B          ; 59
+SKIP LT           ; d6
+SKIP GE           ; d4
+CLR Y             ; 9f
+POP SR            ; fd
+XOR Y, A          ; 9c
+CPB Y, X          ; 5e
+CPB A, X          ; 52
+XOR B, X          ; 96
+NIB X, #13        ; 2d
+AND Y, B          ; 7d
+SHL Y             ; 6f
+SBB Y, X          ; 4e
+OR B, A           ; 84
+CPB B, Y          ; 57
+SBB Y, A          ; 4c
+NIB D, #13        ; 3d
+SCS               ; dd
+OUT XY            ; f1
+DECDEC HL         ; e6
+
+; test relative branching
+BRA disp15
+dispneg16:
+BRA disp8
+dispneg3:
+BRA disp6
+dispneg4:
+BRA disp7
+dispneg5:
+BRA dispneg3
+dispneg7:
+BRA disp1
+dispneg8:
+BRA dispneg4
+disp1:
+BRA disp0  ; same as NOP
+disp0:
+BRA dispneg5
+disp6:
+BRA disp2
+disp8:
+BRA disp3
+disp7:
+BRA dispneg7
+disp2:
+BRA disp4
+dispneg2:
+BRA dispneg8
+disp3:
+BRA dispneg2
+dispneg1:
+BRA dispneg1  ; same as HLT
+disp15:
+BRA dispneg16
+disp4:
+
+; test JMP with immediate target
+JMP jmptarget1
+HLT
+jmptarget2:
+
+; test JSR with immediate target
+JSR jsrtarget
+
+; test JMP with target in XY
+LET XY, #jmptarget3
+JMP XY
+HLT
+jmptarget4:
+
+; test JSR with target in XY
+LET XY, #jsrtarget
+JSR XY
+
+; test SKIPxx
+NIB X, #0
+NIB X, #0
+
+SKIP NE
+SKIP EQ
+RTS
+SKIP3 NE
+SKIP3 EQ
+RTS
+HLT
+
+SKIP LT
+SKIP GE
+RTS
+SKIP3 LT
+SKIP3 GE
+RTS
+HLT
+
+NIB X, #0x6
+NIB X, #0xF
+SHL X
+
+SKIP LT
+SKIP GE
+RTS
+SKIP3 LT
+SKIP3 GE
+RTS
+HLT
+
+SKIP CS
+SKIP CC
+RTS
+SKIP3 CS
+SKIP3 CC
+RTS
+HLT
+
+SKIP EQ
+SKIP NE
+RTS
+SKIP3 EQ
+SKIP3 NE
+RTS
+HLT
+
+SHL X
+
+SKIP GE
+SKIP LT
+RTS
+SKIP3 GE
+SKIP3 LT
+RTS
+HLT
+
+SHL X
+
+SKIP GE
+SKIP LT
+RTS
+SKIP3 GE
+SKIP3 LT
+RTS
+HLT
+
+SKIP CC
+SKIP CS
+RTS
+SKIP3 CC
+SKIP3 CS
+RTS
+HLT
+
+; test carry ops
+NIB X, #10
+NIB X, #0
+SEC
+SHL X
+SCS
+SCO
+CLC
+SHL X
+SCS
+SCO
+SHL X
+
+; test DEC
+LET CD, #0x0002
+DEC C
+DEC C
+DEC CD
+DEC CD
+DEC CD
+DEC CD
+INC CD
+INC CD
+INC CD
+INC CD
+DEC C
+DEC C
+DEC D
+DEC D
+DEC D
+DEC D
+
+; test INC(INC) HL and DEC(DEC) HL
+LET HL, #0
+INC HL          ;  0 ->  1
+INC HL          ;  1 ->  2
+DEC HL          ;  2 ->  1
+DEC HL          ;  1 ->  0
+DEC HL          ;  0 -> -1
+DEC HL          ; -1 -> -2
+INC HL          ; -2 -> -1
+INCINC HL       ; -1 ->  1
+INCINC HL       ;  1 ->  3
+DECDEC HL       ;  3 ->  1
+DECDEC HL       ;  1 -> -1
+DECDEC HL       ; -1 -> -3
+INCINC HL       ; -3 -> -1
+INC HL          ; -1 ->  0
+INCINC HL       ;  0 ->  2
+INCINC HL       ;  2 ->  4
+DECDEC HL       ;  4 ->  2
+DECDEC HL       ;  2 ->  0
+DECDEC HL       ;  0 -> -2
+DECDEC HL       ; -2 -> -4
+INCINC HL       ; -4 -> -2
+INCINC HL       ; -2 ->  0
+
+; test RTS
+LET AB, #end
+PUSH AB
+RTS
+POP AB
+HLT
+
+; trampoline for JMP with immediate target
+jmptarget1:
+INC HL
+JMP jmptarget2
+HLT
+
+; trampoline for JMP with target in AB
+jmptarget3:
+DEC HL
+LET XY, #jmptarget4
+JMP XY
+HLT
+
+; subroutine for JSR
+jsrtarget:
+STEX HL
+STEX HL
+RTS
+
+; end of tests
+end:
+HLT
+`

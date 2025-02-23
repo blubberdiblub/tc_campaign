@@ -1,3 +1,1016 @@
-def arch_get_input($scratch_space: [Int], test: Int) Int { }
+const MASK_BRA = 0b11100000
+const INST_BRA = 0b00000000
+const INST_NOP = INST_BRA
+const INST_HLT = INST_BRA + 0b11111
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult { }
+const MASK_NIB   = 0b11100000
+const INST_NIB   = 0b00100000
+const MASK_NIB_X = MASK_NIB | 0b10000
+const INST_NIB_X = INST_NIB
+const MASK_NIB_D = MASK_NIB | 0b10000
+const INST_NIB_D = INST_NIB + 0b10000
+
+const MASK_SBB = 0b11110000
+const INST_SBB = 0b01000000
+
+const MASK_CPB = 0b11110000
+const INST_CPB = 0b01010000
+
+const MASK_ADC = 0b11110000
+const INST_ADC = 0b01100000
+
+const MASK_AND = 0b11110000
+const INST_AND = 0b01110000
+
+const MASK_OR = 0b11110000
+const INST_OR = 0b10000000
+
+const MASK_XOR = 0b11110000
+const INST_XOR = 0b10010000
+
+const MASK_LET16 = 0b11110000
+const INST_LET16 = 0b10100000
+
+const MASK_LET8_LOWER = 0b11110000
+const INST_LET8_LOWER = 0b10110000
+
+const MASK_LET8_COUNT = 0b11111000
+const INST_LET8_COUNT = 0b11000000
+
+const MASK_LETIMM = 0b11111100
+const INST_LETIMM = 0b11001000
+
+const MASK_JMP_JSR = 0b11111100
+const INST_JMP_JSR = 0b11001100
+const INST_JMPIMM  = INST_JMP_JSR
+const INST_JSRIMM  = INST_JMP_JSR + 0b01
+const INST_JMPREG  = INST_JMP_JSR + 0b10
+const INST_JSRREG  = INST_JMP_JSR + 0b11
+
+const MASK_SKIP = 0b11110000
+const INST_SKIP = 0b11010000
+
+const MASK_CARRY = 0b11111100
+const INST_CARRY = 0b11011100
+const INST_SCO   = INST_CARRY
+const INST_SCS   = INST_CARRY + 0b01
+const INST_CLC   = INST_CARRY + 0b10
+const INST_SEC   = INST_CARRY + 0b11
+
+const MASK_COUNT  = 0b11111100
+const INST_COUNT  = 0b11100000
+const INST_INC_CD = INST_COUNT
+const INST_DEC_CD = INST_COUNT + 0b01
+const INST_DEC_C  = INST_COUNT + 0b10
+const INST_DEC_D  = INST_COUNT + 0b11
+
+const MASK_INC_DEC_HL = 0b11111100
+const INST_INC_DEC_HL = 0b11100100
+const INST_INC_HL     = INST_INC_DEC_HL
+const INST_INC_INC_HL = INST_INC_DEC_HL + 0b01
+const INST_DEC_DEC_HL = INST_INC_DEC_HL + 0b10
+const INST_DEC_HL     = INST_INC_DEC_HL + 0b11
+
+const MASK_CFG_IO = 0b11111000
+const INST_CFG_IO = 0b11101000
+
+const MASK_OUT = 0b11111110
+const INST_OUT = 0b11110000
+const MASK_IN  = 0b11111110
+const INST_IN  = 0b11110010
+
+const MASK_PUSH = 0b11111100
+const INST_PUSH = 0b11110100
+const MASK_POP  = 0b11111100
+const INST_POP  = 0b11111000
+
+const INST_PUSH_SR = 0b11111100
+const INST_POP_SR  = 0b11111101
+const INST_STEX_HL = 0b11111110
+const INST_RTS     = 0b11111111
+
+const END_OF_MULTI_TESTS = 0 + (205 + 15) * 15 + (2 * 6 + 2 * 6 + 5 * 3 + 2 * 6) * 5 + 5
+const END_OF_BRA_TESTS = END_OF_MULTI_TESTS + 16
+const END_OF_JMPIMM_TESTS = END_OF_BRA_TESTS + 2 * 3 + 1
+const END_OF_JSRIMM_TESTS = END_OF_JMPIMM_TESTS + 1 * 3 + 3
+const END_OF_JMPREG_TESTS = END_OF_JSRIMM_TESTS + 2 * 3 + 3
+const END_OF_JSRREG_TESTS = END_OF_JMPREG_TESTS + 1 * 3 + 4
+const END_OF_SKIP_TESTS = END_OF_JSRREG_TESTS + 7 + 8 * 4
+const END_OF_CARRY_TESTS = END_OF_SKIP_TESTS + 5 + 6
+const END_OF_COUNT_TESTS = END_OF_CARRY_TESTS + 3 + 16
+const END_OF_INC_DEC_HL_TESTS = END_OF_COUNT_TESTS + 3 + 22
+const END_OF_RTS_TESTS = END_OF_INC_DEC_HL_TESTS + 4 + 1
+
+const SIM_PC = 0
+const SIM_DEFERRED = SIM_PC + 1
+
+const SIM_FLAGS = SIM_DEFERRED + 1
+const SIM_REGS = SIM_FLAGS + 1
+const SIM_LOWER_REGS = SIM_REGS
+const SIM_REG_AB = SIM_LOWER_REGS
+const SIM_REG_A = SIM_REG_AB
+const SIM_REG_B = SIM_REG_AB + 1
+const SIM_REG_XY = SIM_LOWER_REGS + 2
+const SIM_REG_X = SIM_REG_XY
+const SIM_REG_Y = SIM_REG_XY + 1
+const SIM_UPPER_REGS = SIM_REGS + 4
+const SIM_REG_CD = SIM_UPPER_REGS
+const SIM_REG_C = SIM_REG_CD
+const SIM_REG_D = SIM_REG_CD + 1
+const SIM_REG_HL = SIM_UPPER_REGS + 2
+const SIM_REG_H = SIM_REG_HL
+const SIM_REG_L = SIM_REG_HL + 1
+const SIM_END_OF_REGS = SIM_UPPER_REGS + 4
+
+const SIM_IO_CFG = SIM_END_OF_REGS
+const SIM_IO_OP = SIM_IO_CFG + 1
+const SIM_IO_DATA = SIM_IO_OP + 1
+const SIM_STACK_POINTER = SIM_IO_DATA + 1
+const SIM_STACK_LOWER_BOUND = SIM_STACK_POINTER + 1
+const SIM_STACK_UPPER_BOUND = SIM_STACK_LOWER_BOUND + 128
+const SIM_MEM = SIM_STACK_UPPER_BOUND
+
+const BITN_ODD      = 0
+const BITN_NONZERO  = 1
+const BITN_SIGN     = 2
+const BITN_OVERFLOW = 3
+const BITN_CARRY    = 4
+const BITN_BORROW   = BITN_CARRY
+
+const FLAG_ODD      = 1 << BITN_ODD
+const FLAG_NONZERO  = 1 << BITN_NONZERO
+const FLAG_SIGN     = 1 << BITN_SIGN
+const FLAG_OVERFLOW = 1 << BITN_OVERFLOW
+const COMMON_FLAGS  = FLAG_ODD | FLAG_NONZERO | FLAG_SIGN | FLAG_OVERFLOW
+const FLAG_CARRY    = 1 << BITN_CARRY
+const FLAG_BORROW   = 1 << BITN_BORROW
+const ALL_FLAGS     = COMMON_FLAGS | FLAG_CARRY | FLAG_BORROW
+
+const IO_OP_NONE = 0
+const IO_OP_IN   = 1
+const IO_OP_OUT  = 2
+const IO_OP_COLLISION = 3
+
+
+def check_setup($scratch_space: [Int]) Bool {
+
+    if get_assembler_width() == 0 {
+        set_error("expected a memory component with enabled Assembly")
+        return false
+    }
+
+    if get_assembler_width() != 8 {
+        set_error("expected the memory component containing the instructions to be 8 bits wide")
+        return false
+    }
+
+    if get_assembler_register_count() == 0 {
+        set_error("expected the registers to be connected to the Assembler")
+        return false
+    }
+
+    if get_assembler_register_count() < 11 {
+        set_error("expected at least 5 flags, the 4 main registers, the stack and the I/O config to be connected")
+        return false
+    }
+
+    return true
+}
+
+
+def push($scratch_space: [Int], value: Int) Bool {
+
+    let new_stack_pointer = scratch_space[SIM_STACK_POINTER] - 1
+    let tos_index = SIM_STACK_UPPER_BOUND + new_stack_pointer
+    if tos_index < SIM_STACK_LOWER_BOUND {
+        set_error("stack overflow")
+        return false
+    }
+
+    scratch_space[SIM_STACK_POINTER] = new_stack_pointer
+    scratch_space[tos_index] = value
+    return true
+}
+
+
+def pop($scratch_space: [Int], $value: Int) Bool {
+
+    let old_stack_pointer = scratch_space[SIM_STACK_POINTER]
+    let tos_index = SIM_STACK_UPPER_BOUND + old_stack_pointer
+    if tos_index >= SIM_STACK_UPPER_BOUND {
+        set_error("stack underflow")
+        return false
+    }
+
+    value = scratch_space[tos_index]
+    scratch_space[SIM_STACK_POINTER] = old_stack_pointer + 1
+    return true
+}
+
+
+def get_tos($scratch_space: [Int]) Int {
+
+    let sim_stack_pointer = scratch_space[SIM_STACK_POINTER]
+    if sim_stack_pointer >= 0 {
+        return Z_STATE
+    }
+
+    return scratch_space[SIM_STACK_UPPER_BOUND + sim_stack_pointer]
+}
+
+
+def common_flags(value: Int, bit_width: Int, overflow: Bool) Int {
+
+    let mask = (1 << bit_width) - 1
+
+    let odd     = 0 != (value & 1)
+    let nonzero = 0 != (value & mask)
+    let sign    = 0 != ((value & mask) >> (bit_width - 1))
+
+    return (odd ? FLAG_ODD : 0) | (nonzero ? FLAG_NONZERO : 0) | (sign ? FLAG_SIGN : 0) | (overflow ? FLAG_OVERFLOW : 0)
+}
+
+
+def add_sub_8bit($carry_or_borrow_out: Bool, $overflow: Bool, a: Int, b: Int, carry_or_borrow_in: Bool, is_sub: Bool) Int {
+
+    var result = Z_STATE
+
+    if is_sub {
+        result = a - b - <Int>carry_or_borrow_in
+    } else {
+        result = a + b + <Int>carry_or_borrow_in
+    }
+
+    let sign_a = 0 != (a & 0x80)
+    let sign_b = is_sub ? (0 == (b & 0x80)) : (0 != (b & 0x80))
+    let sign_r = 0 != (result & 0x80)
+    overflow = (sign_a && sign_b && !sign_r) || (!sign_a && !sign_b && sign_r)
+
+    carry_or_borrow_out = 0 != (result & 0x100)
+
+    return result & 0xff
+}
+
+
+def retire_instruction($scratch_space: [Int], instruction: Int, deferred_arg: Int) Bool {
+
+    if instruction & MASK_BRA == INST_BRA {
+
+        let operand =   instruction & 0b11111
+        let displacement = (operand & 0b10000) == 0 ? operand : operand - 0x20
+
+        scratch_space[SIM_PC] = (scratch_space[SIM_PC] + displacement) & 0xffff
+
+        return true
+    }
+
+    if instruction & MASK_NIB == INST_NIB {
+
+        let dst = 0 == (instruction & 0b10000) ? SIM_REG_X : SIM_REG_D
+        let operand =   instruction & 0b01111
+
+        let result = operand ^ ((scratch_space[dst] & 0b1111) << 4)
+
+        scratch_space[dst] = result
+        scratch_space[SIM_FLAGS] &= ~ALL_FLAGS
+        scratch_space[SIM_FLAGS] |= common_flags(result, 8, false)
+
+        return true
+    }
+
+    if (instruction & MASK_SBB == INST_SBB) || (instruction & MASK_CPB == INST_CPB) {
+
+        let not_cmp = instruction & MASK_CPB != INST_CPB
+
+        let operand_d = (instruction & 0b1100) >> 2
+        let operand_s = (instruction & 0b0011)
+
+        let dst = (not_cmp || operand_d != operand_s) ? SIM_LOWER_REGS + operand_d : SIM_UPPER_REGS + (operand_d ^ 2)
+        let src =                                       SIM_LOWER_REGS + operand_s
+
+        var borrow_out = false
+        var overflow = false
+        let result = add_sub_8bit($borrow_out, $overflow, scratch_space[dst], scratch_space[src], 0 != (scratch_space[SIM_FLAGS] & FLAG_BORROW), true)
+
+        if not_cmp {
+            scratch_space[dst] = result
+        }
+        scratch_space[SIM_FLAGS] &= ~(COMMON_FLAGS | FLAG_BORROW)
+        scratch_space[SIM_FLAGS] |= common_flags(result, 8, overflow) | (borrow_out ? FLAG_BORROW : 0)
+
+        return true
+    }
+
+    if instruction & MASK_ADC == INST_ADC {
+
+        let dst = SIM_LOWER_REGS + (instruction & 0b1100) >> 2
+        let src = SIM_LOWER_REGS + (instruction & 0b0011)
+
+        var carry_out = false
+        var overflow = false
+        let result = add_sub_8bit($carry_out, $overflow, scratch_space[dst], scratch_space[src], 0 != (scratch_space[SIM_FLAGS] & FLAG_CARRY), false)
+
+        scratch_space[dst] = result
+        scratch_space[SIM_FLAGS] &= ~(COMMON_FLAGS | FLAG_CARRY)
+        scratch_space[SIM_FLAGS] |= common_flags(result, 8, overflow) | (carry_out ? FLAG_CARRY : 0)
+
+        return true
+    }
+
+    if instruction & MASK_AND == INST_AND {
+
+        let dst = SIM_LOWER_REGS + (instruction & 0b1100) >> 2
+        let src = SIM_LOWER_REGS + (instruction & 0b0011)
+
+        var result = Z_STATE
+
+        if dst == src {  // SHR
+            let carry_in  = 0 != scratch_space[SIM_FLAGS] & FLAG_CARRY
+            result        =      scratch_space[src] >> 1 ^ (carry_in ? 0x80 : 0)
+            let carry_out = 0 != scratch_space[src] & 1
+            if carry_out != carry_in {
+                scratch_space[SIM_FLAGS] ^= FLAG_CARRY
+            }
+        } else {  // AND
+            result = scratch_space[dst] & scratch_space[src]
+        }
+
+        scratch_space[dst] = result
+        scratch_space[SIM_FLAGS] &= ~COMMON_FLAGS
+        scratch_space[SIM_FLAGS] |= common_flags(result, 8, false)
+
+        return true
+    }
+
+    if instruction & MASK_OR == INST_OR {
+
+        let dst = SIM_LOWER_REGS + (instruction & 0b1100) >> 2
+        let src = SIM_LOWER_REGS + (instruction & 0b0011)
+
+        var result = Z_STATE
+
+        if dst == src {  // NOT
+            result = scratch_space[src] ^ 0xff
+            scratch_space[SIM_FLAGS] ^= FLAG_CARRY | FLAG_BORROW
+        } else {  // OR
+            result = scratch_space[dst] | scratch_space[src]
+        }
+
+        scratch_space[dst] = result
+        scratch_space[SIM_FLAGS] &= ~COMMON_FLAGS
+        scratch_space[SIM_FLAGS] |= common_flags(result, 8, false)
+
+        return true
+    }
+
+    if instruction & MASK_XOR == INST_XOR {
+
+        let dst = SIM_LOWER_REGS + (instruction & 0b1100) >> 2
+        let src = SIM_LOWER_REGS + (instruction & 0b0011)
+
+        let result = scratch_space[dst] ^ scratch_space[src]
+
+        scratch_space[dst] = result
+        scratch_space[SIM_FLAGS] &= ~COMMON_FLAGS
+        scratch_space[SIM_FLAGS] |= common_flags(result, 8, false)
+
+        return true
+    }
+
+    if instruction & MASK_LET16 == INST_LET16 {
+
+        let operand_d = (instruction & 0b1100) >> 2
+        let operand_s = (instruction & 0b0011)
+
+        if operand_d != operand_s && operand_d == 1 && operand_s >= 2 {  // ADC
+
+            let dst = SIM_REG_HL + (operand_s & 1)
+            let src = SIM_REG_AB + (operand_s & 1)
+
+            var carry_out = false
+            var overflow = false
+            let result = add_sub_8bit($carry_out, $overflow, scratch_space[dst], scratch_space[src], 0 != (scratch_space[SIM_FLAGS] & FLAG_CARRY), false)
+
+            scratch_space[dst] = result
+
+            if carry_out {
+                scratch_space[SIM_FLAGS] |= FLAG_CARRY
+            } else {
+                scratch_space[SIM_FLAGS] &= ~FLAG_CARRY
+            }
+
+        } elif operand_d != operand_s && operand_d >= 2 && operand_s >= 2 {  // SBB
+
+            let dst = SIM_REG_HL + (operand_s & 1)
+            let src = SIM_REG_AB + (operand_s & 1)
+
+            var borrow_out = false
+            var overflow = false
+            let result = add_sub_8bit($borrow_out, $overflow, scratch_space[dst], scratch_space[src], 0 != (scratch_space[SIM_FLAGS] & FLAG_BORROW), true)
+
+            scratch_space[dst] = result
+
+            if borrow_out {
+                scratch_space[SIM_FLAGS] |= FLAG_BORROW
+            } else {
+                scratch_space[SIM_FLAGS] &= ~FLAG_BORROW
+            }
+
+        } else {  // LET or TST
+
+            let dst = SIM_REGS + operand_d * 2
+            let src = SIM_REGS + operand_s * 2
+
+            let result = scratch_space[src] << 8 ^ scratch_space[src + 1]
+
+            if dst != src {  // not TST
+                scratch_space[dst]     = result >> 8
+                scratch_space[dst + 1] = result & 0xff
+            }
+
+            if dst != src && dst != SIM_REG_HL {
+                scratch_space[SIM_FLAGS] &= ~(FLAG_CARRY | FLAG_BORROW)
+            }
+
+            if dst == src || dst != SIM_REG_HL {
+                scratch_space[SIM_FLAGS] &= ~COMMON_FLAGS
+                scratch_space[SIM_FLAGS] |= common_flags(result, 16, false)
+            }
+
+        }
+
+        return true
+    }
+
+    if instruction & MASK_LET8_LOWER == INST_LET8_LOWER {
+
+        let dst = SIM_LOWER_REGS + (instruction & 0b1100) >> 2
+        let src = SIM_LOWER_REGS + (instruction & 0b0011)
+
+        let result = scratch_space[src]
+
+        if dst != src {  // not TST
+            scratch_space[dst] = result
+            scratch_space[SIM_FLAGS] &= ~(FLAG_CARRY | FLAG_BORROW)
+        }
+
+        scratch_space[SIM_FLAGS] &= ~COMMON_FLAGS
+        scratch_space[SIM_FLAGS] |= common_flags(result, 8, false)
+
+        return true
+    }
+
+    if instruction & MASK_LET8_COUNT == INST_LET8_COUNT {
+
+        let dst = 0 == (instruction & 0b100) ? SIM_REG_CD + (instruction & 0b001) : SIM_LOWER_REGS + (instruction & 0b011)
+        let src = 0 == (instruction & 0b100) ? SIM_LOWER_REGS + (instruction & 0b011) : SIM_REG_CD + (instruction & 0b001)
+
+        let result = scratch_space[src]
+
+        scratch_space[dst] = result
+        scratch_space[SIM_FLAGS] &= ~ALL_FLAGS
+        scratch_space[SIM_FLAGS] |= common_flags(result, 8, false)
+
+        return true
+    }
+
+    if instruction & MASK_LETIMM == INST_LETIMM {
+
+        let dst = SIM_REGS + (instruction & 0b11) * 2
+
+        scratch_space[dst]     = deferred_arg >> 8
+        scratch_space[dst + 1] = deferred_arg & 0xff
+
+        if dst != SIM_REG_HL {
+            scratch_space[SIM_FLAGS] &= ~ALL_FLAGS
+            scratch_space[SIM_FLAGS] |= common_flags(deferred_arg, 16, false)
+        }
+
+        return true
+    }
+
+    if instruction & MASK_JMP_JSR == INST_JMP_JSR {
+
+        if 0 != (instruction & 0b01) {
+            if !push($scratch_space, scratch_space[SIM_PC]) {
+                return false
+            }
+        }
+
+        if 0 == (instruction & 0b10) {
+            scratch_space[SIM_PC] = deferred_arg
+        } else {
+            scratch_space[SIM_PC] = scratch_space[SIM_REG_X] << 8 ^ scratch_space[SIM_REG_Y]
+        }
+
+        return true
+    }
+
+    if (instruction & MASK_SKIP == INST_SKIP) && (instruction & MASK_CARRY != INST_CARRY) {
+
+        let cond_selector = (instruction & 0b1100) >> 2
+        let compare_value = (instruction & 0b0010) >> 1
+        let skip_count    = (instruction & 0b0001) == 0 ? 1 : 3
+
+        var condition = Z_STATE
+
+        switch cond_selector
+
+            0 { condition = (scratch_space[SIM_FLAGS] & FLAG_NONZERO) >> BITN_NONZERO }
+            1 { condition = (scratch_space[SIM_FLAGS] & FLAG_SIGN)    >> BITN_SIGN ^ (scratch_space[SIM_FLAGS] & FLAG_OVERFLOW) >> BITN_OVERFLOW }
+            2 { condition = (scratch_space[SIM_FLAGS] & FLAG_CARRY)   >> BITN_CARRY }
+
+        if condition == compare_value {
+            scratch_space[SIM_PC] = (scratch_space[SIM_PC] + skip_count) & 0xffff
+        }
+
+        return true
+    }
+
+    if instruction & MASK_CARRY == INST_CARRY {
+
+        var carry_out = false
+
+        switch instruction
+
+
+            INST_SCO { carry_out = 0 != scratch_space[SIM_FLAGS] & FLAG_ODD }
+            INST_SCS { carry_out = 0 != scratch_space[SIM_FLAGS] & FLAG_SIGN }
+            INST_CLC { carry_out = false }
+            INST_SEC { carry_out = true }
+
+        if carry_out {
+            scratch_space[SIM_FLAGS] |= FLAG_CARRY
+        } else {
+            scratch_space[SIM_FLAGS] &= ~FLAG_CARRY
+        }
+
+        return true
+    }
+
+    if instruction & MASK_COUNT == INST_COUNT {
+
+        var bit_width = Z_STATE
+        var result = Z_STATE
+
+        switch instruction
+
+            INST_INC_CD {
+                bit_width = 16
+                result = scratch_space[SIM_REG_C] << 8 ^ scratch_space[SIM_REG_D] + 1
+                scratch_space[SIM_REG_C] = result >> 8 & 0xff
+                scratch_space[SIM_REG_D] = result      & 0xff
+            }
+
+            INST_DEC_CD {
+                bit_width = 16
+                result = scratch_space[SIM_REG_C] << 8 ^ scratch_space[SIM_REG_D] - 1
+                scratch_space[SIM_REG_C] = result >> 8 & 0xff
+                scratch_space[SIM_REG_D] = result      & 0xff
+            }
+
+            INST_DEC_C {
+                bit_width = 8
+                result = scratch_space[SIM_REG_C] - 1
+                scratch_space[SIM_REG_C] = result & 0xff
+            }
+
+            INST_DEC_D {
+                bit_width = 8
+                result = scratch_space[SIM_REG_D] - 1
+                scratch_space[SIM_REG_D] = result & 0xff
+            }
+
+        scratch_space[SIM_FLAGS] &= ~ALL_FLAGS
+        scratch_space[SIM_FLAGS] |= common_flags(result, bit_width, false) | (0 != (result >> bit_width & 1) ? FLAG_CARRY : 0)
+
+        return true
+    }
+
+    if instruction & MASK_INC_DEC_HL == INST_INC_DEC_HL {
+
+        var result = scratch_space[SIM_REG_H] << 8 ^ scratch_space[SIM_REG_L]
+
+        switch instruction
+
+            INST_INC_HL     { result += 1 }
+            INST_INC_INC_HL { result += 2 }
+            INST_DEC_DEC_HL { result -= 2 }
+            INST_DEC_HL     { result -= 1 }
+
+        scratch_space[SIM_REG_H] = result >> 8 & 0xff
+        scratch_space[SIM_REG_L] = result      & 0xff
+
+        return true
+    }
+
+    if instruction & MASK_CFG_IO == INST_CFG_IO {
+
+        let operand = instruction & 0b111
+
+        scratch_space[SIM_IO_CFG] = operand
+
+        return true
+    }
+
+    if instruction & MASK_OUT == INST_OUT {
+
+        if scratch_space[SIM_IO_OP] != IO_OP_OUT {
+            set_error("OUT instruction didn't perform output")
+            return false
+        }
+
+        let src = SIM_LOWER_REGS + (instruction & 0b1) * 2
+
+        let data = scratch_space[src] << 8 ^ scratch_space[src + 1]
+        if data != scratch_space[SIM_IO_DATA] {
+            set_error("expected an output value of {data}, but got {scratch_space[SIM_IO_DATA]}")
+            return false
+        }
+
+        return true
+    }
+
+    if instruction & MASK_IN == INST_IN {
+
+        if scratch_space[SIM_IO_OP] != IO_OP_IN {
+            set_error("IN instruction didn't perform input")
+            return false
+        }
+
+        let dst = SIM_LOWER_REGS + (instruction & 0b1) * 2
+        let data = scratch_space[SIM_IO_DATA]
+
+        scratch_space[dst]     = data >> 8 & 0xff
+        scratch_space[dst + 1] = data      & 0xff
+        scratch_space[SIM_FLAGS] &= ~ALL_FLAGS
+        scratch_space[SIM_FLAGS] |= common_flags(data, 16, false)
+
+        return true
+    }
+
+    if instruction & MASK_PUSH == INST_PUSH {
+
+        let src = SIM_REGS + (instruction & 0b11) * 2
+
+        return push($scratch_space, scratch_space[src] << 8 ^ scratch_space[src + 1])
+    }
+
+    if instruction & MASK_POP == INST_POP {
+
+        let dst = SIM_REGS + (instruction & 0b11) * 2
+
+        var result = Z_STATE
+        if !pop($scratch_space, $result) {
+            return false
+        }
+
+        scratch_space[dst]     = result >> 8
+        scratch_space[dst + 1] = result & 0xff
+
+        if dst != SIM_REG_HL {
+            scratch_space[SIM_FLAGS] &= ~ALL_FLAGS
+            scratch_space[SIM_FLAGS] |= common_flags(result, 16, false)
+        }
+
+        return true
+    }
+
+    if instruction == INST_PUSH_SR {
+
+        return push($scratch_space, scratch_space[SIM_FLAGS])
+    }
+
+    if instruction == INST_POP_SR {
+
+        var result = Z_STATE
+        if !pop($scratch_space, $result) {
+            return false
+        }
+
+        scratch_space[SIM_FLAGS] &= ~ALL_FLAGS
+        scratch_space[SIM_FLAGS] |= result & ALL_FLAGS
+
+        return true
+    }
+
+    if instruction == INST_STEX_HL {
+
+        var result = Z_STATE
+        if !pop($scratch_space, $result) {
+            return false
+        }
+
+        if !push($scratch_space, scratch_space[SIM_REG_H] << 8 ^ scratch_space[SIM_REG_L]) {
+            return false
+        }
+
+        scratch_space[SIM_REG_H] = result >> 8
+        scratch_space[SIM_REG_L] = result & 0xff
+
+        return true
+    }
+
+    if instruction == INST_RTS {
+
+        var after_call_site = Z_STATE
+        if !pop($scratch_space, $after_call_site) {
+            return false
+        }
+
+        scratch_space[SIM_PC] = after_call_site
+
+        return true
+    }
+
+    set_error("unsupported instruction")
+    return false
+}
+
+
+def check_instruction($scratch_space: [Int], tick: Int, instruction: Int, deferred_arg: Int) TestResult {
+
+    if !retire_instruction($scratch_space, instruction, deferred_arg) {
+        return fail
+    }
+
+    if tick < END_OF_MULTI_TESTS {
+        if instruction == INST_HLT {
+            set_error("unexpected HLT instruction")
+            return fail
+        }
+
+        if (instruction & MASK_BRA == INST_BRA) && (instruction != INST_NOP) {
+            set_error("unexpected BRA instruction")
+            return fail
+        }
+
+        return pass
+    }
+
+    if tick < END_OF_BRA_TESTS {
+        if instruction == INST_HLT {
+            set_error("found a HLT instruction or BRA with wrong displacement")
+            return fail
+        }
+        if instruction & MASK_BRA != INST_BRA {
+            set_error("expected a BRA instruction")
+            return fail
+        }
+
+        return pass
+    }
+
+    if tick < END_OF_JMPIMM_TESTS {
+        if (instruction != INST_JMPIMM) && (instruction != INST_INC_HL) {
+            set_error("expected a JMP instruction with immediate target")
+            return fail
+        }
+
+        return pass
+    }
+
+    if tick < END_OF_JSRIMM_TESTS {
+        if (instruction != INST_JSRIMM) && (instruction != INST_STEX_HL) && (instruction != INST_RTS) {
+            set_error("expected a JSR instruction with immediate target")
+            return fail
+        }
+
+        return pass
+    }
+
+    if tick < END_OF_JMPREG_TESTS {
+        if (instruction != INST_JMPREG) && (instruction & MASK_LETIMM != INST_LETIMM) && (instruction != INST_DEC_HL) {
+            set_error("expected a JMP instruction with register target")
+            return fail
+        }
+
+        return pass
+    }
+
+    if tick < END_OF_JSRREG_TESTS {
+        if (instruction != INST_JSRREG) && (instruction & MASK_LETIMM != INST_LETIMM) && (instruction != INST_STEX_HL) && (instruction != INST_RTS) {
+            set_error("expected a JSR instruction with register target")
+            return fail
+        }
+
+        return pass
+    }
+
+    if tick < END_OF_SKIP_TESTS {
+        if instruction == INST_HLT {
+            set_error("found a HLT instruction, therefore SKIP didn't work correctly")
+            return fail
+        }
+        if (instruction & MASK_SKIP != INST_SKIP) && (instruction & MASK_NIB_X != INST_NIB_X) && (instruction & MASK_ADC != INST_ADC) {
+            set_error("expected a SKIP instruction")
+            return fail
+        }
+
+        return pass
+    }
+
+    if tick < END_OF_CARRY_TESTS {
+        if (instruction & MASK_CARRY != INST_CARRY) && (instruction & MASK_NIB_X != INST_NIB_X) && (instruction & MASK_ADC != INST_ADC) {
+            set_error("expected a CARRY instruction")
+            return fail
+        }
+
+        return pass
+    }
+
+    if tick < END_OF_COUNT_TESTS {
+        if (instruction & MASK_COUNT != INST_COUNT) && (instruction & MASK_LETIMM != INST_LETIMM) {
+            set_error("expected a INC CD, DEC CD, DEC C or DEC D instruction")
+            return fail
+        }
+
+        return pass
+    }
+
+    if tick < END_OF_INC_DEC_HL_TESTS {
+        if (instruction & MASK_INC_DEC_HL != INST_INC_DEC_HL) && (instruction & MASK_LETIMM != INST_LETIMM) {
+            set_error("expected an INC (INC) HL or DEC (DEC) HL instruction")
+            return fail
+        }
+
+        return pass
+    }
+
+    if tick < END_OF_RTS_TESTS {
+        if (instruction != INST_RTS) && (instruction & MASK_LETIMM != INST_LETIMM) && (instruction & MASK_PUSH != INST_PUSH) {
+            set_error("expected an RTS instruction")
+            return fail
+        }
+
+        return pass
+    }
+
+    if instruction != INST_HLT {
+        set_error("expected a HLT instruction at the end")
+        return fail
+    }
+
+    return win
+}
+
+
+def arch_get_input($scratch_space: [Int], test: Int) Int {
+
+    let input = random(100) < 80 ? 1 + random(0xffff) : 0
+
+    scratch_space[SIM_IO_OP] = IO_OP_IN
+    scratch_space[SIM_IO_DATA] = input
+
+    return input
+}
+
+
+def arch_check_output($scratch_space: [Int], test: Int, input: Int, output: Int) TestResult {
+
+    if scratch_space[SIM_IO_OP] != IO_OP_NONE {
+        scratch_space[SIM_IO_OP] = IO_OP_COLLISION
+        set_error("cannot perform multiple I/O operations simultaneously")
+        return fail
+    }
+
+    scratch_space[SIM_IO_OP] = IO_OP_OUT
+    scratch_space[SIM_IO_DATA] = output
+
+    return pass
+}
+
+
+def on_tick($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+
+    if tick == 0 {
+        if !check_setup($scratch_space) {
+            return fail
+        }
+    }
+
+    let address = get_program_address()
+    let program_byte = get_program_output() & 0xff
+
+    let expected_address = scratch_space[SIM_PC]
+    if address != expected_address {
+        set_error(`expected the program counter to be at {expected_address}, not {address}`)
+        return fail
+    }
+
+    scratch_space[SIM_PC] = (expected_address + 1) & 0xffff
+
+    var instruction = Z_STATE
+    var deferred_arg = Z_STATE
+
+    if scratch_space[SIM_DEFERRED] > 0 {
+
+        let deferred = scratch_space[SIM_DEFERRED] << 8 ^ program_byte
+        if deferred > 0xffff {
+
+            instruction = deferred >> 16
+            deferred_arg = deferred & 0xffff
+            scratch_space[SIM_DEFERRED] = 0
+
+        } else {
+
+            scratch_space[SIM_DEFERRED] = deferred
+
+        }
+
+    } elif (program_byte & MASK_LETIMM == INST_LETIMM) || (program_byte == INST_JMPIMM) || (program_byte == INST_JSRIMM) {
+
+        scratch_space[SIM_DEFERRED] = program_byte
+
+    } else {
+
+        instruction = program_byte
+
+    }
+
+    switch scratch_space[SIM_IO_OP]
+
+        IO_OP_NONE {}
+
+        IO_OP_IN {
+            if instruction == Z_STATE || instruction & MASK_IN != INST_IN {
+                set_error("spurious input without IN instruction")
+                return fail
+            }
+        }
+
+        IO_OP_OUT {
+            if instruction == Z_STATE || instruction & MASK_OUT != INST_OUT {
+                set_error("spurious output without OUT instruction")
+                return fail
+            }
+        }
+
+        IO_OP_COLLISION {
+            set_error("cannot perform multiple I/O operations simultaneously")
+            return fail
+        }
+
+        default {
+            set_error("unsupported I/O operation")
+            return fail
+        }
+
+    var result = pass
+    if instruction != Z_STATE {
+        result = check_instruction($scratch_space, tick, instruction, deferred_arg)
+        if result == fail {
+            return result
+        }
+        scratch_space[SIM_IO_OP] = IO_OP_NONE
+    }
+
+    let expected_io_cfg = scratch_space[SIM_IO_CFG]
+    let circuit_io_cfg = get_register_value(10) & 0b111
+    if circuit_io_cfg != expected_io_cfg {
+        set_error(`expected I/O configuration to be {expected_io_cfg}, not {circuit_io_cfg}`)
+        return fail
+    }
+
+    let expected_tos = get_tos($scratch_space)
+    if expected_tos != Z_STATE {
+        let sim_stack_pointer = scratch_space[SIM_STACK_POINTER]
+        if sim_stack_pointer < 0 {
+            let circuit_tos = get_register_value(9) & 0xffff
+            if circuit_tos != expected_tos {
+                set_error(`expected top of stack to be {expected_tos}, not {circuit_tos}`)
+                return fail
+            }
+        }
+    }
+
+    var reg = 0
+    while reg < 4 {
+        let reg_16_bit = get_register_value(5 + reg) & 0xffff
+
+        let expected_msb = scratch_space[SIM_REGS + reg * 2]
+        let reg_msb = reg_16_bit >> 8
+        if reg_msb != expected_msb {
+            set_error(`expected register #{reg * 2} to be {expected_msb}, not {reg_msb}`)
+            return fail
+        }
+
+        let expected_lsb = scratch_space[SIM_REGS + reg * 2 + 1]
+        let reg_lsb = reg_16_bit & 0xff
+        if reg_lsb != expected_lsb {
+            set_error(`expected register #{reg * 2 + 1} to be {expected_lsb}, not {reg_lsb}`)
+            return fail
+        }
+
+        reg += 1
+    }
+
+    let expected_flags = scratch_space[SIM_FLAGS]
+    let circuit_flags = (get_register_value(0) & 1) << BITN_CARRY | (get_register_value(1) & 1) << BITN_OVERFLOW | (get_register_value(2) & 1) << BITN_SIGN | (get_register_value(3) & 1) << BITN_NONZERO | (get_register_value(4) & 1) << BITN_ODD
+    if circuit_flags != expected_flags {
+        set_error(`expected flags to be {expected_flags}, not {circuit_flags}`)
+        return fail
+    }
+
+    return result
+}

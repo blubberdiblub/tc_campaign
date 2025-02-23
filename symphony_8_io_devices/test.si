@@ -466,9 +466,9 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
         }
 
-        if get_ram_width() != 16 {
+        if get_ram_width() != 32 {
 
-            set_error(`Set the primary RAM width to 16.`)
+            set_error(`Set the assembler RAM width to 32.`)
             return fail
 
         }

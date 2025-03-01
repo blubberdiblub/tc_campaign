@@ -117,16 +117,24 @@ def instruction_to_str(instruction: Int) String {
 
         OP_RAM {
 
-            const LOAD   = 0
-            const STORE  = 1
-            const PLOAD  = 2
-            const PSTORE = 3
+            const LOAD_8    = 0
+            const STORE_8   = 1
+            const LOAD_16   = 2
+            const STORE_16  = 3
+            const PLOAD_8   = 4
+            const PSTORE_8  = 5
+            const PLOAD_16  = 6
+            const PSTORE_16 = 7
 
             switch opcode
-                LOAD   { return `load {dest_str}, [{b_str}]` }
-                STORE  { return `store [{b_str}], {a_str}` }
-                PLOAD  { return `pload {dest_str}, [{b_str}]` }
-                PSTORE { return `pstore [{b_str}], {a_str}` }
+                LOAD_8    { return `load_8 {dest_str}, [{b_str}]` }
+                STORE_8   { return `store_8 [{b_str}], {a_str}` }
+                LOAD_16   { return `load_16 {dest_str}, [{b_str}]` }
+                STORE_16  { return `store_16 [{b_str}], {a_str}` }
+                PLOAD_8   { return `pload_8 {dest_str}, [{b_str}]` }
+                PSTORE_8  { return `pstore_8 [{b_str}], {a_str}` }
+                PLOAD_16  { return `pload_16 {dest_str}, [{b_str}]` }
+                PSTORE_16 { return `pstore_16 [{b_str}], {a_str}` }
 
         }
 

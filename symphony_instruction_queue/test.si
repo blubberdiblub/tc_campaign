@@ -1,0 +1,126 @@
+
+
+
+def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+
+    let a = random(4)
+    var b = random(4)
+
+    while a == b && a != 3 {
+
+        b = random(4)
+
+    }
+
+    if a < b {
+
+        inputs[0] = a
+        inputs[1] = b
+
+    } else {
+
+        inputs[0] = b
+        inputs[1] = a
+
+    }
+
+    inputs[2] = random(0xff)
+    inputs[3] = random(0xff)
+    inputs[4] = random(0xff)
+    inputs[5] = random(2)
+
+}
+
+def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+
+    scratch_space[3] = inputs[2]
+    scratch_space[4] = inputs[3]
+
+    {
+        var i = inputs[1]
+
+        if i < 3 {
+
+            while i < 5 {
+                scratch_space[i] = scratch_space[i + 1]
+                i += 1
+            }
+
+        }
+
+    }
+
+    {
+        var i = inputs[0]
+
+        if i < 3 {
+
+            while i < 5 {
+                scratch_space[i] = scratch_space[i + 1]
+                i += 1
+            }
+
+        }
+
+    }
+
+    if inputs[5] == 1 {
+
+        scratch_space[0] = inputs[2]
+        scratch_space[1] = inputs[3]
+        scratch_space[2] = inputs[4]
+
+    }
+
+
+    if scratch_space[0] != get_level_memory("INSTR 0") {
+
+        set_error(`"INSTR 0" should have been {scratch_space[0]}`)
+        return fail
+
+    }
+
+    if scratch_space[1] != get_level_memory("INSTR 1") {
+
+        set_error(`"INSTR 1" should have been {scratch_space[1]}`)
+        return fail
+
+    }
+
+
+    if scratch_space[2] != get_level_memory("INSTR 2") {
+
+        set_error(`"INSTR 2" should have been {scratch_space[2]}`)
+        return fail
+
+    }
+
+    if scratch_space[0] != outputs[0] {
+
+        set_error(`Output 0 should have been {scratch_space[0]}`)
+        return fail
+
+    }
+
+    if scratch_space[1] != outputs[1] {
+
+        set_error(`Output 1 should have been {scratch_space[1]}`)
+        return fail
+
+    }
+
+    if scratch_space[2] != outputs[2] {
+
+        set_error(`Output 2 should have been {scratch_space[2]}`)
+        return fail
+
+    }
+
+    if tick >= 0xfff {
+
+        return win
+
+    }
+
+}
+

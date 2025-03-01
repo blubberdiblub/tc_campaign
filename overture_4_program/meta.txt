@@ -5,8 +5,6 @@ no_score = true
 title = "Program"
 size = [-75, -50, 43, 45]
 copy_solution_to_level = ["overture_5_conditionals"]
-unlocks_components = [com_pin_load]
-add_components = [com_pin_load: -1]
 dialogue = [
   (info, "The [INSTRUCTION] input component has been removed. It has been replaced by a program component. Every tick, use the counter to load the next [INSTRUCTION] from the program's memory.
   

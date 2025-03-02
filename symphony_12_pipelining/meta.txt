@@ -41,6 +41,8 @@ Use the new counter and timer components you built to handle this. When the "mod
 1 ALU
 2 JUMP
 3 RAM[/code]
+
+TODO, write about putting the write hat on top
 `),
 
 ]

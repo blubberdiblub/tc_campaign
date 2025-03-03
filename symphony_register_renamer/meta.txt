@@ -1,0 +1,10 @@
+kind = sequential
+title = "Register renamer"
+size = [-55, -55, 56, 56]
+background = 6
+save_solution_as_custom = "Symphony/Allegro/out_of_order/renamer"
+input_labels = [["Load count"], ["Instruction A"], ["Instruction B"], ["Instruction C"], ["Counter"]]
+output_labels = ["Renamed A", "Renamed B", "Renamed C"]
+dialogue = [
+    (alien, ``),
+]

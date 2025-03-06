@@ -6,7 +6,7 @@ immutable_spec = true
 no_score = true
 copy_solution_to_level = ["symphony_7_ssd"]
 dialogue = [
-    (info, `Replace the assembler RAM with a fast RAM component and an extra load and store pin to it. These can be found in the component menu as seperate components. Having two read pins and a write pin, will allow us to add instructions that can read and write to the same memory that our assembly is stored in.
+    (info, `In this level we add loading and storing from memory. We store and load from the same memory that is used for the program, so add extra load and store pin to the RAM component. 
 
 The top input will be for a new memory reading capability, so set it's width to 16. Set the width of the second pin to 32, since this will be used to read our instructions.`)
     (info, `Once again, these are the [color=#ff9800]Modes[/color] of [color=#e49f44]Symphony[/color]:

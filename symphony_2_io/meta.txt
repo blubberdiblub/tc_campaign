@@ -17,7 +17,7 @@ Again, this is how instructions are encoded:
 [color=#66ccff]B[/color] = Argument B
 [color=#bbbbbb]0[/color] = Unused / zero[/code]
 
-[code][color=#ff9800]MM[/color][color=#bbbbbb]00[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color][/code]
+[code][color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#bbbbbb]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color][/code]
 
 Just like with [color=#e49f44]Overture[/color] there are 4 modes:
 
@@ -64,7 +64,7 @@ flags 1111
 [instructions]
 
 nand %a(register), %b(register), %c(register)
-01000000 aaaabbbb 0000cccc 00000000
+00100000 aaaabbbb 0000cccc 00000000
 NAND %b and %c and store the result in %a.
 
 in %a(register)

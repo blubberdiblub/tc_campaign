@@ -7,7 +7,7 @@ const REGS = 0
 
 def instruction_to_str(instruction: Int) String {
 
-    let mode            = (instruction >> 30)
+    let mode            = (instruction >> 29) & 0b11
     let opcode          = (instruction >> 24) & 0b1111
     let dest            = (instruction >> 20) & 0b1111
     let a               = (instruction >> 16) & 0b1111
@@ -92,6 +92,7 @@ def instruction_to_str(instruction: Int) String {
                 7 { opcode_str = "lsl" }
                 8 { opcode_str = "lsr" }
                 9 { return `cmp {a_str}, {b_str}` }
+                10 { opcode_str = "mul" }
 
             return `{opcode_str} {dest_str}, {a_str}, {b_str}`
 
@@ -154,20 +155,6 @@ def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) { }
 
 def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
 
-
-    if get_assembler_width() == 0 {
-    
-        set_error("Place a RAM component, enable assembly and set its width to 32")
-        return fail
-    
-    }
-    
-    if get_assembler_width() != 32 {
-    
-        set_error("Set the width of the assembly component to 32")
-        return fail
-    
-    }
 
     if get_assembler_little_endian() {
 

@@ -48,7 +48,7 @@ def timer(input: Bool, $scratch_space: [Int], index: Int) Bool {
 
 def instruction_to_str(instruction: Int) String {
 
-    let mode            = (instruction >> 30)
+    let mode            = (instruction >> 29) & 0b11
     let opcode          = (instruction >> 24) & 0b1111
     let dest            = (instruction >> 20) & 0b1111
     let a               = (instruction >> 16) & 0b1111
@@ -133,6 +133,7 @@ def instruction_to_str(instruction: Int) String {
                 7 { opcode_str = "lsl" }
                 8 { opcode_str = "lsr" }
                 9 { return `cmp {a_str}, {b_str}` }
+                10 { opcode_str = "mul" }
 
             return `{opcode_str} {dest_str}, {a_str}, {b_str}`
 
@@ -185,7 +186,7 @@ def instruction_to_str(instruction: Int) String {
 
 def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int {
     
-    let mode            = (instruction >> 30)
+    let mode            = (instruction >> 29) & 0b11
     let opcode          = (instruction >> 24) & 0b1111
     let dest            = (instruction >> 20) & 0b1111
     let a               = (instruction >> 16) & 0b1111
@@ -474,7 +475,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     scratch_space[IO_2] = scratch_space[IO_1]
     scratch_space[IO_1] = inputs[0]
 
-    let stall = timer(instruction_0 >> 30 == OP_JMP, $scratch_space, STALL_COUNT)
+    let stall = timer(instruction_0 >> 29 == OP_JMP, $scratch_space, STALL_COUNT)
 
 
     if stall {
@@ -509,7 +510,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
         let instruction = scratch_space[INSTRUCTION_1]
 
-        let mode            = (instruction >> 30)
+        let mode            = (instruction >> 29) & 0b11
         let opcode          = (instruction >> 24) & 0b1111
         let dest            = (instruction >> 20) & 0b1111
         let a               = (instruction >> 16) & 0b1111
@@ -609,7 +610,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
         let instruction = scratch_space[INSTRUCTION_1]
 
-        let mode            = (instruction >> 30)
+        let mode            = (instruction >> 29) & 0b11
         let opcode          = (instruction >> 24) & 0b1111
         let dest            = (instruction >> 20) & 0b1111
         let a               = (instruction >> 16) & 0b1111

@@ -1,8 +1,7 @@
 kind = combinational
-title = "Reg use check"
+title = "Renamed reg use check"
 size = [-48, -48, 49, 49]
-copy_solution_to_factory = "Symphony/Allegro/reg_use"
-copy_solution_to_level = ["symphony_reg_use_check_2"]
+copy_solution_to_factory = "Symphony/Allegro/out_of_order/renamed_reg_use"
 input_labels = ["Instruction", "Register"]
 output_labels = ["In use"]
 background = 6

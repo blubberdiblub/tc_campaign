@@ -9,7 +9,7 @@ const OP_RAM = 3
 
 def instruction_to_str(instruction: Int) String {
 
-    let mode            = (instruction >> 30)
+    let mode            = (instruction >> 29) & 0b11
     let opcode          = (instruction >> 24) & 0b1111
     let dest            = (instruction >> 20) & 0b1111
     let a               = (instruction >> 16) & 0b1111
@@ -94,6 +94,7 @@ def instruction_to_str(instruction: Int) String {
                 7 { opcode_str = "lsl" }
                 8 { opcode_str = "lsr" }
                 9 { return `cmp {a_str}, {b_str}` }
+                10 { opcode_str = "mul" }
 
             return `{opcode_str} {dest_str}, {a_str}, {b_str}`
 
@@ -145,7 +146,7 @@ def instruction_to_str(instruction: Int) String {
 }
 def retire_instruction(instruction: Int, $scratch_space: [Int], input: Int) Int {
     
-    let mode            = (instruction >> 30)
+    let mode            = (instruction >> 29) & 0b11
     let opcode          = (instruction >> 24) & 0b1111
     let dest            = (instruction >> 20) & 0b1111
     let a               = (instruction >> 16) & 0b1111
@@ -273,20 +274,6 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
         set_error(`You should read address {scratch_space[COUNTER]} from the assembler, not {val_str(get_program_address())}`)
         return fail
 
-    }
-
-    if get_assembler_width() == 0 {
-    
-        set_error("Place an assembly component")
-        return fail
-    
-    }
-    
-    if get_assembler_width() != 32 {
-    
-        set_error("Set the width of the assembly component to 32")
-        return fail
-    
     }
 
     if get_assembler_little_endian() {

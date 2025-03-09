@@ -1,36 +1,20 @@
-
 const OP_IO  = 0
 const OP_ALU = 1
 const OP_JMP = 2
 const OP_RAM = 3
 
-def instruction_to_str(instruction: Int) String {
+def wide_instruction_to_str(instruction: Int) String {
 
     let mode            = (instruction >> 29) & 0b11
     let opcode          = (instruction >> 24) & 0b1111
-    let dest            = (instruction >> 20) & 0b1111
-    let a               = (instruction >> 16) & 0b1111
-    let b               = (instruction >> 8) & 0b1111
+    let dest            = ((instruction >> 37) & 0b111) << 4 | ((instruction >> 20) & 0b1111)
+    let a               = ((instruction >> 34) & 0b111) << 4 | ((instruction >> 16) & 0b1111)
+    let b               = ((instruction >> 31) & 0b111) << 4 | ((instruction >>  8) & 0b1111)
     let immediate       = (instruction >> 28) & 1 != 0
     let immediate_value =  instruction & 0xffff
 
-    var dest_str = ""
-
-    switch dest
-        0 { dest_str = "zr" }
-        14 { dest_str = "sp" }
-        15 { dest_str = "flags" }
-        default { dest_str = "r" + str(dest) }
-
-
-    var a_str = ""
-
-    switch a
-        0 { a_str = "zr" }
-        14 { a_str = "sp" }
-        15 { a_str = "flags" }
-        default { a_str = "r" + str(a) }
-
+    let dest_str = `r{dest}`
+    let a_str = `r{a}`
     var b_str = ""
 
     if immediate {
@@ -39,11 +23,7 @@ def instruction_to_str(instruction: Int) String {
 
     } else {
 
-        switch b
-            0 { b_str = "zr" }
-            14 { b_str = "sp" }
-            15 { b_str = "flags" }
-            default { b_str = "r" + str(b) }
+        b_str = `r{b}`
 
     }
 
@@ -142,13 +122,19 @@ def instruction_to_str(instruction: Int) String {
 
 }
 
-def get_random_instruction() Int {
+def get_random_wide_instruction() Int {
 
     var mode = random(4)
 
+    let immediate = random(2) == 0
+
     let d_vec = random(8) << 20
     let a_vec = random(8) << 16
-    let b_vec = random(2) == 0 ? 1 << 28 | random(0xffff) : random(8) << 8
+    let b_vec = immediate ? 1 << 28 | random(0xffff) : random(8) << 8
+
+    let d_ext = random(3) << 37
+    let a_ext = random(3) << 34
+    let b_ext = immediate ? 0 : random(3) << 31
 
     switch mode
 
@@ -157,8 +143,8 @@ def get_random_instruction() Int {
 
             switch random(3) 
                 0 { return 0 }
-                1 { return OP_IO << 29 | d_vec }
-                2 { return OP_IO << 29 | 1 << 24 | a_vec }
+                1 { return OP_IO << 29 | d_vec | d_ext }
+                2 { return OP_IO << 29 | 1 << 24 | a_vec | a_ext }
 
         }
 
@@ -168,11 +154,11 @@ def get_random_instruction() Int {
 
             if opcode == 9 {
 
-                return OP_ALU << 29 | opcode << 24 | 6 << 20 | a_vec | b_vec
+                return OP_ALU << 29 | opcode << 24 | 6 << 20 | a_vec | a_ext | b_vec | b_ext
 
             }
 
-            return OP_ALU << 29 | opcode << 24 | d_vec | a_vec | b_vec
+            return OP_ALU << 29 | opcode << 24 | d_vec | d_ext | a_vec | a_ext | b_vec
 
         }
         
@@ -183,12 +169,12 @@ def get_random_instruction() Int {
             switch opcode
                 0 {
 
-                    return OP_RAM << 29 | opcode << 24 | d_vec | b_vec
+                    return OP_RAM << 29 | opcode << 24 | d_vec | d_ext | b_vec | b_ext
 
                 }
                 1 {
 
-                    return OP_RAM << 29 | opcode << 24 | 1 << 24 | b_vec | a_vec
+                    return OP_RAM << 29 | opcode << 24 | 1 << 24 | b_vec | b_ext | a_vec | a_ext
 
                 }
 
@@ -201,107 +187,88 @@ def get_random_instruction() Int {
                 opcode = random(14)
             }
 
-            return OP_JMP << 29 | opcode << 24 | 0b111 << 20 | ((b_vec >> 2) << 2) 
+            return OP_JMP << 29 | opcode << 24 | 0b111 << 20 | ((b_vec >> 2) << 2) | b_ext
 
         }
 
 }
 
-
 def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
-    let instruction_0 = get_random_instruction()
-    let instruction_1 = get_random_instruction()
+    let register = random(128)
 
-    ui_set_text("description_a", instruction_to_str(instruction_0))
-    ui_set_text("description_b", instruction_to_str(instruction_1))
+    set_custom_input_text(`r{register}`)
 
-    inputs[0] = instruction_0
-    inputs[1] = instruction_1
+    inputs[0] = get_random_wide_instruction()
+    inputs[1] = register
 
 }
 
 def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
 
-    let instruction_0 = inputs[0]
-    let mode_a        = (instruction_0 >> 29)
-    let dest_a        = (instruction_0 >> 20) & 0b111
 
-    let instruction_1 = inputs[1]
-    let mode_b        = (instruction_1 >> 29)
-    let a             = (instruction_1 >> 16) & 0b111
-    let b             = (instruction_1 >> 8) & 0b111
-    let immediate     = (instruction_1 >> 28) & 1 != 0
+    let instruction = inputs[0]
+    ui_set_text("description", wide_instruction_to_str(instruction))
 
-    let is_enabled = outputs[0] == 1
-    var should_be_enabled = true
+    let mode            = (instruction  >> 29) & 0b11
+    let opcode          = (instruction  >> 24) & 0b1111
+    let immediate       = ((instruction >> 28) & 1) == 1
+    let dest            = ((instruction >> 37) & 0b111) << 4 | ((instruction >> 20) & 0b1111)
+    let a_reg           = ((instruction >> 34) & 0b111) << 4 | ((instruction >> 16) & 0b1111)
+    let b_reg           = ((instruction >> 31) & 0b111) << 4 | ((instruction >>  8) & 0b1111)
 
-    if mode_a == OP_JMP {
+    let register        = inputs[1]
 
-        should_be_enabled = false
+    if register == 0 && outputs[0] != 0 {
 
-        if is_enabled {
-
-            set_error(`Only one instruction can execute, since instruction A isn't an ALU instruction.`)
-            return fail
-
-        }
-
-    }
-
-    if mode_b != OP_ALU {
-
-        should_be_enabled = false
-
-        if is_enabled {
-
-            set_error(`Only one instruction can execute, since instruction B isn't an ALU instruction.`)
-            return fail
-
-        }
-
-    }
-
-    if dest_a != 0 {
-
-        if dest_a == a {
-
-            should_be_enabled = false
-
-            if is_enabled {
-
-                set_error(`Only one instruction can execute, otherwise instruction B would read from register {dest_a} before instruction A had written to it.`)
-                return fail
-
-            }
-
-        }
-
-        if dest_a == b && !immediate {
-
-            should_be_enabled = false
-
-            if is_enabled {
-
-                set_error(`Only one instruction can execute, otherwise instruction B would read from register {dest_a} before instruction A had written to it.`)
-                return fail
-
-            }
-
-        }
-
-    }
-
-
-    if !is_enabled && should_be_enabled {
-
-        set_error(`Both instructions can be executed in parallel.`)
+        set_error(`Always output 0 when we test against register 0.`)
         return fail
 
     }
 
+    print(`{inputs[1]}`)
 
-    if tick == 0xffff {
+    let a = a_reg != 0 && a_reg == register
+    let b = b_reg != 0 && !immediate && b_reg == register
+
+    let result = outputs[0] == 1
+
+    if result {
+
+        if !a && !b {
+
+            if b_reg == register && immediate {
+
+                set_error(`Arg B is not r{register}, it is an immediate value.`)
+                return fail
+
+            }
+
+            set_error(`Register {register} is not used.`)
+            return fail
+
+        }
+
+
+    } else {
+
+        if a {
+
+            set_error(`The first argument is r{register}.`)
+            return fail
+
+        }
+
+        if b {
+
+            set_error(`The second argument is r{register}.`)
+            return fail
+
+        }
+
+    }
+
+    if tick >= 0xffff {
 
         if get_delay_score() >= 60 {
 

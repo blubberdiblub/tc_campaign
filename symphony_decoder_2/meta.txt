@@ -1,12 +1,10 @@
 kind = combinational
-title = "Instruction decoder"
+title = "Renamed decoder"
 size = [-48, -48, 49, 49]
-copy_solution_to_factory = "Symphony/DEC"
-copy_solution_to_level = ["symphony_decoder_2"]
+copy_solution_to_factory = "Symphony/Allegro/out_of_order/dec"
 input_labels = ["Instruction"]
 output_labels = ["Mode", "Opcode", "Destination", "Arg A", "Arg B", "Is immediate", "Immediate value"]
 background = 6
-components_available = [com_static_indexer: 7]
 unlocks_components = [com_static_indexer, com_static_indexer_config]
 dialogue = [
   (info, `

@@ -1,11 +1,9 @@
 kind = combinational
+hint_kind = combinational
 title = "Second Tick"
-size = [-30, -30, 30, 30]
+size = 30
 tick_past_fail = 4
-output_history_pins = 1
+no_score = true
 dialogue = [
-  (alien_centered, "As you know these tests culminate in building a functioning computer."),
-  (alien_centered, "Species that are capable of finishing are considered sentient by law."),
-  (alien_centered, "This is the main reason we don't eat you afterwards."),
   (info, "Output [ON] on the second tick only."),
 ]

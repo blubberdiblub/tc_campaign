@@ -1,25 +1,30 @@
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
     var x = tick
     x ^= x << 7
     x ^= x >> 9
     x ^= x << 8
-    inputs[0] = x & 0xff
-    inputs[1] = (x >> 8) & 0xff
+    return Input {a: U8 x, b: U8 (x >> 8)}
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
-    
-    if (<U8> inputs[0] < <U8> inputs[1]) == (outputs[0] == 1) {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-        if tick == 0xffff {
+    let expected = (U8 input.a < U8 input.b)
+    let actual = (output.result != 0)
+
+    ui_set_text("description", `{U8 input.a} == {U8 input.b}  is  {expected ? "[ON]" : "[OFF]"}`)
+
+    if expected == actual {
+
+        if tick == 0xffff { 
             return win
         }
-      
+
     } else {
 
+        set_error(`The value {U8 input.a} is{expected ? "" : " not"} less than {U8 input.b}`)
         return fail
 
     }

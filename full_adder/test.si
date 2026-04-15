@@ -1,17 +1,16 @@
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
-    inputs[2] = tick & 1
-    inputs[1] = tick >> 1 & 1
-    inputs[0] = tick >> 2 & 1
+    return Input {input_0: (U1 tick & 1), input_1: (U1 tick >> 1) & 1, input_2: (U1 tick >> 2) & 1}
 
 }
 
-var correct = [[0,0],[1,0],[1,0],[0,1],[1,0],[0,1],[0,1],[1,1]]
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
-  
-    let sum = inputs[0] + inputs[1] + inputs[2]
-    if outputs[0] == (sum & 1) && outputs[1] == (sum >> 1 & 1) {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    let actual_sum = U8 input.input_0 + U8 input.input_1 + U8 input.input_2
+    let given_sum = (U8 output.sum) + (U8 output.carry << U8 1)
+
+    if U8 actual_sum == given_sum {
       
         if tick == 7 { 
 

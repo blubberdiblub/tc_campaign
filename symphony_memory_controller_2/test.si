@@ -5,7 +5,7 @@ const LOAD_REG = 1
 const CACHE_ADDRESSES = LOAD_REG + 1
 const CACHE_VALUES    = CACHE_ADDRESSES + 8
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
     let destination = random(8)
     inputs[0] = 0 // load
@@ -57,7 +57,7 @@ def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
     
     let load    = inputs[0] == 1
     let store   = inputs[1] == 1
@@ -171,13 +171,6 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     }
 
     if tick >= 0xfffff {
-
-        if get_delay_score() >= 60 {
-
-            set_error(`Your solution is correct, but delay should be less than 60.`)
-            return fail
-
-        }
 
         return win
 

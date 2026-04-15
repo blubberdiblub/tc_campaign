@@ -1,12 +1,10 @@
 kind = sequential
 title = "Pipelined counting"
-size = [-48, -48, 49, 49]
+size = 48
 background = 6
-copy_solution_to_factory = "Symphony/Allegro/pipeline/count"
-input_labels = ["Store", "Store value", "Hold"]
-output_labels = ["Output"]
-add_components = [com_probe_memory_word: -1]
+max_delay = 64
+copy_solution_to_foundry = "Symphony/Allegro/pipeline/count"
 dialogue = [
-    (alien, `For pipelining, we need a version of the counter which can have counting disabled.`),
+    (mentor, `For pipelining, we need a version of the counter which can have counting disabled.`),
     (info, `Create a new version of the Symphony counter which has a hold pin. When the pin is [ON], we do not increment the counter value. It may however still be overwritten if the store pin is [ON]`),
 ]

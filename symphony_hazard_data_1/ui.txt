@@ -1,2 +1,3 @@
-[text id="description_a" text="Check if we can execute both instructions simultaniously" size=24 y=80]
-[text id="description_b" text="" size=24 y=110]
+[text id="default" text="Check if we can execute both instructions simultaniously" size=36]
+[disassembly_text size=33 default_text=" " width=1000 y=-50]
+[disassembly_text size=33 default_text=" " width=1000 y=50]

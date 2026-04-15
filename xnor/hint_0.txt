@@ -1,0 +1,13 @@
+[table size=33 x=-350]
+"Input 0",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+"Input 1",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+"XOR",            "[OFF]",  "[ON]",   "[ON]",   "[OFF]"
+[/table]
+
+[table size=33 x=250]
+"Input 0",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+"Input 1",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+"XNOR",           "[ON]",   "[OFF]",  "[OFF]",  "[ON]"
+[/table]
+
+[text text="Notice how the XNOR gate output is the exact opposite of the XOR gate?" size=37 y=180]

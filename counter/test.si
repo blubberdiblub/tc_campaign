@@ -1,11 +1,8 @@
 var last_mem = 0
 var new_mem  = 0
-def on_reset($scratch_space: [Int], test: Int) {
-    .last_mem = 0
-    .new_mem = 0
-}
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
-    var overwrite = <Int> (random(4) == 3)
+
+def get_input(tick: Int) Input {
+    var overwrite = Int (random(4) == 3)
     var num       = random(255)
       
     if tick == 0 {
@@ -21,7 +18,6 @@ def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
     }
     
     .last_mem = .new_mem
-    inputs[2] = .new_mem
     
     if overwrite == 0{
         .new_mem = (.last_mem + 1) % 256
@@ -29,14 +25,49 @@ def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
         .new_mem = num
     }
     
-    inputs[0] = overwrite
-    inputs[1] = num
+    num = num
+
+    var text = "        "
+    if overwrite == 0 {
+        text += "[OFF]"
+    } else {
+        text += "[ON]"
+    }
+    text += "        "
+
+    ui_set_text("table[0][1]", text)
+    ui_set_text("table[1][1]", `{num}`)
+    ui_set_text("table[2][1]", `{.last_mem}`)
+    
+    if overwrite == 0 {
+        text = "Add 1"
+    } else {
+        text = `Overwrite with {num}`
+    }
+    ui_set_text("table[3][1]", text)
+    ui_set_text("table[4][1]", `{.new_mem}`)
+
+    return Input {set: U1 overwrite, value: U8 num}
+
 }
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
-    if outputs[0] != .last_mem {
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    if output.output_is_z {
+        ui_set_text("table[5][1]", `Z`)
+        set_error(`Output should never be Z.`)
+        return fail
+    } else {
+        ui_set_text("table[5][1]", `{output.output}`)
+    }
+
+    if Int output.output != .last_mem {
+        set_error(`Output should be {.last_mem}.`)
         return fail
     }
+
     if tick == 384 {
         return win
     }
+
 }

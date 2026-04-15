@@ -1,16 +1,13 @@
 kind = sequential
-immutable_program = true
-immutable_spec = true
+immutable_isa = true
 no_score = true
 title = "Program"
-size = [-75, -50, 43, 45]
+size = 128
 copy_solution_to_level = ["overture_5_conditionals"]
 unlocks_components = [com_load_port]
 add_components = [com_load_port: -1]
+delete_immutables_by_label = ["instruction"]
 dialogue = [
-  (info, "The [INSTRUCTION] input component has been removed. It has been replaced by a program component. Every tick, use the counter to load the next [INSTRUCTION] from the program's memory.
-  
-You must use the counter component you unlocked earlier for this level."),
+  (info, `The instruction input component has been removed. It has been replaced by a RAM component containing the program. The RAM has a "load port" attached to it. When enable pin on the load port is enabled, it will output a value from the RAM, based on the given address. Every tick, use the counter to load the next instruction from the program's memory.`),
   (overture),
 ]
-

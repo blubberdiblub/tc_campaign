@@ -1,0 +1,1 @@
+[text text="The output 0 is the same as the 'ODD NUMBER OF SIGNALS' level" size=37]

@@ -1,0 +1,1 @@
+[text text="First of all, let's place our 4 bytes of memories on the board " size=37]

@@ -1,13 +1,12 @@
 kind = sequential
-immutable_program = true
-immutable_spec = true
+immutable_isa = true
 title = "Turing Complete"
-size = [-80, -50, 43, 45]
-unlocks_pages = ["Turing complete"]
+size = 128
+unlocks_pages = ["Computer concepts/Turing complete"]
 copy_solution_to_level = ["binary_programming"]
 dialogue = [
-  (alien_centered, `Until this point all possible programs have been confined to running in order byte by byte.`),
-  (alien_centered, `Before, only code could influence memory, now memory must influence code. With the addition of conditional logic, our computer can run any algorithm, and calculate anything calculable.`),
+  (mentor_centered, `Until this point all possible programs have been confined to running in order byte by byte.`),
+  (mentor_centered, `Before, only code could influence memory, now memory must influence code. With the addition of conditional logic, our computer can run any algorithm, and calculate anything calculable.`),
   (info_ceentered, `The final thing we need to add is a mechanism for changing the program counter through [INSTRUCTIONS] when certain conditions are met.
 
 When the two largest bits are [ON][ON], we are in condition mode. In condition mode, the value in REG 3 is compared against the conditions defined by the lowest 3 bits in the instruction. If the condition is true, we overwrite the counter to the value in REG 0.
@@ -23,9 +22,9 @@ Conditions:
 [ON] [ON] [OFF] If [color=#e49f44]REG 3[/color] ≤ 0 
 [ON] [ON] [ON] If [color=#e49f44]REG 3[/color] > 0
 
-These conditions correspond to the condition component that was saved in the component factory.`),
+These conditions correspond to the condition component that was saved in the foundry.`),
   (overture),
 ]
 post_mortem_first_win = [
-    (alien_smile, `Yes you did it! I thought you were just this odd looking hairless ape creature, but you actually built a real computer! Amazing.`),
+    (mentor_smile, `Yes you did it! I thought you were just this odd looking hairless ape creature, but you actually built a real computer! Amazing.`),
 ]

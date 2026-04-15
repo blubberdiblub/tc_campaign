@@ -1,23 +1,23 @@
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
     var x = tick
     x ^= x << 1
     x ^= x >> 1
     x ^= x << 2
-    inputs[0] = x & 0b111
-    inputs[1] = (x >> 3) & 0b1111
+
+    return Input {flags: U3 x, condition: U4 (x >> 3)}
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    let match  = (inputs[0] & inputs[1]) > 0
-    let result = match != ((inputs[1] & 0b1000) > 0)
+    let match  = (Int input.condition & Int input.flags) > 0
+    let result = match != ((input.condition & 0b1000) > 0)
 
-    if <Bool> outputs[0] != result {
+    if Bool output.result != result {
 
-        set_error(`The correct output is {<U1>result}`)
+        set_error(`The correct output is {U1 result}`)
         return fail
 
     }

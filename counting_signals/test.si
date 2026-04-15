@@ -1,16 +1,26 @@
-const CORRECT_OUTPUT = [0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4]
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
-    inputs[0] = tick & 1
-    inputs[1] = tick >> 1 & 1
-    inputs[2] = tick >> 2 & 1
-    inputs[3] = tick >> 3 & 1
+const #CORRECT_OUTPUT = [U3 0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4]
+
+def get_input(tick: Int) Input {
+
+    return Input {input: U4 tick}
+
 }
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
-    var result = outputs[0] + outputs[1] * 2 + outputs[2] * 4
-    if CORRECT_OUTPUT[tick] != result {
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    var display_result = str(output.output)
+
+    if output.output_is_z {
+        display_result = "?"
+    }
+
+    ui_set_text(`table[5][{tick + 1}]`, display_result)
+
+    if #CORRECT_OUTPUT[tick] != output.output {
         return fail
     }
-    if tick == CORRECT_OUTPUT.len() - 1 {
+
+    if tick == #CORRECT_OUTPUT.len() - 1 {
         return win
     }
 

@@ -1,8 +1,8 @@
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {}
+def get_input(tick: Int) Input {}
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
-    if outputs[0] == 164 {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+    if output.output == 164 {
         return win
     }
     return fail

@@ -1,1 +1,0 @@
-[text id="description" text="Implement left shift" size=24 y=90]

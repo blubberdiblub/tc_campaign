@@ -1,16 +1,16 @@
 kind = misc
 no_score = true
 title = "NAND Gate"
-size = [-30, -30, 30, 30]
+size = 30
 unlocks_components = [com_nand_bit]
 no_controls = true
 background = 4
 next_level = "not_gate"
 dialogue = [
-  (alien_centered, "We are very impressed with how well you completed the last test!"),
-  (alien_centered, "We have decided you are probably not a plant."),
-  (info, "In this level the challenge is to figure out how the NAND component works. Be [color=#dd6576]sure[/color] to figure it out before you complete this level, or you will get stuck next level!"),
+  (mentor_centered, "In addition to assessing your ability, these tests are also designed to teach you something."),
+  (mentor_centered, "In this level the challenge is to fill out the 'truth table' for the NAND component."),
+  (mentor_centered, "You see the truth table in the panel below. Only the two input rows are filled out. Your task is to experiment with the inputs to the circuit, observe what the NAND gate does and fill the last row of the truth table."),
 ]
 post_mortem = [
-  (alien, `Correct! You have unlocked the NAND gate. With this component you can build everything else in your computer!`)
+  (mentor, `Correct! You have unlocked the NAND gate. With this component you can construct all components needed to build a computer!`)
 ]

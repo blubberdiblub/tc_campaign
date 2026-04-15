@@ -1,11 +1,11 @@
 kind = combinational
+hint_kind = combinational
 title = "Odd Number of Signals"
-size = [-30, -30, 30, 30]
+size = 30
 tick_past_fail = 16
-output_history_pins = 1
+no_score = true
 background = 5
 unlocks_special = ["wire_color", "wire_comments"]
 dialogue = [
-  (alien_centered, "Using a maximum of 3 components, output [ON] only when an odd number of inputs are [ON]."),
-  (info,  "This level has a [color=#e63e5b][url=odd_number]hint[/url][/color] you can use if you get stuck.")
+  (info, "Using a maximum of 3 components, output [ON] only when an odd number of inputs are [ON]"),
 ]

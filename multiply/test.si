@@ -1,27 +1,23 @@
 
-def on_reset($scratch_space: [Int], test: Int) {
 
-    ui_set_text("description", `Multiply two numbers`)
+ui_set_text("description", `Multiply two numbers`)
 
-}
-
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
     var a = random(256)
     var b = random(256)
 
-    inputs[0] = a
-    inputs[1] = b
-
     //ui_set_text("description", `What is {a} * {b}?`)
+
+    return Input {a: U8 a, b: U8 b}
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    if outputs[0] != (inputs[0] * inputs[1]) & 0xff {
+    if output.result != (input.a * input.b) & 0xff {
 
-        set_error(`{inputs[0]} * {inputs[1]} is {inputs[0] * inputs[1]}`)
+        set_error(`The lower byte of {input.a} * {input.b} is {(input.a * input.b) & 0xff}`)
         return fail
 
     }

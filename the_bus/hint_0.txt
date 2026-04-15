@@ -1,0 +1,1 @@
+[text text="Use switches to put the inputs on the same wire"]

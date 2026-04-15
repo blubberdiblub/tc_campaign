@@ -1,10 +1,10 @@
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
     inputs[0] = random(0xffffffff)
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     let instruction     =  inputs[0]
     let mode            = (instruction >> 29) & 0b11
@@ -14,13 +14,6 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     let b               = (instruction >> 31) << 4 | ((instruction >>  8) & 0b1111)
     let immediate       = (instruction >> 28) & 1
     let immediate_value =  instruction & 0xffff
-
-    if get_gate_score() > 0 || get_delay_score() > 0 {
-
-        set_error(`The solution to this level must not have any gate and delay cost (use static indexers to solve the level).`)
-        return fail
-
-    }
 
     if outputs[0] != mode {
 

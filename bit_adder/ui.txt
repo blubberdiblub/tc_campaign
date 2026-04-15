@@ -1,0 +1,8 @@
+[table id="table" full_history size=24 x=-100 _0="[_0]" _1="[_1]" _z="[_z]"]
+"Input 0",        "[_0]",  "[_1]",  "[_0]",  "[_1]"
+"Input 1",        "[_0]",  "[_0]",  "[_1]",  "[_1]"
+"Desired Sum",    "[_0]",  "[_1]",  "[_1]",  "[_0]"
+"Desired Carry",  "[_0]",  "[_0]",  "[_0]",  "[_1]"
+"Current Sum"
+"Current Carry"
+[/table]

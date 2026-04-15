@@ -1,0 +1,2 @@
+[text text="Similar to other byte components, we first break down the bytes to their bits" size=33 y=-25]
+[text text="Adding on a bit level, we can simply use the Full Adder component" size=33 y=25]

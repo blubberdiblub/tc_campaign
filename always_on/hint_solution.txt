@@ -1,0 +1,1 @@
+[text text="Pick any gate that outputs ON when its inputs are not connected to anything" size=37]

@@ -1,0 +1,8 @@
+[table size=33 x=-50 y=-55]
+"Input 0",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+"Input 1",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+"Desired output", "[ON]",   "[OFF]",  "[OFF]",  "[OFF]"
+[/table]
+
+[text text="The truth table tells us that the OR gate is ON" size=33 y=65]
+[text text="if and only if NOT both inputs are OFF" size=33 y=115]

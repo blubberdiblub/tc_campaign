@@ -1,7 +1,7 @@
 kind = architecture
 title = "Conditional Jumps"
 tests = 42
-size = [-256, -256, 255, 255]
+size = 255
 no_score = true
 dialogue = [
   (info, "Read the input until you see the number 37. 
@@ -20,13 +20,3 @@ my_label:     ; This is a label
 imm my_label  ; Load the offset of the label
   `),
 ]
-default_assembly = `
-imm 5 ; Moves 5 to r0
-jmp   ; Jumps to byte 5 of the program
-
-; <- Click Assembly to see the other jump instructions
-
-my_label:    ; This is a label
-imm my_label ; You can load it's offset like this
-
-`

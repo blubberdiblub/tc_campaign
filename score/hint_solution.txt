@@ -1,0 +1,1 @@
+[text text="The last AND result is unused, so we can safely delete it" size=37]

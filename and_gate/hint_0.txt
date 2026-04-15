@@ -1,0 +1,1 @@
+[text text="The AND gate can be interpreted as a NOT-NOT-AND gate, or a NOT-NAND gate" size=37]

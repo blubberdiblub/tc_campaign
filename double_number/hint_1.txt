@@ -1,0 +1,1 @@
+[text text="To double a number in binary format is to shift the bit position by one" size=37]

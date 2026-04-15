@@ -1,0 +1,1 @@
+[text text="You can figure out if 2 inputs have an odd number of [ON] with just 1 component"]

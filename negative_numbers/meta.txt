@@ -1,19 +1,19 @@
 kind = misc
 no_score = true
 title = "Negative Numbers"
-size = [-30, -30, 30, 30]
+size = 3000
 no_controls = true
 no_state_ui = true
-unlocks_pages = ["Negative numbers"]
+unlocks_pages = ["Computer concepts/Negative numbers"]
 background = 5
 unlocks_special = ["signed_numbers"]
 dialogue = [
-  (alien_centered, `To know the difference between things, you need subtraction. To get subtraction, first you need negative numbers.`),
+  (mentor_centered, `To know the difference between things, you need subtraction. To get subtraction, first you need negative numbers.`),
   (info_centered, `This level introduces "two's complement", the most common representation for negative numbers.
   
 Here the highest digit is negated. For bytes this means the 8th digit changes its value from 128 to -128.
 
 You finish this level when you get to level 3 or beyond.
 
-(click [color=#e63e5b][url=accessibility_mode]here[/url][/color] to turn on timerless accessibility mode)`),
+`),
 ]

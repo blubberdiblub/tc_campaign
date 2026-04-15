@@ -1,12 +1,12 @@
 kind = sequential
-immutable_program = true
-immutable_spec = true
+hint_kind = combinational
+immutable_isa = true
 no_score = true
 title = "ALU"
-size = [-43, -45, 43, 45]
+size = 50
 copy_solution_to_level = ["overture_3_immediates"]
 dialogue = [
-  (info, `Time to merge in the "Arithmetic Logic Unit" circuit you made previously with the register circuit. The ALU circuit was saved in the component factory and can now be added as a component. If you forgot which pin does what, check the circuit in the component factory.
+  (info, `Time to merge in the "Arithmetic Logic Unit" circuit you made previously with the register circuit. The ALU circuit was saved in the foundry and can now be added as a component. If you forgot which pin does what, check the circuit in the foundry.
 
 Use the decoder you built to figure out if we should move between registers or do ALU calculations. Here are the 4 different modes again:
 [OFF][OFF] Immediate
@@ -14,7 +14,7 @@ Use the decoder you built to figure out if we should move between registers or d
 [ON][OFF] Move
 [ON][ON] Condition
 
-For this level you only have to worry about the move and ALU mode, check the [INSTRUCTIONS] by clicking on [img=20]dialogue/instruction_icon.png[/img] in the top panel for the details. When in ALU mode, take [color=#e49f44]REG 1[/color] and [color=#e49f44]REG 2[/color] as inputs, and store the result in [color=#e49f44]REG 3[/color].
+For this level you only have to worry about the move and ALU mode. When in ALU mode, take [color=#e49f44]REG 1[/color] and [color=#e49f44]REG 2[/color] as inputs, and store the result in [color=#e49f44]REG 3[/color].
 
 [tip]Don't forget the 3 bit decoder component has a disable bit.[/tip]`),
   (overture),

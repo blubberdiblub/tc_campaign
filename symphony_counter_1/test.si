@@ -1,53 +1,46 @@
 
-const MEMORY = 0
-const NEXT_MEMORY = 1
+var memory = U32 0
+var next_memory = U32 0
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
-    scratch_space[MEMORY] = scratch_space[NEXT_MEMORY]
+def get_input(tick: Int) Input {
+
+    .memory = .next_memory
 
     let store = random(2)
-    let value = random(0xffff + 1)
+    let value = random(0x10000_0000)
 
     if store == 1 {
-        scratch_space[NEXT_MEMORY] = value
+        .next_memory = U32 value
     } else {
-        scratch_space[NEXT_MEMORY] += 4
+        .next_memory += 4
     }
 
-    inputs[0] = store
-    inputs[1] = value
+    return Input {overwrite: U1 store, value: U32 value}
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    if get_level_memory("count") != scratch_space[NEXT_MEMORY] {
+    let memory_value = get_memory("Count")
 
-        let memory_value = get_level_memory("count")
+    if memory_value != Int .next_memory {
 
-        if memory_value == Z_STATE {
-
-            set_error(`Link the memory probe to a component`)
-            return fail
-
-        }
-
-        set_error(`Memory is supposed to be {scratch_space[NEXT_MEMORY]}, not {get_probe_value()}`)
+        set_error(`Memory is supposed to be {.next_memory}, not {memory_value}`)
         return fail
 
     }
 
-    if outputs[0] == Z_STATE {
+    if output.output_is_z {
 
         set_error(`Output should never be Z`)
         return fail
 
     }
 
-    if outputs[0] != scratch_space[MEMORY] {
+    if U32 output.output != .memory {
 
-        set_error(`Output should be {scratch_space[MEMORY]}`)
+        set_error(`Output should be {.memory}`)
         return fail
 
     }

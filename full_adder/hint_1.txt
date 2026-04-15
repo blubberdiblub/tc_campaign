@@ -1,0 +1,1 @@
+[text text="The CARRY is ON if and only if at least 2 inputs are ON" size=37]

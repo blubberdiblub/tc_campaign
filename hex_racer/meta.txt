@@ -1,15 +1,15 @@
 kind = misc
 no_score = true
 title = "Hex Racer"
-size = [-30, -30, 30, 30]
+size = 3000
 no_controls = true
 no_state_ui = true
 background = 5
 unlocks_special = ["hex_numbers"]
 dialogue = [
-  (alien_centered, "This level is my second favorite pastime. Converting hexadecimal to binary under time pressure."),
+  (mentor_centered, "This level is my second favorite pastime. Converting hexadecimal to binary under time pressure."),
   (info, "When dealing with a lot of bits, binary can become hard to read. Hexadecimal (base 16) represents each combination of 4 bits as its own character:
-[code]
+
 0 [OFF][OFF][OFF][OFF]
 1 [OFF][OFF][OFF][ON]
 2 [OFF][OFF][ON][OFF]
@@ -26,19 +26,17 @@ C [ON][ON][OFF][OFF]
 D [ON][ON][OFF][ON]
 E [ON][ON][ON][OFF]
 F [ON][ON][ON][ON]
-[/code]
 
 As an example where hexadecimal is much clearer, lets compare the representation of the largest 16 bit number:
-[code]
+
 Binary:      1111111111111111
 Decimal:     65535
 Hexadecimal: FFFF
-[/code]
 
 It is not easy to tell if the binary is missing a digit or if the decimal number is off by 1, the hexadecimal on the other hand is immediately clear (once you get used to the representation at least)."),
   (info,  "Toggle the bits in the level panel so they add up to the hexadecimal number in the question.
 
 You must beat level 3 to pass.
 
-(click [color=#e63e5b][url=accessibility_mode]here[/url][/color] to turn on timerless accessibility mode)"),
+"),
 ]

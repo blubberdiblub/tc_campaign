@@ -1,10 +1,8 @@
 
-const MEMORY = 0
+var memory = 0
 
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
-
-    scratch_space[MEMORY] = scratch_space[MEMORY]
+def get_input(tick: Int) Input {
 
     let store = random(2)
     let value = random(0xfff) << 2
@@ -12,62 +10,54 @@ def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
     inputs[0] = store
     inputs[1] = value
-    inputs[2] = <Int> (inc > 0)
-    inputs[3] = inc >> 1
+    inputs[2] = inc
 
 }
 
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    if outputs[0] == Z_STATE {
+    if outputs[0] == #Z_STATE {
 
         set_error(`Output should never be Z`)
         return fail
 
     }
 
-    if outputs[0] != scratch_space[MEMORY] {
+    if outputs[0] != .memory {
 
-        set_error(`Output should be {scratch_space[MEMORY]}`)
+        set_error(`Output should be {.memory}`)
         return fail
 
     }
 
     if inputs[0] == 1 {
 
-        scratch_space[MEMORY] = inputs[1]
+        .memory = inputs[1]
 
     } else {
 
-        scratch_space[MEMORY] += inputs[2] * 4 + inputs[3] * 4
+        .memory += inputs[2] * 4
 
     }
 
-    if get_probe_value() != scratch_space[MEMORY] {
+    if get_memory("Count") != .memory {
 
-        let memory_value = get_probe_value()
+        let memory_value = get_memory("Count")
 
-        if memory_value == Z_STATE {
+        if memory_value == #Z_STATE {
 
             set_error(`Link the memory probe to a component`)
             return fail
 
         }
 
-        set_error(`Counter value is supposed to be {scratch_space[MEMORY]}, not {get_probe_value()}`)
+        set_error(`Counter value is supposed to be {.memory}, not {get_memory("Count")}`)
         return fail
 
     }
 
     if tick == 0xffff {
-
-        if get_delay_score() >= 35 {
-
-            set_error(`Your solution is correct, but delay in this level should be 35 or less.`)
-            return fail
-
-        }
 
         return win
 

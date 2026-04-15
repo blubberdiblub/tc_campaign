@@ -1,10 +1,10 @@
 kind = combinational
+hint_kind = combinational
 title = "XOR Gate"
-size = [-30, -30, 30, 30]
+size = 30
 unlocks_components = [com_xor_bit]
 tick_past_fail = 4
-output_history_pins = 1
-unlocks_pages = ["Truth tables", "Universal gates"]
+unlocks_pages = ["Computer concepts/Truth tables", "Computer concepts/Universal gates"]
 unlocks_special = ["profile"]
 dialogue = [
   (info, "Last level you built a circuit that was [ON] when we were at the second tick. This level build a circuit that is [ON] when we are at the second OR third tick."),

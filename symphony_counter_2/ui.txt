@@ -1,1 +1,1 @@
-[text id="my_text" text="Create a 16 bit counter with a disable pin" size=24 y=90]
+[text id="my_text" text="Create a 32 bit counter with a disable pin" size=36]

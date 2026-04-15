@@ -1,12 +1,11 @@
 kind = sequential
-immutable_program = true
-immutable_spec = true
+immutable_isa = true
 no_score = true
 title = "Registers"
-size = [-43, -45, 43, 45]
+size = 50
 copy_solution_to_level = ["overture_2_alu"]
 dialogue = [
-  (alien_centered, `Time to create your master project, implementing the [color=#e49f44]Overture[/color] computer architecture. This will be an actual Turing complete machine, a true computer in every way!`),
+  (mentor_centered, `Time to create your master project, implementing the [color=#e49f44]Overture[/color] computer architecture. This will be an actual Turing complete machine, a true computer in every way!`),
   (info, `In this level you need to create a circuit which can move from a [color=#c54d5e]source[/color] to a [color=#e49f44]destination[/color]. 
 
 The instruction byte in this level determines the [color=#c54d5e]source[/color] and the [color=#e49f44]destination[/color]. 
@@ -25,7 +24,7 @@ Additionally, this map has a dedicated input component, which can be the [color=
 [OFF] [ON] [ON]  REG 3 
 [ON] [OFF] [OFF]  REG 4 
 [ON] [OFF] [ON]  REG 5 
-[ON] [ON] [OFF]  INPUT 
+[ON] [ON] [OFF]  #INPUT 
 [ON] [ON] [ON]  UNUSED
 
 [color=#e49f44]Destination[/color]:
@@ -35,9 +34,7 @@ Additionally, this map has a dedicated input component, which can be the [color=
 [OFF] [ON] [ON]  REG 3 
 [ON] [OFF] [OFF]  REG 4 
 [ON] [OFF] [ON]  REG 5 
-[ON] [ON] [OFF]  OUTPUT
-[ON] [ON] [ON]  UNUSED
-
-To get a more intuitive understanding of the requirements, click the [INSTRUCTION] icon in the upper left corner.`),
+[ON] [ON] [OFF]  #OUTPUT
+[ON] [ON] [ON]  UNUSED`),
   (overture),
 ]

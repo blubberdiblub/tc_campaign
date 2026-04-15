@@ -1,7 +1,7 @@
 kind = architecture
 title = "The Maze"
 tests = 8
-size = [-256, -256, 255, 255]
+size = 255
 dialogue = [
   (info, `In this level you control a robot. Write an algorithm that guides him from the start to the door at the end of the maze.
 
@@ -16,13 +16,12 @@ You can also use the arrow keys to play around with the robot manually.
 0 Nothing
 1 Wall
 
-Use [color=#e63e5b][url=maze]this hint[/url][/color] if you get stuck.
 `),
 ]
 post_mortem_first_win = [
-      (alien_smile, `Congratulations, you won the competition! An amazing achievement!`),
-      (alien_smile, `If you choose to go on to the rest of the levels I will teach you about ram, the stack and function calls and you will get to solve more interesting challenges like this one.
+      (mentor_smile, `Congratulations, you won the competition! An amazing achievement!`),
+      (mentor_smile, `If you choose to go on to the rest of the levels I will teach you about ram, the stack and function calls and you will get to solve more interesting challenges like this one.
     
 But first you would have to build a better computer. [color=#e49f44]OVERTURE[/color] was good as a first machine, but it is clumsy and programs get very messy. To solve the challenges I have for you without pulling all your hair out, you will need something more expressive, the [color=#e49f44]SYMPHONY[/color] architecture.`),
-      (alien_smile, `On the other hand, you could also retire, be proud and enjoy your reward of not being eaten.`),
+      (mentor_smile, `On the other hand, you could also retire, be proud and enjoy your reward of not being eaten.`),
     ]

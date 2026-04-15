@@ -1,16 +1,16 @@
 kind = combinational
-immutable_program = true
-immutable_spec = true
+hint_kind = combinational
+immutable_isa = true
 title = "Conditions"
-size = [-48, -48, 49, 49]
-copy_solution_to_factory = "Overture/Cond"
+size = 48
+copy_solution_to_foundry = "Overture/Cond"
 background = 6
 dialogue = [
   (info, "This level has a value input and 3 condition bit inputs.
 
 The 3 bits select the condition as shown below. Check the value against the selected condition and output [ON] if it is satisfied and [OFF] otherwise.
 
-Bit code:        Turn [ON] when:[code]
+Bit code:   Turn [ON] when:
 [OFF] [OFF] [OFF]    Never
 [OFF] [OFF] [ON]    Always
 [OFF] [ON] [OFF]    If value = 0
@@ -18,5 +18,5 @@ Bit code:        Turn [ON] when:[code]
 [ON] [OFF] [OFF]    If value < 0
 [ON] [OFF] [ON]    If value ≥ 0
 [ON] [ON] [OFF]    If value ≤ 0
-[ON] [ON] [ON]    If value > 0[/code]"),
+[ON] [ON] [ON]    If value > 0"),
 ]

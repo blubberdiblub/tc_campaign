@@ -1,0 +1,7 @@
+[text text="In binary, taking modulo 4 of a number is the same as only using the two lower bits" y=-120 size=22]
+[text text="This is because the higher bits represent 4, 8, 16 etc, and they all divide 4 with no remainder" y=-80 size=22]
+[text text="This is true in general for modulo a power of 2, the lowest bit of a number" y=-40 size=22]
+[text text="represents that number modulo 2 (even or odd), the lowest 3 bits modulo 8 and so on" y=0 size=22]
+[text text="Likewise, in decimal 4321 modulo 100 is also simple" y=40 size=22]
+[text text="(answer is 21, the higher digits are disregarded, because 100 is a power of 10)" y=80 size=22]
+[text text="Now you just have to figure out how to get the last 2 digits of a number" y=120 size=22]

@@ -1,0 +1,3 @@
+[text text="The thing about a switch is if the 'Enable' pin is OFF, then, unlike AND gate, it doesn't output OFF" size=33 y=-50]
+[text text="It outputs nothing at all, allowing outputs of switches to share wires without short-circuiting" size=33]
+[text text="as long as at most 1 switch outputs something at any point" size=33 y=50]

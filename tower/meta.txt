@@ -1,10 +1,10 @@
 kind = architecture
-title = "Tower of Alloy"
+title = "Tower of Hanoi"
 tests = 64
-size = [-256, -256, 255, 255]
+size = 255
 dialogue = [
-  (alien_centered, "We need you to help clean up the basement."),
-  (alien_centered, "Specifically we want you to move piles of radioactive disks from an old reactor. Just be sure not to put a bigger disk on top of a smaller disk or the whole ship will blow up."),
+  (mentor_centered, "We need you to help clean up the basement."),
+  (mentor_centered, "Specifically we want you to move piles of radioactive disks from an old reactor. Just be sure not to put a bigger disk on top of a smaller disk or the whole ship will blow up."),
   (info, "The first 4 inputs will give you the following in order:
 disk_nr - The highest disk number in the pile (2 to 4)
 source - Which location number to move from
@@ -20,14 +20,14 @@ Control the crane with the following outputs:
 Play with the magnet manually by using the arrow keys to move and enter to toggle."),
   (info, "Implement the following algorithm:
 
-Tower of Hanoi algorithm:[code][color=#87a8c8]
+Tower of Hanoi algorithm:[color=#87a8c8]
 func move(disk_nr, source, dest, spare):
   if disk_nr is 0:
     move disk from source to dest
   else:
     move(disk_nr - 1, source, spare, dest)
     move disk from source to dest
-    move(disk_nr - 1, spare, dest, source)[/color][/code]
+    move(disk_nr - 1, spare, dest, source)[/color]
 
 [tip]Push register values to the stack to store them before calling a function that changes them.[/tip]"),
 ]

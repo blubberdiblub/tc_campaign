@@ -1,1 +1,1 @@
-[text id="description" text="Output 0 if we need to wait for RAM, 1 otherwise" size=24 y=100]
+[text id="description" text="Output 0 if we need to wait for RAM, 1 otherwise" size=36]

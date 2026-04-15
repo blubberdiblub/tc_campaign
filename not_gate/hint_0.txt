@@ -1,0 +1,1 @@
+[text text="The only component we have is the NAND gate" size=37]

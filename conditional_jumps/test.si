@@ -1,33 +1,34 @@
-const COUNT = 0
-const SEEN = 1
 
-def arch_get_input($scratch_space: [Int], test: Int) Int {
-    if scratch_space[SEEN] == 1{
+var count = 0
+var seen = 0
+
+def arch_get_input(test: Int) Int {
+    if .seen == 1{
         return 37
     }
 
-    scratch_space[COUNT] += 1
+    .count += 1
 
     var value = random(256)
-    if scratch_space[COUNT] >= 255 {
+    if .count >= 255 {
         value = 37
     }
 
     if value == 37 {
-        scratch_space[SEEN] = 1
+        .seen = 1
     }
 
     return value
 }
 
-def arch_check_output($scratch_space: [Int], test: Int, input: Int, output: Int) TestResult {
+def arch_check_output(test: Int, input: Int, output: Int) TestResult {
     if input != 37 {
         set_error(`The last input was not 37!`)
         return fail    
     }
 
-    if output != scratch_space[0] {
-        set_error(`You read the input {scratch_space[0]} times, not {output}.`)
+    if output != .count {
+        set_error(`You read the input {.count} times, not {output}.`)
         return fail
     }
     return win

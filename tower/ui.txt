@@ -4,4 +4,4 @@
 [image id="3" y=8 file="3.png"]
 [image id="4" y=8 file="4.png"]
 [image id="magnet" file="magnet.png"]
-[text id="error_text" text="Oops, you put a larger disk on a smaller one!" size=24 y=90 hidden=true]
+[text id="error_text" text="Oops, you put a larger disk on a smaller one!" size=36 hidden=true]

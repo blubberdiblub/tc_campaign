@@ -1,25 +1,26 @@
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
-    inputs[0] = random(0x10000)
-    
+def get_input(tick: Int) Input {
+
     if random(2) == 0 {
-        inputs[1] = inputs[0]
+        let value = U32 random(0x10000_0000)
+        return Input {argument_a: value, argument_b: value}
     } else {
-        inputs[1] = random(0x10000)
+        return Input {argument_a: U32 random(0x10000_0000), argument_b: U32 random(0x10000_0000)}
     }
+
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    let equal = <Int> (inputs[0] == inputs[1])
-    let uless = <Int> (<U16> inputs[0] < <U16> inputs[1]) & 1
-    let sless = <Int> (<S16> inputs[0] < <S16> inputs[1]) & 1
+    let equal = Int (input.argument_a == input.argument_b)
+    let uless = Int (U32 input.argument_a < U32 input.argument_b) & 1
+    let sless = Int (S32 input.argument_a < S32 input.argument_b) & 1
 
     let result = (sless << 2) | (uless << 1) | equal
 
-    if outputs[0] != result {
-        set_error(`Expected output: {<U1> sless}{<U1> uless}{<U1> equal}.`)
+    if Int output.result != result {
+        set_error(`Expected output: {U1 sless}{U1 uless}{U1 equal}.`)
         return fail
 
     }

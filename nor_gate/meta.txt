@@ -1,16 +1,11 @@
 kind = combinational
+hint_kind = combinational
 no_score = true
 title = "NOR Gate"
-size = [-30, -30, 30, 30]
+size = 30
 unlocks_components = [com_nor_bit]
 tick_past_fail = 4
-output_history_pins = 1
 background = 4
 dialogue = [
-  (alien_centered, "Most creatures on Earth are aggressive and cannot focus.
-
-To succeed you must learn to think logically, while not destroying things."),
-  (info, "Create the circuit that matches the table.
-  
-[tip]Double click on a component to move it together with connected wires.[/tip]"),
+  (info, "Create the circuit that matches the table."),
 ]

@@ -1,11 +1,11 @@
 kind = architecture
 title = "Calibrating Laser Cannons"
 tests = 42
-size = [-256, -256, 255, 255]
+size = 255
 dialogue = [
-  (alien_centered, "On our ship we naturally shoot incoming asteroids with lasers."),
-  (alien_centered, "In order to calibrate said laser, we want you to calculate the circumference of the asteroids using an advanced equation."),
-  (alien_centered, "2×π×r
+  (mentor_centered, "On our ship we naturally shoot incoming asteroids with lasers."),
+  (mentor_centered, "In order to calibrate said laser, we want you to calculate the circumference of the asteroids using an advanced equation."),
+  (mentor_centered, "2×π×r
 
 r is the input.
 And you can approximate π as 3.

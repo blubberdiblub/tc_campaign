@@ -1,0 +1,2 @@
+[text text="Finally, the last bit is considered separately for signed numbers, here it has the opposite effect " y=-25]
+[text text="(if only one number has it [ON], that number is guaranteed to be lower)" y=25]

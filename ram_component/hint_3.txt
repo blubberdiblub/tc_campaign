@@ -1,0 +1,2 @@
+[text text="The value to save to a cell comes from one input" y=-25]
+[text text="Wire that up and the only thing left is to enable the right memory cell" y=25]

@@ -1,2 +1,0 @@
-[text id="address" text="Build a cache entry" size=24 y=80]
-[text id="value" text="" size=24 y=120]

@@ -1,41 +1,49 @@
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
     
-    inputs[0] = 10
+    return Input {input: U32 10}
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     switch tick
         0 {
 
-            if get_register_value(0) != 10 {
-                set_error(`The first instruction is supposed to move the input value (10) to r1.`)
+            if get_ram_value("Register File", 1 * 4, <U32>) != 0x1235 {
+                set_error(`The first instruction should have moved hex value 0x1235 to r1.`)
                 return fail
             }
 
         }
         1 {
 
-            if get_register_value(1) != 10 {
-                set_error(`The first instruction is supposed to move the input value (10) to r2.`)
+            if get_ram_value("Register File", 2 * 4, <U32>) != 0xffffedcb {
+                set_error(`r2 should have had hex value 0xffffedcb.`)
                 return fail
             }
 
         }
         2 {
 
-            if get_register_value(1) != 65526 {
-                set_error(`Negate r2 and store the result (65526) in r2.`)
+            if get_ram_value("Register File", 3 * 4, <U32>) != 0x1234 {
+                set_error(`r3 should have had hex value 0x1234`)
                 return fail
             }
 
         }
         3 {
 
-            if get_register_value(1) != 9 {
-                set_error(`NOT r2 and store the result (9) in r2.`)
+            if get_ram_value("Register File", 4 * 4, <U32>) != 0x12340000 {
+                set_error(`r4 should have value 0x12340000`)
+                return fail
+            }
+
+        } 
+        4 {
+
+            if get_ram_value("Register File", 4 * 4, <U32>) != 0x12345678 {
+                set_error(`r4 should have value 0x12345678`)
                 return fail
             }
 

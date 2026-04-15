@@ -1,65 +1,56 @@
-const CORRECT_OUTPUTS = [0,1,1,0,0,0,0,0,1,1,1,1,0]
+const #CORRECT_OUTPUT = [U1 0,1,1,0,0,0,0,0,1,1,1,1,0]
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
     switch tick
         0 {
-            inputs[0] = 1
-            inputs[1] = 1
+            return Input {save: U1 1, value: U1 1}
         }
         1 {
-            inputs[0] = 1
-            inputs[1] = 1
+            return Input {save: U1 1, value: U1 1}
         }
         2 {
-            inputs[0] = 1
-            inputs[1] = 0
+            return Input {save: U1 1, value: U1 0}
         }
         3 {
-            inputs[0] = 1
-            inputs[1] = 0
+            return Input {save: U1 1, value: U1 0}
         }
         4 {
-            inputs[0] = 0
-            inputs[1] = 0
+            return Input {save: U1 0, value: U1 0}
         }
         5 {
-            inputs[0] = 0
-            inputs[1] = 1
+            return Input {save: U1 0, value: U1 1}
         }
         6 {
-            inputs[0] = 1
-            inputs[1] = 0
+            return Input {save: U1 1, value: U1 0}
         }
         7 {
-            inputs[0] = 1
-            inputs[1] = 1
+            return Input {save: U1 1, value: U1 1}
         }
         8 {
-            inputs[0] = 1
-            inputs[1] = 1
+            return Input {save: U1 1, value: U1 1}
         }
         9 {
-            inputs[0] = 0
-            inputs[1] = 1
+            return Input {save: U1 0, value: U1 1}
         }
         10 {
-            inputs[0] = 0
-            inputs[1] = 0
+            return Input {save: U1 0, value: U1 0}
         }
         11 {
-            inputs[0] = 1
-            inputs[1] = 0
+            return Input {save: U1 1, value: U1 0}
         }
         12 {
-            inputs[0] = 1
-            inputs[1] = 0
+            return Input {save: U1 1, value: U1 0}
         }
 }
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
-    if CORRECT_OUTPUTS[tick] != outputs[0] {
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    if #CORRECT_OUTPUT[tick] != output.output {
         return fail
     }
+
     if tick == 12 {
         return win
     } 
+
 }

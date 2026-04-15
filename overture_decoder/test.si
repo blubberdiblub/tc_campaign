@@ -1,33 +1,114 @@
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
+    var result = Input {}
     switch tick
         0 {
-            inputs[0] = 0
+            result.instruction = 0
         }
         1 {
-            inputs[0] = 64
+            result.instruction = 64
         }
         2 {
-            inputs[0] = 128
+            result.instruction = 128
         }
         3 {
-            inputs[0] = 192
+            result.instruction = 192
         }
-}
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
-
-    var i = 0
-    while i < 4 {
-        if i == tick {
-            if outputs[i] != 1 {
-                return fail
-            }
-        } elif outputs[i] != 0 {
-            return fail
-        }
-        i += 1
+    
+    var text = ""
+    if (tick & 2) == 0 {
+        text += "[OFF]"
+    } else {
+        text += "[ON]"
     }
-        
+    if (tick & 1) == 0 {
+        text += "[OFF]"
+    } else {
+        text += "[ON]"
+    }
+    text += "[ANY][ANY][ANY][ANY][ANY][ANY]"
+    ui_set_text("table[0][1]", text)
+
+    return result
+}
+
+def mode_name(value: Int) String {
+    switch value
+        0 {
+            return "Immediate"
+        }
+        1 {
+            return "ALU"
+        }
+        2 {
+            return "Move"
+        }
+        3 {
+            return "Condition"
+        }
+
+    return "???"
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+    
+    ui_set_text("table[1][1]", mode_name(tick))
+
+    switch input.instruction
+        0 {
+            ui_set_text("table[2][1]", "[ON][OFF][OFF][OFF]")
+        }
+        64 {
+            ui_set_text("table[2][1]", "[OFF][ON][OFF][OFF]")
+        }
+        128 {
+            ui_set_text("table[2][1]", "[OFF][OFF][ON][OFF]")
+        }
+        192 {
+            ui_set_text("table[2][1]", "[OFF][OFF][OFF][ON]")
+        }
+
+    var error_seen = false
+    var actual = ""
+
+    if output.immediate_is_z {
+        actual += "[ANY]"
+        error_seen = true
+    } else {
+        actual += output.immediate == 1 ? "[ON]" : "[OFF]"
+    }
+
+    if output.alu_is_z {
+        actual += "[ANY]"
+        error_seen = true
+    } else {
+        actual += output.alu == 1 ? "[ON]" : "[OFF]"
+    }
+
+    if output.move_is_z {
+        actual += "[ANY]"
+        error_seen = true
+    } else {
+        actual += output.move == 1 ? "[ON]" : "[OFF]"
+    }
+
+    if output.condition_is_z {
+        actual += "[ANY]"
+        error_seen = true
+    } else {
+        actual += output.condition == 1 ? "[ON]" : "[OFF]"
+    }
+
+    ui_set_text("table[3][1]", actual)
+
+    let test_vec = Int output.immediate | Int output.alu << 1 | Int output.move << 2 | Int output.condition << 3
+
+    if error_seen || test_vec != (1 << tick) {
+        return fail
+    }
+
+
     if tick == 3 {
         return win
     }
+    
 }

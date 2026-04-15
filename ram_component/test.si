@@ -1,26 +1,11 @@
 
 var memory_state      = [0,0,0,0]
-var next_memory_state = [0,0,0,0]
 
-def on_reset($scratch_space: [Int], test: Int) {
-
-    .memory_state[0] = 0
-    .memory_state[1] = 0
-    .memory_state[2] = 0
-    .memory_state[3] = 0
-    .next_memory_state[0] = 0
-    .next_memory_state[1] = 0
-    .next_memory_state[2] = 0
-    .next_memory_state[3] = 0
-
+def markup(text: String) String {
+    return `[color=#E5787D][b]{text}[/b][/color]`
 }
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
-
-    .memory_state[0] = .next_memory_state[0] // TODO, actual array copying
-    .memory_state[1] = .next_memory_state[1]
-    .memory_state[2] = .next_memory_state[2]
-    .memory_state[3] = .next_memory_state[3]
+def get_input(tick: Int) Input {
 
     var add_1 = random(2)
     var add_2 = random(2)
@@ -34,49 +19,128 @@ def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
             save = 1
             load = 0
             add_1 = (tick / 2) & 1
-            add_2 = <Int> ((tick / 2) > 1)
+            add_2 = Int ((tick / 2) > 1)
           
         } else {
             save = 0
             load = 1
             add_1 = (tick / 2) & 1
-            add_2 = <Int> ((tick / 2) > 1)
+            add_2 = Int ((tick / 2) > 1)
         }
     }
-    
+
+    var offset = -1
     if save == 1 {
-        let offset = add_1 * 2 + add_2
-        .next_memory_state[offset] = value
-        inputs[5 + offset] = value // For level visuals
+        offset = add_1 * 2 + add_2
     }
 
-    inputs[0] = load
-    inputs[1] = save
-    inputs[2] = add_1
-    inputs[3] = add_2
-    inputs[4] = value
+    var i = 0
+    while i < 4 {
+        var text = `{.memory_state[i]}`
+        if offset == i {
+            text += `→{value}`
+        }
+        ui_set_text(`states[{i / 2 + 1}][{i % 2 + 1}]`, text)
+        i += 1
+    }
 
+    var text_value = `{value}`
+    if text_value.len() < 3 {
+        text_value = " " + text_value
+    }
+    if text_value.len() < 3 {
+        text_value = text_value + " "
+    }
+    text_value = markup(text_value)
+    ui_set_text("actions[1][2]", text_value)
+
+    var text_add = ""
+    if add_1 == 0 {
+        text_add += "A"
+    } else {
+        text_add += "B"
+    }
+    if add_2 == 0 {
+        text_add += "0"
+    } else {
+        text_add += "1"
+    }
+    text_add = markup(text_add)
+    ui_set_text("actions[1][3]", text_add)
+
+    if load == 0 {
+        ui_set_text("actions[2][1]", "[OFF]")
+        ui_set_hidden("actions[2][2]", true)
+        ui_set_hidden("actions[2][3]", true)
+    } else {
+        var text_state = `{.memory_state[add_1 * 2 + add_2]}`
+        if text_state.len() < 3 {
+            text_state = " " + text_state
+        }
+        if text_state.len() < 3 {
+            text_state = text_state + " "
+        }
+        text_state = markup(text_state)
+        ui_set_text("actions[2][1]", "[ON]")
+        ui_set_text("actions[2][2]", `[right] Load {text_state} [/right]`)
+        ui_set_text("actions[2][3]", `[left]from {text_add}[/left]`)
+        ui_set_hidden("actions[2][2]", false)
+        ui_set_hidden("actions[2][3]", false)
+    }
+
+    if save == 0 {
+        ui_set_text("actions[3][1]", "[OFF]")
+        ui_set_hidden("actions[3][2]", true)
+        ui_set_hidden("actions[3][3]", true)
+    } else {
+        ui_set_text("actions[3][1]", "[ON]")
+        ui_set_text("actions[3][2]", `[right] Save {text_value} [/right]`)
+        ui_set_text("actions[3][3]", `[left]to {text_add}[/left]`)
+        ui_set_hidden("actions[3][2]", false)
+        ui_set_hidden("actions[3][3]", false)
+    }
+
+    return Input {
+        load: U1 load,
+        save: U1 save,
+        address: U2 add_2 << 1 | U2 add_1,
+        value: U8 value,
+    }
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    if inputs[0] == 1 {
+    if input.load == 1 {
 
-        var address = inputs[2] * 2 + inputs[3]
+        if .memory_state[input.address] != Int output.output {
 
-        if .memory_state[address] != outputs[0] {
+            if output.output_is_z {
+                set_error(`There was no output, but it should have been {.memory_state[input.address]}.`)
+            } else {
+                set_error(`Output was {output.output}, but it should have been {.memory_state[input.address]}.`)
+            }
 
-            set_error(`Output was {outputs[0]}, but it should have been {.memory_state[address]}.`)
             return fail
 
         }
 
+    } else {
+
+        if !output.output_is_z {
+            set_error(`Output should have been Z.`)
+            return fail
+        }
+
     }
 
-    if tick == 127 {
+    if tick == 0xfff {
 
         return win
 
+    }
+
+    if input.save == 1 {
+        .memory_state[input.address] = Int input.value
     }
 
 }

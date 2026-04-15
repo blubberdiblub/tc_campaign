@@ -1,0 +1,2 @@
+[text text="This level is very similar to 'BIT SWITCH'" size=33 y=-25]
+[text text="But A in place of Input 0 and B in place of NOT Input 0" size=33 y=25]

@@ -1,0 +1,2 @@
+[text text="The Delay Line can be looped back into itself" size=33 y=-25]
+[text text=" to create signal based on the tick count" size=33 y=25]

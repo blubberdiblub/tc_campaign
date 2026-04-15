@@ -1,0 +1,1 @@
+[text text="The output 2 is ON if and only if all signals are ON" size=37]

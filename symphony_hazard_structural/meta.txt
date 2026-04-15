@@ -1,15 +1,14 @@
 kind = sequential
 title = "Structural Hazard"
-size = [-48, -48, 49, 49]
+size = 48
 background = 6
-input_labels = ["Instruction", "RAM ready"]
-output_labels = ["Execute"]
-copy_solution_to_factory = "Symphony/Allegro/hazard/haz_struct"
+max_delay = 64
+copy_solution_to_foundry = "Symphony/Allegro/hazard/haz_struct"
 dialogue = [
-  (alien, `It is time to remove the Fast RAM component from your circuit, its gate score is just too high.
+  (mentor, `It is time to remove the Fast RAM component from your circuit, its gate score is just too high.
 
 We will replace it with a Latency RAM, this ram is cheap in terms of both gates and delay, but it takes multiple ticks to complete.`),
-  (alien, `Just as with the data hazard level, the goal of this level is to test if we can safely execute instructions. 
+  (mentor, `Just as with the data hazard level, the goal of this level is to test if we can safely execute instructions. 
 
 If the input instruction is a RAM instruction, we consider the RAM busy until we see the RAM ready signal.
 

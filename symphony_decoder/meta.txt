@@ -1,10 +1,9 @@
 kind = combinational
+hint_kind = combinational
 title = "Instruction decoder"
-size = [-48, -48, 49, 49]
-copy_solution_to_factory = "Symphony/DEC"
+size = 48
+copy_solution_to_foundry = "Symphony/DEC"
 copy_solution_to_level = ["symphony_decoder_2"]
-input_labels = ["Instruction"]
-output_labels = ["Mode", "Opcode", "Destination", "Arg A", "Arg B", "Is immediate", "Immediate value"]
 background = 6
 components_available = [com_static_indexer: 7]
 unlocks_components = [com_static_indexer, com_static_indexer_config]
@@ -14,17 +13,17 @@ Build a circuit that splits Symphony instructions into their different parts. Th
 
 There are two encodings for Symphony instructions, depending on whether we are using immediate values or not:
 
-[code][color=#ff9800]M[/color] = Mode
+[color=#ff9800]M[/color] = Mode
 [color=#ff6680]O[/color] = Opcode
 [color=#9966ff]I[/color] = Immediate bit
 [color=#ffe666]D[/color] = Destination register
 [color=#66ff99]A[/color] = Argument A
 [color=#66ccff]B[/color] = Argument B (possibly immediate)
-[color=#bbbbbb]0[/color] = Unused / zero[/code]
+[color=#bbbbbb]0[/color] = Unused / zero
 
-[code][color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#bbbbbb]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color][/code]
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
 
-[code][color=#bbbbbb]000[/color][color=#9966ff]I[/color][color=#ff6680]OOOO[/color] [color=#bbbbbb]0[/color][color=#ffe666]DDD[/color][color=#bbbbbb]0[/color][color=#66ff99]AAA[/color] [color=#66ccff]BBBBBBBB BBBBBBBB[/color][/code]
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]1[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#66ccff]BBBBBBBB BBBBBBBB[/color]
   `),
   (info, `Use the static indexer component to solve this level. 
 

@@ -1,83 +1,155 @@
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
-    var condition = tick / 3
-    var value = 0
-    
-    if tick % 3 == 0 {
-        value = random(128)
-    } elif tick % 3 == 1 {
-        value = 128 + random(128)
-    } elif tick % 3 == 2 {
-        value = 0
+
+def get_input(tick: Int) Input {
+    var x = tick
+    x ^= x << 1
+    x ^= x >> 5
+    x ^= x << 8
+
+    var condition = x & 0b111
+    var value = (x >> 3) & 0xff
+
+    if value & 0b10000000 != 0 {
+        value = value ^ 0xff
+        value += 1
+        value = -value
     }
-    if tick == 24 {
-        value = 1
-        condition = 1
-    } elif tick == 25 {
-        value = 2
-        condition = 1
-    } elif tick == 26 {
-        value = 4
-        condition = 1
-    } elif tick == 27 {
-        value = 8
-        condition = 1
-    } elif tick == 28 {
-        value = 16
-        condition = 1
-    } elif tick == 29 {
-        value = 32
-        condition = 1
-    } elif tick == 30 {
-        value = 64
-        condition = 1
-    } elif tick == 31 {
-        value = 128
-        condition = 1
+
+    var condition_text = " "
+    if (condition / 4) % 2 == 0 {
+        condition_text += "[OFF]"
+    } else {
+        condition_text += "[ON]"
     }
+    if (condition / 2) % 2 == 0 {
+        condition_text += "[OFF]"
+    } else {
+        condition_text += "[ON]"
+    }
+    if (condition / 1) % 2 == 0 {
+        condition_text += "[OFF]"
+    } else {
+        condition_text += "[ON]"
+    }
+    condition_text += " "
+
+    ui_set_text("table[1][1]", `{value}`)
+
     switch condition
-        0 { set_custom_input_text("NEVER") }
-        1 { set_custom_input_text("ALWAYS") }
-        2 { set_custom_input_text("=0") }
-        3 { set_custom_input_text("≠0") }
-        4 { set_custom_input_text("<0") }
-        5 { set_custom_input_text("≥0") }
-        6 { set_custom_input_text("≤0") }
-        7 { set_custom_input_text(">0") }
+        0 {
+            ui_set_text("table[2][1]", `NEVER`)
+            ui_set_text("table[3][1]", "[OFF]")
+        }
+        1 {
+            ui_set_text("table[2][1]", `ALWAYS`)
+            ui_set_text("table[3][1]", "[ON]")
+        }
+        2 {
+            ui_set_text("table[2][1]", `{value} = 0`)
+            if value == 0 {
+                ui_set_text("table[3][1]", "[ON]")
+            } else {
+                ui_set_text("table[3][1]", "[OFF]")
+            }
+        }
+        3 {
+            ui_set_text("table[2][1]", `{value} ≠ 0`)
+            if value == 0 {
+                ui_set_text("table[3][1]", "[OFF]")
+            } else {
+                ui_set_text("table[3][1]", "[ON]")
+            }
+        }
+        4 {
+            ui_set_text("table[2][1]", `{value} < 0`)
+            if value < 0 {
+                ui_set_text("table[3][1]", "[ON]")
+            } else {
+                ui_set_text("table[3][1]", "[OFF]")
+            }
+        }
+        5 {
+            ui_set_text("table[2][1]", `{value} ≥ 0`)
+            if value < 0 {
+                ui_set_text("table[3][1]", "[OFF]")
+            } else {
+                ui_set_text("table[3][1]", "[ON]")
+            }
+        }
+        6 {
+            ui_set_text("table[2][1]", `{value} ≤ 0`)
+            if value <= 0 {
+                ui_set_text("table[3][1]", "[ON]")
+            } else {
+                ui_set_text("table[3][1]", "[OFF]")
+            }
+        }
+        7 {
+            ui_set_text("table[2][1]", `{value} > 0`)
+            if value <= 0 {
+                ui_set_text("table[3][1]", "[OFF]")
+            } else {
+                ui_set_text("table[3][1]", "[ON]")
+            }
+        }
+
+    ui_set_text("table[0][1]", condition_text)
     
-    inputs[0] = condition
-    inputs[1] = value
+    return Input {condition: U3 condition, input: U8 value}
+
 }
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+    
+    if output.result_is_z {
+        ui_set_text("table[4][1]", "[ANY]")
+    } elif output.result == 0 {
+        ui_set_text("table[4][1]", "[OFF]")
+    } else {
+        ui_set_text("table[4][1]", "[ON]")
+    }
+
     var expected = false
     
-    if inputs[0] == 0 {
-        expected = false
-    } elif inputs[0] == 1 {
-        expected = true
-    } elif inputs[0] == 2 {
-        expected = inputs[1] == 0
-    } elif inputs[0] == 3 {
-        expected = inputs[1] != 0
-    } elif inputs[0] == 4 {
-        expected = inputs[1] >= 128
-    } elif inputs[0] == 5 {
-        expected = inputs[1] < 128
-    } elif inputs[0] == 6 {
-        expected = inputs[1] > 128 || inputs[1] == 0
-    } elif inputs[0] == 7 {
-        expected = inputs[1] <= 128 && inputs[1] != 0
-    }
+    var condition = input.condition
+    var value = asr(Int input.input << 56, 56)
+
+    switch condition
+        0 {
+            expected = false
+        }
+        1 {
+            expected = true
+        }
+        2 {
+            expected = value == 0
+        }
+        3 {
+            expected = value != 0
+        }
+        4 {
+            expected = value < 0
+        }
+        5 {
+            expected = value >= 0
+        }
+        6 {
+            expected = value <= 0
+        }
+        7 {
+            expected = value > 0
+        }
+
     if expected {
-        if outputs[0] == 0 {
+        if output.result == 0 {
             return fail
         }
     } else {
-        if outputs[0] != 0 {
+        if output.result != 0 {
             return fail
         }
     }
     
-    if tick == 31 {
+    if tick == 2047 {
         return win
     }
 }

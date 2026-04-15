@@ -1,0 +1,13 @@
+kind = sequential
+title = "D-cache"
+size = 96
+background = 6
+copy_solution_to_foundry = "Symphony/Allegro/dcache"
+dialogue = [
+    (mentor_center, `
+
+ignore the lower 3 address bits
+
+
+    `),
+]

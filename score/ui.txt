@@ -1,1 +1,1 @@
-[text id="goal" size=30 y=90 text="Increment the input by 1"]
+[text id="goal" size=45 text="Increment the input by 1"]

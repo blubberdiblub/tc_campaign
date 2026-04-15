@@ -1,0 +1,5 @@
+[table id="table" size=27 x=-100 spacing_y=4]
+"Input",                "a",            "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"Desired output",       "~a",           "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"Current ouput",        " ??? ",        "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+[/table]

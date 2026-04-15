@@ -1,0 +1,13 @@
+kind = misc
+no_score = true
+title = "Humble beginnings"
+size = 30
+no_controls = true
+background = 4
+next_level = "nand_gate"
+dialogue = [
+  (mentor_centered, "We are testing you.
+
+The rules are simple, build a functional computer or you will be eaten. Good luck."),
+  (mentor_centered, "This first level is a very basic introduction to circuits."),
+]

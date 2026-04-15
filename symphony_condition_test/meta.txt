@@ -1,11 +1,11 @@
 kind = combinational
+hint_kind = combinational
 title = "Condition match"
-size = [-48, -48, 49, 49]
+size = 48
 background = 6
-copy_solution_to_factory = "Symphony/cond"
-input_labels = ["Flags", "Condition"]
+copy_solution_to_foundry = "Symphony/cond"
 dialogue = [
-    (info, `In this level the first input contains flags and the second argument contains a condition. We need to test if the flags match the condition. Only the first three bits of the flag input are used, compare them to the first three bits of the condition input. If any pair are both true, the condition is matched.
+    (info, `In this level the first input contains flags and the second argument contains a condition. We need to test if the flags match the condition. Compare the three flag input bits pairwise with the first three bits of the condition input. If any of the three pairs are both true, the condition is matched.
 
 Finally, the 4th bit of the condition inverts the result. So if the condition matched, but the 4th bit is [ON], output [OFF].
 `),

@@ -1,0 +1,2 @@
+[text text="This solution is by no means the most elegant or optimal" size=33 y=-25]
+[text text="That, though, is left as an exercise to the player!" size=33 y=25]

@@ -1,13 +1,11 @@
 kind = sequential
 title = "Memory controller"
-size = [-48, -48, 49, 49]
+size = 48
 copy_solution_to_level = ["symphony_memory_controller_2"]
-copy_solution_to_factory = "Symphony/Allegro/mem_ctrl"
-input_labels = ["Load", "Store", "Address", "Value", "Ram ready", "Destination", "Result Value"]
-output_labels = ["Load", "Store", "Address", "Value", "Ram ready", "Destination", "Result value"]
+copy_solution_to_foundry = "Symphony/Allegro/mem_ctrl"
 background = 6
 dialogue = [
-  (alien, `This level has you create a component that intercepts the values coming and going out of the RAM component. This component will be upgraded later, but this first version will mainly deal with 
+  (mentor, `This level has you create a component that intercepts the values coming and going out of the RAM component. This component will be upgraded later, but this first version will mainly deal with 
 
   `),
 ]

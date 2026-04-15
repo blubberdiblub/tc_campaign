@@ -1,0 +1,7 @@
+[table size=33 y=-40]
+"Input 0",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+"Input 1",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+"XOR",            "[OFF]",  "[ON]",   "[ON]",   "[OFF]"
+[/table]
+
+[text text="An XOR gate is the one to look to" size=33 y=95]

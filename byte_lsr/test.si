@@ -1,0 +1,43 @@
+def get_binary_repr(value: Int, size: Int) String {
+    var text = ""
+    var i = size - 1
+    while i >= 0 {
+        if ((value >> i) & 1) == 0 {
+            text += "[OFF]"
+        } else {
+            text += "[ON]"
+        }
+        i -= 1
+    }
+    return text
+}
+
+def get_input(tick: Int) Input {
+
+    let a = random(256)
+    let b = random(8)
+
+    ui_set_text("table[0][1]", `{b}`)
+    ui_set_text("table[1][1]", get_binary_repr(a, 8))
+
+    return Input {input: U8 a, shift: U3 b}
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+    let expected = input.input >> U8 input.shift
+    ui_set_text("table[2][1]", get_binary_repr(Int expected, 8))
+    if output.result_is_z {
+        ui_set_text("table[3][1]", "[right][ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]")
+    } else {
+        ui_set_text("table[3][1]", get_binary_repr(Int output.result, 8))
+    }
+
+    if output.result != expected {
+        return fail
+    }
+
+    if tick == 0xffff {
+        return win
+    }
+
+}

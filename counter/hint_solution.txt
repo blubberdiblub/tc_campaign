@@ -1,0 +1,2 @@
+[text text="Just add 1 to loop wire of the Delay Line" size=33 y=-25]
+[text text="But using a Full Adder here is an overkill!" size=33 y=25]

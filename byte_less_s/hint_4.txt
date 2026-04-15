@@ -1,0 +1,1 @@
+[text text="Otherwise, we can compare 2 7-bit unsigned numbers" size=37]

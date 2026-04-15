@@ -1,0 +1,2 @@
+[text text="The output 1 is ON if and only if at least 2, but not all 4, signals are ON" size=33 y=-25]
+[text text="The 'at least 2' part, we have already done in the 'DOUBLE TROUBLE' level" size=33 y=25]

@@ -1,16 +1,16 @@
 kind = combinational
+hint_kind = combinational
 title = "Symphony ALU"
-size = [-48, -48, 49, 49]
-copy_solution_to_factory = "Symphony/ALU"
+size = 48
+copy_solution_to_foundry = "Symphony/ALU"
 copy_solution_to_level = ["symphony_fast_alu"]
-input_labels = ["Operand", "Input 1", "Input 2"]
-output_labels = ["Output"]
 background = 6
 dialogue = [
-  (info, "This is a copy of the Overture ALU. Time to upgrade it to 16 bits and a few new instructions.
+  (info, "This is a copy of the Overture ALU. Time to upgrade it to 32 bits and a few new instructions.
 
 Instructions:
-[code][color=#87a8c8]0 NAND
+
+[color=#87a8c8]0 NAND
 1 OR
 2 AND
 3 NOR
@@ -19,8 +19,8 @@ Instructions:
 6 XOR
 7 LSL
 8 LSR
-9 CMP
-10 MUL[/color][/code]
+9 ASR
+10 CMP[/color]
 
-The cmp operation is the one you already created a custom component for in the previous level"),
+The cmp operation is the one you already created a custom component for in the previous level."),
 ]

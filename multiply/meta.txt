@@ -1,7 +1,8 @@
 kind = combinational
+hint_kind = combinational
 title = "Multiply"
-size = [-55, -55, 55, 55]
+size = 55
 unlocks_components = [com_mul]
 dialogue = [
-  (alien_centered, "Multiply two numbers. If the result doesn't fit in 8 bits, discard the bits that don't fit."),
+  (mentor_centered, "Multiply two numbers. If the result doesn't fit in 8 bits, discard the bits that don't fit."),
 ]

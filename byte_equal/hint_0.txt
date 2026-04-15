@@ -1,0 +1,1 @@
+[text text="An XOR of 2 equal numbers is very beautiful" size=37]

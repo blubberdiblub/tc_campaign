@@ -1,0 +1,1 @@
+[text text="Byte XOR of 2 binary numbers is just the XOR gate applied bitwise between them" size=37]

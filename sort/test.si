@@ -1,70 +1,48 @@
 
-const INPUT_CURSOR = 0
-const OUTPUT_CURSOR = 1
-const RAW_NUMBERS = 2
-const SORTED_NUMBERS = RAW_NUMBERS + 16
+var input_cursor = 0
+var output_cursor = 0
+var raw_numbers = array(<Int>, 16)
+var sorted_numbers = array(<Int>, 16)
 
-def on_reset($scratch_space: [Int], test: Int) {
 
-    var numbers = array(16, 0)
-    
-    {
-        var i = 0
-        while i < 16 {
-            
-            let number = random(0xff)
-            numbers[i] = number
-            scratch_space[RAW_NUMBERS + i] = number
-            ui_set_image_name(`{i}`, `{random(49)}.png`)
-            ui_set_text(`text_{i}`, str(number))
-            i += 1
-
-        }
-    }
-
-    sort($numbers)
-
+{
     var i = 0
     while i < 16 {
-
-        scratch_space[SORTED_NUMBERS + i] = numbers[i]
+        
+        let number = random(0x100)
+        raw_numbers[i] = number
+        sorted_numbers[i] = number
+        ui_set_text(`text_{i}`, str(number))
         i += 1
 
     }
+}
+
+sort($sorted_numbers)
+
+
+def arch_get_input(test: Int) Int {
+
+    .input_cursor += 1
+    return .input_cursor <= 16 ? .raw_numbers[.input_cursor - 1] : 0
 
 }
 
-def arch_get_input($scratch_space: [Int], test: Int) Int {
+def arch_check_output(test: Int, input: Int, output: Int) TestResult {
 
-    let cursor = scratch_space[INPUT_CURSOR]
-    scratch_space[INPUT_CURSOR] += 1
-    return cursor < 16 ? scratch_space[RAW_NUMBERS + cursor] : 0
+    if output != .sorted_numbers[.output_cursor] {
 
-}
-
-def arch_check_output($scratch_space: [Int], test: Int, input: Int, output: Int) TestResult {
-
-    if scratch_space[INPUT_CURSOR] > 16 {
-
-        set_error("You should not read more than 16 numbers from input")
-        return fail
+        set_error(`Index {.output_cursor} in the sorted list should be {.sorted_numbers[.output_cursor]}, not {output}`)
+        return fail        
 
     }
 
-    let cursor = scratch_space[OUTPUT_CURSOR]
-    scratch_space[OUTPUT_CURSOR] += 1
-
-    if output != scratch_space[SORTED_NUMBERS + cursor] {
-
-        set_error(`Index {cursor} in the sorted list should be {scratch_space[SORTED_NUMBERS + cursor]}, not {output}`)
-        return fail
-
-    }
-
-    if cursor == 15 {
+    if .output_cursor == 15 {
 
         return win
 
     }
+
+    .output_cursor += 1
 
 }

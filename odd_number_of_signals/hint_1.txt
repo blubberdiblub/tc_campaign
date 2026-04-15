@@ -1,0 +1,2 @@
+[text text="Up until this point, the red signal has been called OFF, and the green ON" size=33 y=-25]
+[text text="But what if, instead of OFF/ON, we imagine them as even/odd?" size=33 y=25]

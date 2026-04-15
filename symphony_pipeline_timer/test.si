@@ -1,49 +1,37 @@
-const MEMORY = 0
+var hazard_count = 0
+def hazard(input: Bool) Bool {
 
-def hazard(input: Bool, $scratch_space: [Int], index: Int) Bool {
-
-    let hazard = scratch_space[index]
-    _reg_alloc_use hazard
-
-    scratch_space[index] = max(0, hazard - 1)
+    .hazard_count = max(0, .hazard_count - 1)
     
-    if hazard >= 1 { return true }
+    if .hazard_count >= 1 { return true }
 
     if input {
 
-        scratch_space[index] = 2
+        .hazard_count = 3
 
     }
     
 }
 
+def get_input(tick: Int) Input {
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
-
-    inputs[0] = random(2)
+    return Input {input: random(<U1>) }
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    let hazard_sensitive = hazard(inputs[0] == 1, $scratch_space, MEMORY)
+    let hazard_sensitive = hazard(input.input == 1)
 
-    if <Bool> outputs[0] != hazard_sensitive {
+    if Bool output.output != hazard_sensitive {
 
-        set_error(`In progress should be {<Int> hazard_sensitive}.`)
+        set_error(`In progress should be {Int hazard_sensitive}.`)
         return fail
 
     }
 
     if tick == 0xffff {
 
-        if get_delay_score() >= 60 {
-
-            set_error(`Your solution is correct, but delay should be less than 60.`)
-            return fail
-
-        }
-    
         return win
     
     }

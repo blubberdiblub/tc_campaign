@@ -1,6 +1,7 @@
 kind = combinational
+hint_kind = combinational
 title = "Signed Less"
-size = [-32, -32, 32, 32]
+size = 32
 unlocks_components = [com_less_s]
 background = 4
 dialogue = [

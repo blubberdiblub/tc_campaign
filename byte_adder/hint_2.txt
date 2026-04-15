@@ -1,0 +1,1 @@
+[text text="Add another 7 Full Adder components for every bit" size=37]

@@ -1,15 +1,12 @@
 kind = sequential
 title = "Saving Bytes"
-size = [-30, -30, 30, 30]
+size = 30
 unlocks_components = [com_register_word, com_delay_line_word]
-input_values = [("DON'T LOAD","LOAD"),("DON'T SAVE", "SAVE")]
 background = 1
 dialogue = [
-  (info, "Create a circuit that can [STORE] or [LOAD] a byte.
+  (info, `Create a circuit that can [color=#ffcc44][b]STORE[/b][/color] a byte.
 
-When the first input bit is [ON], [LOAD] the memory and send it to output.
-When the second input bit is [ON], [STORE] the input byte.
+When the "SAVE" input is [ON], [color=#ffcc44][b]STORE[/b][/color] the input byte.
 
-The output has an enable pin, enable it only on [LOAD].
-"),
+At all times output the stored value to the output.`),
 ]

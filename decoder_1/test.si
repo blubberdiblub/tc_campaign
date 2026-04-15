@@ -1,16 +1,16 @@
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
-    inputs[0] = tick
+    return Input {input: U1 tick}
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
   
     switch tick
         0 {
 
-            if outputs[0] != 1 || outputs[1] != 0 {
+            if output.output != 1 {
 
                 return fail
 
@@ -20,7 +20,7 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
         1 {
 
-            if outputs[0] != 0 || outputs[1] != 1 {
+            if output.output != 2 {
 
                 return fail
 

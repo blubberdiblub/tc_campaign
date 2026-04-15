@@ -1,0 +1,8 @@
+// The padding around the [ANY][ANY][ANY] is to ensure the column width is enough for condition text
+[table id="table" size=33 x=-100 spacing_x=0]
+"Condition",          " [ANY][ANY][ANY] "
+"Value",          "value"
+"Description",        "???"
+"Desired output",   "[ANY]"
+"Current output",   "[ANY]"
+[/table]

@@ -1,15 +1,16 @@
 kind = combinational
+hint_kind = combinational
 title = "Comparison flags"
-size = [-48, -48, 49, 49]
-copy_solution_to_factory = "Symphony/cmp"
-output_labels = ["Output"]
-input_labels = ["Input 1", "Input 2"]
+size = 48
+copy_solution_to_foundry = "Symphony/cmp"
 background = 6
 dialogue = [
-  (info, `In this level you compare two 16 bit inputs in three different ways. Each result is a 1 bit value called a "flag".
+  (info, `In this level you compare two 32 bit inputs in three different ways. Each result is a 1 bit value called a "flag".
 
 Flags:
 Set bit 0 to 1 if the inputs are equal.
-Set bit 1 to 1 if the first input is unsigned less than the second input.
-Set bit 2 to 1 if the first input is signed less than the second input.`),
+Set bit 1 to 1 if the first input is lower (unsigned) than the second input.
+Set bit 2 to 1 if the first input is less (signed) than the second input.
+
+To learn about making 32 bit components, open "Symphony counter" level first if you haven't already.`),
 ]

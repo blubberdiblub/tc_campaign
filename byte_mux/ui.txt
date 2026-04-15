@@ -1,0 +1,9 @@
+[table id="table" size=27 x=-100 spacing_y=4]
+"SELECT",           "[ANY]
+"
+"Input 1",          "a"
+"Input 2",          "b"
+"Action",           "SELECT Input 1/2"
+"Desired output",   "a/b"
+"Current output",   "???"
+[/table]

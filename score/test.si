@@ -1,16 +1,16 @@
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
-    inputs[0] = tick
     ui_set_text("goal", `Add 1 to {tick}`)
+    return Input {input: U8 tick}
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    let expected = (inputs[0] + 1) & 0xff
+    let expected = (input.input + 1)
 
-    if expected != outputs[0] {
+    if expected != output.output {
 
         set_error(`Output should be {expected}.`)
         return fail
@@ -18,20 +18,6 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     }
 
     if tick == 0xff {
-
-        if get_gate_score() > 40 {
-
-            set_error(`Your gate score should be no more than 40`)
-            return fail
-
-        }
-
-        if get_delay_score() > 10 {
-
-            set_error(`Your delay score should be no more than 10`)
-            return fail
-
-        }
 
         return win
 

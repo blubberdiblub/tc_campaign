@@ -1,0 +1,157 @@
+
+var set_0 = U2048 0
+var set_1 = U2048 0
+var set_2 = U2048 0
+var set_3 = U2048 0
+
+var tags = [U32 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff]
+
+def get_set(address: U32) U2 {
+    return U2 (address >> 8)
+}
+
+def get_input(tick: Int) Input {
+
+    const #MASK = U32 0b11111111_11111111_11111111_11111100
+
+    var load_address = random(<U32>)
+
+    if random(2) == 0 {
+
+        let set = get_set(load_address)
+
+        load_address = get_ram_value("Tags", Int set * 4, <U32>) ^ U32 random(0b100_00000000)
+
+    } 
+
+    return Input {
+        load_address: load_address & #MASK,
+        new_data: random(<U1>),
+        data_address: random(<U32>) & #MASK,
+        data: random(<U2048>),
+        invalidate: random(<U1>),
+        invalidate_address: random(<U32>) & #MASK,
+    }
+
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    if input.new_data == 1 {
+
+        let set = get_set(input.data_address)
+
+        .tags[set] = input.data_address
+
+        switch set
+            0 {
+                .set_0 = input.data
+            }
+            1 {
+                .set_1 = input.data
+            }
+            2 {
+                .set_2 = input.data
+            }
+            3 {
+                .set_3 = input.data
+            }
+
+    }
+
+    if input.invalidate == 1 {
+
+        let set = get_set(input.invalidate_address)
+        .tags[set] = U32 0xffff_ffff
+
+    }
+
+
+    if get_ram_value("Tags", 0, <U32>) != .tags[0] {
+        set_error(`Tag 0 is supposed to be 0x{hex(.tags[0])}`)
+        return fail
+    }
+
+    if get_ram_value("Tags", 4, <U32>) != .tags[1] {
+        set_error(`Tag 1 is supposed to be 0x{hex(.tags[1])}`)
+        return fail
+    }
+
+    if get_ram_value("Tags", 8, <U32>) != .tags[2] {
+        set_error(`Tag 2 is supposed to be 0x{hex(.tags[2])}`)
+        return fail
+    }
+
+    if get_ram_value("Tags", 12, <U32>) != .tags[3] {
+        set_error(`Tag 3 is supposed to be 0x{hex(.tags[3])}`)
+        return fail
+    }
+
+
+    if get_ram_value("Set 0", 248, <U64>) != U64 .set_0 {
+        set_error(`Wrong data in Set 0 RAM`)
+        return fail
+    }
+
+    if get_ram_value("Set 1", 248, <U64>) != U64 .set_1 {
+        set_error(`Wrong data in Set 1 RAM`)
+        return fail
+    }
+
+    if get_ram_value("Set 2", 248, <U64>) != U64 .set_2 {
+        set_error(`Wrong data in Set 2 RAM`)
+        return fail
+    }
+
+    if get_ram_value("Set 3", 248, <U64>) != U64 .set_3 {
+        set_error(`Wrong data in Set 3 RAM`)
+        return fail
+    }
+
+    let set = get_set(input.load_address)
+    let tag = input.load_address >> 8
+
+    var is_ready = U1 0
+    var data     = U64 0
+
+    switch set
+        0 {
+            if tag == .tags[0] >> 8 {
+                is_ready = 1
+                data     = get_ram_value("Set 0", Int input.load_address & 0xff, <U64>)
+            }
+        }
+        1 {
+            if tag == .tags[1] >> 8 {
+                is_ready = 1
+                data     = get_ram_value("Set 1", Int input.load_address & 0xff, <U64>)
+            }
+        }
+        2 {
+            if tag == .tags[2] >> 8 {
+                is_ready = 1
+                data     = get_ram_value("Set 2", Int input.load_address & 0xff, <U64>)
+            }
+        }
+        3 {
+            if tag == .tags[3] >> 8 {
+                is_ready = 1
+                data     = get_ram_value("Set 3", Int input.load_address & 0xff, <U64>)
+            }
+        }
+
+    if output.is_ready != is_ready {
+        set_error(`Output "Is Ready" is supposed to be {is_ready}`)
+        return fail
+    }
+
+    if output.data != data {
+        set_error(`Output "Data" is supposed to be 0x{hex(data)}`)
+        return fail
+    }
+
+    if tick == 0xffff {
+        return win
+    }
+
+}

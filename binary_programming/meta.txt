@@ -1,12 +1,11 @@
 kind = sequential
-title = "Add 5"
+title = "Punchcard programming"
 tests = 32
-size = [-80, -50, 43, 45]
+size = 128
 copy_solution_to_level = ["assembly_programming"]
-unlocks_pages = ["Assembler"]
+unlocks_pages = ["Assembly/Assembly Programming", "Assembly/Language Creation"]
+immutable_isa = true
 dialogue = [
-  (alien_centered, "Now that we can't eat you, the captain has decided to drop you off at the local zoo when we arive at Glorflon Prime."),
-  (alien_centered, "Would you mind helping out on the ship in the meantime?"),
-  (info, `Click on the "edit" button on the program component to start programming your computer. Your computer should read an input, add 5 to it and output it again (no need to worry about overflow).`),
+  (info, `Click on the "edit" button on the program component to start punchcard programming your computer. Your computer should read an input, add 5 to it and output it again (no need to worry about overflow).`),
   (overture),
 ]

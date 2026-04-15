@@ -1,0 +1,8 @@
+[table size=33 x=-50 y=-55]
+"Input 0",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+"Input 1",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+"Desired output", "[OFF]",  "[ON]",   "[ON]",   "[OFF]"
+[/table]
+
+[text text="Let's first pretend the component constraint does not exist" size=33 y=65]
+[text text="The truth table is just telling us to make an XOR gate" size=33 y=115]

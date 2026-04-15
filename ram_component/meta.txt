@@ -1,11 +1,9 @@
 kind = sequential
 title = "Little Box"
-size = [-16, -16, 16, 16]
-unlocks_components = [com_ram_fast]
-input_labels = ["LOAD","SAVE","A OR B","0 OR 1","VALUE"]
-input_labels = [("DON'T LOAD", "LOAD"),("DON'T SAVE", "SAVE"), ("A", "B"), ("0", "1")]
+size = 16
+unlocks_components = [com_ram]
 dialogue = [
-  (alien_centered, "Can you fit 4 bytes of memory in this limited space?"),
+  (mentor_centered, "Can you fit 4 bytes of memory in this limited space?"),
   (info, "In this level you have to build a circuit that 
 can [STORE] or [LOAD] from 4 different bytes of memory.
 
@@ -13,12 +11,11 @@ You are given 1 bit that determines if you are to [LOAD]. Another bit determines
 Additionally, you have 2 address bits. 
 
 With 2 bits, there are 4 combinations, one for each byte of memory in this level.
-[i][tip]Join wires in the middle and use right angles or this will be a mess.[/tip][/i]
-[i][tip]Spacebar rotates components.[/tip][/i]
-
-The output has an enable pin, enable it only on [LOAD]."),
+[tip]Join wires in the middle and use right angles or this will be a mess.[/tip]
+[tip]Spacebar rotates components.[/tip]
+"),
 ]
 post_mortem = [
-    (alien, `In our advanced civilization, forcing prisoners to do extremely menial tasks is slavery and is technically illegal.
+    (mentor, `In our advanced civilization, forcing prisoners to do extremely menial tasks is slavery and is technically illegal.
     That is why we instead had our intern create the 256 byte version of your component.`)
 ]

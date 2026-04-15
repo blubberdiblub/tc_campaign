@@ -1,0 +1,2 @@
+[text text="The Never and Always are the easier parts" size=33 y=-25]
+[text text="So let's hook those up together with the bus" size=33 y=25]

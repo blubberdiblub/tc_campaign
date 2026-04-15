@@ -1,1 +1,1 @@
-[text id="description" text="Select the correct output" size=24 y=90]
+[text id="description" text="Select the correct output" size=36]

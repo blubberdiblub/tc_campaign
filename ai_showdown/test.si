@@ -1,22 +1,23 @@
-const CARDS_TAKEN   = 0
 
-const PLAYER_CHOICE = 1
-const BOT_TO_MOVE   = 2
+var cards_taken = 0
+var player_choice = 0
+var bot_to_move = false
 
-def arch_get_input($scratch_space: [Int], test: Int) Int {
 
-    return 12 - scratch_space[CARDS_TAKEN]
+def arch_get_input(test: Int) Int {
+
+    return 12 - .cards_taken
 
 }
 
-def redraw(scratch_space: [Int]) {
+def redraw() {
 
-    let cards_left = 12 - scratch_space[CARDS_TAKEN]
-    let cards_not_raised = cards_left - scratch_space[PLAYER_CHOICE]
+    let cards_left = 12 - .cards_taken
+    let cards_not_raised = cards_left - .player_choice
 
     if cards_left <= 1 {
 
-        if scratch_space[BOT_TO_MOVE] == 0 {
+        if !.bot_to_move {
 
             ui_set_text("description", `You lost!`)
             ui_set_hidden("nak02", true)
@@ -40,17 +41,17 @@ def redraw(scratch_space: [Int]) {
         ui_set_hidden("robot", false)
         ui_set_hidden("robot_win", true)
 
-        if scratch_space[BOT_TO_MOVE] == 1 {
+        if .bot_to_move {
 
             ui_set_text("description", `Hit enter to see what NAK 02 does`)
 
-        } elif scratch_space[PLAYER_CHOICE] == 0 {
+        } elif .player_choice == 0 {
 
             ui_set_text("description", `Use the arrow keys to take cards`)
 
         } else {
 
-            ui_set_text("description", `Hit enter to take {scratch_space[PLAYER_CHOICE]} cards`)
+            ui_set_text("description", `Hit enter to take {.player_choice} cards`)
 
         }
 
@@ -65,11 +66,11 @@ def redraw(scratch_space: [Int]) {
 
         if i < cards_not_raised {
 
-            ui_set_position(name, -330 + 60 * i, 90)
+            ui_set_position(name, -330 + 60 * i, 0)
 
         } else {
 
-            ui_set_position(name, -330 + 60 * i, 60)
+            ui_set_position(name, -330 + 60 * i, -30)
 
         }
 
@@ -80,9 +81,9 @@ def redraw(scratch_space: [Int]) {
 
 }
 
-def bot_move($scratch_space: [Int]) {
+def bot_move() {
     
-    let cards_left = 12 - scratch_space[CARDS_TAKEN]
+    let cards_left = 12 - .cards_taken
     var bot_action = 0
 
     switch cards_left
@@ -98,19 +99,18 @@ def bot_move($scratch_space: [Int]) {
         10 { bot_action = 1 }
         11 { bot_action = 2 }
 
-    scratch_space[CARDS_TAKEN] += bot_action
-    scratch_space[BOT_TO_MOVE] = false
+    .cards_taken += bot_action
+    .bot_to_move = false
 
 }
 
-def on_manual_input($scratch_space: [Int], action: Int){
+def on_manual_input(action: Int) {
 
-    const ADD_CARD = 0
-    const REM_CARD = 2
-    const COMMIT   = 5
+    const #ADD_CARD = 0
+    const #REM_CARD = 2
+    const #COMMIT   = 5
 
-    let cards_left = 12 - scratch_space[CARDS_TAKEN]
-    let bot_to_move = scratch_space[BOT_TO_MOVE] == 1
+    let cards_left = 12 - .cards_taken
 
     if cards_left <= 1 {
     
@@ -118,67 +118,67 @@ def on_manual_input($scratch_space: [Int], action: Int){
     
     }
     
-    if action != REM_CARD && action != ADD_CARD && action != COMMIT {
+    if action != #REM_CARD && action != #ADD_CARD && action != #COMMIT {
         
         return
     
     }
 
-    if bot_to_move && action != COMMIT {
+    if .bot_to_move && action != #COMMIT {
 
         return
 
     }
 
-    if !bot_to_move && action == COMMIT && scratch_space[PLAYER_CHOICE] == 0 {
+    if !.bot_to_move && action == #COMMIT && .player_choice == 0 {
 
         return
 
     }
 
-    if action == ADD_CARD {
+    if action == #ADD_CARD {
 
-        if scratch_space[PLAYER_CHOICE] == 3 || scratch_space[PLAYER_CHOICE] >= cards_left {
-
-            return
-
-        }
-
-        scratch_space[PLAYER_CHOICE] = scratch_space[PLAYER_CHOICE] + 1
-
-    } elif action == REM_CARD {
-
-        if scratch_space[PLAYER_CHOICE] <= 1 {
+        if .player_choice == 3 || .player_choice >= cards_left {
 
             return
 
         }
 
-        scratch_space[PLAYER_CHOICE] = scratch_space[PLAYER_CHOICE] - 1
+        .player_choice = .player_choice + 1
+
+    } elif action == #REM_CARD {
+
+        if .player_choice <= 1 {
+
+            return
+
+        }
+
+        .player_choice = .player_choice - 1
 
     } else {
 
-        if bot_to_move {
+        if .bot_to_move {
 
-            bot_move($scratch_space)
+            bot_move()
 
         } else {
 
-            scratch_space[CARDS_TAKEN] += scratch_space[PLAYER_CHOICE]
-            scratch_space[PLAYER_CHOICE] = 0
-            scratch_space[BOT_TO_MOVE] = true
+            .cards_taken += .player_choice
+            .player_choice = 0
+            .bot_to_move = true
     
         }
 
     }
 
-    redraw(scratch_space)
+    redraw()
 
 }
 
-def arch_check_output($scratch_space: [Int], test: Int, input: Int, output: Int) TestResult {
+def arch_check_output(test: Int, input: Int, output: Int) TestResult {
 
-    let cards_left = 12 - scratch_space[CARDS_TAKEN]
+    let cards_left = 12 - .cards_taken
 
     if output == 0 || output > 3 {
 
@@ -189,22 +189,21 @@ def arch_check_output($scratch_space: [Int], test: Int, input: Int, output: Int)
 
     if output >= cards_left {
 
-        scratch_space[CARDS_TAKEN] = 0
+        .cards_taken = 0
         set_error("You took the last card")
         return fail
 
     }
 
-    scratch_space[CARDS_TAKEN] += output
-    
-    scratch_space[BOT_TO_MOVE] = true
-    bot_move($scratch_space)
+    .cards_taken += output
+    .bot_to_move = true
 
-    redraw(scratch_space)
+    bot_move()
+    redraw()
 
-    if scratch_space[CARDS_TAKEN] == 11 {
+    if .cards_taken == 11 {
 
-        return scratch_space[BOT_TO_MOVE] == 1 ? win : fail
+        return .bot_to_move ? win : fail
 
     }
 

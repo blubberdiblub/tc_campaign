@@ -1,0 +1,7 @@
+[text text="Always following the left (or right) hand side of the maze will make sure you eventually reach the exit" y=-120 size=22]
+[text text="The pseudo code for such an algorithm looks like this:" y=-80 size=22]
+[text text="[left][b]Step forward[/b][/left]" y=-40 x=-300 size=22]
+[text text="[left][b]Turn left[/b][/left]" y=0 x=-300 size=22]
+[text text="[left][b]Turn right as long as there is a wall ahead[/b][/left]" y=40 x=-300 size=22]
+[text text="[left][b]Press use after each turn (in case the exit is ahead)[/b][/left]" y=80 x=-300 size=22]
+[text text="[left][b]Repeat[/b][/left]" y=120 x=-300 size=22]

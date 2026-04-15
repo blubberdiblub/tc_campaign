@@ -1,0 +1,20 @@
+
+def get_input(tick: Int) Input {
+
+    let res = Input {
+        load_address: U32 random(),
+        data: random_of_type(<U2048>),
+    }
+
+    print(hex(res.data))
+
+    return res
+
+}
+
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+
+
+}

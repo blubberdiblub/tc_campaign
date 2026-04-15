@@ -1,20 +1,15 @@
 
-// Indexes
-const MIN = 0
-const MAX = 1
-const OVER = 2
+var min = 0
+var max = 255 // Inclusive
+var over = 0
 
-def on_reset($scratch_space: [Int], test: Int) {
-    scratch_space[MAX] = 255 // Inclusive
+def arch_get_input(test: Int) Int {
+    return .over
 }
 
-def arch_get_input($scratch_space: [Int], test: Int) Int {
-    return scratch_space[OVER]
-}
+def arch_check_output(test: Int, input: Int, output: Int) TestResult {
 
-def arch_check_output($scratch_space: [Int], test: Int, input: Int, output: Int) TestResult {
-
-    if (scratch_space[MIN] == scratch_space[MAX]) && (scratch_space[MIN] == output) {
+    if (.min == .max) && (.min == output) {
 
         // The value is pinned down
         return win
@@ -22,18 +17,18 @@ def arch_check_output($scratch_space: [Int], test: Int, input: Int, output: Int)
     }
 
     // If the player guessed below the interval where the correct value could possibly be found.
-    if output < scratch_space[MIN] {
+    if output < .min {
 
-        scratch_space[OVER] = 0
+        .over = 0
 
         return pass
 
     }
 
     // If the player guessed above the interval where the correct value could possibly be found.
-    if output > scratch_space[MAX] {
+    if output > .max {
 
-        scratch_space[OVER] = 1
+        .over = 1
 
         return pass
 
@@ -44,19 +39,19 @@ def arch_check_output($scratch_space: [Int], test: Int, input: Int, output: Int)
     // The reason is that any of the comparisons "<", ">", "<=" or ">=" (of which we use ">" below)
     // splits the interval between two adjacent integers rather than exactly _at_ a single one.
     // (Or in other words value a cannot be simultaneously > than value b AND NOT > than value b.)
-    let sample = scratch_space[MIN] + random(scratch_space[MAX] - scratch_space[MIN])
+    let sample = .min + random(.max - .min)
 
     // Select one of the intervals [min .. guess - 1] or [guess + 1 .. max]
     // probabilistically (with the help of the random sample) based on their relative sizes.
     if output > sample {
 
-        scratch_space[MAX]  = output - 1
-        scratch_space[OVER] = 1
+        .max  = output - 1
+        .over = 1
 
     } else {
 
-        scratch_space[MIN]  = output + 1
-        scratch_space[OVER] = 0
+        .min  = output + 1
+        .over = 0
 
     }
 

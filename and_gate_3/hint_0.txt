@@ -1,0 +1,1 @@
+[text text="A bigger AND is but multiple ANDs in succession" size=37]

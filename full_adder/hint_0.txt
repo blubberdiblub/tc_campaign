@@ -1,0 +1,1 @@
+[text text="The SUM requires the same reasoning from the 'ODD NUMBER OF SIGNALS' level" size=37]

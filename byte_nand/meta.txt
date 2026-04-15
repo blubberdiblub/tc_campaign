@@ -1,17 +1,17 @@
 kind = combinational
+hint_kind = combinational
 title = "Byte NAND"
-size = [-30, -30, 30, 30]
+size = 30
 unlocks_components = [com_nand_word]
 background = 5
 dialogue = [
-  (alien_centered, "You may think it is unethical to eat all the earthlings that don’t win the competition?"),
-  (alien_centered, "But actually it is OK because you lived good lives in the wild and we don't let the meat go to waste."),
+  (mentor_centered, "You may think it is unethical to eat all the earthlings that don’t win the competition?"),
+  (mentor_centered, "But actually it is OK because you lived good lives in the wild and we don't let the meat go to waste."),
   (info, "NAND each bit of the input bytes and output the result.
 
 For example:
-[code]
-INPUT 1 [ON][ON][OFF][OFF][OFF][ON][OFF][OFF]
-INPUT 2 [OFF][OFF][OFF][OFF][ON][ON][OFF][OFF]
-OUTPUT  [ON][ON][ON][ON][ON][OFF][ON][ON][/code]
+#INPUT 1 [ON][ON][OFF][OFF][OFF][ON][OFF][OFF]
+#INPUT 2 [OFF][OFF][OFF][OFF][ON][ON][OFF][OFF]
+#OUTPUT  [ON][ON][ON][ON][ON][OFF][ON][ON]
 "),
 ]

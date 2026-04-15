@@ -1,1 +1,1 @@
-[text id="description" text="Multiply two numbers" size=24 y=90]
+[text id="description" text="Multiply two numbers" size=36]

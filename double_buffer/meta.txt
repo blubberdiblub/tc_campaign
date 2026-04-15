@@ -1,15 +1,12 @@
 kind = sequential
 no_score = true
 title = "Delayed Lines"
-size = [-30, -30, 30, 30]
+size = 30
 unlocks_components = [com_delay_line_bit]
 components_available = [com_delay_line_bit: -1]
 tick_past_fail = 14
-output_history_pins = 1
 background = 1
 dialogue = [
-  (info, "This level introduces the Delay Line component. It takes its input and outputs it 1 tick later.
-
-[img]dialogue/delay_line.png[/img]"),
+  (info, `This level introduces the Delay Line component. It takes its input and outputs it 1 tick later.`),
   (info, "Construct a circuit that outputs the same as the input, just delayed by 2 ticks."),
 ]

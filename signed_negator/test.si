@@ -1,15 +1,50 @@
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
-    var x = tick
+
+def get_binary_repr(value: Int) String {
+    var text = ""
+    var i = 7
+    while i >= 0 {
+        if ((value >> i) & 1) == 0 {
+            text += "[OFF]"
+        } else {
+            text += "[ON]"
+        }
+        i -= 1
+    }
+    return text
+}
+
+def get_input(tick: Int) Input {
+
+    var x = tick + 1
     x ^= x << 1
     x ^= x >> 1
     x ^= x << 2
-    inputs[0] = x & 0xff
+    let input = Input {input: U8 x}
+    
+    var value = asr(Int input.input << 56, 56)
+    ui_set_text("table[0][1]", `{value}`)
+    ui_set_text("table[0][2]", get_binary_repr(Int value))
+
+    value = asr(- Int input.input << 56, 56)
+    ui_set_text("table[1][1]", `{value}`)
+    ui_set_text("table[1][2]", get_binary_repr(Int value))
+
+    return input
+
 }
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
-    if outputs[0] != (~inputs[0] + 1) & 255 {
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    var value = asr(Int output.output << 56, 56)
+
+    ui_set_text("table[2][1]", `{value}`)
+    ui_set_text("table[2][2]", get_binary_repr(Int value))
+
+    if output.output != (~input.input + 1) {
         return fail
     }
     if tick == 0xff {
         return win
     } 
+
 }

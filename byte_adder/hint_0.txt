@@ -1,0 +1,1 @@
+[text text="You only need 8 full adders"]

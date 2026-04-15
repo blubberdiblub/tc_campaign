@@ -1,0 +1,8 @@
+[table size=33 x=-50 y=-55]
+"Input 0",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+"Input 1",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+"NAND",           "[ON]",   "",           "",             "[OFF]"
+[/table]
+
+[text text="When the inputs are both OFF, the output is ON" size=33 y=65]
+[text text="When the inputs are both ON, the output is OFF" size=33 y=115]

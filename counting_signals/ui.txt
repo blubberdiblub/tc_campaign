@@ -1,0 +1,11 @@
+[text bold text="Components spent" x=600 y=80]
+[text id="count" bold text="0 of 3" x=600 y=110]
+
+[table id="table" full_history size=24 x=-100 spacing_x=4]
+"Input 0",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+"Input 1",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+"Input 2",        "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]"
+"Input 3",        "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]"
+"Desired output", "0",      "1",      "1",      "2",      "1",      "2",      "2",      "3",      "1",      "2",      "2",      "3",      "2",      "3",      "3",      "4"
+"Current output", "",       "",       "",       "",       "",       "",       "",       "",       "",       "",       "",       "",       "",       "",       "",       ""
+[/table]

@@ -1,24 +1,21 @@
 
-def on_reset($scratch_space: [Int], test: Int) {
-    ui_set_hidden("note", true)
-}
 
-def arch_get_input($scratch_space: [Int], test: Int) Int {
+ui_set_hidden("note", true)
 
-    if scratch_space[0] == 0 {
-        scratch_space[0] = random(41) + 1
-    }
+var size = random(41) + 1
 
-    ui_set_text("goal", `What is 2π × {scratch_space[0]}?`)
+def arch_get_input(test: Int) Int {
+
+    ui_set_text("goal", `What is 2π × {.size}?`)
     ui_set_hidden("note", false)
 
-    return scratch_space[0]
+    return .size
 }
 
-def arch_check_output($scratch_space: [Int], test: Int, input: Int, output: Int) TestResult {
+def arch_check_output(test: Int, input: Int, output: Int) TestResult {
 
-    if output != input * 6 {
-        set_error(`2π × {input} ≈ {input * 6}`)
+    if output != .size * 6 {
+        set_error(`2π × {.size} ≈ {.size * 6}`)
         return fail
     }
 

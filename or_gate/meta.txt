@@ -1,14 +1,10 @@
 kind = combinational
+hint_kind = combinational
 no_score = true
 title = "OR Gate"
-size = [-30, -30, 30, 30]
+size = 30
 unlocks_components = [com_or_bit]
 tick_past_fail = 4
-output_history_pins = 1
 dialogue = [
-  (alien_centered, "You should be happy you get to participate in our glorious tests."),
-  (alien_centered, "You get a chance to communicate with very advanced people from the galactic civilization."),
-  (info, "Create the circuit that matches the table.
-  
-[tip]Double click on a component to move it together with connected wires.[/tip]"),
+  (info, "Create the circuit that matches the table."),
 ]

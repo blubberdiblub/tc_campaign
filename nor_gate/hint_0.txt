@@ -1,0 +1,8 @@
+[table size=33 x=-50 y=-55]
+"Input 0",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+"Input 1",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+"Desired output", "[ON]",   "[OFF]",  "[OFF]",  "[OFF]"
+[/table]
+
+[text text="The truth table tells us that the NOR gate is ON" size=33 y=65]
+[text text="if and only if both the input 0 AND input 1 are OFF" size=33 y=115]

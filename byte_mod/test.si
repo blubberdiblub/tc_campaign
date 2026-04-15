@@ -1,0 +1,28 @@
+
+def get_input(tick: Int) Input {
+
+    var x = tick + 0xffb0
+    x ^= x << 7
+    x ^= x >> 9
+    x ^= x << 8
+
+    return Input {a: U8 (x >> 8), b: U8 x}
+
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    let result = input.a % input.b
+
+    ui_set_text("description", `{input.a} mod {input.b}  is  {result}`)
+
+    if result != output.result {
+        set_error(`0x{hex(2, Int input.a)} mod 0x{hex(2, Int input.b)}  is  0x{hex(2, Int (result))}`)
+        return fail
+    }
+
+    if tick == 0xffff { 
+        return win
+    }
+
+}

@@ -1,0 +1,1 @@
+[text text="To check if both inputs in a pair are ON, we can AND them" size=37]

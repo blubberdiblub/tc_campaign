@@ -1,18 +1,14 @@
 kind = combinational
+hint_kind = combinational
 no_score = true
 title = "The bus"
-size = [-30, -30, 30, 30]
+size = 30
 components_available = [com_switch_word: 4, com_not_bit: 2]
-input_labels = ["FROM", "IN 0", "IN 1", "TO"]
-input_values = [("IN 0", "IN 1"), ("",""), ("",""), ("OUT 0", "OUT 1")]
-output_labels = ["OUT 0", "OUT 1"]
 background = 5
 dialogue = [
-  (info, "This level has 2 byte inputs and 2 byte outputs. Your goal is to move a number from one input to one output.
+  (info, `This level has 2 byte inputs and 2 byte outputs. Your goal is to move a number from one input to one output.
   
 The first bit input, determines which input you should move from. The second bit input determines which output you should move to.
 
-At each tick, only 1 output should recieve the value, the other output should recieve 0.
-
-Check [color=#e63e5b][url=the_bus]this hint[/url][/color] if you get stuck."),
+At each tick, only 1 output should receive the value, the other output should receive Z (no value). This will be indicated by "-" on the output.`),
 ]

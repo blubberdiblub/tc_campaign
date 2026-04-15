@@ -1,0 +1,19 @@
+kind = sequential
+title = "I-cache"
+size = 96
+background = 6
+copy_solution_to_foundry = "Symphony/Allegro/icache"
+dialogue = [
+    (mentor_center, `
+
+We divide the 32 bit addresses into three parts, "Tag", "Set Index" and "Data Offset". These are the bits of each part:
+
+[color=#ff9800]T[/color] = Tag
+[color=#ff6680]S[/color] = Set Index
+[color=#9966ff]D[/color] = Data Offset
+
+[color=#ff9800]TTTTTTTT TTTTTTTT TTTTTT[/color][color=#ff6680]SS[/color] [color=#9966ff]DDDDDDDD[/color]
+
+
+    `),
+]

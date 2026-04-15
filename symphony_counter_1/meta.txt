@@ -1,13 +1,16 @@
 kind = sequential
 title = "Symphony counter"
-size = [-48, -48, 49, 49]
+size = 48
 background = 6
 copy_solution_to_level = ["symphony_counter_2"]
-copy_solution_to_factory = "Symphony/count"
-input_labels = ["STORE", "STORE VALUE"]
-output_labels = ["OUTPUT"]
-add_components = [com_probe_memory_word: -1]
+copy_solution_to_foundry = "Symphony/count"
 dialogue = [
-    (info, `Build a 16 bit counter that increments by 4 by default, but can alternatively be overwritten with a specific value.`),
-    (info, `Like in the register level, connect a memory probe to the counter value.`),
+    (info, `Build a 32 bit counter that increments by 4 by default, but can alternatively be overwritten with a specific value.
+
+Also, connect the provided memory probe to a 32-bit component holding the counter memory value.`),
+    (info, `To change word component width, you will need to use a Bit size tool near the left panel (looks like a bidirectional arrow and a number).
+
+Right click on the Bit size tool to specify the target width.
+Left click on components when the tool is active will set the component's bit width.
+Newly placed word components will have this bit width by default.`),
 ]

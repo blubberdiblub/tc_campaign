@@ -1,0 +1,2 @@
+[text text="Now the switch is very similar to an AND gate" size=33 y=-25]
+[text text="And the board becomes just one OR gate over the budget" size=33 y=25]

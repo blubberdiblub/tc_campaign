@@ -1,1 +1,1 @@
-[text id="description" text="Build the foundation of the Symphony architecture" size=24 y=90]
+[disassembly_text_description id="instruction" size=33 default_text="Add IO instructions to Symphony" width=1300]

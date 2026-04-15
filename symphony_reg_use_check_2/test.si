@@ -1,7 +1,7 @@
-const OP_IO  = 0
-const OP_ALU = 1
-const OP_JMP = 2
-const OP_RAM = 3
+const #OP_IO  = 0
+const #OP_ALU = 1
+const #OP_JMP = 2
+const #OP_RAM = 3
 
 def wide_instruction_to_str(instruction: Int) String {
 
@@ -29,7 +29,7 @@ def wide_instruction_to_str(instruction: Int) String {
 
     switch mode
 
-        OP_IO {
+        #OP_IO {
 
             const NOP      = 0
             const IN       = 1
@@ -56,7 +56,7 @@ def wide_instruction_to_str(instruction: Int) String {
 
         }
 
-        OP_ALU {
+        #OP_ALU {
 
             var opcode_str = ""
 
@@ -77,7 +77,7 @@ def wide_instruction_to_str(instruction: Int) String {
 
         }
 
-        OP_JMP {
+        #OP_JMP {
 
             switch opcode
                 0b1000  { return `jmp {b_str}` }
@@ -96,7 +96,7 @@ def wide_instruction_to_str(instruction: Int) String {
 
         }
 
-        OP_RAM {
+        #OP_RAM {
 
             const LOAD_8    = 0
             const STORE_8   = 1
@@ -139,72 +139,72 @@ def get_random_wide_instruction() Int {
     switch mode
 
 
-        OP_IO {
+        #OP_IO {
 
             switch random(3) 
                 0 { return 0 }
-                1 { return OP_IO << 29 | d_vec | d_ext }
-                2 { return OP_IO << 29 | 1 << 24 | a_vec | a_ext }
+                1 { return #OP_IO << 29 | d_vec | d_ext }
+                2 { return #OP_IO << 29 | 1 << 24 | a_vec | a_ext }
 
         }
 
-        OP_ALU {
+        #OP_ALU {
 
             let opcode = random(10)
 
             if opcode == 9 {
 
-                return OP_ALU << 29 | opcode << 24 | 6 << 20 | a_vec | a_ext | b_vec | b_ext
+                return #OP_ALU << 29 | opcode << 24 | 6 << 20 | a_vec | a_ext | b_vec | b_ext
 
             }
 
-            return OP_ALU << 29 | opcode << 24 | d_vec | d_ext | a_vec | a_ext | b_vec
+            return #OP_ALU << 29 | opcode << 24 | d_vec | d_ext | a_vec | a_ext | b_vec
 
         }
         
-        OP_RAM {
+        #OP_RAM {
 
             let opcode = random(2)
 
             switch opcode
                 0 {
 
-                    return OP_RAM << 29 | opcode << 24 | d_vec | d_ext | b_vec | b_ext
+                    return #OP_RAM << 29 | opcode << 24 | d_vec | d_ext | b_vec | b_ext
 
                 }
                 1 {
 
-                    return OP_RAM << 29 | opcode << 24 | 1 << 24 | b_vec | b_ext | a_vec | a_ext
+                    return #OP_RAM << 29 | opcode << 24 | 1 << 24 | b_vec | b_ext | a_vec | a_ext
 
                 }
 
         }
 
-        OP_JMP {
+        #OP_JMP {
 
             var opcode = random(14)
             while opcode != 0b0001 && opcode != 0b1001 && opcode != 0b0010 && opcode != 0b1010 && opcode != 0b0011 && opcode != 0b1011 && opcode != 0b0100 && opcode != 0b1100 && opcode != 0b0101 && opcode != 0b1101 {
                 opcode = random(14)
             }
 
-            return OP_JMP << 29 | opcode << 24 | 0b111 << 20 | ((b_vec >> 2) << 2) | b_ext
+            return #OP_JMP << 29 | opcode << 24 | 0b111 << 20 | ((b_vec >> 2) << 2) | b_ext
 
         }
 
 }
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
     let register = random(128)
 
-    set_custom_input_text(`r{register}`)
+    ui_set_text("description", `r{register}`)
 
     inputs[0] = get_random_wide_instruction()
     inputs[1] = register
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
 
     let instruction = inputs[0]
@@ -225,8 +225,6 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
         return fail
 
     }
-
-    print(`{inputs[1]}`)
 
     let a = a_reg != 0 && a_reg == register
     let b = b_reg != 0 && !immediate && b_reg == register
@@ -269,13 +267,6 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
     }
 
     if tick >= 0xffff {
-
-        if get_delay_score() >= 60 {
-
-            set_error(`Your solution is correct, but delay should be less than 60.`)
-            return fail
-
-        }
 
         return win
 

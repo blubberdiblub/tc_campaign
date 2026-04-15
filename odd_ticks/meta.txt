@@ -1,18 +1,16 @@
 kind = sequential
 no_score = true
 title = "Odd Ticks"
-size = [-30, -30, 30, 30]
+size = 30
 tick_past_fail = 8
-output_history_pins = 1
-unlocks_pages = ["Circular recipes"]
 background = 1
 dialogue = [
-  (alien_centered, "In a previous level you learned how we don't allow circular dependencies. Now you must learn the one exception."),
-  (info, "The delay line is allowed to depend on its own input. This is because its input does not influence the rest of the circuit until next tick.
+  (mentor_centered, "In a previous level you learned how we don't allow circular dependencies. Now you must learn the one exception."),
+  (info, `The delay line is allowed to depend on its own input. This is because its input does not influence the rest of the circuit until next tick.
   
-[img]dialogue/delay_line.png[/img]"),
-  (info, "Orange pins in the game never affect the output in the same tick. They therefore never cause circular dependencies.
+[image="delay_line.png"]`),
+  (info, `Orange pins in the game never affect the output in the same tick. They therefore never cause circular dependencies.
   
-  [img]dialogue/delay_line.png[/img]"),
+  [image="delay_line.png"]`),
   (info, "Output [OFF] on the even ticks and [ON] on the odd ticks."),
 ]

@@ -1,9 +1,0 @@
-kind = architecture
-title = "Divide"
-tests = 1024
-size = [-256, -256, 255, 255]
-unlocks_components = [com_div, com_mod]
-dialogue = [
-  (info, "Integer divide two numbers to find the quotient and the remainder. Consider the fraction 7/3. 3 goes into 7 2 times and 1 is left over. Here 2 is called the [color=#e49f44]quotient[/color] and 1 is called the [color=#e49f44]remainder[/color].
-In this exercise, you are first given the numerator (7 in the example) and then the denominator (3) and you are then expected to output the quotient (2) and then the remainder (1)."),
-]

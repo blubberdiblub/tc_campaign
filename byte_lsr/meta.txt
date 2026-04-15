@@ -1,0 +1,27 @@
+kind = combinational
+hint_kind = combinational
+title = "LSR"
+size = 45
+unlocks_components = [com_lsl, com_lsr, com_rol, com_ror]
+copy_solution_to_level = ["byte_asr"]
+dialogue = [
+  (info_centered, `To shift a value 1 right just means moving all the bits in a byte to the right by 1 position.
+
+This operantion is known as [b]logic shift right[/b] and in assembly it is often abbreviated as [b]lsr[/b].
+
+For example [b]180 lsr 1[/b]
+
+[ON] [OFF] [ON] [ON] [OFF] [ON] [OFF] [OFF] Shifts this by 1:
+[OFF] [ON] [OFF] [ON] [ON] [OFF] [ON] [OFF]
+
+And [b]180 lsr 3[/b]
+[ON] [OFF] [ON] [ON] [OFF] [ON] [OFF] [OFF] Shifts this by 3:
+[OFF] [OFF] [OFF] [ON] [OFF] [ON] [ON] [OFF]
+
+`),
+  (info_centered, `The task in this level is to shift the first input to the right by the value given in the second input.
+`),
+]
+post_mortem = [
+    (mentor, `In addition to giving you a shift right component, you also get a shift left component.`),
+]

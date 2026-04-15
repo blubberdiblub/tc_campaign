@@ -1,15 +1,15 @@
 kind = combinational
+hint_kind = combinational
 title = "Counting Signals"
-size = [-30, -30, 30, 30]
+size = 30
 tick_past_fail = 16
-unlocks_pages = ["Binary"]
+no_score = true
+unlocks_pages = ["Computer concepts/Binary"]
 background = 5
 dialogue = [
   (info_centered, "The output component of this level is a binary counter where the first 3 pins correspond to 1, 2 and 4.
 Use the binary counter to display the number of signals.
 
-Check [color=#e63e5b][url=counting_signals]this hint[/url][/color] if you get stuck
-
-[i][tip]The solution for this level is not very neat and requires more components.[/tip][/i]
+[tip]The solution for this level is not very neat and requires more components.[/tip]
 "),
 ]

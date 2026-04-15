@@ -1,0 +1,6 @@
+[table size=33 y=-40]
+"Input",          "[OFF]",  "[ON]"
+"Desired output", "[ON]",   "[ON]"
+[/table]
+
+[text text="Notice how the input doesn't matter?" size=33 y=80]

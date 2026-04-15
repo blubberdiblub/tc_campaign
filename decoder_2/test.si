@@ -1,30 +1,14 @@
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
-    inputs[0] = tick
+    return Input {input: U2 tick}
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    var i = 0
-    while i < 4 {
-
-        if i == tick && outputs[i] != 1 {
-
-            set_error(`Expected output {i} to be ON`)
-            return fail
-
-        }
-
-        if i != tick && outputs[i] != 0 {
-
-            set_error(`Expected output {i} to be OFF`)
-            return fail
-
-        }
-
-        i += 1
-
+    if Int output.output != (1 << tick) {
+        set_error(`Expected only output {tick} to be ON`)
+        return fail
     }
 
     if tick == 3 {

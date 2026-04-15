@@ -1,0 +1,2 @@
+[text text="One way is comparing digit by digit like we do for decimal numbers" size=33 y=-25]
+[text text="Like 09 < 21 because 0 < 2, so 1100 > 1001 because 11XX > 10XX" size=33 y=25]

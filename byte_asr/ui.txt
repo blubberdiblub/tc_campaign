@@ -1,0 +1,6 @@
+[table id="table" size=27 x=-60 spacing_y=4]
+"Shift",                "???"
+"Input",                "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"Desired output",       "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"Current ouput",        "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+[/table]

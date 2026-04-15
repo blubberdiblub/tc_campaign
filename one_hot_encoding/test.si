@@ -1,49 +1,35 @@
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
-    inputs[0] = random(8)
+    return Input {input: U3 tick}
 
 }
 
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    if get_component_count() > 6 {
+    if get_component_count() > 5 {
 
         set_error(`Do not use more than 3 components.`)
         return fail
 
     }
 
-    let selected = inputs[0]
+    
+    let expected = 1 << tick
+    // Find difference between expected result and actual output by xoring. If they are the same the result should be 0
+    let result = expected ^ Int output.output
 
-    var i = 0
-    while i < 8 {
+    // If counting leading zeroes is not 64, it gives us the index of the first mistake
+    let zeroes = clz(result)
 
-        if i == selected {
+    if zeroes != 64 {
 
-            if outputs[i] != 1 {
-
-                set_error(`Output {i} should be 1.`)
-                return fail
-
-            }
-
-        } else {
-
-            if outputs[i] != 0 {
-
-                set_error(`Output {i} should be 0.`)
-                return fail
-
-            }
-
-        }
-
-        i += 1
+        set_error(`The output on pin {64 - zeroes} is wrong.`)
+        return fail
 
     }
 
-    if tick == 0xfff {
+    if tick == 7 {
 
         return win
 

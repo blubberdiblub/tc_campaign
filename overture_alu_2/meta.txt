@@ -1,21 +1,21 @@
 kind = combinational
+hint_kind = combinational
 title = "Arithmetic Logic Unit (ALU) 2"
-size = [-48, -48, 49, 49]
+size = 48
 copy_solution_to_level = ["symphony_alu"]
-copy_solution_to_factory = "Overture/ALU"
-output_labels = ["Output"]
-unlocks_pages = ["Component factory"]
-input_labels = ["Operand", "Input 1", "Input 2"]
+copy_solution_to_foundry = "Overture/ALU"
+unlocks_pages = ["Circuits/The Foundry"]
 background = 6
-next_level = "component_factory"
+next_level = "foundry"
 dialogue = [
   (info, "Add addition and subtraction to your circuit.
 
 Instructions:
-[code][color=#87a8c8]0 NAND
+
+[color=#87a8c8]0 NAND
 1 OR
 2 AND
 3 NOR
 4 ADD
-5 SUB[/color][/code]"),
+5 SUB[/color]"),
 ]

@@ -1,0 +1,1 @@
+[text text="The ON signal is constant, so we can simplify the circuit there" size=37]

@@ -1,0 +1,1 @@
+[text id="description" text="Make a circuit that outputs [ON], when both inputs are the same." size=37]

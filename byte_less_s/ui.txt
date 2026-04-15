@@ -1,0 +1,1 @@
+[text id="description" text="Make a circuit that outputs [ON], when the first input is less than the second one." size=37]

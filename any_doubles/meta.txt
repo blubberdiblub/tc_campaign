@@ -1,11 +1,11 @@
 kind = combinational
-title = "Double Trouble"
-size = [-30, -30, 30, 30]
+hint_kind = combinational
+title = "Double detection"
+size = 30
 tick_past_fail = 16
-output_history_pins = 1
+no_score = true
 background = 5
 dialogue = [
-  (alien_centered, "Because we are so technologically advanced we have machines fold our socks. Unfortunately the circuit that detects sock pairs broke on the machine."),
   (info, "This level has 4 inputs. 
 Output [ON] when 2 or more of them are [ON].
 

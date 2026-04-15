@@ -1,15 +1,11 @@
 
-def on_reset($scratch_space: [Int], test: Int) {
-    scratch_space[0] = random(256)
+def arch_get_input(test: Int) Int {
+    return random(256)
 }
 
-def arch_get_input($scratch_space: [Int], test: Int) Int {
-    return scratch_space[0]
-}
+def arch_check_output(test: Int, input: Int, output: Int) TestResult {
 
-def arch_check_output($scratch_space: [Int], test: Int, input: Int, output: Int) TestResult {
-
-    if input == Z_STATE {
+    if input == #Z_STATE {
         set_error(`Request the input first.`)
         return fail
     }

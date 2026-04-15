@@ -1,84 +1,63 @@
 
-const INPUT_CURSOR    = 0
-const OUTPUT_CURSOR   = 1
-const TEXT_LEN        = 2
-const TEXT            = 3
+var input_cursor = 0
+var output_cursor = 0
+var text_len = 0
 
+var text = ""
 
+switch get_test()
+    0 { text = "Computable numbers are the real numbers whose expressions as a decimal are calculable by finite means" }
+    1 { text = "The fundamental problem of communication is that of reproducing at one point a message selected at another point" }
+    2 { text = "Future users of large data banks must be protected from having to know how the data is organized in the machine" }
 
-def on_reset($scratch_space: [Int], test: Int) {
+ui_set_text("text", text)
 
-    const PLANET_NAMES = ["arev","bilak-par","smusma","faltorvoh","gespar","k'ohnar","kaliffee","karifar","katra","keethera","koonutkaliffee","koonutso'lik","kroykah","l'takterai","lematya","navorkot","nirak","nome","plak-tow","pleenok","pok-tar","pyllora","qui'lari","sehlat","shonha'lock","soolak","surah'tahn","suusmahna","t'sans'at","talshaya","tasmeen","vokau","v'shar","v'tosh-ka'tur","vokaya","faltorpan","fullara","kahswan","kal-rekk","pon-farr","rumarie","talshanar","taruletek","tokmar"]
+def arch_get_input(test: Int) Int {
 
-    let text = `{sample(PLANET_NAMES)} {sample(PLANET_NAMES)} {sample(PLANET_NAMES)} {sample(PLANET_NAMES)} {sample(PLANET_NAMES)} {sample(PLANET_NAMES)} {sample(PLANET_NAMES)} {sample(PLANET_NAMES)}`
+    let cursor = .input_cursor
+    .input_cursor += 1
 
-    let len = text.len()
-    scratch_space[TEXT_LEN] = len
+    let len = .text.len()
 
+    var bg = ""
     var i = 0
     while i < len {
-
-        scratch_space[TEXT + i] = <Int> (<U8> text[i])
+        if i == cursor {
+            bg += "█"
+        } else {
+            bg += " "
+        }
         i += 1
-
     }
 
-    ui_set_hidden("pointer", true)
-    ui_set_text("text", text)
+    ui_set_text("bg", `{bg}`)
+
+    return Int .text[cursor]
 
 }
 
-def arch_get_input($scratch_space: [Int], test: Int) Int {
+def arch_check_output(test: Int, input: Int, output: Int) TestResult {
+    var mask = U8 0b11011111
 
-    let cursor = scratch_space[INPUT_CURSOR]
-    _reg_alloc_use cursor
-    scratch_space[INPUT_CURSOR] += 1
-    let len = scratch_space[TEXT_LEN]
-
-    ui_set_position("pointer", -6 * len + 5 + cursor * 12, 95)
-    ui_set_hidden("pointer", false)
-
-    return scratch_space[TEXT + cursor]
-
-}
-
-def arch_check_output($scratch_space: [Int], test: Int, input: Int, output: Int) TestResult {
-
-    if scratch_space[OUTPUT_CURSOR] > scratch_space[INPUT_CURSOR] {
-
-        set_error(`You did not read character {scratch_space[OUTPUT_CURSOR]} from the string yet`)
+    if .output_cursor > .input_cursor {
+        set_error(`You did not read character {.output_cursor} from the string yet`)
         return fail
-
     }
 
-    let output_cursor = scratch_space[OUTPUT_CURSOR]
-    var char = scratch_space[TEXT + output_cursor]
-
-    if output_cursor == 0 {
-
-        char ^= 32 // Capitalize first char
-
-    } elif scratch_space[TEXT + output_cursor - 1] == 32 {
-
-        char ^= 32 // Capitalize
-
+    var char = U8 .text[.output_cursor]
+    if .output_cursor == 0 {
+        char &= mask // Capitalize first char
+    } elif .text[.output_cursor - 1] == Char 32 {
+        char &= mask // Capitalize
     }
 
-
-    if output != char {
-
-        set_error(`Output should have been "{<Char> char}" ({char}), not "{<Char> output}" ({output})`)
+    if U8 output != char {
+        set_error(`Output should have been {char}, not {output}`)
         return fail
-
     }
 
-    scratch_space[OUTPUT_CURSOR] += 1
-
-    if scratch_space[OUTPUT_CURSOR] == scratch_space[TEXT_LEN] {
-
+    .output_cursor += 1
+    if .output_cursor == .text.len() {
         return win
-
     }
-
 }
-

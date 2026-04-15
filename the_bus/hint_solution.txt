@@ -1,0 +1,2 @@
+[text text="Tweak the Multiplexer to share its input wire, instead of output wire, for the selective output" size=33 y=-25]
+[text text="The purple wire in the middle is the BUS" size=33 y=25]

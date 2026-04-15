@@ -1,53 +1,34 @@
-var memory      = 0
-var next_memory = 0
+var memory      = U8 0
+var next_memory = U8 0
 
-def on_reset($scratch_space: [Int], test: Int) {
 
-    .memory = 0
-    .next_memory = 0
-
-}
-
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
     .memory = .next_memory
-    inputs[3] = .memory
-    var action = random(5)
-    var num    = random(0x100)
+    
+    var action = random(4)
+    var num    = U8 random(0x100)
 
     if tick == 0 {
-        action = 2
+        action = 1
     }
 
-    var read = 0
     var save = 0
 
-    if action == 1 {
+    if (action & 1) != 0 {
 
-        read = 1
-
-    } elif action == 2 {
-
-        save = 1
-        .next_memory = num
-
-    } elif action == 3 {
-
-        read = 1
         save = 1
         .next_memory = num
 
     }
 
-    inputs[0] = read
-    inputs[1] = save
-    inputs[2] = num
+    return Input {save: U1 save, input: U8 num}
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    if inputs[0] == 1 && outputs[0] != .memory {
+    if output.output != .memory {
         set_error(`Expected output {.memory}.`)
         return fail
     }

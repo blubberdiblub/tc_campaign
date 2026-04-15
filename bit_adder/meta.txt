@@ -1,14 +1,12 @@
 kind = combinational
+hint_kind = combinational
 title = "Half Adder"
-size = [-30, -30, 30, 30]
-input_values = [("0", "1"),("0","1")]
-output_labels = ["SUM", "CARRY"]
+size = 30
 tick_past_fail = 4
-output_history_pins = 2
 background = 5
 dialogue = [
-  (alien_centered, "We measure the universe with numbers. So your machine must learn to count."),
-  (info, "Treat the inputs as [ZERO] or [ONE] depending if they are [OFF] or [ON]. Add them together in binary, such that the result is either [ZERO] or [ONE].
+  (mentor_centered, "We measure the universe with numbers. So your machine must learn to count."),
+  (info, "Treat the inputs as [b]0[/b] or [b]1[/b] depending if they are [OFF] or [ON]. Add them together in binary, such that the result is either [b]0[/b] or [b]1[/b].
 
-As with normal addition, if the result cannot be described with one digit, set the carry to [ONE]."),
+As with normal addition, if the result cannot be described with one digit, set the carry to [b]1[/b]."),
 ]

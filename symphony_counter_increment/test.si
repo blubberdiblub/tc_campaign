@@ -1,25 +1,24 @@
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
-    inputs[0] = random(2)
-    inputs[1] = random(2) & inputs[0]
-    inputs[2] = random(0xfff) << 2
+    inputs[0] = random(3)
+    inputs[1] = random(0xfff) << 2
 
     if tick == 0 {
 
-        inputs[2] = 4
+        inputs[1] = 4
 
     }
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    let correct_output = inputs[2] + inputs[1] * 4 + inputs[0] * 4
+    let correct_output = inputs[1] + inputs[0] * 4
 
     if outputs[0] != correct_output {
 
-        set_error(`Output should be {correct_output} {inputs[2]} + {inputs[1]} * 4 + {inputs[0]} .`)
+        set_error(`{inputs[1]} + {inputs[0]} * 4 is {correct_output}, not {handle_z(outputs[0])}.`)
         return fail
 
     }
@@ -27,13 +26,6 @@ def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]
 
     if tick == 0xffff {
 
-        if get_delay_score() >= 60 {
-
-            set_error(`Your solution is correct, but delay should be less than 60.`)
-            return fail
-
-        }
-    
         return win
     
     }

@@ -1,0 +1,2 @@
+[text text="This level is similar to 'MULTIPLEXER'" size=33 y=-25]
+[text text="with the results of NAND, OR, AND and NOR replace Input A/B" size=33 y=25]

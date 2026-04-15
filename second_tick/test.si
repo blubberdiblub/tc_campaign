@@ -1,13 +1,17 @@
-const CORRECT_OUTPUT = [0,1,0,0]
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
-    inputs[0] = tick & 1
-    inputs[1] = tick >> 1 & 1
+const #CORRECT_OUTPUT = [U1 0,1,0,0]
+
+def get_input(tick: Int) Input {
+    return Input {input: U2 tick}
 }
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
-    if CORRECT_OUTPUT[tick] != outputs[0] {
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    if #CORRECT_OUTPUT[tick] != output.output {
         return fail
     }
-    if tick == CORRECT_OUTPUT.len() - 1 {
+
+    if tick == #CORRECT_OUTPUT.len() - 1 {
         return win
     }
+
 }

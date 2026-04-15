@@ -1,2 +1,2 @@
-[image id="pointer" y=8 file="pointer.png"]
-[text id="text" text="" size=22 y=120 font=mono]
+[text id="bg" text="" size=25 color=0xBC8647FF]
+[text id="text" text="" size=25]

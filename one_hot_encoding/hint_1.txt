@@ -1,0 +1,1 @@
+[text text="This level makes use of the previously implemented LSL (Left Shift) component"]

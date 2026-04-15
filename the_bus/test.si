@@ -1,5 +1,5 @@
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
     var in = random(2)
     var out = random(2)
@@ -16,57 +16,61 @@ def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
 
     }
 
-    inputs[0] = in
-    inputs[1] = val1
-    inputs[2] = val2
-    inputs[3] = out
+    ui_set_text("description", `Forward the value from {in == 0 ? "A" : "B"} to {out == 0 ? "X" : "Y"}`)
+
+    return Input {
+        input_select: U1 in, 
+        a: U8 val1, 
+        b: U8 val2, 
+        output_select: U1 out,
+    }
 
 }
 
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    var val = 0
+    var val = U8 0
 
-    if inputs[0] == 0 {
+    if input.input_select == 0 {
 
-        val = inputs[1]
+        val = input.a
 
     } else {
 
-        val = inputs[2]
+        val = input.b
 
     }
 
 
-    if inputs[3] == 0 {
+    if input.output_select == 0 {
 
-        if outputs[0] != val { 
+        if output.x != val { 
 
-            set_error(`Output 0 should be {val}.`)
+            set_error(`Output X should be {val}.`)
             return fail 
 
         }
 
-        if outputs[1] != Z_STATE { 
+        if !output.y_is_z { 
 
-            set_error("Output 1 should be Z.")
+            set_error("Output Y should be Z.")
             return fail 
 
         }
 
     } else {
 
-        if outputs[0] != Z_STATE { 
+        if output.y != val { 
 
-            set_error("Output 0 should be Z.")
+            set_error(`Output Y should be {val}.`)
             return fail 
 
         }
 
-        if outputs[1] != val { 
+        if !output.x_is_z { 
 
-            set_error(`Output 1 should be {val}.`)
+            set_error("Output X should be Z.")
             return fail 
 
         }

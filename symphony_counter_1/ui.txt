@@ -1,1 +1,1 @@
-[text id="my_text" text="Build a 16 bit counter which increments by 4 each tick" size=24 y=90]
+[text id="my_text" text="Build a 32 bit counter which increments by 4 each tick" size=36]

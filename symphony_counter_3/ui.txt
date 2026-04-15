@@ -1,1 +1,1 @@
-[text id="my_text" text="Build a counter that can handle double increment" size=24 y=90]
+[text id="my_text" text="Build a counter that can handle double increment" size=36]

@@ -1,16 +1,14 @@
 kind = sequential
 title = "Pipeline timer"
-size = [-48, -48, 49, 49]
+size = 48
 background = 6
-copy_solution_to_factory = "Symphony/Allegro/timer"
-input_labels = ["Start"]
-output_labels = ["In progress"]
-add_components = [com_probe_memory_word: -1]
+copy_solution_to_foundry = "Symphony/Allegro/timer"
+max_delay = 64
 dialogue = [
-    (alien, `We need you to work on creating a new version of Symphony we call Allegro, which runs the same instructions as Symphony, but super fast, so we can play games on it.
+    (mentor, `We need you to work on creating a new version of Symphony we call Allegro, which runs the same instructions as Symphony, but super fast, so we can play games on it.
 
-It would also be nice if the computer was energy efficient, but mainly we need it to be fast enough to run our games. For this reason, all level solutions from here on must have 60 delay or less.`),
-    (alien, `To make Allegro fast enough, you have to implement several CPU optimization techniques.
+It would also be nice if the computer was energy efficient, but mainly we need it to be fast enough to run our games. For this reason, all level solutions from here on must have 64 delay or less.`),
+    (mentor, `To make Allegro fast enough, you have to implement several CPU optimization techniques.
 
 The final goal will be to build a pipelined, superscalar, memory caching and speculatively executing version of Symphony.`),
     (info, `Build a timer that will later be used in pipelining.

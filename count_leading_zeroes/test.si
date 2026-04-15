@@ -1,27 +1,27 @@
 
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
-    inputs[0] = tick
+    return Input {input: U8 tick}
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    let count = min(8, clz(inputs[0] << 56))
+    let count = clz(input.input) - 56
     
-    if count != outputs[0] {
+    if count != output.result {
 
-        if inputs[0] == Z_STATE {
+        if output.result_is_z {
 
             set_error(`Output should never be Z state`)
 
         } elif count == 1 {
 
-            set_error(`There is 1 leading zeroes in {inputs[0]}`)
+            set_error(`There is 1 leading zero in {input.input} (0b{bin(8, Int input.input)})`)
 
         } else {
 
-            set_error(`There are {clz(inputs[0] << 56)} leading zeroes in {inputs[0]}`)
+            set_error(`There are {count} leading zeroes in {input.input} (0b{bin(8, Int input.input)})`)
 
         }
 

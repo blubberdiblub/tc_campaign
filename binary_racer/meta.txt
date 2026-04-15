@@ -1,15 +1,14 @@
 kind = misc
 no_score = true
 title = "Binary Racer"
-size = [-30, -30, 30, 30]
+size = 3000
 no_controls = true
 no_state_ui = true
 background = 5
 dialogue = [
-  (alien_centered, "This level is my favorite pastime. Converting decimal into binary under time pressure."),
-  (info, "Toggle the bits in the level panel so they add up to the decimal number in the question.
+  (mentor_centered, `This level is my favorite pastime. Converting decimal into binary under time pressure.`),
+  (info, `Toggle the bits in the level panel so they add up to the decimal number in the question.
 
 You must beat level 3 to pass.
-
-(click [color=#e63e5b][url=accessibility_mode]here[/url][/color] to turn on timerless accessibility mode)"),
+`)
 ]

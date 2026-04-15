@@ -1,13 +1,12 @@
-def get_input($scratch_space: [Int], tick: Int, $inputs: [Int]) {
+def get_input(tick: Int) Input {
 
-    inputs[0] = tick & 1
-    inputs[1] = (tick >> 1) & 1
+    return Input {a: U1 tick, b: U1 (tick >> 1)}
 
 }
 
-def check_output($scratch_space: [Int], tick: Int, inputs: [Int], outputs: [Int]) TestResult {
+def check_output(tick: Int, input: Input, output: Output) TestResult {
     
-    if inputs[0] + inputs[1] == outputs[0] + outputs[1] * 2 {
+    if U8 input.a + U8 input.b == U8 output.sum + U8 output.carry * 2 {
 
         if tick == 3 {
 

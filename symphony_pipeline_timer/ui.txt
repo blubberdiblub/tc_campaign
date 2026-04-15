@@ -1,1 +1,1 @@
-[text id="description" text="Build the pipeline timer" size=24 y=90]
+[text id="description" text="Build the pipeline timer"]

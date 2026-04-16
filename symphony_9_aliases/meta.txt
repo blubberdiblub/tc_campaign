@@ -18,12 +18,6 @@ Negate register %b and store the result in %a.
 not %a(register), %b(register)
 Bitwise NOT each bit in register %b and store the result in %a.
 
-movt %a(register), %b(register)
-Moves lower 16 bits of %b to the top 16 bits of %a, setting the low 16 bit to zero.
-
-movb %a(register), %b(immediate)
-Moves the immediate value %b to the lower 2 bytes of %a, preserving the top 16 bits.
-
 Once these instructions are added, the assembly code will be valid and running it will complete the level.
 `),
 ]

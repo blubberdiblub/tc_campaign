@@ -31,22 +31,6 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
                 return fail
             }
 
-        }
-        3 {
-
-            if get_ram_value("Register File", 4 * 4, <U32>) != 0x12340000 {
-                set_error(`r4 should have value 0x12340000`)
-                return fail
-            }
-
-        } 
-        4 {
-
-            if get_ram_value("Register File", 4 * 4, <U32>) != 0x12345678 {
-                set_error(`r4 should have value 0x12345678`)
-                return fail
-            }
-
             return win
 
         } 

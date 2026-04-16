@@ -6,9 +6,9 @@ var text_len = 0
 var text = ""
 
 switch get_test()
-    0 { text = "Computable numbers are the real numbers whose expressions as a decimal are calculable by finite means" }
-    1 { text = "The fundamental problem of communication is that of reproducing at one point a message selected at another point" }
-    2 { text = "Future users of large data banks must be protected from having to know how the data is organized in the machine" }
+    0 { text = "computable numbers are the real numbers whose expressions as a decimal are calculable by finite means" }
+    1 { text = "the fundamental problem of communication is that of reproducing at one point a message selected at another point" }
+    2 { text = "future users of large data banks must be protected from having to know how the data is organized in the machine" }
 
 ui_set_text("text", text)
 

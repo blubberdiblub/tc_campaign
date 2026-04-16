@@ -3,7 +3,6 @@ title = "Capitalize"
 tests = 3
 size = 255
 dialogue = [
-  (mentor_centered, "We had the intern type out planet names in human script. Unfortunately he forgot to capitalize each name."),
-  (info_centered, `The inputs in this level represent the characters in a list of planet names, encoded as ASCII (see the manual). Each name is separated by a space which has the numeric value 32. Replace the first letter in each word with its uppercase counterpart.
-(The possible input characters are a to z lowercase, space, apostrophe and dash)`),
+  (info_centered, `The inputs in this level represent the characters in a list of planet names, encoded as ASCII (see the manual). Each word is separated by a space which has the numeric value 32. Replace the first letter in each word with its uppercase counterpart.
+(The possible input characters are a to z lowercase and space`),
 ]

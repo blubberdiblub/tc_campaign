@@ -299,14 +299,6 @@ not %a(register), %b(immediate)
 00110011 aaaa0000 bbbbbbbb bbbbbbbb
 # Nots a value and stores it in %a.
 
-movt %a(register), %b(register)
-00110111 aaaabbbb 00000000 00010000
-# Moves 16 bits of %b to the top 16 bits of %a.
-
-movb %a(register), %b(immediate)
-00110001 aaaaaaaa bbbbbbbb bbbbbbbb
-# Moves %b to the lower bytes of %a.
-
 push %a(register)
 00110101 11101110 00000000 00000100   01100110 0000aaaa 00001110 00000000
 # Pushes %a on to the stack. This instruction is a synonym for:   sub sp, sp, 4   store_32 [sp], %a

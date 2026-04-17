@@ -1,2 +1,2 @@
-[text text="When the Action pin is ON, or Save, we want to overwrite it with Value" size=37 y=70]
-[text text="But doing that will cause a short circuit" size=33 y=65]
+[text text="When the Action pin is ON, or Save, we want to overwrite it with Value" size=33 y=-25]
+[text text="But doing that will cause a short circuit" size=33 y=25]

@@ -22,6 +22,7 @@ def arch_get_input(test: Int) Int {
 }
 
 def arch_check_output(test: Int, input: Int, output: Int) TestResult {
+
     if input != 37 {
         set_error(`The last input was not 37!`)
         return fail    

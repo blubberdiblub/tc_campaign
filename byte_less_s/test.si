@@ -14,7 +14,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     let expected = (S8 input.a < S8 input.b)
     let actual = (output.result != 0)
 
-    ui_set_text("description", `{S8 input.a} == {S8 input.b}  is  {expected ? "[ON]" : "[OFF]"}`)
+    ui_set_text("description", `{S8 input.a} < {S8 input.b}  is  {expected ? "[ON]" : "[OFF]"}`)
 
     if expected == actual {
 

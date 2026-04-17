@@ -1,3 +1,4 @@
+
 def get_binary_repr(value: Int, size: Int) String {
     var text = ""
     var i = size - 1
@@ -33,7 +34,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         ui_set_text("table[3][1]", get_binary_repr(Int output.result, 8))
     }
 
-    if output.result != U8 expected {
+    if output.result != U8 expected & 0xff {
         return fail
     }
 

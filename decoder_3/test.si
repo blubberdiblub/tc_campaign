@@ -8,16 +8,6 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     var value = Int output.output
 
-    var i = 0
-
-    let name = `table[4][{tick + 1}]`
-    
-    if value > 255 {
-        ui_set_text(name, `Z`)
-    } else {
-        ui_set_text(name, str(value))
-    }
-
     if value != 1 << tick {
 
         set_error(`Expected output {tick} to be ON and other outputs to be OFF`)

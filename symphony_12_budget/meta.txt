@@ -1,0 +1,10 @@
+kind = sequential
+title = "Fast Symphony"
+size = 255
+immutable_isa = true
+max_delay = 75
+shared_data_folder = "symphony"
+dialogue = [
+    (info, `
+`),
+]

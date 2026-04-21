@@ -3,5 +3,4 @@
 "Input 1",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
 "Input 2",        "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]"
 "Desired bit",    "0",          "1",          "2",          "3",          "4",          "5",          "6",          "7"
-"Current bit",    "?",          "?",          "?",          "?",          "?",          "?",          "?",          "?"
 [/table]

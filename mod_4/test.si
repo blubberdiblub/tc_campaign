@@ -5,7 +5,7 @@ def arch_get_input(test: Int) Int {
 
 def arch_check_output(test: Int, input: Int, output: Int) TestResult {
 
-    if input == #Z_STATE {
+    if input == -1 {
         set_error(`Request the input first.`)
         return fail
     }

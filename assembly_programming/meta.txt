@@ -6,7 +6,7 @@ copy_solution_to_architecture = "Overture"
 unlocks_pages = ["Assembly/Language Creation", "Assembly/Assembly Programming"]
 immutable_isa = true
 dialogue = [
-  (mentor_centered, "Punchcard programming is tedious. Lets try the same challenge again, but this time using assembly programming instead."),
+  (mentor_centered, "Punchcard programming is tedious. Lets try the adding 5 to the input again like the previous level, but this time using assembly programming instead."),
   (mentor, `The point of an assembly language is to give human readable nicknames to the instructions that our machines execute. 
 
 Conventionally, an instruction syntax will begin with an abbreviated word (called a "[color=#9966ff]mnemonic[/color]") that describes the instruction, followed by a list of [color=#66ccff]operands[/color]:

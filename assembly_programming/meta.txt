@@ -13,4 +13,5 @@ Conventionally, an instruction syntax will begin with an abbreviated word (calle
 [highlight][color=#9966ff]mov[/color] [color=#66ccff]r1[/color], [color=#66ccff]r2[/color][/highlight]
 
 Click "Edit" on the RAM component to open the assembly editor. From there, click "ASM" in the upper left corner to get the full list of Overture instructions.`),
+  (overture),
 ]

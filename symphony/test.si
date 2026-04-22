@@ -78,11 +78,11 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
                     .registers[dest] = U32 .saved_time
                 }
                 #TIME_1   {
-                    if (.saved_time != get_last_time()) {
-                        set_error(`The time component shouldn't have been enabled since the last time_0 instruction's execution!\nRead the level log to learn more (this is mentioned on the second page).`)
+                    .registers[dest] = U32 (.saved_time >> 32)
+
+                    if .registers[dest] != U32 get_ram_value("Register File", dest * 4, <U32>) {
+                        set_error(`The time component shouldn't have been enabled since the last time_0 instruction's execution.`)
                         return true
-                    } else {
-                        .registers[dest] = U32 (.saved_time >> 32)
                     }
                 }
                 #COUNTER  { .registers[dest] = .counter }

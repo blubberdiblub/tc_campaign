@@ -103,7 +103,7 @@ def get_input(tick: Int) Input {
     return Input {
         load: U1 load,
         save: U1 save,
-        address: U2 add_2 << 1 | U2 add_1,
+        address: U2 add_1 << 1 | U2 add_2,
         value: U8 value,
     }
 }

@@ -4,5 +4,9 @@ size = 56
 background = 6
 unlocks_components = [com_clz, com_ctz]
 dialogue = [
-    (mentor, ``),
+    (mentor, `Create a circuit that starts from the most significant bit and counts how many in a row are [OFF]
+
+The answer for this for example is 3, since it has 3 leading [OFF] bits:
+[OFF][OFF][OFF][ON][OFF][ON][OFF][ON]
+`),
 ]

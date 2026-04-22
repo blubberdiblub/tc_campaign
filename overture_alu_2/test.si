@@ -19,7 +19,7 @@ def get_input(tick: Int) Input {
     var num1 = random(255)
     var num2 = random(255)
 
-    ui_set_text("table[0][2]", get_binary_repr(code, 2))
+    ui_set_text("table[0][2]", get_binary_repr(code, 3))
 
     ui_set_text("table[1][1]", `{num1}`)
     ui_set_text("table[1][2]", get_binary_repr(num1, 8))

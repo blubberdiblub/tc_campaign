@@ -5,5 +5,5 @@ size = 32
 unlocks_components = [com_less_u]
 background = 4
 dialogue = [
-  (info, "Create a circuit that outputs [ON] when the first input is less than the second. Interpret the bytes as being [color=#dd6576]UNSIGNED[/color].")
+  (info, "Create a circuit that outputs [ON] when the first input is less than the second. Interpret the bytes as being [color=#dd6576]unsigned[/color].")
 ]

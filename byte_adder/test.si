@@ -37,7 +37,7 @@ def get_input(tick: Int) Input {
     ui_set_text("table[2][1]", `{input.carry_in}`)
     ui_set_text("table[2][2]", `[right]{get_binary_repr(Int input.carry_in, 1)}[/right]`)
 
-    let value = Int input.a + Int input.b + Int input.carry_in
+    let value = Int (U64 input.a + U64 input.b + U64 input.carry_in)
     ui_set_text("table[3][1]", `{value}`)
     ui_set_text("table[3][2]", `[right]    {get_binary_repr(value >> 8, 1)}    {get_binary_repr(value, 8)}[/right]`)
 

@@ -7,5 +7,5 @@ no_score = true
 background = 5
 unlocks_special = ["wire_color", "wire_comments"]
 dialogue = [
-  (info, "Using a maximum of 3 components, output [ON] only when an odd number of inputs are [ON]"),
+  (mentor_centered, "Using a maximum of 3 components, output [ON] only when an odd number of inputs are [ON]"),
 ]

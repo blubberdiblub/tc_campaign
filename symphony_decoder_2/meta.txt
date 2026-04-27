@@ -7,7 +7,7 @@ max_delay = 0
 copy_solution_to_foundry = "Symphony/Allegro/out_of_order/dec"
 background = 6
 dialogue = [
-  (info, `
+  (mentor_centered, `
 Build a circuit that splits Symphony instructions into their different parts. This will be very helpful later.
 
 There are two encodings for Symphony instructions, depending on whether we are using immediate values or not:
@@ -24,7 +24,7 @@ There are two encodings for Symphony instructions, depending on whether we are u
 
 [color=#bbbbbb]000[/color][color=#9966ff]I[/color][color=#ff6680]OOOO[/color] [color=#bbbbbb]0[/color][color=#ffe666]DDD[/color][color=#bbbbbb]0[/color][color=#66ff99]AAA[/color] [color=#66ccff]BBBBBBBB BBBBBBBB[/color]
   `),
-  (info, `Use the static indexer component to solve this level. 
+  (mentor_centered, `Use the static indexer component to solve this level. 
 
 The static indexer component is a special component that allows you to shift certain bits from a wire, without any delay or gates cost. Changing the number on the component will shift bits (positive number shifts to the right). Then click on the component to set the output width.`),
 ]

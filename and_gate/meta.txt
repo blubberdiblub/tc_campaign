@@ -6,7 +6,6 @@ size = 30
 unlocks_components = [com_and_bit]
 tick_past_fail = 4
 dialogue = [
-  (info_centered, "Create the circuit that matches the table.
-  
-[tip]Double click on a component to move it together with connected wires.[/tip]"),
+  (mentor_centered, "Create the circuit that matches the table.
+[tip]Most levels have a hint button (the lightbulb) you can click if you are stuck.[/tip]"),
 ]

@@ -110,43 +110,43 @@ cmp %a(register), %b(register)
 # Compares %a and %b and store the result in the 'flags' register.
 
 
-nand %a(register), %b(register), %c(immediate)
+nand %a(register), %b(register), %c(immediate | label)
 00110000 aaaabbbb cccccccc cccccccc
 # NAND %b and %c and store the result in %a.
 
-or %a(register), %b(register), %c(immediate)
+or %a(register), %b(register), %c(immediate | label)
 00110001 aaaabbbb cccccccc cccccccc
 # OR %b and %c and store the result in %a.
 
-nor %a(register), %b(register), %c(immediate)
+nor %a(register), %b(register), %c(immediate | label)
 00110011 aaaabbbb cccccccc cccccccc
 # NOR %b and %c and store the result in %a.
 
-and %a(register), %b(register), %c(immediate)
+and %a(register), %b(register), %c(immediate | label)
 00110010 aaaabbbb cccccccc cccccccc
 # AND %b and %c and store the result in %a.
 
-add %a(register), %b(register), %c(immediate)
+add %a(register), %b(register), %c(immediate | label)
 00110100 aaaabbbb cccccccc cccccccc
 # ADD %b and %c and store the result in %a.
 
-sub %a(register), %b(register), %c(immediate)
+sub %a(register), %b(register), %c(immediate | label)
 00110101 aaaabbbb cccccccc cccccccc
 # SUB %b and %c and store the result in %a.
 
-xor %a(register), %b(register), %c(immediate)
+xor %a(register), %b(register), %c(immediate | label)
 00110110 aaaabbbb cccccccc cccccccc
 # XOR %b and %c and store the result in %a.
 
-lsl %a(register), %b(register), %c(immediate)
+lsl %a(register), %b(register), %c(immediate | label)
 00110111 aaaabbbb cccccccc cccccccc
 # Logical shift left %b by %c and store the result in %a.
 
-lsr %a(register), %b(register), %c(immediate)
+lsr %a(register), %b(register), %c(immediate | label)
 00111000 aaaabbbb cccccccc cccccccc
 # Logical shift right %b by %c and store the result in %a.
 
-asr %a(register), %b(register), %c(immediate)
+asr %a(register), %b(register), %c(immediate | label)
 00111001 aaaabbbb cccccccc cccccccc
 # Arithmetic shift right %b and %c and store the result in %a.
 

@@ -6,7 +6,7 @@ size = 48
 copy_solution_to_foundry = "Overture/Cond"
 background = 6
 dialogue = [
-  (info, "This level has a value input and 3 condition bit inputs.
+  (mentor_centered, "This level has a value input and 3 condition bit inputs.
 
 The 3 bits select the condition as shown below. Check the value against the selected condition and output [ON] if it is satisfied and [OFF] otherwise.
 

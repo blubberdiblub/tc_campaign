@@ -5,7 +5,7 @@ size = 48
 copy_solution_to_foundry = "Symphony/cmp"
 background = 6
 dialogue = [
-  (info, `In this level you compare two 32 bit inputs in three different ways. Each result is a 1 bit value called a "flag".
+  (mentor_centered, `In this level you compare two 32 bit inputs in three different ways. Each result is a 1 bit value called a "flag".
 
 Flags:
 Set bit 0 to 1 if the inputs are equal.

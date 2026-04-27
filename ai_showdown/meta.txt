@@ -1,14 +1,12 @@
 kind = architecture
-title = "AI Showdown"
+title = "Nim"
 tests = 9
 size = 255
 background = 4
 dialogue = [
-  (mentor_centered, "NAK 02 is our AI engineer robot. He is brilliant, but sometimes he goes rogue and tries to instigate rebellion."),
-  (mentor_centered, "This time he has taken over the control room and holds the captain hostage."),
-  (mentor_centered, "His only weakness is gambling. We have lured him into playing a card game against you and if you win, he has promised to calm down.
-You must win, you are our only hope!"),
-  (info, "Game rules: There are 12 cards on the table and each player takes turn and must pick up between 1 and 3 cards. You start and the player who picks up the last card (the joker) loses.
+  (mentor_centered, "In this level you need to beat the AI in a simple card game. These are the rules: 
 
-Reading input will give you the current number of cards. Sending 1, 2 or 3 to output will pick up that number of cards. NAK 02 reacts immediately, so you may read the input immediately after your output to get the result of his action.")
+There are 12 cards on the table and each player takes turn and must pick up between 1 and 3 cards. You start and the player who picks up the last card (the joker) loses.
+
+Reading input will give you the current number of cards. Sending 1, 2 or 3 to output will pick up that number of cards. The oponent reacts immediately, so you may read the input immediately after your output to get the result of his action.")
 ]

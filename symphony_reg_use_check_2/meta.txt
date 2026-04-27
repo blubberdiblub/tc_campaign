@@ -6,7 +6,7 @@ max_delay = 64
 copy_solution_to_foundry = "Symphony/Allegro/out_of_order/renamed_reg_use"
 background = 6
 dialogue = [
-  (info, `This level gives you an instruction and a register. Output 1 if the instruction depends on the register for argument A or argument B.
+  (mentor_centered, `This level gives you an instruction and a register. Output 1 if the instruction depends on the register for argument A or argument B.
 
 However, never output 1 if the register is 0. Also, ignore argument B if the immediate bit is set.
 

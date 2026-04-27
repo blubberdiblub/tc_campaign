@@ -6,7 +6,7 @@ remove_components = [com_decoder_1, com_decoder_2, com_decoder_3]
 unlocks_components = [com_splitter_word_2, com_splitter_word_4, com_splitter_word_8, com_maker_word_2, com_maker_word_4, com_maker_word_8, com_concatenator_2, com_concatenator_4, com_concatenator_8]
 background = 4
 dialogue = [
-  (info, `The input decides which output should be turned [ON]. So if the input is 7, send [ON] to the 7th output and [OFF] to all the others.
+  (mentor_centered, `The input decides which output should be turned [ON]. So if the input is 7, send [ON] to the 7th output and [OFF] to all the others.
 
 Do not use more than 3 components. Also, you may not use any of the decoders you built before.
 `),

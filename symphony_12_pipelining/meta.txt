@@ -11,7 +11,7 @@ dialogue = [
 Pipelining is a way to reduce delay, by splitting the architecture into separate stages. In this level you will use Delay Line components given to you to split the circuit into three separate parts. This way, we roughly lower the delay by two thirds, but each instruction takes three ticks to go through all three stages. 
 
 Even though it takes one instruction 3 ticks to complete, the architecture can complete one instruction each tick. This is because three instructions can be processed in parallel in the pipeline simultaneously, one at each stage.`)
-    (info, `These are the three stage:
+    (mentor_centered, `These are the three stage:
 
 Stage 1: Fetch instruction
 Stage 2: Load value from registers
@@ -21,11 +21,11 @@ Stage 3: ALU and save back to registers
 
 The first two ticks, no instructions finish the last stage, as we are still filling up the pipeline. The initial values of the Delay Lines is 0, which corresponds to the "nop" instruction (no operation / do nothing) so the later stages will not execute anything until real instructions loaded from the assembler reaches them.
 `),
-  (info, `Finally we have to deal with jumps. After we see a jump, we don't know what instructions to load into the pipeline, since we don't know if the jump will be taken or not. We have to wait until the jump reaches stage 3 before we know which instruction to load next.
+  (mentor_centered, `Finally we have to deal with jumps. After we see a jump, we don't know what instructions to load into the pipeline, since we don't know if the jump will be taken or not. We have to wait until the jump reaches stage 3 before we know which instruction to load next.
 
 Use the new counter and timer components you built to handle this. When the "mode" is JUMP in stage 1, send [ON] to the timer. And while the timer outputs [ON], stall the counter and send 0 (nop / do nothing instruction) to stage 2.`),
 
-    (info, `As a reminder, these are the modes of Symphony.
+    (mentor_centered, `As a reminder, these are the modes of Symphony.
 
 0 IO
 1 ALU

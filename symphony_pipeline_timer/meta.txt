@@ -11,7 +11,7 @@ It would also be nice if the computer was energy efficient, but mainly we need i
     (mentor, `To make Allegro fast enough, you have to implement several CPU optimization techniques.
 
 The final goal will be to build a pipelined, superscalar, memory caching and speculatively executing version of Symphony.`),
-    (info, `Build a timer that will later be used in pipelining.
+    (mentor_centered, `Build a timer that will later be used in pipelining.
 
 When the input is [ON], the timer is activated. When the timer is activated output this sequence: [OFF][ON][ON]. That is [OFF] on the first tick and [ON] the two ticks after that.
 If the timer is in the middle of a sequence, it cannot be reactivated. Another way to say this is ignore the input, if the output is [ON].

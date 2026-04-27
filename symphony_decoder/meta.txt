@@ -8,7 +8,7 @@ background = 6
 components_available = [com_static_indexer: 7]
 unlocks_components = [com_static_indexer, com_static_indexer_config]
 dialogue = [
-  (info, `
+  (mentor_centered, `
 Build a circuit that splits Symphony instructions into their different parts. This will be very helpful later.
 
 There are two encodings for Symphony instructions, depending on whether we are using immediate values or not:
@@ -25,7 +25,7 @@ There are two encodings for Symphony instructions, depending on whether we are u
 
 [color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]1[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#66ccff]BBBBBBBB BBBBBBBB[/color]
   `),
-  (info, `Use the static indexer component to solve this level. 
+  (mentor_centered, `Use the static indexer component to solve this level. 
 
 The static indexer component is a special component that allows you to shift certain bits from a wire, without any delay or gates cost. Changing the number on the component will shift bits (positive number shifts to the right). Then click on the component to set the output width.`),
 ]

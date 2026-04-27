@@ -8,7 +8,7 @@ dialogue = [
   (mentor_centered, "The Delay Line only allows us to store a value for 1 tick. But sometimes a component that can store a value for longer periods of time is useful.
 
 We want you to build such a component."),
-  (info, "In this level you have 2 inputs.
+  (mentor_centered, "In this level you have 2 inputs.
 When the first input is [ON], update the stored value.
 The second input is the value.
 Always output what is currently stored.

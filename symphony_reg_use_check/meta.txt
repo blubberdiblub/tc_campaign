@@ -8,7 +8,7 @@ copy_solution_to_foundry = "Symphony/Allegro/reg_use"
 copy_solution_to_level = ["symphony_reg_use_check_2"]
 background = 6
 dialogue = [
-  (info, `This level gives you an instruction and a register. Output 1 if the instruction depends on the register for argument A or argument B.
+  (mentor_centered, `This level gives you an instruction and a register. Output 1 if the instruction depends on the register for argument A or argument B.
 
 However, never output 1 if the register is 0. Also, ignore argument B if the immediate bit is set.
 

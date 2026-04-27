@@ -5,20 +5,12 @@ size = 255
 background = 4
 arch_input_word_size = 32
 dialogue = [
-  (mentor_centered, "We all like the way Robot moves on the dance floor. That's why we want him to lead our dance team. 
-  
-The only problem is to make him come up with original dance sequences. How do you make creativity out of deterministic logic, you ask?
-
-The answer is pseudorandom number generators."),
   (level_centered, `In this level you only get one input, we call this the initial seed. The seed is put through the following steps to produce a pseudorandom number.
 
-Remember, "lsl" is logic shift left and "lsr" is logic shift right
-
-**32 bit xorshift RNG:[b][color=#87a8c8]
-temp1  = seed  xor (seed  lsr 13)
+[b]32 bit xorshift RNG:[/b]
+[box]temp1  = seed  xor (seed  lsr 13)
 temp2  = temp1 xor (temp1 lsl 17)
-result = temp2 xor (temp2 lsr 5)
-[/color]
+result = temp2 xor (temp2 lsr 5)[/box]
 
 Finally output "result" and then use it as the seed of the next iteration.
 `)]

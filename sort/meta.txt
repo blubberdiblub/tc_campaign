@@ -3,7 +3,6 @@ title = "Sorting"
 tests = 64
 size = 255
 dialogue = [
-  (mentor_centered, `We are updating the galactic encyclopedia of food, inserting human foods. As we don't have an alphabet, entries in the encyclopedia are ordered by deliciousness.`),
-  (info_centered, `First read the 16 deliciousness scores (between 0 and 255 inclusive) from the input one by one. Your task is to output them in sorted order, smallest to largest.`),
+  (mentor_centered, `In this level your job is to sort 16 numbers. Read the input 16 times one by one, sort them and output them smallest to largest.`),
 ]
 

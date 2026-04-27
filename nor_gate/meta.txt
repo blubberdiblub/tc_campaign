@@ -7,5 +7,5 @@ unlocks_components = [com_nor_bit]
 tick_past_fail = 4
 background = 4
 dialogue = [
-  (info, "Create the circuit that matches the table."),
+  (mentor_centered, "Create the circuit that matches the table."),
 ]

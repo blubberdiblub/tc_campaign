@@ -5,10 +5,10 @@ size = 55
 unlocks_components = [com_add]
 background = 5
 dialogue = [
-  (info, "Add the two input bytes. Each output bit in the output should be a result of the addition of the corresponding bits from the inputs, and potentially a carry."),
-  (info, "If the result does not fit in 8 bits, turn the output carry [ON] (you can think of it as the 9th bit)
+  (mentor_centered, "Add the two input bytes. Each output bit in the output should be a result of the addition of the corresponding bits from the inputs, and potentially a carry."),
+  (mentor_centered, "If the result does not fit in 8 bits, turn the output carry [ON] (you can think of it as the 9th bit)
   
 Finally, there is an input carry as well. This is useful for chaining together byte adders to add larger numbers. You can think of this carry as adding either 0 [OFF] or 1 [ON].
 ."),
-    (info, `Also, this level has a lot of tests. Right click on the run button to increase the testing speed.`),
+    (mentor_centered, `Also, this level has a lot of tests. Right click on the run button to increase the testing speed.`),
 ]

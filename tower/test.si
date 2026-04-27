@@ -55,7 +55,7 @@ def redraw() {
     let plate_3 = .plates[3]
     let plate_4 = .plates[4]
 
-    var y_pos = [135, 135, 135]
+    var y_pos = [140, 140, 140]
 
     if plate_4 != -1 { 
 

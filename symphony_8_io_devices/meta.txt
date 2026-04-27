@@ -8,11 +8,11 @@ copy_solution_to_level = ["symphony_9_aliases"]
 unlocks_pages = ["Circuits/The screen"]
 shared_data_folder = "symphony"
 dialogue = [
-    (info, `For this level you need to place three new IO components: the Screen, Time and Keyboard components.
+    (mentor_centered, `For this level you need to place three new IO components: the Screen, Time and Keyboard components.
 
 Also link the screen to the RAM component named "Main Memory".
 `)
-    (info, `So far IO mode has had only 3 instructions, but now it is time to add several more. These are the opcodes for the full list of IO instructions:
+    (mentor_centered, `So far IO mode has had only 3 instructions, but now it is time to add several more. These are the opcodes for the full list of IO instructions:
 
 0  nop       Do nothing
 1  in        Input

@@ -9,7 +9,7 @@ background = 5
 unlocks_special = ["signed_numbers"]
 dialogue = [
   (mentor_centered, `To know the difference between things, you need subtraction. To get subtraction, first you need negative numbers.`),
-  (info_centered, `This level introduces "two's complement", the most common representation for negative numbers.
+  (mentor_centered, `This level introduces "two's complement", the most common representation for negative numbers.
   
 Here the highest digit is negated. For bytes this means the 8th digit changes its value from 128 to -128.
 

@@ -7,7 +7,7 @@ unlocks_components = [com_on, com_off]
 tick_past_fail = 2
 unlocks_pages = ["Computer concepts/De Morgan's laws"]
 dialogue = [
-  (info, "Create a circuit that is always [ON]."),
+  (mentor_centered, "Create a circuit that is always [ON]."),
 ]
 post_mortem = [  
     (mentor_centered, `This level unlocks your first manual page. This one is important, make sure you pay attention to it.`),

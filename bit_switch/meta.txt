@@ -9,10 +9,10 @@ tick_past_fail = 4
 background = 5
 unlocks_pages = ["Circuits/Short circuit"]
 dialogue = [
-  (info, `If components output different values on the same wire, you get an error. However, some components have grey output pins, these are not outputting at all when the component is not enabled. This is the case for the Bit Switch component.
+  (mentor_centered, `If components output different values on the same wire, you get an error. However, some components have grey output pins, these are not outputting at all when the component is not enabled. This is the case for the Bit Switch component.
 
 [center][image="switch.png"][/center]
 
 When the bottom pin is [OFF], the output is disabled. More than 1 output can connect to the same wire without causing error, if no more than one of them is enabled.`),
-  (info, `Using 2 NOT gates and 2 Switches, build an XOR gate.`),
+  (mentor_centered, `Using 2 NOT gates and 2 Switches, build an XOR gate.`),
 ]

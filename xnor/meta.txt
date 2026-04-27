@@ -6,5 +6,5 @@ unlocks_components = [com_xnor_bit]
 tick_past_fail = 4
 background = 1
 dialogue = [
-  (info, "Create the inverse XOR gate, known as XNOR."),
+  (mentor_centered, "Create the inverse XOR gate, known as XNOR."),
 ]

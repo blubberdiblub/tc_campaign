@@ -5,18 +5,18 @@ no_score = true
 copy_solution_to_level = ["symphony_10_stack"]
 shared_data_folder = "symphony"
 dialogue = [
-    (info, `This level like previous levels, introduces new instructions. However, in this level you are not supposed to add additional hardware, but instead change the assembly specification to reuse already existing instruction hardware for new instructions.
+    (mentor_left, `Like previous levels, this level introduces new instructions. However, in this level you are not supposed to add additional hardware, but instead change the assembly specification to reuse already existing instruction hardware for new instructions.
 
 Click on the "ISA" button in the top left corner of the Assembler window and study how instructions are implemented. Then add the following three new instructions:
 
-mov %a(register), %b(immediate)
+[box]mov %a(register), %b(immediate)
 Copies the immediate value %b to register %a.
 
 neg %a(register), %b(register)
 Negate register %b and store the result in %a.
 
 not %a(register), %b(register)
-Bitwise NOT each bit in register %b and store the result in %a.
+Bitwise NOT each bit in register %b and store the result in %a.[/box]
 
 Once these instructions are added, the assembly code will be valid and running it will complete the level.
 `),

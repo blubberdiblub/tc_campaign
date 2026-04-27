@@ -3,7 +3,7 @@ title = "The Maze"
 tests = 8
 size = 255
 dialogue = [
-  (info, `In this level you control a robot. Write an algorithm that guides him from the start to the door at the end of the maze.
+  (mentor_centered, `In this level you control a robot. Write an algorithm that guides him from the start to the door at the end of the maze.
 
 These are the three commands you can output:
 0 Turn left
@@ -12,16 +12,12 @@ These are the three commands you can output:
 
 You can also use the arrow keys to play around with the robot manually.
 `),
-  (info, `Read the input to figure out what the robot sees in front of him. It is always one of these:
+  (mentor_centered, `Read the input to figure out what the robot sees in front of him. It is always one of these:
 0 Nothing
 1 Wall
 
-`),
+`),]
+post_mortem = [
+    (mentor, `Great job. You finished the maze and clearly master Overture assembly now. But Overture is too basic, it is good for learning, but is missing many features. Your next project will be to build towards Symphony, a more powerful computer which has RAM, a screen, a keyboard and lets you reuse code through functions. On the way there you will have to build some new components, learn about the stack and other things.`)
 ]
-post_mortem_first_win = [
-      (mentor_smile, `Congratulations, you won the competition! An amazing achievement!`),
-      (mentor_smile, `If you choose to go on to the rest of the levels I will teach you about ram, the stack and function calls and you will get to solve more interesting challenges like this one.
-    
-But first you would have to build a better computer. [color=#e49f44]OVERTURE[/color] was good as a first machine, but it is clumsy and programs get very messy. To solve the challenges I have for you without pulling all your hair out, you will need something more expressive, the [color=#e49f44]SYMPHONY[/color] architecture.`),
-      (mentor_smile, `On the other hand, you could also retire, be proud and enjoy your reward of not being eaten.`),
-    ]
+]

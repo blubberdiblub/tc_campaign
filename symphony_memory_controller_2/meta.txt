@@ -5,7 +5,7 @@ max_delay = 64
 copy_solution_to_foundry = "Symphony/Allegro/cache_ctrl"
 background = 6
 dialogue = [
-  (info, `
+  (mentor_centered, `
 
 TODO, make sure we check RAM is 0xffff bytes
 

@@ -1,1 +1,0 @@
-[text text="This is just an XOR gate in disguise" size=37]

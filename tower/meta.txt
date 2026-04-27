@@ -3,31 +3,35 @@ title = "Tower of Hanoi"
 tests = 64
 size = 255
 dialogue = [
-  (mentor_centered, "We need you to help clean up the basement."),
-  (mentor_centered, "Specifically we want you to move piles of radioactive disks from an old reactor. Just be sure not to put a bigger disk on top of a smaller disk or the whole ship will blow up."),
-  (info, "The first 4 inputs will give you the following in order:
+  (mentor_centered, `In the game "Towers of Hanoi", you must move a stack of disks from one peg to another. The challenge is that only one disk can be moved at a time, only the top disk on a stack can be moved, and a larger disk can never be placed on top of a smaller one.`),
+  (mentor_left, "The first 4 inputs will give you the following in order:
 disk_nr - The highest disk number in the pile (2 to 4)
 source - Which location number to move from
 destination - Where to move the pile to
 spare - The 3rd spot that is neither the source nor the destination
 
-Control the crane with the following outputs:
+Control the magnet with the following outputs:
 0 - Move the magnet to spot 0
 1 - Move the magnet to spot 1
 2 - Move the magnet to spot 2
 5 - Toggle the magnet on or off
 
 Play with the magnet manually by using the arrow keys to move and enter to toggle."),
-  (info, "Implement the following algorithm:
+  (mentor_left, `This level is difficult, but it is a good opportunity for you to use functions. In fact the following solution to the level contains a "recursive function", which means a function that calls itself:
 
-Tower of Hanoi algorithm:[color=#87a8c8]
-func move(disk_nr, source, dest, spare):
-  if disk_nr is 0:
-    move disk from source to dest
-  else:
-    move(disk_nr - 1, source, spare, dest)
-    move disk from source to dest
-    move(disk_nr - 1, spare, dest, source)[/color]
+[b]Tower of Hanoi algorithm:[/b]
+[box]func move(disk_nr, source, dest, spare) {
+    if disk_nr is 0 {
+        move disk from source to dest
+    } else {
+        move(disk_nr - 1, source, spare, dest)
+        move disk from source to dest
+        move(disk_nr - 1, spare, dest, source)
+    }
+}[/box]
 
-[tip]Push register values to the stack to store them before calling a function that changes them.[/tip]"),
+[tip]Remember to push register values to the stack to store them in function that changes them.[/tip]`),
+]
+post_mortem = [
+  (mentor, `Well done. You solved the Tower of Hanoi puzzle and clearly master Symphony assembly. The next thing you will learn about is optimizing and performance.`)
 ]

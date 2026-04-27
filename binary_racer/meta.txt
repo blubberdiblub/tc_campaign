@@ -6,8 +6,9 @@ no_controls = true
 no_state_ui = true
 background = 5
 dialogue = [
-  (mentor_centered, `This level is my favorite pastime. Converting decimal into binary under time pressure.`),
-  (info, `Toggle the bits in the level panel so they add up to the decimal number in the question.
+  (mentor_centered, `This level teaches you binary.
+
+Toggle the bits in the level panel so they add up to the decimal number in the question.
 
 You must beat level 3 to pass.
 `)

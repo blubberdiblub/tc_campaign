@@ -20,30 +20,18 @@ def redraw() {
         if !.bot_to_move {
 
             ui_set_text("description", `You lost!`)
-            ui_set_hidden("nak02", true)
-            ui_set_hidden("nak02_win", false)
 
         } else {
 
             ui_set_text("description", `You won!`)
-            ui_set_hidden("nak02", true)
-            ui_set_hidden("nak02_lose", false)
-            ui_set_hidden("robot", true)
-            ui_set_hidden("robot_win", false)
 
         }
 
     } else {
 
-        ui_set_hidden("nak02", false)
-        ui_set_hidden("nak02_win", true)
-        ui_set_hidden("nak02_lose", true)
-        ui_set_hidden("robot", false)
-        ui_set_hidden("robot_win", true)
-
         if .bot_to_move {
 
-            ui_set_text("description", `Hit enter to see what NAK 02 does`)
+            ui_set_text("description", `Hit enter to see what the oponent does`)
 
         } elif .player_choice == 0 {
 

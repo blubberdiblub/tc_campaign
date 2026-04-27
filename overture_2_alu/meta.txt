@@ -6,7 +6,7 @@ title = "ALU"
 size = 50
 copy_solution_to_level = ["overture_3_immediates"]
 dialogue = [
-  (info, `Time to merge in the "Arithmetic Logic Unit" circuit you made previously with the register circuit. The ALU circuit was saved in the foundry and can now be added as a component. If you forgot which pin does what, check the circuit in the foundry.
+  (mentor_centered, `Time to merge in the "Arithmetic Logic Unit" circuit you made previously with the register circuit. The ALU circuit was saved in the foundry and can now be added as a component. If you forgot which pin does what, check the circuit in the foundry.
 
 Use the decoder you built to figure out if we should move between registers or do ALU calculations. Here are the 4 different modes again:
 [OFF][OFF] Immediate

@@ -1,14 +1,7 @@
 kind = architecture
-title = "Calibrating Laser Cannons"
+title = "Multiply by 6"
 tests = 42
 size = 255
 dialogue = [
-  (mentor_centered, "On our ship we naturally shoot incoming asteroids with lasers."),
-  (mentor_centered, "In order to calibrate said laser, we want you to calculate the circumference of the asteroids using an advanced equation."),
-  (mentor_centered, "2×π×r
-
-r is the input.
-And you can approximate π as 3.
-
-Send the answer to output when it has been calculated."),
+  (mentor_centered, "The goal of this level is to take the input and multiply it with 6 using assembly language."),
 ]

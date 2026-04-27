@@ -5,5 +5,5 @@ size = 32
 unlocks_components = [com_constant]
 background = 4
 dialogue = [
-  (info, "Create a circuit that always outputs the number 164.")
+  (mentor_centered, "Create a circuit that always outputs the number 164.")
 ]

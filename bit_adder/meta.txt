@@ -5,8 +5,8 @@ size = 30
 tick_past_fail = 4
 background = 5
 dialogue = [
-  (mentor_centered, "We measure the universe with numbers. So your machine must learn to count."),
-  (info, "Treat the inputs as [b]0[/b] or [b]1[/b] depending if they are [OFF] or [ON]. Add them together in binary, such that the result is either [b]0[/b] or [b]1[/b].
+  (mentor_centered, "We measure the universe with numbers. So our machine must know how to count."),
+  (mentor_centered, "Treat the inputs as [b]0[/b] or [b]1[/b] depending if they are [OFF] or [ON]. Add them together in binary, such that the result is either [b]0[/b] or [b]1[/b].
 
 As with normal addition, if the result cannot be described with one digit, set the carry to [b]1[/b]."),
 ]

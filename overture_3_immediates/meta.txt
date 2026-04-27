@@ -5,9 +5,9 @@ title = "Immediate Values"
 size = 50
 copy_solution_to_level = ["overture_4_program"]
 dialogue = [
-  (info, "We need a way to directly move numbers from our program into registers. For this we use the immediate mode (when the two highest bits are [OFF][OFF]).
+  (mentor_centered, "We need a way to directly move numbers from our program into registers. For this we use the immediate mode (when the two highest bits are [OFF][OFF]).
 
-When in immediate mode the whole byte is interpreted as a number that we [STORE] into REG 0. This means we can 
-[STORE] any value between 0 and 63."),
+When in immediate mode the whole byte is interpreted as a number that we store into REG 0. This means we can 
+store any value between 0 and 63."),
   (overture),
 ]

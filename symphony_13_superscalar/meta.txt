@@ -10,7 +10,7 @@ dialogue = [
   (mentor, `Time to add another pipeline and go superscalar! 
 
 As I mentioned before, superscalar means we are executing more than one instruction per tick, in this case two.`),
-  (info, `These are the things you need to do to add the second pipeline:
+  (mentor_centered, `These are the things you need to do to add the second pipeline:
 
 1. The instruction port is now 64 bit, split the output into two instructions
 2. Add the data hazard component. When it is [ON] (and the JUMP timer is [OFF]) we can execute the second instruction

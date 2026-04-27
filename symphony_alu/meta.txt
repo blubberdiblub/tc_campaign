@@ -6,7 +6,7 @@ copy_solution_to_foundry = "Symphony/ALU"
 copy_solution_to_level = ["symphony_fast_alu"]
 background = 6
 dialogue = [
-  (info, "This is a copy of the Overture ALU. Time to upgrade it to 32 bits and a few new instructions.
+  (mentor_centered, "This is a copy of the Overture ALU. Time to upgrade it to 32 bits and a few new instructions.
 
 Instructions:
 

@@ -6,5 +6,5 @@ max_delay = 64
 copy_solution_to_foundry = "Symphony/Allegro/pipeline/count"
 dialogue = [
     (mentor, `For pipelining, we need a version of the counter which can have counting disabled.`),
-    (info, `Create a new version of the Symphony counter which has a hold pin. When the pin is [ON], we do not increment the counter value. It may however still be overwritten if the store pin is [ON]`),
+    (mentor_centered, `Create a new version of the Symphony counter which has a hold pin. When the pin is [ON], we do not increment the counter value. It may however still be overwritten if the store pin is [ON]`),
 ]

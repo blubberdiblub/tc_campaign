@@ -5,10 +5,10 @@ background = 6
 copy_solution_to_level = ["symphony_counter_2"]
 copy_solution_to_foundry = "Symphony/count"
 dialogue = [
-    (info, `Build a 32 bit counter that increments by 4 by default, but can alternatively be overwritten with a specific value.
+    (mentor_centered, `Build a 32 bit counter that increments by 4 by default, but can alternatively be overwritten with a specific value.
 
 Also, connect the provided memory probe to a 32-bit component holding the counter memory value.`),
-    (info, `To change word component width, you will need to use a Bit size tool near the left panel (looks like a bidirectional arrow and a number).
+    (mentor_centered, `To change word component width, you will need to use a Bit size tool near the left panel (looks like a bidirectional arrow and a number).
 
 Right click on the Bit size tool to specify the target width.
 Left click on components when the tool is active will set the component's bit width.

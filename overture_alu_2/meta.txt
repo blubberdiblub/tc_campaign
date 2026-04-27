@@ -8,7 +8,7 @@ unlocks_pages = ["Circuits/The Foundry"]
 background = 6
 next_level = "foundry"
 dialogue = [
-  (info, "Add addition and subtraction to your circuit.
+  (mentor_centered, "Add addition and subtraction to your circuit.
 
 Instructions:
 

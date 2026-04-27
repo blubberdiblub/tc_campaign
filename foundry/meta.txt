@@ -7,8 +7,8 @@ background = 6
 unlocks_pages = ["Circuits/The foundry"]
 unlocks_components = [com_probe_wire_bit, com_probe_wire_word, com_probe_memory_bit, com_probe_memory_word, com_static_value, com_static_eval]
 dialogue = [
-  (info, "Welcome to the foundry, the circuits you create in here will be usable as components in architectures.
+  (mentor_centered, "Welcome to the foundry, the circuits you create in here will be usable as components in architectures.
 The circuitry you create defines the behavior of the component and the layout defines its shape."),
-  (info, "Components can be added, renamed or deleted using the schematics menu."),
+  (mentor_centered, "Components can be added, renamed or deleted using the schematics menu."),
   (mentor_centered, "Since this level is a tool and not a challenge, you can go to the level map and continue on when you want."),
 ]

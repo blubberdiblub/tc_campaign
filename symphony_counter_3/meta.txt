@@ -5,5 +5,5 @@ background = 6
 max_delay = 35
 copy_solution_to_foundry = "Symphony/Allegro/superscalar/count"
 dialogue = [
-    (info, `Build a counter that can increment by 0, 4 or 8, based on how many instructions are executing. You can use the cnt_inc component you already built.`),
+    (mentor_centered, `Build a counter that can increment by 0, 4 or 8, based on how many instructions are executing. You can use the cnt_inc component you already built.`),
 ]

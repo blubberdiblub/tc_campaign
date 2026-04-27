@@ -4,5 +4,5 @@ title = "Divide"
 size = 255
 unlocks_components = [com_div]
 dialogue = [
-  (info, "Divide the two inputs and output the result. Note, this level is optional, because it is very hard."),
+  (mentor_centered, "Divide the two inputs and output the result. Note, this level is optional, because it is very hard."),
 ]

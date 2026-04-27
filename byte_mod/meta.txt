@@ -4,5 +4,5 @@ title = "Modulo"
 size = 255
 unlocks_components = [com_mod]
 dialogue = [
-  (info, "Output the modulo of the two inputs."),
+  (mentor_centered, "Output the modulo of the two inputs."),
 ]

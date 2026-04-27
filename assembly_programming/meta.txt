@@ -6,11 +6,13 @@ copy_solution_to_architecture = "Overture"
 unlocks_pages = ["Assembly/Language Creation", "Assembly/Assembly Programming"]
 immutable_isa = true
 dialogue = [
-  (mentor_centered, "Punchcard programming is tedious. Lets try the adding 5 to the input again like the previous level, but this time using assembly programming instead."),
+  (mentor_centered, "Punchcard programming is tedious. Lets try adding 5 to the input again like in the previous level, but this time using assembly programming instead."),
   (mentor, `The point of an assembly language is to give human readable nicknames to the instructions that our machines execute. 
 
-Conventionally, an instruction syntax will begin with an abbreviated word (called a "[color=#9966ff]mnemonic[/color]") that describes the instruction, followed by a list of [color=#66ccff]operands[/color]:
+Conventionally, an instruction syntax will begin with an abbreviated word (called a "[color=#9966ff]mnemonic[/color]") that describes the instruction, followed by a list of [color=#66ccff]operands[/color] like so:
 [highlight][color=#9966ff]mov[/color] [color=#66ccff]r1[/color], [color=#66ccff]r2[/color][/highlight]
+
+Also by convention, the destination is on the left. So in the above example we move a value to r1 from r2. If you learn these conventions you will be able to read real life assembly languages.
 
 Click "Edit" on the RAM component to open the assembly editor. From there, click "ASM" in the upper left corner to get the full list of Overture instructions.`),
   (overture),

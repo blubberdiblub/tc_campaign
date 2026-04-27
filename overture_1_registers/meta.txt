@@ -5,17 +5,17 @@ title = "Registers"
 size = 50
 copy_solution_to_level = ["overture_2_alu"]
 dialogue = [
-  (mentor_centered, `Time to create your master project, implementing the [color=#e49f44]Overture[/color] computer architecture. This will be an actual Turing complete machine, a true computer in every way!`),
-  (info, `In this level you need to create a circuit which can move from a [color=#c54d5e]source[/color] to a [color=#e49f44]destination[/color]. 
+  (mentor_centered, `It is finally time to build your first computer. I will teach you how to build the [color=#e49f44]Overture[/color] architecture, an actual Turing complete machine, a true computer in every way.`),
+  (mentor_centered, `In this level you need to create a circuit which can move from a [color=#c54d5e]source[/color] to a [color=#e49f44]destination[/color]. 
 
 The instruction byte in this level determines the [color=#c54d5e]source[/color] and the [color=#e49f44]destination[/color]. 
 
 Bits 1, 2 and 3 give the [color=#e49f44]destination[/color]. Bits 4, 5 and 6 give the [color=#c54d5e]source[/color].`),
 
-  (info, `[color=#c54d5e]Source[/color] and [color=#e49f44]destination[/color] can be 1 of 6 registers, we will name them REG 0 to REG 5 respectively. 
+  (mentor_centered, `[color=#c54d5e]Source[/color] and [color=#e49f44]destination[/color] can be 1 of 6 registers, we will name them REG 0 to REG 5 respectively. 
   
 Additionally, this map has a dedicated input component, which can be the [color=#c54d5e]source[/color] and an output component, which can be the [color=#e49f44]destination[/color].`),
-  (info, `These are the bit patterns for each [color=#c54d5e]source[/color] and [color=#e49f44]destination[/color].
+  (mentor_centered, `These are the bit patterns for each [color=#c54d5e]source[/color] and [color=#e49f44]destination[/color].
 
 [color=#c54d5e]Source[/color]:
 [OFF] [OFF] [OFF]  REG 0 

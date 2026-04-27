@@ -5,5 +5,5 @@ size = 30
 tick_past_fail = 4
 no_score = true
 dialogue = [
-  (info, "Output [ON] on the second tick only."),
+  (mentor_centered, "Output [ON] on the second tick only."),
 ]

@@ -1,3 +1,6 @@
+[image x=-200 y=100 file="peg.png"]
+[image x=0 y=100 file="peg.png"]
+[image x=200 y=100 file="peg.png"]
 [image id="0" y=8 file="0.png"]
 [image id="1" y=8 file="1.png"]
 [image id="2" y=8 file="2.png"]

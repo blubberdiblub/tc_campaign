@@ -6,8 +6,8 @@ no_controls = true
 background = 4
 next_level = "nand_gate"
 dialogue = [
-  (mentor_centered, "We are testing you.
+  (mentor_centered, "Magic exists in the real world and it is called computer science. Programs are spells, made by combining simple things in complex ways. Show someone a program, that adds and multiplies numbers in just right way and they will see a character jumping around an endless green landscape, full of opportunity.
 
-The rules are simple, build a functional computer or you will be eaten. Good luck."),
-  (mentor_centered, "This first level is a very basic introduction to circuits."),
+If you learn the magic, the computer becomes a portal to a place where anything is possible."),
+  (mentor_centered, "This first level is a simple introduction to circuits. The board has an input, an output and a wire in between. Simply turn on the input in the left hand menu to complete the level."),
 ]

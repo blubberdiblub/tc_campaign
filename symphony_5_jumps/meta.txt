@@ -6,7 +6,7 @@ copy_solution_to_level = ["symphony_6_ram"]
 no_score = true
 shared_data_folder = "symphony"
 dialogue = [
-  (info, `These are the [color=#ff9800]Modes[/color] of [color=#e49f44]Symphony[/color]:
+  (mentor_centered, `These are the [color=#ff9800]Modes[/color] of [color=#e49f44]Symphony[/color]:
 
 0 IO
 1 ALU

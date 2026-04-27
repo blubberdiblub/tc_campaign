@@ -7,11 +7,11 @@ immutable_isa = true
 shared_data_folder = "symphony"
 dialogue = [
   (mentor_centered, `Finally it is time for you to start building the [color=#e49f44]Symphony[/color] architecture!`),
-  (info, `
+  (mentor_centered, `
 Most instructions take 2 arguments and produce 1 result (like ADD, OR etc). 
 
 [color=#e49f44]Symphony[/color] uses 4 bytes per instruction and can encode all three in each instruction, which are stored in the RAM component named "Main Memory". This means we can for example ADD any two registers and store the result in any other register.`),
-  (info, `These are the names of the 16 registers of [color=#e49f44]Symphony[/color]:
+  (mentor_centered, `These are the names of the 16 registers of [color=#e49f44]Symphony[/color]:
 
 0 zr
 1 r1
@@ -33,7 +33,7 @@ Most instructions take 2 arguments and produce 1 result (like ADD, OR etc).
 "zr" will always produce 0 when read, so any write to "zr" will be discarded, we can use this to simplify our hardware. "sp" and "flags" are normal registers that just happen to have different names. They will be reserved for special purposes later.
 
 Instead of using individual registers, use the provided RAM component that is named "Register File".`),
-  (info, `With all of that explained, implement the NAND instruction.
+  (mentor_centered, `With all of that explained, implement the NAND instruction.
 
 This is how the instructions are encoded:
 

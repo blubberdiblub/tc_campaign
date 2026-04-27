@@ -6,7 +6,7 @@ no_score = true
 copy_solution_to_level = ["symphony_8_io_devices"]
 shared_data_folder = "symphony"
 dialogue = [
-    (info, `In this level we add an another RAM component, but for storing data between restarts.
+    (mentor_centered, `In this level we add an another RAM component, but for storing data between restarts.
 
 Then add two new memory instructions 'pload', 'pstore', which should function like the 32 bit variants of the load and store instructions from the previous level, but accessing the 'Persistent Memory' RAM component instead of the program memory.
 

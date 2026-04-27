@@ -3,10 +3,7 @@ title = "Storage cracker"
 tests = 256
 size = 255
 dialogue = [
-  (mentor_centered, `The security access door to the storage room is broken and it keeps locking our old janitor inside.
+  (mentor_centered, "In this level you win when you output a secret code. No output will fail the level, so you could just try all numbers. 
 
-The door keeps changing the passcode, we need a program that can recover the passcode at any time.`),
-  (mentor_centered, "The easiest way to find the passcode would be to try all combinations until you find the right one. 
-Although the broken mechanism does make a weird beep when your guess is too high, you might be able to use that to your advantage."),
-  (info, "You win this level when you output the correct passcode, no output will fail the level. Additionally, the input will be 1 after a guess that was too high and 0 otherwise."),
+Alternatively, you may be able to use the fact that the input will be 1 after a guess that was too high and 0 otherwise."),
 ]

@@ -3,6 +3,7 @@ title = "Capitalize"
 tests = 3
 size = 255
 dialogue = [
-  (info_centered, `The inputs in this level represent the characters in a list of planet names, encoded as ASCII (see the manual). Each word is separated by a space which has the numeric value 32. Replace the first letter in each word with its uppercase counterpart.
-(The possible input characters are a to z lowercase and space`),
+  (mentor_centered, `The inputs in this level are sentences encoded as ASCII (see the manual). Each word is separated by a space which has the numeric value 32. Replace the first letter in each word with its uppercase counterpart.
+
+The possible input characters are a to z lowercase and space`),
 ]

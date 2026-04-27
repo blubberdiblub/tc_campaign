@@ -6,12 +6,12 @@ shared_data_folder = "symphony"
 copy_solution_to_level = ["symphony_11_functions"]
 no_score = true
 dialogue = [
-    (info, `The challenge of this level is to implement a common programming structure called a "stack". You are supposed to do this in assembly. You can do two things with a stack:
+    (mentor_left, `The challenge of this level is to implement a common programming structure called a "stack". You are supposed to do this in assembly. You can do two things with a stack:
 
-PUSH - Adds a number to the stack
-POP - Removes the last added value from the stack
+[color=#66ccff]PUSH[/color] - Adds a number to the stack
+[color=#66ccff]POP[/color]  - Removes the last added value from the stack
 
-You can think of the stack data structure like a physical stack of plates in a busy restaurant. The dishwasher pushes plates on top of the stack and the chef pops them off.
+You can think of the stack data structure like a physical stack of plates in a busy restaurant. The dishwasher will [color=#66ccff]push[/color] plates on top of the stack and the chef will [color=#66ccff]pop[/color] them off.
 
 Read the input in this level to get the next operation. 
 A non-0 input is a push, in this case store the value so it can be popped later. 

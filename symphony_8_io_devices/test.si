@@ -4,7 +4,7 @@ const #OP_ALU = 1
 const #OP_JMP = 2
 const #OP_RAM = 3
 
-const #MAX_RAM = U32 11000
+const #MAX_RAM = U32 1 << 24
 const #MAX_SSD = U32 1000
 
 var counter   = U32 0
@@ -15,7 +15,37 @@ var saved_time = 0
 var screen_setting = array(<Int>, 8)
 screen_setting[2] = 16777200
 
-add_keyboard_value(true, U8 0xff)
+var keypresses = [0x164, 0x064, 0x161, 0x061]
+var keypress_index = 0
+
+{
+
+    var i = 0
+
+    while i < keypresses.len() {
+
+        add_keyboard_value(Bool (keypresses[i] >> 8), U8 keypresses[i])
+
+        i += 1
+
+    }
+
+}
+
+{
+    // Copy assembled code to RAM
+
+    var i = 0
+
+    while i < ram.len() {
+
+        let byte = get_ram_value("Main Memory", i, <U8>)
+        ram[i] = byte
+        i += 1
+
+    }
+
+}
 
 def flag_result(a: U32, b: U32) U32 {
 
@@ -72,7 +102,14 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
                     }
 
                 }
-                #KEYBOARD { .registers[dest] = 0x01ff }
+                #KEYBOARD { 
+                    if .keypress_index < .keypresses.len() {
+                        .registers[dest] = U32 .keypresses[.keypress_index]
+                        .keypress_index += 1
+                    } else {
+                        .registers[dest] = 0
+                    }
+                }
                 #SCREEN   { .screen_setting[a_value] = Int b_value }
                 #TIME_0   {
                     .saved_time = get_last_time()
@@ -145,79 +182,53 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
             const #STORE_32  = 0b0110
             const #PSTORE    = 0b0111
 
+            const #RAM_MASK = #MAX_RAM - 1
+
             switch opcode
 
                 #LOAD_8{
 
-                    if b_value < #MAX_RAM - 1 {
-
-                        .registers[dest] = U32 .ram[b_value]
-
-                    }
+                    .registers[dest] = U32 .ram[b_value & #RAM_MASK]
 
                 }
 
                 #LOAD_16 {
 
-                    if b_value < #MAX_RAM - 2 {
-
-                        .registers[dest] = (U32 .ram[b_value] << 8) | (U32 .ram[b_value + 1])
-
-                    }
+                    .registers[dest] = (U32 .ram[b_value & #RAM_MASK] << 8) | (U32 .ram[(b_value + 1) & #RAM_MASK])
 
                 }
 
                 #LOAD_32 {
 
-                    if b_value < #MAX_RAM - 4 {
-                        
-                        .registers[dest] = (U32 .ram[b_value] << 24) | (U32 .ram[b_value + 1] << 16) | (U32 .ram[b_value + 2] << 8) | (U32 .ram[b_value + 3])
-
-                    }
+                    .registers[dest] = (U32 .ram[b_value  & #RAM_MASK] << 24) | (U32 .ram[(b_value + 1) & #RAM_MASK] << 16) | (U32 .ram[(b_value + 2) & #RAM_MASK] << 8) | (U32 .ram[(b_value + 3) & #RAM_MASK])
 
                 }
 
                 #STORE_8 {
 
-                    if b_value < #MAX_RAM - 1 {
-
-                        .ram[b_value + 0] = U8 a_value
-
-                    }
+                    .ram[b_value & #RAM_MASK] = U8 a_value
 
                 }
 
                 #STORE_16 {
 
-                    if b_value < #MAX_RAM - 2 {
-
-                        .ram[b_value + 1] = U8 a_value
-                        .ram[b_value + 0] = U8 (a_value >> 8)
-
-                    }
+                    .ram[(b_value + 1) & #RAM_MASK] = U8 a_value
+                    .ram[(b_value + 0) & #RAM_MASK] = U8 (a_value >> 8)
 
                 }
 
                 #STORE_32 {
 
-                    if b_value < #MAX_RAM - 4 {
-
-                        .ram[b_value + 3] = U8 a_value
-                        .ram[b_value + 2] = U8 (a_value >> 8)
-                        .ram[b_value + 1] = U8 (a_value >> 16)
-                        .ram[b_value + 0] = U8 (a_value >> 24)
-
-                    }
+                    .ram[(b_value + 3) & #RAM_MASK] = U8 a_value
+                    .ram[(b_value + 2) & #RAM_MASK] = U8 (a_value >> 8)
+                    .ram[(b_value + 1) & #RAM_MASK] = U8 (a_value >> 16)
+                    .ram[(b_value + 0) & #RAM_MASK] = U8 (a_value >> 24)
 
                 }
 
                 #PLOAD {
 
-                    if b_value < #MAX_SSD - 4 {
-
-                        .registers[dest] = (U32 .ssd[b_value] << 24) | (U32 .ssd[b_value + 1] << 16) | (U32 .ssd[b_value + 2] << 8) | (U32 .ssd[b_value + 3])
-
-                    }
+                    .registers[dest] = (U32 .ssd[b_value] << 24) | (U32 .ssd[b_value + 1] << 16) | (U32 .ssd[b_value + 2] << 8) | (U32 .ssd[b_value + 3])
 
                 }
 
@@ -360,7 +371,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     }
 
-    if tick > 0xfff {
+    if tick > 0xffff {
         return win
     }
 

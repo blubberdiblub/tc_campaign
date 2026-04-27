@@ -8,8 +8,8 @@ background = 4
 unlocks_special = ["level_map"]
 dialogue = [
   (mentor_centered, "Now that you unlocked the NAND gate, it is time for you to build a circuit yourself."),
-  (mentor_centered, "In the last level you made the table that described the circuit. In this level you build the circuit that matches table."),
-  (info, "Using NAND gates, build the NOT gate
+  (mentor_centered, "In the last level you made the truth table that described the circuit. In this level you build the circuit that matches truth table."),
+  (mentor_centered, "Using NAND gates, build the NOT gate
 
 Using: [b]NAND gate[/b]
 #INPUT 1: [OFF][ON][OFF][ON]

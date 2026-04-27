@@ -7,10 +7,9 @@ no_controls = true
 background = 4
 next_level = "not_gate"
 dialogue = [
-  (mentor_centered, "In addition to assessing your ability, these tests are also designed to teach you something."),
-  (mentor_centered, "In this level the challenge is to fill out the 'truth table' for the NAND component."),
-  (mentor_centered, "You see the truth table in the panel below. Only the two input rows are filled out. Your task is to experiment with the inputs to the circuit, observe what the NAND gate does and fill the last row of the truth table."),
+  (mentor_centered, "The first section of your learning journey is about Boolean logic. Boolean logic describes the most fundamental operations that can be applied to bits. These operations are the atoms that everything else in computer science is made of."),
+  (mentor_centered, `This circuit contains a "NAND gate" that I want you to examine. I want you to document its behavior by filling in the "truth table" in the panel you see below. Only the two input rows of the truth table are filled out. Your task is to experiment with the inputs to the circuit, observe what the NAND gate does and fill the last row of the truth table.`),
 ]
 post_mortem = [
-  (mentor, `Correct! You have unlocked the NAND gate. With this component you can construct all components needed to build a computer!`)
+  (mentor, `Correct! You have unlocked the NAND gate. Out of this fundamental building block, you will construct everything else in this game.`)
 ]

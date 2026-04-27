@@ -6,7 +6,7 @@ tick_past_fail = 16
 no_score = true
 background = 5
 dialogue = [
-  (info, "This level has 4 inputs. 
+  (mentor_centered, "This level has 4 inputs. 
 Output [ON] when 2 or more of them are [ON].
 
 [tip]Don't overthink this level.[/tip]"),

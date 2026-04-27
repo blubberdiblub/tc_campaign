@@ -6,7 +6,7 @@ copy_solution_to_level = ["symphony_3_alu"]
 immutable_isa = true
 shared_data_folder = "symphony"
 dialogue = [
-  (info, `In this level we add a way to input and output values to [color=#e49f44]Symphony[/color].
+  (mentor_centered, `In this level we add a way to input and output values to [color=#e49f44]Symphony[/color].
 
 Again, this is how instructions are encoded:
 

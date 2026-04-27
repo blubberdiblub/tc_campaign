@@ -6,9 +6,7 @@ size = 30
 unlocks_pages = ["Circuits/Circular dependency"]
 background = 5
 dialogue = [
-  (mentor_centered, "In our education system we traditionally teach by tricking students into doing the wrong thing and then teasing them."),
-  (mentor_centered, "I am not sure it benefits the students, but teachers love it."),
-  (info,  'Create a "circular dependency". This is a circuit where the input of a component relies on its own output. In a circular dependency situation, it is not possible to determine the output of a component, because you would first need to determine the input, which relies on the output and so on (hence the "circular").
+  (mentor_centered,  'Create a "circular dependency". This is a circuit where the input of a component relies on its own output. In a circular dependency situation, it is not possible to determine the output of a component, because you would first need to determine the input, which relies on the output and so on (hence the "circular").
 
 This state is normally not allowed in other levels, but in this level the goal is to create it, so you understand what it is before going forward.'),
 ]

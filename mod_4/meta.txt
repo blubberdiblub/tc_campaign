@@ -3,11 +3,7 @@ title = "Masking Time"
 tests = 17
 size = 255
 dialogue = [
-  (mentor_centered, "The length of our week is 4 days. Our weekdays are named Zero's day, One's day, Two's day and Three's day. I hear some earthlings number their Two's day incorrectly? 
-  
-It doesn't really surprise me."),
-  (mentor_centered, "Anyway new year is coming up and we want you to calculate the weekday of everyone's birthday. We will give you the date and all you have to do is return the weekday within 8 ticks."),
-  (info, "In this level you are given a number as input and you should return that number modulo 4 as a result.
+  (mentor_centered, "In this level you are given a number as input and you should return that number modulo 4 as a result.
 
 The challenge is that you only have 8 ticks to output the desired result.
 

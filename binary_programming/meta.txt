@@ -6,6 +6,7 @@ copy_solution_to_level = ["assembly_programming"]
 unlocks_pages = ["Assembly/Assembly Programming", "Assembly/Language Creation"]
 immutable_isa = true
 dialogue = [
-  (info, `Click on the "edit" button on the program component to start punchcard programming your computer. Your computer should read an input, add 5 to it and output it again (no need to worry about overflow).`),
+  (mentor_centered, `Now that you have built your first computer it is time to learn how to program it.`),
+  (mentor_centered, `Click on the "Edit" button on the "Program" component to start punchcard programming your computer. Your computer should read an input, add 5 to it and output it again.`),
   (overture),
 ]

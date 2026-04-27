@@ -4,19 +4,22 @@ tests = 42
 size = 255
 no_score = true
 dialogue = [
-  (info, "Read the input until you see the number 37. 
-
-Then output a count of how many times you read the input."),
-  (info, `To complete this level you need to use jumps. 
+  (mentor_centered, `The goal of this level is to teach you about jumps and labels. 
 
 A jump is an instruction that overwrites the counter. 
 
-Overwriting the counter means we "jump" to an instruction somewhere else in our program, instead of just proceeding to the next.`),
-  (info, `Note: If you use a fixed number for where you jump to, you have to update it every time you add or remove code above the jump destination. 
+Overwriting the counter means we "jump" to an instruction somewhere else in our program, instead of simply proceeding to the next.
+`),
+  (mentor_left, `If you use a fixed number as your jump destination, you will have to update it every time you add or remove code.
 
-Instead you can use a feature called a "label" to mark a location in the program that automatically updates when you change anything, like so:
+Instead you can use a feature called a [color=#66ccff]label[/color] to mark a location in the program that automatically updates when you change anything, like so:
 
-my_label:     ; This is a label
-imm my_label  ; Load the offset of the label
+[box][color=#66ccff]my_label[/color]:     [color=#aaaaaa]; This is a label[/color]
+[color=#9966ff]imm[/color] [color=#66ccff]my_label[/color]  [color=#aaaaaa]; Load the offset of the label[/color]
+[/box]
   `),
+  (mentor_centered, "To finish this level, read the input until you see the number 37. 
+
+Then output a count of how many times you read the input."),
+
 ]

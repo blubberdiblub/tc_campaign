@@ -14,10 +14,10 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     let result = input.a % input.b
 
-    ui_set_text("description", `{input.a} mod {input.b}  is  {result}`)
+    ui_set_text("description", `{input.a} mod {input.b} is {result}`)
 
-    if result != output.result {
-        set_error(`0x{hex(2, Int input.a)} mod 0x{hex(2, Int input.b)}  is  0x{hex(2, Int (result))}`)
+    if result & 0xff != output.result & 0xff {
+        set_error(`{input.a} mod {input.b} is {result}`)
         return fail
     }
 

@@ -7,13 +7,13 @@ def get_input(tick: Int) Input {
     var a = random(256)
     var b = random(256)
 
-    //ui_set_text("description", `What is {a} * {b}?`)
-
     return Input {a: U8 a, b: U8 b}
 
 }
 
 def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    ui_set_text("description", `{input.a} * {input.b} is {(input.a * input.b) & 0xff}`)
 
     if output.result != (input.a * input.b) & 0xff {
 

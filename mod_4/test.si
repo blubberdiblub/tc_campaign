@@ -1,17 +1,19 @@
 
+var actual_input = random(256)
+
 def arch_get_input(test: Int) Int {
-    return random(256)
+    return .actual_input
 }
 
 def arch_check_output(test: Int, input: Int, output: Int) TestResult {
 
-    if input == -1 {
+    if .actual_input == -1 {
         set_error(`Request the input first.`)
         return fail
     }
 
-    if output != input % 4 {
-        set_error(`{input} mod 4 is {input % 4}.`)
+    if output != .actual_input % 4 {
+        set_error(`{.actual_input} mod 4 is {.actual_input % 4}.`)
         return fail
     }
 

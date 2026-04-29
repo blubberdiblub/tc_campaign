@@ -1,5 +1,5 @@
 kind = architecture
-title = "Masking Time"
+title = "Mod 4"
 tests = 17
 size = 255
 dialogue = [

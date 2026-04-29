@@ -9,5 +9,5 @@ dialogue = [
   (mentor_centered, "Magic exists in the real world and it is called computer science. Programs are spells, made by combining simple things in complex ways. Show someone a program that adds and multiplies numbers in just the right way and they will see a character jumping around an endless green landscape, full of opportunity.
 
 If you learn the magic, the computer becomes a portal to a place where anything is possible."),
-  (mentor_centered, "This first level is a simple introduction to circuits. The board has an input, an output and a wire in between. Simply turn on the input in the left hand menu to complete the level."),
+  (mentor_centered, "This first level of the game is a simple introduction to circuits. The board has an input, an output and a wire in between. Simply turn on the input in the left hand menu to complete the level."),
 ]

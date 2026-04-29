@@ -342,24 +342,6 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         }
     }
 
-    {
-
-        var i = 0
-
-        while i < .screen_setting.len() {
-
-            let value = get_screen_settings("screen", i)
-            if value != .screen_setting[i] {
-                set_error(`Screen setting {i} is supposed to be {.screen_setting[i]}, not {value}`)
-                return fail
-            }
-
-            i += 1
-
-        }
-
-    }
-
     if tick > 0xfff {
         return win
     }

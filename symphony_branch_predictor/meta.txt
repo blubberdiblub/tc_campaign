@@ -1,6 +1,0 @@
-kind = sequential
-title = "Branch predictor"
-size = 255
-background = 6
-copy_solution_to_foundry = "Symphony/Allegro/branch"
-dialogue = []

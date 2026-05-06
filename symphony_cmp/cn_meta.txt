@@ -1,0 +1,17 @@
+kind = combinational
+hint_kind = combinational
+title = "举一反三"
+size = 48
+copy_solution_to_foundry = "Symphony/cmp"
+background = 6
+dialogue = [
+  (mentor_centered, `在这一关里，你需要以三种不同方式比较两路 32 位输入的大小。每个结果都是一个 1 位的值，称为“标志位”（flag）。
+
+Flags:
+如果两路输入相等，则将最低位（bit 0）设为 1。
+如果在无符号模式下，第一路输入小于第二路输入，则将次低位（bit 1）设为 1。
+如果在有符号模式下，第一路输入小于第二路输入，则将第三位（bit 2）设为 1。
+
+如需学习如何制作 32 位元件，请参见“大步流星”关卡。`),
+]
+#ecb91c8ab82881d9bbbbb08e4639f3cb

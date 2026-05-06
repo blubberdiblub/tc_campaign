@@ -1,0 +1,2 @@
+[text text="更大的与门其实就是多个与门首尾相接。" size=37]
+#9336ddec3c855cb41d445dc038e5bef1

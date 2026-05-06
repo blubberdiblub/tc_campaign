@@ -1,0 +1,13 @@
+kind = combinational
+hint_kind = combinational
+title = "半加器"
+size = 30
+tick_past_fail = 4
+background = 5
+dialogue = [
+  (mentor_centered, "我们用数字丈量宇宙。所以你造的电脑必须学会计数。"),
+  (mentor_centered, "如果输入为 [OFF]，将它视作 [b]0[/b]，如果输入为 [ON]，将它视作 [b]1[/b]。以二进制方式将它们相加，使总和（SUM）为 [b]0[/b] 或 [b]1[/b]。
+
+与普通加法一样，如果结果不能用一位数来表示，将进位数（CARRY）设为 [b]1[/b]。"),
+]
+#dde753214fd461adc7f143939f5284a6

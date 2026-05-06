@@ -1,0 +1,32 @@
+
+def get_input(tick: Int) Input {
+
+    var x = tick
+    x ^= x << 7
+    x ^= x >> 9
+    x ^= x << 8
+    return Input {a: U8 x, b: U8 (x >> 8)}
+
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    let expected = (U8 input.a < U8 input.b)
+    let actual = (output.result != 0)
+
+    ui_set_text("description", `{U8 input.a} < {U8 input.b} 的结果是 {expected ? "[ON]" : "[OFF]"}。`)
+
+    if expected == actual {
+
+        if tick == 0xffff { 
+            return win
+        }
+
+    } else {
+
+        set_error(`{U8 input.a} {expected ? "" : "不"}比 {U8 input.b} 小。`)
+        return fail
+
+    }
+}
+#36c9d7b3bbbbc4627cd58cca5ddb85a1

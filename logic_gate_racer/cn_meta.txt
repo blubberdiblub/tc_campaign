@@ -1,0 +1,17 @@
+kind = combinational
+no_score = true
+title = "逻辑试炼"
+size = 30
+background = 5
+tick_past_fail = 4
+components_available = [com_off: -1, com_on: -1, com_not_bit: -1, com_nand_bit: -1, com_and_bit: -1, com_nor_bit: -1, com_or_bit: -1, com_xnor_bit: -1, com_xor_bit: -1]
+dialogue = [
+  (mentor_centered, "这一关的目的是在进入后续关卡之前，验证你是否真的已经掌握了基础布尔运算的规则。这对你顺利解决后续的问题是很有必要的。"),
+  (mentor_centered, `你需要在此针对几个给定的真值表依次构造对应的电路。点击左侧菜单里的“快速运行”按钮后，程序就会自动验证测例。如果你的电路通过了给定真值表的全部测例，此次测试结果就会标为 [ON]，否则会被标为 [OFF]。要通过这一关，你至少要获得四个通过标记（[ON]）。
+
+（注意，在这一关里，你只能使用一部分已解锁的逻辑门。——译注）`),
+]
+post_mortem = [
+    (mentor, `干得漂亮。既然你已经对基础的逻辑运算有了足够的理解，接下来就让我们开始逐步搭建属于你自己的电脑吧。不过在真正涉及计算机架构之前，我们首先还得了解数据存储和二进制算术的相关知识。道阻且长，不过也有伊人在水一方。`)
+]
+#5688cedf35ce0c740f4e6558d2df5e53

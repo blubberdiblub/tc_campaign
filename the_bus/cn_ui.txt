@@ -1,0 +1,2 @@
+[text id="description" text="搭建电路，实现将指定输入端的数值发送到指定输出端的功能。" size=37]
+#ad5737232523f832db74b95be9b0c726

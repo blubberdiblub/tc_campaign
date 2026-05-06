@@ -1,0 +1,26 @@
+def get_input(tick: Int) Input {
+
+    return Input {input: U3 tick}
+
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    var value = Int output.output
+
+    if value != 1 << tick {
+
+        set_error(`预期仅有第 {tick} 路输出为 [ON]。`)
+        return fail
+
+    }
+
+
+    if tick == 7 {
+
+        return win
+
+    }
+
+}
+#49096cafec7d9679e20bfb565819f628

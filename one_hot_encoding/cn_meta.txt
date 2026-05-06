@@ -1,0 +1,14 @@
+kind = combinational
+hint_kind = combinational
+title = "独热编码"
+size = 55
+remove_components = [com_decoder_1, com_decoder_2, com_decoder_3]
+unlocks_components = [com_splitter_word_2, com_splitter_word_4, com_splitter_word_8, com_maker_word_2, com_maker_word_4, com_maker_word_8, com_concatenator_2, com_concatenator_4, com_concatenator_8]
+background = 4
+dialogue = [
+  (mentor_centered, `本关里，你的电路要根据输入的数值，将对应的一路输出置为 [ON]。输出端的索引从 0 开始，因此需要激活的是第 N + 1 路输出。例如，如果输入的值为 7，那你需要将第 8 路输出置为 [ON] ，其它输出置为 [OFF]。
+
+本关的限制是，你最多只能使用 3 个元件。另外，你也不能使用之前解锁的译码器。
+`),
+]
+#0fce740659553c288aa612d2b654998a

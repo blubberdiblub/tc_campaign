@@ -1,0 +1,18 @@
+kind = combinational
+hint_kind = combinational
+title = "算术右移"
+size = 45
+unlocks_components = [com_asr]
+dialogue = [
+  (mentor_centered, `你上一关中搭建的电路是[b]逻辑[/b]右移器。将一个无符号整数逻辑右移 1 位等价于将其除以 2（向下取整）。对有符号整数，如果最高位是 [ON]，我们有时不希望其符号在右移后改变。因此，如果最高位是 [ON]，那么我们需要在左侧（最高位）补 1（[ON]）而非补 0（[OFF]）。这种操作称作[b]算术右移[/b]（arithmetic shift right），在汇编语言中通常用 [b]asr[/b] 表示。
+
+例如：[color=#e49f44]148 asr 3[/color]
+ [ON] [OFF] [OFF] [ON] [OFF] [ON] [ON] [OFF]
+结果为：
+|[ON] [ON] [ON]|[ON] [OFF] [OFF] [ON] [OFF]
+     ^
+我们在这几位插入 [ON]，而非 [OFF]。
+
+`),
+]
+#1778af9a1240787fc5dfa2dfa75ad341

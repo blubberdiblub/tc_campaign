@@ -1,0 +1,16 @@
+kind = misc
+no_score = true
+title = "二进制速算"
+size = 3000
+no_controls = true
+no_state_ui = true
+background = 5
+dialogue = [
+  (mentor_centered, `在这一关里，你要练习用二进制来表示整数。
+
+点击下方面板的数位可以将其反转。你需要让高电平 [ON] 数位的总和恰好等于给定的数值。
+
+为通过本关，你至少需要连续通过 3 级。
+`)
+]
+#ecfc2acc7edbcbdcca9b0f59dd3cb462

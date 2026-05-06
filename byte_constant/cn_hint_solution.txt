@@ -1,0 +1,2 @@
+[text text="164 在二进制下的表示是 1010 0100。"  size=37]
+#4c84b5423fb84cfaa4ceae2991e47d6a

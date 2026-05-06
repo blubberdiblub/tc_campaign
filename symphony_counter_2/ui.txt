@@ -1,1 +1,0 @@
-[text id="my_text" text="Create a 32 bit counter with a disable pin" size=36]

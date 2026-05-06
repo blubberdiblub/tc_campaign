@@ -1,0 +1,11 @@
+kind = combinational
+hint_kind = combinational
+title = "数字反转"
+size = 30
+unlocks_components = [com_neg]
+background = 5
+dialogue = [
+  (mentor_centered, "本关里，输入将被视作有符号整数（最高位为 -128）。请设计电路，从输入端读取数值，并输出其相反数（改变符号）。
+例如，4 对应的相反数是 -4，-9 对应的相反数是 9。"),
+]
+#e50abda5c8b233fac714980c827afa1a

@@ -1,0 +1,12 @@
+[text bold text="已使用组件数" x=600 y=80]
+[text id="count" bold text="0 / 3" x=600 y=110]
+
+[table id="table" full_history size=24 x=-100 spacing_x=4]
+"输入 1",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+"输入 2",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+"输入 3",        "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]"
+"输入 4",        "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]"
+"预期输出", "0",      "1",      "1",      "2",      "1",      "2",      "2",      "3",      "1",      "2",      "2",      "3",      "2",      "3",      "3",      "4"
+"当前输出", "",       "",       "",       "",       "",       "",       "",       "",       "",       "",       "",       "",       "",       "",       "",       ""
+[/table]
+#c7cdf1ed952651969284a6c24dfe0388

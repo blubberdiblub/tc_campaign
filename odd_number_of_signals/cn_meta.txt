@@ -1,0 +1,12 @@
+kind = combinational
+hint_kind = combinational
+title = "奇数计数技术"
+size = 30
+tick_past_fail = 16
+no_score = true
+background = 5
+unlocks_special = ["wire_color", "wire_comments"]
+dialogue = [
+  (mentor_centered, "用不超过 3 个元件搭建电路。仅在输入中为 [ON] 的数量为奇数时输出 [ON]。"),
+]
+#5bb75846ea65e294dfe606004e5f310c

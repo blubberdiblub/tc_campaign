@@ -1,0 +1,32 @@
+
+def get_input(tick: Int) Input {
+
+    var x = tick
+    x ^= x << 1
+    x ^= x >> 1
+    x ^= x << 2
+
+    return Input {flags: U3 x, condition: U4 (x >> 3)}
+
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    let match  = (Int input.condition & Int input.flags) > 0
+    let result = match != ((input.condition & 0b1000) > 0)
+
+    if Bool output.result != result {
+
+        set_error(`预期输出为 {U1 result}`)
+        return fail
+
+    }
+
+    if tick == 0xff {
+
+        return win
+
+    }
+
+}
+#047c2ee04504f09b847a4029e0a3b623

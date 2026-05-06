@@ -1,0 +1,9 @@
+kind = combinational
+hint_kind = combinational
+title = "二进制译码"
+size = 30
+unlocks_components = [com_decoder_1]
+dialogue = [
+  (mentor_centered, "搭建一个电路，根据输入信号，在 2 路输出中选择一路输出 [ON]。"),
+]
+#a8acff388ccc044f07362972f4c098ea

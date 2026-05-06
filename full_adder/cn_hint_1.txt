@@ -1,0 +1,2 @@
+[text text="进位（CARRY）仅在至少两路输入为 [ON] 时为 [ON]。" size=37]
+#503d4e7b6f999c0f73c711b7764a4de9

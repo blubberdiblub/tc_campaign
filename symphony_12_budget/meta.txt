@@ -2,10 +2,10 @@ kind = sequential
 title = "Fast Symphony"
 size = 255
 immutable_isa = true
-max_delay = 75
+max_delay = 175
 shared_data_folder = "symphony"
 dialogue = [
-    (mentor_centered, `The objective of this level is simple, reduce the delay of Symphony to 75 or below. Go back through previous levels and improve scores if you have to.`),
+    (mentor_centered, `The objective of this level is simple, reduce the delay of Symphony to 175 or below. Go back through previous levels and improve scores if you have to.`),
 ]
 post_mortem = [
     (mentor, `Amazing, you finished the game! Look how far you have come from the NAND gate. 

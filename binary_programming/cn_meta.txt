@@ -1,0 +1,13 @@
+kind = sequential
+title = "打孔计算器"
+tests = 32
+size = 128
+copy_solution_to_level = ["assembly_programming"]
+unlocks_pages = ["Assembly/Assembly Programming", "Assembly/Language Creation"]
+immutable_isa = true
+dialogue = [
+  (mentor_centered, `既然你已经搭建了属于你自己的电脑，那么下一步就是学习如何编程了。`),
+  (mentor_centered, `请单击程序存储器右上角的“编辑”按钮，用打孔卡片为你的电脑编写程序。这一关里，你的电脑需要读取一个输入并加 5，然后将结果发送到输出设备中（不必考虑溢出问题）。`),
+  (overture),
+]
+#84797315a51e048b9e0a1c417d881411

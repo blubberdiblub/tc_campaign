@@ -1,0 +1,9 @@
+[table id="table" size=27 x=-100 spacing_y=4]
+"输入 1",              "a",            "[right][ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
+"输入 2",              "b",            "[right][ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
+"输入进位",             "c",            "[right][ANY][/right]"
+"预期输出",       "a + b + c",    "[right]    [ANY]    [ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
+"当前输出",        "???",          "[right]    [ANY]    [ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
+"",                     "",             "[color=#E49F44][left]进位        总和[/left][/color]"
+[/table]
+#1127eb74b0cea8bdb99f8864ad56f89f

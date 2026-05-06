@@ -1,0 +1,10 @@
+kind = combinational
+hint_kind = combinational
+title = "2-4 译码器"
+size = 30
+unlocks_components = [com_decoder_2]
+tick_past_fail = 8
+dialogue = [
+    (mentor_centered, `存在两路输入时，输入信号共有 4 种组合。请搭建电路，根据输入，在 4 路输出中选择一路，输出 [ON]。注意其余三路输出必须同时输出低电平 [OFF]。`),
+]
+#c0b820885ff64a8bc89692c4dfd45659

@@ -1,0 +1,74 @@
+def get_input(tick: Int) Input {
+
+    return Input {instruction: U32 random(0xffffffff)}
+
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    let instruction     =  Int input.instruction
+    let mode            = (instruction >> 29) & 0b11
+    let opcode          = (instruction >> 24) & 0b1111
+    let dest            = (instruction >> 20) & 0b1111
+    let a               = (instruction >> 16) & 0b1111
+    let b               = (instruction >>  8) & 0b1111
+    let immediate       = (instruction >> 28) & 1
+    let immediate_value =  instruction & 0xffff
+
+    if Int output.mode != mode {
+
+        set_error(`Mode 应为 {mode}。`)
+        return fail
+
+    }
+
+    if Int output.opcode != opcode {
+
+        set_error(`Opcode 应为 {opcode}，而非 {output.opcode}。`)
+        return fail
+
+    }
+
+    if Int output.destination != dest {
+
+        set_error(`Destination 应为 {dest}。`)
+        return fail
+
+    }
+
+    if Int output.argument_a != a {
+
+        set_error(`Arg A 应为 {a}。`)
+        return fail
+
+    }
+
+    if Int output.argument_b != b {
+
+        set_error(`Arg B 应为 {b}。`)
+        return fail
+
+    }
+
+    if Int output.is_immediate != immediate {
+
+        set_error(`'Is immediate' 应为 {immediate}。`)
+        return fail
+
+    }
+
+    if Int output.immediate_value != immediate_value {
+
+        set_error(`Immediate value 应为 {immediate_value}。`)
+        return fail
+
+    }
+
+    if tick == 0xffff {
+
+        return win
+
+    }
+
+}
+#eae1a818149594564c5609d8cad56a35

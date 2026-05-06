@@ -1,0 +1,9 @@
+[table id="table" full_history size=24 x=-45 _0="[OFF]" _1="[ON]" _z="[ANY]" spacing_x=4]
+"输入 1",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+"输入 2",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+"输入 3",        "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]"
+"输入 4",        "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]"
+"预期输出",      "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]"
+"当前输出"
+[/table]
+#8ac15b435250463db463a9f7cee8b0f8

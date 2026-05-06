@@ -1,0 +1,2 @@
+[text text="这样一来问题就变成了如何实现与门，或者“非”“与非”（NOT-NAND）门。" size=37]
+#5d4c0ac1ebf69deb850402bf9df129c9

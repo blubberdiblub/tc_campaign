@@ -1,0 +1,12 @@
+kind = combinational
+hint_kind = combinational
+no_score = true
+title = "或非门（NOR）"
+size = 30
+unlocks_components = [com_nor_bit]
+tick_past_fail = 4
+background = 4
+dialogue = [
+  (mentor_centered, "请搭建电路，实现给定的真值表。"),
+]
+#65a9da42299f76d97ecad3cb8896defb

@@ -1,0 +1,29 @@
+
+def get_input(tick: Int) Input {
+
+    var x = tick + 0xffb0
+    x ^= x << 7
+    x ^= x >> 9
+    x ^= x << 8
+
+    return Input {a: U8 (x >> 8), b: U8 x}
+
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    let result = input.a / input.b
+
+    ui_set_text("description", `{input.a} / {input.b} = {result}`)
+
+    if result & 0xff != output.result & 0xff {
+        set_error(`{input.a} 除以 {input.b}，商应为 {result}`)
+        return fail
+    }
+
+    if tick == 0xffff { 
+        return win
+    }
+
+}
+#8f74a790b1744c8366e8ca0c0e9eabe6

@@ -1,0 +1,2 @@
+[text id="description" text="搭建 Symphony 架构的指令译码器" size=36]
+#a225c57583c82f01154af8543c1a55ce

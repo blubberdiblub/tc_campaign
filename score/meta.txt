@@ -1,6 +1,6 @@
 kind = combinational
 hint_kind = combinational
-title = "Objective beauty"
+title = "Score"
 max_delay = 10
 max_gate = 40
 size = 46

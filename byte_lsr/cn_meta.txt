@@ -1,0 +1,28 @@
+kind = combinational
+hint_kind = combinational
+title = "逻辑右移"
+size = 45
+unlocks_components = [com_lsl, com_lsr, com_rol, com_ror]
+copy_solution_to_level = ["byte_asr"]
+dialogue = [
+  (mentor_centered, `将数字“右移”一位的意思是将每一个二进制位向右（低位方向）移动一位，并在左侧补 0。
+
+更准确地讲，这个操作叫[b]逻辑右移[/b]（logical right shift），在汇编语言中通常用 [b]lsr[/b] 表示。
+
+例如：[b]180 lsr 1[/b]
+
+[ON] [OFF] [ON] [ON] [OFF] [ON] [OFF] [OFF] 右移 1 位：
+[OFF] [ON] [OFF] [ON] [ON] [OFF] [ON] [OFF]
+
+又例如：[b]180 lsr 3[/b]
+[ON] [OFF] [ON] [ON] [OFF] [ON] [OFF] [OFF] 右移 3 位：
+[OFF] [OFF] [OFF] [ON] [OFF] [ON] [ON] [OFF]
+
+`),
+  (mentor_centered, `本关的任务是搭建一个电路，根据第二路输入的数值，将第一路输入右移对应的位数。
+`),
+]
+post_mortem = [
+    (mentor, `你已经解锁了逻辑右移器。我们为你附送了一个逻辑左移器。`),
+]
+#e3e25f7a82fa6fad6959da743421c1de

@@ -1,0 +1,19 @@
+def get_input(tick: Int) Input {
+
+    return Input {input: U2 tick}
+
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    if Int output.output != (1 << tick) {
+        set_error(`预期只有第 {tick} 路输出为 [ON]。`)
+        return fail
+    }
+
+    if tick == 3 {
+        return win
+    }
+
+}
+#cc84eb4fefebc90d030e0880934fb603

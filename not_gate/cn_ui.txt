@@ -1,0 +1,6 @@
+[table id="table" full_history size=33 x=-100 _0="[OFF]" _1="[ON]" _z="[ANY]"]
+"输入",     "[OFF]",  "[ON]"
+"预期输出", "[ON]",   "[OFF]"
+"当前输出"
+[/table]
+#0e7805c00de07cd3f8499047d99f0fa9

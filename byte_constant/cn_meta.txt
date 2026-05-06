@@ -1,0 +1,10 @@
+kind = combinational
+hint_kind = combinational
+title = "整型常量"
+size = 32
+unlocks_components = [com_constant]
+background = 4
+dialogue = [
+  (mentor_centered, "搭建一个电路，让它始终输出 164。")
+]
+#0e56dcda0f24fe9a94d8982fcb23efcb

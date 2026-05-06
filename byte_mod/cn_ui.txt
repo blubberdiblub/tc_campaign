@@ -1,0 +1,2 @@
+[text id="description" text="对两路输入模余" size=37]
+#e03c1b0b6fd7873bf9f071f60288a849

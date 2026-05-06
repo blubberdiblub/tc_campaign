@@ -1,0 +1,15 @@
+[text text="[b]期望存储态[/b]" x=-420 y=-68 color=0xE49F44FF]
+
+[table id="states" size=27 x=-400 v_align=bottom y=90 spacing_y=4]
+"",                                 "[color=#E49F44][b]   0   [/b][/color]",   "[color=#E49F44][b]   1   [/b][/color]"
+"[color=#E49F44][b]A[/b][/color]",  "0",                                       "0"
+"[color=#E49F44][b]B[/b][/color]",  "0",                                       "0"
+[/table]
+
+[table id="actions" size=27 x=300 v_align=bottom y=90 spacing_y=4 spacing_x=0]
+"",                                      "",       "[color=#E49F44][b]地址[/b][/color]",   "[color=#E49F44][b]   值   [/b][/color]"
+"",                                      "",       "[color=#E5787D][b]A/B 0/1[/b][/color]",          "[color=#E5787D][b]Z[/b][/color]"
+"[color=#E49F44][b]读取 [/b][/color]",   "[ANY]",  "[right] 从 ?? [/right]",                   "[left]读取 ???[/left]"
+"[color=#E49F44][b]写入 [/b][/color]",   "[ANY]",  "[right] 向 ?? [/right]",                   "[left]写入 ???[/left]"
+[/table]
+#9b8cba6b7cc08a4403b2ade7544aa0d6

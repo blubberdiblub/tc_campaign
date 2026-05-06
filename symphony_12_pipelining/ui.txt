@@ -1,4 +1,0 @@
-[disassembly_table id="table" size=24 x=-50]
-"",             "[b]Stage 1 Fetch[/b]", "[b]Stage 2 Decode[/b]", "[b]Stage 3 Execute[/b]"
-"Pipeline"
-[/disassembly_table]

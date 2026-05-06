@@ -1,0 +1,2 @@
+[text id="description" text="搭建用于 Symphony 架构的比较标志判定组件" size=36]
+#39f81258b0e9b64f255f21fb073621e2

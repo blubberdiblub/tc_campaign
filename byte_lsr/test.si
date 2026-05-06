@@ -14,13 +14,21 @@ def get_binary_repr(value: Int, size: Int) String {
 
 def get_input(tick: Int) Input {
 
-    let a = random(256)
-    let b = random(8)
+    var x = tick
+    x ^= x << 6
+    x ^= x >> 5
+    x ^= x << 7
 
-    ui_set_text("table[0][1]", `{b}`)
-    ui_set_text("table[1][1]", get_binary_repr(a, 8))
+    let input = Input {
+        input: U8 x,
+        shift: U3 (x >> 8),
+    }
 
-    return Input {input: U8 a, shift: U3 b}
+    ui_set_text("table[0][1]", `{input.shift}`)
+    ui_set_text("table[1][1]", get_binary_repr(Int input.input, 8))
+
+    return input
+
 }
 
 def check_output(tick: Int, input: Input, output: Output) TestResult {
@@ -36,7 +44,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         return fail
     }
 
-    if tick == 0xffff {
+    if tick == 2048 {
         return win
     }
 

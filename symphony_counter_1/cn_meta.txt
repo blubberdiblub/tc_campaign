@@ -1,0 +1,17 @@
+kind = sequential
+title = "大步流星"
+size = 48
+background = 6
+copy_solution_to_level = ["symphony_counter_2"]
+copy_solution_to_foundry = "Symphony/count"
+dialogue = [
+    (mentor_centered, `本关里，你需要搭建一个 32 位的计数器，其中存储的值每个时钟刻增加 4。和以前一样，你需要为计数器配备一个写入功能，可以按需擦写其中的数值。
+
+此外，你还需要将电路自带的存储器探针链接到电路中的一个 32 位的寄存器上。`),
+    (mentor_centered, `要改变一个元件的位宽，你需要使用左侧菜单中的“设置位宽”工具（其图标是一个双向箭头，下面有一个数字）。
+
+右键单击这个按钮即可调整要设置的位宽值。
+选中这个工具后，左键单击电路中的元件，即可为元件设定对应的位宽。
+除此以外，你在电路中新添加的所有整型元件的默认位宽都是这个工具当前使用的位宽。`),
+]
+#1b78923acaf94dc27ed470b3418914ab

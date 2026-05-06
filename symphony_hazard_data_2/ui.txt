@@ -1,2 +1,0 @@
-[text id="description_a" text="Check if we can execute both instructions simultaniously" size=36]
-[text id="description_b" text="" size=36 y=110]

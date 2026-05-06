@@ -1,0 +1,18 @@
+kind = sequential
+title = "优雅存储"
+size = 30
+unlocks_components = [com_register_bit]
+tick_past_fail = 13
+background = 1
+dialogue = [
+  (mentor_centered, "延迟线允许我们将一个输入值暂存 1 刻。不过一个能将输入值保存更长时间的元件会更有用。
+
+我们希望你能搭建这么一个元件。"),
+  (mentor_centered, "本关有两个输入。
+第一个输入为 [ON] 时，你需要用新的数据覆盖已存储的数据。
+第二个输入端的数值是需要写入的数据。
+输出端需要始终输出当前存储器中保存的数值。
+
+"),
+]
+#85b7c1b63ebe186174957f7f636acad9

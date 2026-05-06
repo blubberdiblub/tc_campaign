@@ -1,0 +1,3 @@
+[text text="我们用3-8译码器代替2-4译码器，实现功能扩充。" size=33 y=-25]
+[text text="注意，A 减 B（A SUB B）即为 A 加负 B（A ADD (NEG B)）。" size=33 y=25]
+#c127dc5a7d9b3f115e52d728b5c496d3

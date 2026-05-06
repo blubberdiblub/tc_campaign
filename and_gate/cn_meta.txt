@@ -1,0 +1,12 @@
+kind = combinational
+hint_kind = combinational
+no_score = true
+title = "与门（AND）"
+size = 30
+unlocks_components = [com_and_bit]
+tick_past_fail = 4
+dialogue = [
+  (mentor_centered, "请搭建一个与给定真值表匹配的电路。
+[tip]多数关卡都自带提示（上方的灯泡按钮）。如果你卡关了，不妨看看这些提示。[/tip]"),
+]
+#5202f97d8c2ee82fcbc49ba1148ffc1f

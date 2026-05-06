@@ -1,0 +1,53 @@
+
+def get_input(tick: Int) Input {
+    var x = tick
+    x ^= x << 7
+    x ^= x >> 9
+    x ^= x << 8
+
+    let input = Input {
+        select: U1 (x >> 16),
+        a: U8 x,
+        b: U8 (x >> 8),
+    }
+
+    var text = ""
+    if input.select == 0 {
+        text = "[OFF]"
+    } else {
+        text = "[ON]"
+    }
+
+    ui_set_text("table[0][1]", text)
+    ui_set_text("table[1][1]", `{input.a}`)
+    ui_set_text("table[2][1]", `{input.b}`)
+    ui_set_text("table[3][1]", `选通输入 {1 + input.select}`)
+
+    return input
+
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+    
+    var correct = input.a
+    if input.select == 1 {
+        correct = input.b
+    }
+
+    ui_set_text("table[4][1]", `{correct}`)
+    if output.output_is_z {
+        ui_set_text("table[5][1]", "[ANY]")
+    } else {
+        ui_set_text("table[5][1]", `{output.output}`)
+    }
+    
+    if output.output == correct {
+        if tick == 0xffff {
+            return win
+        }
+    } else {
+        return fail
+    }
+
+}
+#425835d97adde346e36830a42648156b

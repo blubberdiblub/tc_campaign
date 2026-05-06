@@ -1,0 +1,9 @@
+[table size=33 x=-50 y=-55]
+"输入 1",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+"输入 2",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+"预期输出", "[OFF]",  "[ON]",   "[ON]",   "[OFF]"
+[/table]
+
+[text text="由真值表可知，当两路输入不同（[ON][OFF] 或 [OFF][ON]）时，" size=33 y=65]
+[text text="输出为 [ON]。" size=33 y=115]
+#9dafcf06575497c5b94cfba2b89ebe35

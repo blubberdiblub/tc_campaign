@@ -1,0 +1,9 @@
+kind = combinational
+hint_kind = combinational
+title = "模余器"
+size = 255
+unlocks_components = [com_mod]
+dialogue = [
+  (mentor_centered, "搭建一个电路，让它能将两路整数输入相除，并输出余数。如果除数为零，我们规定余数等于被除数。注意，这一关是可选关卡，因为它的难度较高。"),
+]
+#1abccdedb0008e089d593eb3457dbb3d

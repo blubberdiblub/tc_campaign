@@ -5,7 +5,7 @@ title = "The foundry"
 size = 128
 background = 6
 unlocks_pages = ["Circuits/The foundry"]
-unlocks_components = [com_probe_wire_bit, com_probe_wire_word, com_probe_memory_bit, com_probe_memory_word, com_static_value, com_static_eval]
+unlocks_components = [com_probe_wire_bit, com_probe_wire_word, com_probe_memory_bit, com_probe_memory_word]
 dialogue = [
   (mentor_centered, "Welcome to the foundry, the circuits you create in here will be usable as components in architectures.
 The circuitry you create defines the behavior of the component and the layout defines its shape."),

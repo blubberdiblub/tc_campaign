@@ -1,0 +1,3 @@
+[text text="进位（CARRY）仅在两路输入都为 [ON] 时为 [ON]。" size=33 y=-25]
+[text text="总和（SUM）的计算与“奇数计数技术”这一关的思路类似。" size=33 y=25]
+#3544071e813c9b6da4fd2b548dc0a761

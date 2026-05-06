@@ -1,0 +1,10 @@
+kind = combinational
+hint_kind = combinational
+title = "整型异或"
+size = 32
+unlocks_components = [com_xor_word, com_xnor_word]
+background = 4
+dialogue = [
+  (mentor_centered, "搭建一个电路，对两路整数输入执行按位异或运算。")
+]
+#e151db368d43c58835c8fb4812488a69

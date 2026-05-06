@@ -1,0 +1,8 @@
+[table size=33 y=-40]
+"输入 1",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+"输入 2",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+"XOR",            "[OFF]",  "[ON]",   "[ON]",   "[OFF]"
+[/table]
+
+[text text="可以看出，异或门正是我们需要的东西。" size=33 y=95]
+#6e0499815b46a487d190a64ec9c112fa

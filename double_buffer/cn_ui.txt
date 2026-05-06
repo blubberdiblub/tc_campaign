@@ -1,0 +1,6 @@
+[table id="table" full_history size=33 x=-20 _0="[OFF]" _1="[ON]" _z="[ANY]"]
+"输入",          "[OFF]",  "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]"
+"期望输出",      "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]"
+"当前输出"
+[/table]
+#01c20bc19eb0f2ddb04202b03cf50717

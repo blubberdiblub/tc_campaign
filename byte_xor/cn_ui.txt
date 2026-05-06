@@ -1,0 +1,2 @@
+[text id="description" text="搭建一个电路，对两路整数输入执行按位异或运算。" size=37]
+#f91df7854b27f2f610981e41ec0ba8f5

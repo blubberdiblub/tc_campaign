@@ -1,0 +1,16 @@
+kind = combinational
+hint_kind = combinational
+title = "单字节与非"
+size = 30
+unlocks_components = [com_nand_word]
+background = 5
+dialogue = [
+  (mentor_centered, "对输入的两个字节的数据进行按位与非（NAND）操作并输出结果。
+
+例如：
+输入 1 [ON][ON][OFF][OFF][OFF][ON][OFF][OFF]
+输入 2 [OFF][OFF][OFF][OFF][ON][ON][OFF][OFF]
+输出   [ON][ON][ON][ON][ON][OFF][ON][ON]
+"),
+]
+#81d0cc739743c0ad00dc55c2b3a8073c

@@ -1,0 +1,41 @@
+kind = misc
+no_score = true
+title = "十六进制速算"
+size = 3000
+no_controls = true
+no_state_ui = true
+background = 5
+unlocks_special = ["hex_numbers"]
+dialogue = [
+  (mentor_centered, "当数位很多时，二进制数的可读性会变差，十六进制（hexadecimal）则会更加简明易读。十六进制下，每个数位代表 4 个二进制位：
+
+0 [OFF][OFF][OFF][OFF]
+1 [OFF][OFF][OFF][ON]
+2 [OFF][OFF][ON][OFF]
+3 [OFF][OFF][ON][ON]
+4 [OFF][ON][OFF][OFF]
+5 [OFF][ON][OFF][ON]
+6 [OFF][ON][ON][OFF]
+7 [OFF][ON][ON][ON]
+8 [ON][OFF][OFF][OFF]
+9 [ON][OFF][OFF][ON]
+A [ON][OFF][ON][OFF]
+B [ON][OFF][ON][ON]
+C [ON][ON][OFF][OFF]
+D [ON][ON][OFF][ON]
+E [ON][ON][ON][OFF]
+F [ON][ON][ON][ON]
+
+下面我们举一个例子，来说明十六进制数更加简明。让我们看看最大的 16 位二进制数在不同进制下是怎样表示的：
+
+二进制  ： 1111111111111111
+十进制  ： 65535
+十六进制： FFFF
+
+在十进制和二进制的转换中，想要发现数位丢失或者写错数值等错误是很难的。但是只要你对十六进制数足够熟悉，在十六进制和二进制的转换中，类似的问题是很容易定位的。"),
+  (mentor_centered,  "点击下方面板的数位可以将其反转。你需要让高电平 [ON] 数位的总和恰好等于给定的十六进制数值。
+
+为通过本关，你至少需要连续通过 3 级。
+"),
+]
+#3f1d1dca3c6a9dfdbe55af77ea88df2f

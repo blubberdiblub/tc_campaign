@@ -1,0 +1,13 @@
+kind = combinational
+hint_kind = combinational
+no_score = true
+title = "循环依赖"
+size = 30
+unlocks_pages = ["Circuits/Circular dependency"]
+background = 5
+dialogue = [
+  (mentor_centered,  '请尝试搭建一个“循环依赖”的电路。这个电路的输入依赖于它自身的输出。当发生循环依赖时，我们可能会很难确定元件产生的输出，因为你需要首先确定输入是怎样的，但要确定输入又需要先确定元件的输出，……所谓“循环”指的就是这种套娃式的依赖关系。
+
+这种状态在本游戏其它所有关卡中都是不允许出现的，只有本关例外。本关的目标恰是需要你构造这样一个电路，这样你在进入下一关以前就会对这一情形有更深入的了解。'),
+]
+#91365cdf115169e26e479e2f7d3e7875

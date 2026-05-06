@@ -1,0 +1,41 @@
+kind = sequential
+immutable_isa = true
+no_score = true
+title = "川流不息"
+size = 50
+copy_solution_to_level = ["overture_2_alu"]
+dialogue = [
+  (mentor_centered, `是时候开始你的主线项目了。从现在开始，一步步搭建 [color=#e49f44]Overture[/color] 计算机架构吧。它是一台图灵完备的机器，是当之无愧的计算机！`),
+  (mentor_centered, `本关里，你需要搭建一个电路，使之能够将数据从[color=#c54d5e]源[/color]复制到[color=#e49f44]目标[/color]。
+
+这一关中，指令字节中的某些二进制位将指定[color=#c54d5e]源[/color]和[color=#e49f44]目标[/color]寄存器。
+
+其中，第 1 ~ 3 位指定[color=#e49f44]目标[/color]。第 4 ~ 6 位指定[color=#c54d5e]源[/color]。`),
+
+  (mentor_centered, `[color=#c54d5e]源[/color]和[color=#e49f44]目标[/color]可以是 6 个寄存器中的任意一个，我们依次将其命名为寄存器 0 （REG 0）到寄存器 5（REG 5）。 
+  
+此外，电路图中有一个输入组件，可以作为[color=#c54d5e]源[/color]；还有一个输出组件，可以作为[color=#e49f44]目标[/color]。`),
+  (mentor_centered, `以下两表分别给出了指令中的[color=#c54d5e]源[/color]及[color=#e49f44]目标[/color]所指代的存储位置：
+
+[color=#c54d5e]源[/color]:
+[OFF] [OFF] [OFF]  REG 0（0 号寄存器）
+[OFF] [OFF] [ON]  REG 1（1 号寄存器）
+[OFF] [ON] [OFF]  REG 2（2 号寄存器）
+[OFF] [ON] [ON]  REG 3（3 号寄存器）
+[ON] [OFF] [OFF]  REG 4（4 号寄存器）
+[ON] [OFF] [ON]  REG 5（5 号寄存器）
+[ON] [ON] [OFF]  INPUT（输入组件）
+[ON] [ON] [ON]  UNUSED（未使用）
+
+[color=#e49f44]目标[/color]:
+[OFF] [OFF] [OFF]  REG 0（0 号寄存器）
+[OFF] [OFF] [ON]  REG 1（1 号寄存器）
+[OFF] [ON] [OFF]  REG 2（2 号寄存器）
+[OFF] [ON] [ON]  REG 3（3 号寄存器）
+[ON] [OFF] [OFF]  REG 4（4 号寄存器）
+[ON] [OFF] [ON]  REG 5（5 号寄存器）
+[ON] [ON] [OFF]  OUTPUT（输出组件）
+[ON] [ON] [ON]  UNUSED（未使用）`),
+  (overture),
+]
+#eff6070c7591388ddec22e0bee0b20c9

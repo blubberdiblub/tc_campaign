@@ -1,2 +1,0 @@
-[text id="pointer" text="v" size=33 y=100]
-[text id="text" text="" size=33 y=120]

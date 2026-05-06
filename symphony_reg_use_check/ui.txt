@@ -1,1 +1,0 @@
-[disassembly_text size=33 default_text="Detect register use" width=1000]

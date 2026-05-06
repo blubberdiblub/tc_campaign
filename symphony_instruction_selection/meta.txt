@@ -1,9 +1,0 @@
-kind = sequential
-title = "Instruction selection"
-copy_solution_to_foundry = "Symphony/Allegro/out_of_order/select"
-size = 255
-background = 6
-dialogue = [(mentor_centered, "
-
-"),
-]

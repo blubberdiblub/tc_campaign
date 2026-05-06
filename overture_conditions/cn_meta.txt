@@ -1,0 +1,23 @@
+kind = combinational
+hint_kind = combinational
+immutable_isa = true
+title = "条件判断"
+size = 48
+copy_solution_to_foundry = "Overture/Cond"
+background = 6
+dialogue = [
+  (mentor_centered, "这个关卡的输入包括一个 8 位数值和一个 3 位的条件码。
+
+条件码的含义如下表所示。你需要判断输入的数值是否满足给定条件，如果判断成立则输出 [ON]，否则输出 [OFF]。
+
+条件码：     以下条件满足时，给出 [ON]：
+[OFF] [OFF] [OFF]    Never（永不成立）
+[OFF] [OFF] [ON]    Always（必定成立）
+[OFF] [ON] [OFF]    value = 0
+[OFF] [ON] [ON]    value ≠ 0
+[ON] [OFF] [OFF]    value < 0
+[ON] [OFF] [ON]    value ≥ 0
+[ON] [ON] [OFF]    value ≤ 0
+[ON] [ON] [ON]    value > 0"),
+]
+#be96f4676fb8047dac585e77048900f6

@@ -1,0 +1,6 @@
+[table id="table" size=27 x=-60 spacing_y=4]
+"输入",                "???",    "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"预期输出",            "???",    "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"当前输出",            "???",    "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+[/table]
+#2af9a77efca1cbf38040d52918a19ae9

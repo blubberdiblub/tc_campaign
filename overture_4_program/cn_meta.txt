@@ -1,0 +1,13 @@
+kind = sequential
+immutable_isa = true
+no_score = true
+title = "程序"
+size = 128
+copy_solution_to_level = ["overture_5_conditionals"]
+unlocks_components = [com_load_port, com_store_port]
+delete_immutables_by_label = ["instruction"]
+dialogue = [
+  (mentor_centered, `指令输入组件已经被移除，从这一关开始，我们使用包含一段程序的内存（RAM）组件来替换它。这是一个带读取端口的存储器。当读取端口启用时，它会向输出引脚发送 RAM 中指定地址的数据。请使用计数器元件，让你的电路在每一刻从程序存储器中自动读取下一条指令。这个计数器称作程序计数器（program counter，缩写为 PC）。`),
+  (overture),
+]
+#8b01d24594b1b06797b36377ca1e9935

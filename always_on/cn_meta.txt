@@ -1,0 +1,16 @@
+kind = combinational
+hint_kind = combinational
+no_score = true
+title = "长明灯"
+size = 30
+unlocks_components = [com_on, com_off]
+tick_past_fail = 2
+unlocks_pages = ["Computer concepts/De Morgan's laws"]
+dialogue = [
+  (mentor_centered, "请搭建一个始终输出 [ON] 的电路。"),
+]
+post_mortem = [  
+    (mentor_centered, `你刚刚在这一关里解锁了第一个手册页面。这个页面非常重要，请确保你能明白其中的内容。`),
+    (manual, "Computer concepts/De Morgan's laws"),
+  ]
+#b654281cc40e771f422c6de2b197a68a

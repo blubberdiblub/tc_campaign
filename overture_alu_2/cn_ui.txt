@@ -1,0 +1,8 @@
+[table id="table" size=27 x=-100 spacing_y=4]
+"操作码（Opcode）",           " OP ",       "[ANY][ANY][ANY]"
+"输入 1",          "a",            "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"输入 2",          "b",            "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"预期输出",   "???",          "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"当前输出",   "???",          "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+[/table]
+#64b0695042e19a921859383d94be6945

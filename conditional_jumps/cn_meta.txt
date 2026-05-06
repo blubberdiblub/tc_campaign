@@ -1,0 +1,28 @@
+kind = architecture
+title = "条件跳转"
+tests = 42
+size = 255
+no_score = true
+dialogue = [
+  (mentor_centered, `这一关的目的是让你了解汇编语言中跳转指令和标签的用法。
+
+跳转指令是专门用于覆写程序计数器的指令。
+
+向程序计数器中写入特定的地址，意味着下一刻程序将“跳跃”到这个地址对应的代码处运行，而不是通常的步进运行。
+`),
+  (mentor_left, `你每次插入或删除一条汇编指令时，后续指令的地址都会随之发生变化。如果你只能让程序跳转到固定的地址，那你可能需要重新计算跳转地址，才能让跳转目标处的指令保持不变。
+
+你可以使用“标签”（[color=#66ccff]label[/color]）这种语言特性来简化跳转地址的计算。标签本质上是一个常数，它的值就是自身所在的指令地址，并会随汇编代码的改变而自动更新。例如：
+
+[box][color=#66ccff]my_label[/color]:     [color=#aaaaaa]; This is a label[/color]
+[color=#9966ff]imm[/color] [color=#66ccff]my_label[/color]  [color=#aaaaaa]; Load the offset of the label[/color]
+[/box]
+
+上述代码中，my_label 是第一行代码，它所在的地址为 0，因此 imm 指令会将 0 作为立即数放入寄存器中，供后续的跳转指令使用。
+  `),
+  (mentor_centered, "要完成这一关，请你编写一段代码，反复地读取输入，直到读入的数字是 37 为止。 
+
+然后请向输出设备发送你读取输入的总次数。"),
+
+]
+#15f6c48ef4c4b792da0a3300d2d2f985

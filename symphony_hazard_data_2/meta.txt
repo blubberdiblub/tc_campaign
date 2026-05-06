@@ -1,9 +1,0 @@
-kind = sequential
-title = "Data hazard 2"
-size = 48
-max_delay = 64
-background = 6
-copy_solution_to_foundry = "Symphony/Allegro/hazard/haz_data"
-dialogue = [
-    (mentor, ``),
-]

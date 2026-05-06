@@ -1,0 +1,10 @@
+kind = combinational
+hint_kind = combinational
+title = "三路与门"
+size = 30
+unlocks_components = [com_and_3_bit]
+tick_past_fail = 8
+dialogue = [
+  (mentor_centered, "搭建一个有三路输入的与门（AND）。"),
+]
+#43fc0ea5570dd77f838f171ed257e7f5

@@ -1,0 +1,41 @@
+var memory      = U8 0
+var next_memory = U8 0
+
+
+def get_input(tick: Int) Input {
+
+    .memory = .next_memory
+    
+    var action = random(4)
+    var num    = U8 random(0x100)
+
+    if tick == 0 {
+        action = 1
+    }
+
+    var save = 0
+
+    if (action & 1) != 0 {
+
+        save = 1
+        .next_memory = num
+
+    }
+
+    return Input {save: U1 save, input: U8 num}
+
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    if output.output != .memory {
+        set_error(`预期输出为 {.memory}。`)
+        return fail
+    }
+
+    if tick == 0xffff {
+        return win
+    }
+
+}
+#f600fc529ff441cc7008ac1bbe9004c3

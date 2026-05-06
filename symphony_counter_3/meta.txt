@@ -1,9 +1,0 @@
-kind = sequential
-title = "Superscalar counting"
-size = 48
-background = 6
-max_delay = 35
-copy_solution_to_foundry = "Symphony/Allegro/superscalar/count"
-dialogue = [
-    (mentor_centered, `Build a counter that can increment by 0, 4 or 8, based on how many instructions are executing. You can use the cnt_inc component you already built.`),
-]

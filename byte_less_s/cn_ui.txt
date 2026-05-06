@@ -1,0 +1,2 @@
+[text id="description" text="搭建一个电路，当第一路输入严格小于第二路输入时，输出 [ON]。" size=37]
+#96c8f3a4814b251adb615f9ef1e264f0

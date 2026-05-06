@@ -1,0 +1,40 @@
+
+def get_input(tick: Int) Input {
+
+    return Input {input: U8 tick}
+
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    let count = clz(input.input) - 56
+    
+    if count != output.result {
+
+        if output.result_is_z {
+
+            set_error(`输出不应为空（高阻态）。`)
+
+        } elif count == 1 {
+
+            set_error(`{input.input}（0b{bin(8, Int input.input)}）中有 1 个前导零。`)
+
+        } else {
+
+            set_error(`{input.input}（0b{bin(8, Int input.input)}）中有 {count} 个前导零。`)
+
+        }
+
+        return fail
+
+    }
+
+
+    if tick == 0x100 {
+
+        return win
+
+    }
+
+}
+#51eaff34f8eaccbbb99f442bdbfdef7c

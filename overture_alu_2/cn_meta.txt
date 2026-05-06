@@ -1,0 +1,22 @@
+kind = combinational
+hint_kind = combinational
+title = "算术逻辑单元（ALU）"
+size = 48
+copy_solution_to_level = ["symphony_alu"]
+copy_solution_to_foundry = "Overture/ALU"
+unlocks_pages = ["Circuits/The Foundry"]
+background = 6
+next_level = "foundry"
+dialogue = [
+  (mentor_centered, "向你的电路中加入加法和减法功能，实现算术逻辑单元（ALU）。
+
+指令表：
+
+[color=#87a8c8]0 NAND（按位与非）
+1 OR（按位或）
+2 AND（按位与）
+3 NOR（按位或非）
+4 ADD（加法）
+5 SUB（减法）[/color]"),
+]
+#a45c5bd4fa7161ba580bd2083a54de43

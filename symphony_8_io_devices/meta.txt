@@ -12,7 +12,7 @@ dialogue = [
 
 Also link the screen to the RAM component named "Main Memory".
 `)
-    (mentor_centered, `So far IO mode has had only 3 instructions, but now it is time to add several more. These are the opcodes for the full list of IO instructions:
+    (mentor_left, `So far IO mode has had only 3 instructions, but now it is time to add several more. These are the opcodes for the full list of IO instructions:
 
 0  nop       Do nothing
 1  in        Input

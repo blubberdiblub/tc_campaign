@@ -1,0 +1,7 @@
+[table id="table" size=27 x=-50 spacing_y=4]
+"指令",      "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"工作模式",     "???"
+"预期输出",   "[ANY][ANY][ANY][ANY]"
+"当前输出",   "[ANY][ANY][ANY][ANY]"
+[/table]
+#dac3021f8b1b9b2c8c8d3a509cb567b6

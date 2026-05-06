@@ -1,0 +1,2 @@
+[text id="description" text="将两路输入相除" size=37]
+#d0005e23e1c29aae0383ba09a6669476

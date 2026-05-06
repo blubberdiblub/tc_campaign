@@ -1,0 +1,13 @@
+kind = combinational
+hint_kind = combinational
+title = "3-8 译码器"
+size = 30
+unlocks_components = [com_decoder_3]
+tick_past_fail = 8
+dialogue = [
+    (mentor_centered, `输入 3 位信号时，可能的取值共有 8 种。请搭建电路，根据输入，在 8 路输出中选择一路，输出 [ON]。注意其余七路输出必须同时输出低电平 [OFF]。`),
+]
+post_mortem = [
+    (mentor, `我们让一个实习生给这个元件添加了一个“禁用”引脚。我们看他之前的工作已经干腻了，所以给他安排了另外一个无聊的活。`)
+]
+#a54a1214b377a992131afe0d890dca01

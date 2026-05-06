@@ -1,0 +1,2 @@
+[text id="my_text" text="搭建一个位宽为 32、步进量为 4 的计数器。" size=36]
+#56002c10820afadef4d22057b284fa3b

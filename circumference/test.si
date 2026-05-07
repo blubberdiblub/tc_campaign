@@ -6,7 +6,7 @@ var size = random(41) + 1
 
 def arch_get_input(test: Int) Int {
 
-    ui_set_text("goal", `What is 6 × {.size}?`)
+    ui_set_text("goal", `What is 2π × {.size}?`)
     ui_set_hidden("note", false)
 
     return .size
@@ -15,7 +15,7 @@ def arch_get_input(test: Int) Int {
 def arch_check_output(test: Int, input: Int, output: Int) TestResult {
 
     if output != .size * 6 {
-        set_error(`6 × {.size} = {.size * 6}`)
+        set_error(`2π × {.size} ≈ {.size * 6}`)
         return fail
     }
 

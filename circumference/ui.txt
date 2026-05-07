@@ -1,1 +1,2 @@
 [text id="goal" text="Read the input" size=45]
+[text id="note" y=40 text="*Assuming π ≈ 3" size=22 hidden=true]

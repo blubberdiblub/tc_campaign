@@ -1,14 +1,15 @@
-[text text="[b]Expected States[/b]" x=-420 y=-68 color=0xE49F44FF]
-
 [table id="states" size=27 x=-400 v_align=bottom y=90 spacing_y=4]
-"",                                 "[color=#E49F44][b]   0   [/b][/color]",   "[color=#E49F44][b]   1   [/b][/color]"
-"[color=#E49F44][b]A[/b][/color]",  "0",                                       "0"
-"[color=#E49F44][b]B[/b][/color]",  "0",                                       "0"
+"[color=#E49F44][b]Address[/b][/color]", "[color=#E49F44][b]State[/b][/color]"
+"[b]00[/b]",  "0"
+"[b]01[/b]",  "0"
+"[b]10[/b]",  "0"
+"[b]11[/b]",  "0"
 [/table]
 
 [table id="actions" size=27 x=300 v_align=bottom y=90 spacing_y=4 spacing_x=0]
 "",                                      "",       "[color=#E49F44][b]   Value   [/b][/color]",   "[color=#E49F44][b]Address[/b][/color]"
-"",                                      "",       "[color=#E5787D][b]Z[/b][/color]",             "[color=#E5787D][b]A/B 0/1[/b][/color]"
-"[color=#E49F44][b]Load [/b][/color]",   "[ANY]",  "[right] Load ??? [/right]",                 "[left]from ??[/left]"
+"",                                      "",       "[color=#E5787D][b]?[/b][/color]",             "[color=#E5787D][b]?[/b][/color]"
+"",                                      "",       "",                                            ""
+"[color=#E49F44][b]Load [/b][/color]",   "[ANY]",  "[right] Load ??? [/right]",                   "[left]from ??[/left]"
 "[color=#E49F44][b]Save [/b][/color]",   "[ANY]",  "[right] Save ??? [/right]",                   "[left]to ??[/left]"
 [/table]

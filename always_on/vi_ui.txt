@@ -1,0 +1,6 @@
+[table id="table" full_history size=33 x=-100 _0="[OFF]" _1="[ON]" _z="[ANY]"]
+"Input",          "[OFF]",  "[ON]"
+"Desired output", "[ON]",   "[ON]"
+"Current output"
+[/table]
+#4a4d6c014f79e0cbb181285c2934b18d

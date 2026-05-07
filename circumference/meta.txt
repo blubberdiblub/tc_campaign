@@ -1,7 +1,14 @@
 kind = architecture
-title = "Multiply by 6"
+title = "Circumference"
 tests = 42
 size = 255
 dialogue = [
-  (mentor_centered, "The goal of this level is to take the input and multiply it with 6 using assembly language."),
+  (mentor_centered, "In this level you are given a radius and you calculate the circumference.
+
+This is the equation: 2×π×r
+
+r is the input.
+And you can approximate π as 3.
+
+Send the answer to output when it has been calculated."),
 ]

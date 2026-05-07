@@ -7,7 +7,7 @@ no_controls = true
 background = 4
 next_level = "not_gate"
 dialogue = [
-  (mentor_centered, "The first section of your learning journey is about Boolean logic. Boolean logic describes the most fundamental operations that can be applied to bits. These operations are the atoms that everything else in computer science is made of."),
+  (mentor_centered, `The first section of the game is about "Boolean logic". Boolean logic describes the simplest forms of calculation computers can do. In fact these calculations are what every other calculation in the computer is made out of.`),
   (mentor_centered, `This circuit contains a "NAND gate" that I want you to examine. I want you to document its behavior by filling in the "truth table" in the panel you see below. Only the two input rows of the truth table are filled out. Your task is to experiment with the inputs to the circuit, observe what the NAND gate does and fill the last row of the truth table.`),
 ]
 post_mortem = [

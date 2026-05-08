@@ -23,4 +23,12 @@ dialogue = [
 #ВЫХОД:  [OFF][ON]
 ")
 ]
+labels = {
+  "Input": "Вход",
+  "Output": "Выход",
+}
+labels = {
+  "Input": "Вход",
+  "Output": "Выход",
+}
 #03f44462d1104041e98dc27bc4c7b002

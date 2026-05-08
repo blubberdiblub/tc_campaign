@@ -1,0 +1,11 @@
+kind = combinational
+hint_kind = combinational
+title = "Вентиль ИСКЛ-ИЛИ-НЕ(XNOR)"
+size = 30
+unlocks_components = [com_xnor_bit]
+tick_past_fail = 4
+background = 1
+dialogue = [
+  (mentor_centered, "Постройте инверсию вентиля ИСКЛ-ИЛИ, которая называется ИСКЛ-ИЛИ-НЕ(XNOR)."),
+]
+#86461b6b906e4eb60ffc283525aad52a

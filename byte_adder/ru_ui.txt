@@ -1,0 +1,9 @@
+[table id="table" size=27 x=-100 spacing_y=4]
+"Вход 0",               "a",            "[right][ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
+"Вход 1",               "b",            "[right][ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
+"Перенос на входе",     "c",            "[right][ANY][/right]"
+"Желаемый выход",       "a + b + c",    "[right]    [ANY]    [ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
+"Текущий выход",        "???",          "[right]    [ANY]    [ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
+"",                     "",             "[color=#E49F44][left]Перенос       Сумма[/left][/color]"
+[/table]
+#1127eb74b0cea8bdb99f8864ad56f89f

@@ -1,0 +1,18 @@
+kind = combinational
+hint_kind = combinational
+title = "Арифметико-логическое устройство (АЛУ) 1"
+size = 48
+unlocks_components = [com_or_word, com_and_word, com_nor_word]
+copy_solution_to_level = ["overture_alu_2"]
+background = 6
+dialogue = [
+(mentor_centered, "Создайте устройство, которое может выполнять ИЛИ(OR), И-НЕ(NAND), ИЛИ-НЕ(NOR) или И(AND) над двумя байтовыми входами. Третий вход — это инструкция. Инструкция — это просто число, которое определяет, какую операцию выполнять.
+
+Инструкции:
+
+[color=#87a8c8]0 И-НЕ(NAND)
+1 ИЛИ(OR)
+2 И(AND)
+3 ИЛИ-НЕ(NOR)[/color]"),
+]
+#9670671dd77c098a13e4ecc0aae8f4db

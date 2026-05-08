@@ -12,5 +12,5 @@
 [image id="10" file="10.png" x=270]
 [image id="11" file="11.png" x=330]
 
-[text id="description" text="Use the arrow keys to pick cards" size=30 y=100]
+[text id="description" text="Dùng phím mũi tên để chọn lá bài" size=30 y=100]
 #9088283f61f9b3754d2bd01756574102

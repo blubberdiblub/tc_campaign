@@ -1,0 +1,2 @@
+[disassembly_text_description id="instruction" size=33 default_text="Постройте основу архитектуры Symphony" width=1300]
+#f4098f9de03424b6ee84a3da6a6954b7

@@ -1,0 +1,15 @@
+kind = foundry
+no_score = true
+complete_on_load = true
+title = "Мастерская"
+size = 128
+background = 6
+unlocks_pages = ["Circuits/The foundry"]
+unlocks_components = [com_probe_wire_bit, com_probe_wire_word, com_probe_memory_bit, com_probe_memory_word]
+dialogue = [
+  (mentor_centered, "Добро пожаловать в мастерскую! Схемы, которые вы создаёте здесь, можно использовать как компоненты в архитектурах.
+Схемотехника определяет поведение компонента, а расположение — его внешний вид."),
+  (mentor_centered, "Компоненты можно добавлять, переименовывать и удалять через меню схем."),
+  (mentor_centered, "Поскольку этот уровень — инструмент, а не испытание, вы можете перейти на карту уровней и продолжить, когда захотите."),
+]
+#1f594a71e85cd28c5329cfd93ee7a987

@@ -1,0 +1,2 @@
+[text text="Затем мы используем декодеры, чтобы найти включённый источник(source) и приёмник(destination)" size=37]
+#bb6c6d53725d70ebe84bad677babca1d

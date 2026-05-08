@@ -1,0 +1,15 @@
+kind = sequential
+title = "Программирование на перфокартах"
+tests = 32
+size = 128
+copy_solution_to_level = ["assembly_programming"]
+unlocks_pages = ["Assembly/Assembly Programming", "Assembly/Language Creation"]
+immutable_isa = true
+dialogue = [
+  (mentor_centered, `Теперь, когда вы построили свой первый компьютер, пришло время научиться его программировать.`),
+
+  (mentor_centered, `Нажмите кнопку «Edit» на компоненте «Program», чтобы начать программирование вашего компьютера с помощью перфокарт. Ваш компьютер должен считать входное значение, прибавить к нему 5 и вывести результат.`),
+
+  (overture),
+]
+#84797315a51e048b9e0a1c417d881411

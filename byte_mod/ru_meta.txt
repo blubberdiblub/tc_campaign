@@ -1,0 +1,9 @@
+kind = combinational
+hint_kind = combinational
+title = "Остаток от деления"
+size = 255
+unlocks_components = [com_mod]
+dialogue = [
+  (mentor_centered, "Выведите остаток от деления двух входов."),
+]
+#1abccdedb0008e089d593eb3457dbb3d

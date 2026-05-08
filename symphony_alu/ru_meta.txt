@@ -1,0 +1,27 @@
+kind = combinational
+hint_kind = combinational
+title = "АЛУ Symphony"
+size = 48
+copy_solution_to_foundry = "Symphony/ALU"
+copy_solution_to_level = ["symphony_fast_alu"]
+background = 6
+dialogue = [
+  (mentor_centered, "Это копия АЛУ Overture. Пришло время обновить его до 32 бит и добавить несколько новых инструкций.
+
+Инструкции:
+
+[color=#87a8c8]0 И-НЕ(NAND)
+1 ИЛИ(OR)
+2 И(AND)
+3 ИЛИ-НЕ(NOR)
+4 СЛОЖ(ADD)
+5 ВЫЧ(SUB)
+6 ИСКЛ-ИЛИ(XOR)
+7 LSL
+8 LSR
+9 ASR
+10 CMP[/color]
+
+Операция cmp — это та, для которой вы уже создали пользовательский компонент на предыдущем уровне."),
+]
+#07dd22adbbb3a3e08160c9728993ff46

@@ -1,0 +1,8 @@
+[table id="table" size=27 x=-100 spacing_y=4]
+"Опкод",           " OP ",       "[ANY][ANY]"
+"Вход 1",          "a",          "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"Вход 2",          "b",          "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"Желаемый выход",  "???",        "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"Текущий выход",   "???",        "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+[/table]
+#d27ac7ca5be7a819eeacb311380091ba

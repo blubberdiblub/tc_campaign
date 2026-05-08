@@ -1,0 +1,2 @@
+[disassembly_text_description id="instruction" size=33 default_text="Посмотрите, как работают вызовы функций" width=1300]
+#ab5e582b56e97a02ba8a4b3861eb9840

@@ -1,0 +1,7 @@
+
+[table id="table" full_history size=33 x=-50 _0="[OFF]" _1="[ON]" _z="[ANY]"]
+"Вход 0",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+"Вход 1",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+"Желаемый бит",  "1",          "2",          "3",          "4"
+[/table]
+#e065b07ddbb5aad38eb2b1818ea6230e

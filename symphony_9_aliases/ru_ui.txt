@@ -1,0 +1,2 @@
+[text id="description" text="Создайте спецификацию ISA для новых инструкций" size=36]
+#64cea150a3f080d451f1f275ed360590

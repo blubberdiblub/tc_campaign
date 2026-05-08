@@ -1,0 +1,2 @@
+[text id="description" text="Реализуйте декодер Symphony" size=36]
+#a225c57583c82f01154af8543c1a55ce

@@ -1,0 +1,13 @@
+kind = combinational
+hint_kind = combinational
+title = "Halb Addierer"
+size = 30
+tick_past_fail = 4
+background = 5
+dialogue = [
+  (mentor_centered, "Wir messen das Universum mit Zahlen. Also muss unsere Maschine wissen wie man zählt."),
+  (mentor_centered, "Behandel die Eingaben als [b]0[/b] oder [b]1[/b] abhängig davon ob sie [OFF] oder [ON] sind. Addiere die Eingaben binär zusammen, sodass das Ergebnis entweder [b]0[/b] oder [b]1[/b] ist.
+
+Wie bei normaler Addition, wenn das Ergebnis nicht mit einer Ziffer dargestellt werden kann, setze den Übertrag auf [b]1[/b]."),
+]
+#dde753214fd461adc7f143939f5284a6

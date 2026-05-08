@@ -15,7 +15,3 @@ With 2 bits, there are 4 combinations, one for each byte of memory in this level
 [tip]Spacebar rotates components.[/tip]
 "),
 ]
-post_mortem = [
-    (mentor, `In our advanced civilization, forcing prisoners to do extremely menial tasks is slavery and is technically illegal.
-    That is why we instead had our intern create the 256 byte version of your component.`)
-]

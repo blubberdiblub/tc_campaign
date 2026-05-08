@@ -1,0 +1,6 @@
+[table id="table" full_history size=33 x=-100 _0="[OFF]" _1="[ON]" _z="[ANY]"]
+"Вход",           "[OFF]",  "[ON]"
+"Желаемый выход", "[ON]",   "[OFF]"
+"Текущий выход"
+[/table]
+#0e7805c00de07cd3f8499047d99f0fa9

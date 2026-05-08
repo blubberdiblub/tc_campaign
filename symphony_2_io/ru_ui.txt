@@ -1,0 +1,2 @@
+[disassembly_text_description id="instruction" size=33 default_text="Добавьте режим Ввода/Вывода в Symphony" width=1300]
+#17c8fb9e4385c8ae33fc4af16b2c9674

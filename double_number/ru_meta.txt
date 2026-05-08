@@ -1,0 +1,15 @@
+kind = combinational
+hint_kind = combinational
+no_score = true
+title = "Удвоение числа"
+size = 30
+unlocks_components = [com_splitter_bit_2, com_splitter_bit_4, com_splitter_bit_8, com_maker_bit_2, com_maker_bit_4, com_maker_bit_8]
+components_available = [com_splitter_bit_8: -1, com_maker_bit_8: -1]
+unlocks_pages = ["Computer concepts/Bytes"]
+background = 5
+dialogue = [
+  (mentor_centered, "На этом уровне вводятся байтовые значения — числа от 0 до 255. Байт состоит из 8 битов. Вам даны два новых компонента: один разбивает байт на биты, другой собирает биты обратно в байт.
+
+С помощью этих компонентов придумайте, как удвоить входное число (до 127)."),
+]
+#59834cbc00d67fe3be8424a6cfb46388

@@ -1,0 +1,14 @@
+kind = combinational
+hint_kind = combinational
+title = "Обнаружение двух"
+size = 30
+tick_past_fail = 16
+no_score = true
+background = 5
+dialogue = [
+  (mentor_centered, "На этом уровне 4 входа. 
+Выведите [ON], когда 2 или больше из них включены.
+
+[tip]Не усложняйте этот уровень.[/tip]"),
+]
+#b8e4dafbeac21d74952df2e1382ac4b5

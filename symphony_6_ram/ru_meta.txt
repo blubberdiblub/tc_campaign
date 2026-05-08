@@ -1,0 +1,48 @@
+kind = sequential
+title = "ОЗУ"
+size = 255
+immutable_isa = true
+no_score = true
+copy_solution_to_level = ["symphony_7_ssd"]
+shared_data_folder = "symphony"
+dialogue = [
+    (mentor_centered, `На этом уровне мы добавляем возможность загружать и сохранять данные в то же ОЗУ, которое используется для программы. Мы хотим уметь читать и писать 32-битные слова, 16-битные слова и 8-битные байты, поэтому добавьте 3 дополнительных порта загрузки и 3 порта сохранения к компоненту ОЗУ.
+
+Вставьте новые компоненты портов между портом загрузки «Instructions» и компонентом ОЗУ «Main Memory».`),
+    (mentor_centered, `Ещё раз напомним [color=#ff9800]Режимы[/color] архитектуры [color=#e49f44]Symphony[/color]:
+
+[color=#ff9800]0[/color] Ввод-вывод
+[color=#ff9800]1[/color] АЛУ
+[color=#ff9800]2[/color] ПЕРЕХОД
+[color=#ff9800]3[/color] ОЗУ
+
+И кодирование выглядит так:
+ [color=#ff9800]M[/color]  = Режим(Mode)
+ [color=#ff6680]O[/color]  = Опкод(Opcode)
+[color=#9966ff]0[/color]/[color=#9966ff]1[/color] = Режим непосредственного значения(Immediate)
+ [color=#ffe666]D[/color]  = Регистр назначения(Destination)
+ [color=#66ff99]A[/color]  = Аргумент A
+ [color=#66ccff]B[/color]  = Аргумент B (возможно, непосредственное значение)
+ [color=#bbbbbb]0[/color]  = Не используется / ноль
+
+Кодирование инструкции, если аргумент B не является непосредственным значением:
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
+Кодирование инструкции, если аргумент B — непосредственное значение:
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]1[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#66ccff]BBBBBBBB BBBBBBBB[/color]`),
+    (mentor_centered, `На этом уровне мы реализуем режим ОЗУ. Пока в этом режиме шесть [color=#ff6680]опкодов[/color]:
+[color=#ff6680]0[/color] load_8
+[color=#ff6680]1[/color] load_16
+[color=#ff6680]2[/color] load_32
+[color=#ff6680]3[/color] [color=#bbbbbb]зарезервировано[/color]
+[color=#ff6680]4[/color] store_8
+[color=#ff6680]5[/color] store_16
+[color=#ff6680]6[/color] store_32
+
+Инструкции «load» должны загружать значение из памяти программы по адресу [color=#66ccff]аргумент B[/color] и сохранять результат в [color=#ffe666]регистр назначения[/color].
+
+Инструкции «store» должны сохранять значение из регистра [color=#66ccff]аргумент A[/color] в память программы по адресу [color=#66ccff]аргумент B[/color].
+
+Числовой суффикс определяет ширину в битах: сколько бит нужно прочитать или записать в память. Например, «load_8» загружает 8 бит данных, а «store_16» записывает 16 бит данных, начиная с указанного адреса.`),
+    (mentor_centered, `Обратите внимание, что порты работают сверху вниз. Порт загрузки будет читать после порта сохранения, если он расположен ниже, и до — если выше. Это важно, когда порты обращаются к одному и тому же адресу. В общем случае все порты ждут завершения портов сохранения, расположенных выше них. На этом уровне порты загрузки должны находиться выше портов сохранения, иначе возникнет циклическая зависимость.`),
+]
+#9110902720a21dd4e5978f52a9a3457c

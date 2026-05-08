@@ -1,0 +1,13 @@
+kind = combinational
+hint_kind = combinational
+title = "One-hot кодирование"
+size = 55
+remove_components = [com_decoder_1, com_decoder_2, com_decoder_3]
+unlocks_components = [com_splitter_word_2, com_splitter_word_4, com_splitter_word_8, com_maker_word_2, com_maker_word_4, com_maker_word_8, com_concatenator_2, com_concatenator_4, com_concatenator_8]
+background = 4
+dialogue = [
+  (mentor_centered, `Вход определяет, какой выход должен быть [ON]. Если вход равен 7, включите 7-й выход и [OFF] все остальные.
+
+Не используйте больше 3 компонентов. Также нельзя использовать декодеры, которые вы построили раньше.`),
+]
+#0fce740659553c288aa612d2b654998a

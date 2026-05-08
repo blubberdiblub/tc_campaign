@@ -1,0 +1,2 @@
+[disassembly_text_description id="instruction" size=33 default_text="Добавьте инструкции загрузки и сохранения в Symphony" width=1300]
+#903342cd4057aff97427a7a3b5eb3d6e

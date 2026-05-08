@@ -1,0 +1,21 @@
+kind = sequential
+no_score = true
+title = "Интеграция АЛУ"
+size = 255
+copy_solution_to_level = ["symphony_4_immediates"]
+immutable_isa = true
+shared_data_folder = "symphony"
+dialogue = [
+  (mentor_centered, `Добавьте АЛУ, который вы построили на предыдущем уровне, в схему. Операция каждой инструкции кодируется в [color=#ff6680]Opcode[/color].
+
+[color=#ff9800]M[/color] = Режим(Mode)
+[color=#ff6680]O[/color] = Опкод(Opcode)
+[color=#ffe666]D[/color] = Регистр назначения(Destination)
+[color=#66ff99]A[/color] = Аргумент A
+[color=#66ccff]B[/color] = Аргумент B
+[color=#bbbbbb]0[/color] = Не используется / ноль
+
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#bbbbbb]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
+`),
+]
+#8f017c61f88bae20e15dfe2115a22782

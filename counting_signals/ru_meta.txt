@@ -1,0 +1,16 @@
+kind = combinational
+hint_kind = combinational
+title = "Подсчёт сигналов"
+size = 30
+tick_past_fail = 16
+no_score = true
+unlocks_pages = ["Computer concepts/Binary"]
+background = 5
+dialogue = [
+  (mentor_centered, "Выходной компонент этого уровня — двоичный счётчик, где первые три пина соответствуют 1, 2 и 4.
+С помощью двоичного счётчика отобразите количество сигналов.
+
+[tip]Решение этого уровня не очень аккуратное и требует больше компонентов.[/tip]
+"),
+]
+#da3cc6e488faffb3a9524abfd60a5363

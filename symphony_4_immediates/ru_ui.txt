@@ -1,0 +1,2 @@
+[disassembly_text_description id="instruction" size=33 default_text="Добавьте непосредственные значения в Symphony" width=1300]
+#3a79fd637df82ba78bbd85be7c61e444

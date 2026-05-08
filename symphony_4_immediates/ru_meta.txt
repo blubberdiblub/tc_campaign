@@ -1,0 +1,30 @@
+kind = sequential
+no_score = true
+title = "Непосредственные значения"
+size = 255
+copy_solution_to_level = ["symphony_5_jumps"]
+immutable_isa = true
+shared_data_folder = "symphony"
+dialogue = [
+  (mentor_centered, `Иногда полезно загрузить значение напрямую из программы, а не из регистров. Значение, закодированное прямо в инструкции, называется immediate (непосредственным значением). В [color=#e49f44]Symphony[/color] мы можем заменить аргумент B на непосредственное значение в любой инструкции. Для этого нужно установить четвёртый бит в 1 и закодировать значение в последних двух байтах следующим образом:
+
+ [color=#ff9800]M[/color]  = Режим(Mode)
+ [color=#ff6680]O[/color]  = Опкод(Opcode)
+[color=#9966ff]0[/color]/[color=#9966ff]1[/color] = Режим непосредственного значения(Immediate)
+ [color=#ffe666]D[/color]  = Регистр назначения(Destination)
+ [color=#66ff99]A[/color]  = Аргумент A
+ [color=#66ccff]B[/color]  = Аргумент B (возможно, непосредственное значение)
+ [color=#bbbbbb]0[/color]  = Не используется / ноль
+
+Кодирование инструкции, если аргумент B не является непосредственным значением:
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
+Кодирование инструкции, если аргумент B — непосредственное значение:
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]1[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#66ccff]BBBBBBBB BBBBBBBB[/color]
+`),
+(mentor_centered, `Обновите архитектуру, чтобы она выглядела как на этой диаграмме:
+
+[image="symphony_diagram_2.png"]
+
+`),
+]
+#436ed4a39dcc16d0a73247a606d33bc2

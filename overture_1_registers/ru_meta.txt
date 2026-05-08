@@ -1,0 +1,41 @@
+kind = sequential
+immutable_isa = true
+no_score = true
+title = "Регистры"
+size = 50
+copy_solution_to_level = ["overture_2_alu"]
+dialogue = [
+  (mentor_centered, `Наконец-то пришло время построить ваш первый компьютер. Я научу вас создавать архитектуру [color=#e49f44]Overture[/color] — настоящую машину Тьюринга, полноценный компьютер.`),
+  (mentor_centered, `На этом уровне нужно создать схему, которая может перемещать значение из [color=#c54d5e]source[/color](источника) в [color=#e49f44]destination[/color](приёмник).
+
+Байт инструкции определяет [color=#c54d5e]source[/color](источник) и [color=#e49f44]destination[/color](приёмник).
+
+Биты 1, 2 и 3 задают [color=#e49f44]приёмник[/color]. Биты 4, 5 и 6 задают [color=#c54d5e]источник[/color].`),
+
+  (mentor_centered, `[color=#c54d5e]Источник[/color] и [color=#e49f44]приёмник[/color] могут быть одним из 6 регистров, которые мы назовём REG 0–REG 5 соответственно.
+  
+Кроме того, на карте есть специальный компонент входа, который может быть [color=#c54d5e]источником[/color], и компонент выхода, который может быть [color=#e49f44]приёмником[/color].`),
+  (mentor_centered, `Вот битовые шаблоны для каждого [color=#c54d5e]источника[/color] и [color=#e49f44]приёмника[/color].
+
+[color=#c54d5e]Источник[/color]:
+[OFF] [OFF] [OFF]  REG 0 
+[OFF] [OFF] [ON]  REG 1 
+[OFF] [ON] [OFF]  REG 2 
+[OFF] [ON] [ON]  REG 3 
+[ON] [OFF] [OFF]  REG 4 
+[ON] [OFF] [ON]  REG 5 
+[ON] [ON] [OFF]  #INPUT 
+[ON] [ON] [ON]  UNUSED
+
+[color=#e49f44]Приёмник[/color]:
+[OFF] [OFF] [OFF]  REG 0 
+[OFF] [OFF] [ON]  REG 1 
+[OFF] [ON] [OFF]  REG 2 
+[OFF] [ON] [ON]  REG 3 
+[ON] [OFF] [OFF]  REG 4 
+[ON] [OFF] [ON]  REG 5 
+[ON] [ON] [OFF]  #OUTPUT
+[ON] [ON] [ON]  UNUSED`),
+  (overture),
+]
+#eff6070c7591388ddec22e0bee0b20c9

@@ -1,0 +1,35 @@
+kind = sequential
+title = "Переходы"
+size = 255
+immutable_isa = true
+copy_solution_to_level = ["symphony_6_ram"]
+no_score = true
+shared_data_folder = "symphony"
+dialogue = [
+  (mentor_centered, `Вот [color=#ff9800]Режимы[/color] архитектуры [color=#e49f44]Symphony[/color]:
+
+0 Ввод-вывод
+1 АЛУ
+2 ПЕРЕХОД
+3 ОЗУ
+
+На этом уровне мы реализуем режим ПЕРЕХОД. Кодирование инструкции, как всегда:
+
+ [color=#ff9800]M[/color]  = Режим(Mode)
+ [color=#ff6680]O[/color]  = Опкод(Opcode)
+[color=#9966ff]0[/color]/[color=#9966ff]1[/color] = Режим непосредственного значения(Immediate)
+ [color=#ffe666]D[/color]  = Регистр назначения(Destination)
+ [color=#66ff99]A[/color]  = Аргумент A
+ [color=#66ccff]B[/color]  = Аргумент B (возможно, непосредственное значение)
+ [color=#bbbbbb]0[/color]  = Не используется / ноль
+
+Кодирование инструкции, если аргумент B не является непосредственным значением:
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
+Кодирование инструкции, если аргумент B — непосредственное значение:
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]1[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#66ccff]BBBBBBBB BBBBBBBB[/color]
+
+В режиме ПЕРЕХОД значение в регистре, указанном [color=#66ff99]аргументом A[/color], — это флаги, которые нужно сравнить с условием, заданным [color=#ff6680]опкодом[/color]. Для сравнения используйте ранее созданный пользовательский компонент «cond».
+
+Если флаги соответствуют условию, перезапишите значение счётчика [color=#66ccff]аргументом B[/color].`),
+]
+#2e9a33571e40881ac42f1df5806f438e

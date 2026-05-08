@@ -1,0 +1,16 @@
+kind = combinational
+hint_kind = combinational
+title = "Вентиль ИСКЛ-ИЛИ(XOR)"
+size = 30
+unlocks_components = [com_xor_bit]
+tick_past_fail = 4
+unlocks_pages = ["Computer concepts/Truth tables", "Computer concepts/Universal gates"]
+unlocks_special = ["profile"]
+dialogue = [
+  (mentor_centered, "На прошлом уровне вы построили схему, которая выдаёт [ON] только на втором такте. На этом уровне нужно построить схему, которая выдаёт [ON] на втором ИЛИ третьем такте."),
+
+  (mentor_centered, "Это также известно как вентиль ИСКЛ-ИЛИ(XOR). Уровень довольно сложный, поэтому не расстраивайтесь, если сразу не получится.
+
+[tip]Вы можете подключить один выход к нескольким вентилям.[/tip]"),
+]
+#c0e4b5ae312f5c426cbb56e212c85627

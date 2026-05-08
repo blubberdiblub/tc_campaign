@@ -1,0 +1,32 @@
+kind = combinational
+hint_kind = combinational
+title = "Декодер инструкций"
+size = 48
+copy_solution_to_foundry = "Symphony/DEC"
+copy_solution_to_level = ["symphony_decoder_2"]
+background = 6
+components_available = [com_static_indexer: 7]
+unlocks_components = [com_static_indexer]
+dialogue = [
+  (mentor_centered, `
+Постройте схему, которая разделяет инструкции Symphony на их отдельные части. Это очень пригодится позже.
+
+Существует два способа кодирования инструкций Symphony — в зависимости от того, используем ли мы непосредственные значения:
+
+[color=#ff9800]M[/color] = Режим(Mode)
+[color=#ff6680]O[/color] = Опкод(Opcode)
+[color=#9966ff]I[/color] = Бит непосредственного значения(Immediate)
+[color=#ffe666]D[/color] = Регистр назначения(Destination)
+[color=#66ff99]A[/color] = Аргумент A
+[color=#66ccff]B[/color] = Аргумент B (возможно, непосредственное значение)
+[color=#bbbbbb]0[/color] = Не используется / ноль
+
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
+
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]1[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#66ccff]BBBBBBBB BBBBBBBB[/color]
+  `),
+  (mentor_centered, `Используйте компонент статического индексатора для решения этого уровня.
+
+Компонент статического индексатора — это специальный компонент, который позволяет сдвигать определённые биты провода без какой-либо задержки или стоимости вентилей. Изменяя число на компоненте, вы сдвигаете биты (положительное число сдвигает вправо). Затем нажмите на компонент, чтобы задать ширину выхода.`),
+]
+#90f4afe1668fd19dd49b4cfca0b918a0

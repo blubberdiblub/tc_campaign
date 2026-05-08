@@ -1,0 +1,18 @@
+kind = architecture
+title = "Генератор случайных чисел"
+tests = 64
+size = 255
+background = 4
+arch_input_word_size = 32
+dialogue = [
+  (level_centered, `На этом уровне у вас только один вход — мы называем его начальным зерном. Зерно проходит следующие шаги и превращается в псевдослучайное число.
+
+[b]32-битный xorshift ГСЧ:[/b]
+[box]temp1  = seed  xor (seed  lsr 13)
+temp2  = temp1 xor (temp1 lsl 17)
+result = temp2 xor (temp2 lsr 5)[/box]
+
+В конце выведите «result» и используйте его как зерно для следующей итерации.
+`)]
+]
+#7c669156220518f4ecf828b62223bb81

@@ -1,0 +1,10 @@
+kind = combinational
+hint_kind = combinational
+title = "Знаковое меньше"
+size = 32
+unlocks_components = [com_less_s]
+background = 4
+dialogue = [
+  (mentor_centered, "Создайте схему, которая выводит [ON], когда первый вход меньше второго. Интерпретируйте байты как [color=#dd6576]знаковые[/color]."),
+]
+#c054a9ed26a616fc32361006fdcc42d3

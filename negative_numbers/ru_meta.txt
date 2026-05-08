@@ -1,0 +1,18 @@
+kind = misc
+no_score = true
+title = "Отрицательные числа"
+size = 3000
+no_controls = true
+no_state_ui = true
+unlocks_pages = ["Computer concepts/Negative numbers"]
+background = 5
+unlocks_special = ["signed_numbers"]
+dialogue = [
+  (mentor_centered, `Чтобы отличать всякие штуки друг от друга, нужно уметь вычитать. А для вычитания сначала нужны отрицательные числа.`),
+  (mentor_centered, `На этом уровне вводится «дополнительный код»(two's comliment) — самый распространённый способ представления отрицательных чисел.
+
+Здесь старший разряд меняет знак. Для байта это значит, что 8-й разряд вместо +128 имеет значение -128.
+
+Для прохождения уровня нужно дойти до 3-го уровня или дальше.`),
+]
+#aa3b838b33d5196d4269d6ae74abc0fa

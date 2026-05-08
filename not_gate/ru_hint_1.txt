@@ -1,0 +1,9 @@
+[table size=33 x=-50 y=-55]
+"Вход 0",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+"Вход 1",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+"И-НЕ",     "[ON]",   "",       "",       "[OFF]"
+[/table]
+
+[text text="Когда оба входа [OFF] — выход [ON]" size=33 y=65]
+[text text="Когда оба входа [ON] — выход [OFF]" size=33 y=115]
+#4c7ddb91aa914d3aabcf4c53c52bf3fb

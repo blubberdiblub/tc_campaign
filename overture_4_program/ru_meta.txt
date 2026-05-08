@@ -1,0 +1,13 @@
+kind = sequential
+immutable_isa = true
+no_score = true
+title = "Программа"
+size = 128
+copy_solution_to_level = ["overture_5_conditionals"]
+unlocks_components = [com_load_port, com_store_port]
+delete_immutables_by_label = ["instruction"]
+dialogue = [
+  (mentor_centered, `Компонент ввода инструкции был удалён. Его заменил компонент ОЗУ, содержащий программу. К ОЗУ подключён «порт загрузки». Когда пин разрешения на порте загрузки включён, он выводит значение из ОЗУ по заданному адресу. Каждый такт используйте счётчик, чтобы загрузить следующую инструкцию из памяти программы.`),
+  (overture),
+]
+#8b01d24594b1b06797b36377ca1e9935

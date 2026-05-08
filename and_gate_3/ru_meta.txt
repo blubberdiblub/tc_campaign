@@ -1,0 +1,10 @@
+kind = combinational
+hint_kind = combinational
+title = "Большой вентиль И(AND)"
+size = 30
+unlocks_components = [com_and_3_bit]
+tick_past_fail = 8
+dialogue = [
+  (mentor_centered, "Постройте вентиль И(AND) с тремя входами."),
+]
+#43fc0ea5570dd77f838f171ed257e7f5

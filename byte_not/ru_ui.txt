@@ -1,0 +1,6 @@
+[table id="table" size=27 x=-100 spacing_y=4]
+"Вход",                "a",            "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"Желаемый выход",       "~a",           "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"Текущий выход",        " ??? ",        "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+[/table]
+#a25474a00cd9297c9babb7c045a32346

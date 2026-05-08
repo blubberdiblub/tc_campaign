@@ -1,0 +1,9 @@
+kind = combinational
+hint_kind = combinational
+title = "Деление"
+size = 255
+unlocks_components = [com_div]
+dialogue = [
+  (mentor_centered, "Разделите два входных числа и выведите результат. Обратите внимание: этот уровень необязательный, так как он очень сложный."),
+]
+#154edc45efd7eeea1bdb93c1af4a450d

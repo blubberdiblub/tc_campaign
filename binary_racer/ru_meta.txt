@@ -1,0 +1,15 @@
+kind = misc
+no_score = true
+title = "Двоичная гонка"
+size = 3000
+no_controls = true
+no_state_ui = true
+background = 5
+dialogue = [
+  (mentor_centered, `Этот уровень научит вас двоичной системе.
+
+Переключайте биты в панели уровня так, чтобы в сумме они давали десятичное число, указанное в вопросе.
+
+Чтобы пройти уровень, нужно победить на 3-м уровне.`),
+]
+#ecfc2acc7edbcbdcca9b0f59dd3cb462

@@ -1,0 +1,2 @@
+[disassembly_text_description id="instruction" size=33 default_text="Прибавьте 5 к входному значению с помощью программирования на ассемблере" width=1000]
+#b9fc78498b015056d7ddc866d3d91b1c

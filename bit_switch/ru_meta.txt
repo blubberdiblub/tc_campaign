@@ -1,0 +1,20 @@
+kind = combinational
+hint_kind = combinational
+no_score = true
+title = "Битовый переключатель"
+size = 30
+unlocks_components = [com_switch_bit, com_switch_word]
+components_available = [com_switch_bit: 2, com_not_bit: 2]
+tick_past_fail = 4
+background = 5
+unlocks_pages = ["Circuits/Short circuit"]
+dialogue = [
+  (mentor_centered, `Если несколько компонентов выводят разные значения на один и тот же провод, возникает ошибка. Однако у некоторых компонентов выходные пины серые — они ничего не выводят, когда компонент выключен. Именно так работает битовый переключатель.
+
+[center][image="switch.png"][/center]
+
+Когда нижний пин [OFF], выход отключён. К одному проводу можно подключить несколько выходов без ошибки, если в каждый момент времени активен только один из них.`),
+
+  (mentor_centered, `Используя 2 вентиля НЕ и 2 переключателя, постройте вентиль ИСКЛ-ИЛИ(XOR).`),
+]
+#351cdfa36f679573cebea6b5f389e160

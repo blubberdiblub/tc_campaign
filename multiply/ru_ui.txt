@@ -1,0 +1,2 @@
+[text id="description" text="Умножьте два числа" size=36]
+#998e40228ec8c6db013bba381286f987

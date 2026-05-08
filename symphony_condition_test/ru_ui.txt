@@ -1,0 +1,2 @@
+[text id="description" text="Реализуйте флаги Symphony" size=36]
+#39f81258b0e9b64f255f21fb073621e2

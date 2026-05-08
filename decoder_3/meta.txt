@@ -8,5 +8,5 @@ dialogue = [
     (mentor_centered, `With 3 bits of input there are 8 combinations. Make a circuit that selects 1 output for each of the 8 combinations. No more or less than 1 bit should be [ON] at a time.`),
 ]
 post_mortem = [
-    (mentor, `We had our intern add a "disable" bit to this component. We were tired of looking at him running in circles and were looking for other pointless and tedious tasks to give him.`)
+    (mentor, `I added a "disable" bit to this component, it will be useful later.`)
 ]

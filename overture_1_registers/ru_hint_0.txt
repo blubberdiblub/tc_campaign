@@ -1,0 +1,3 @@
+[text text="Этот уровень похож на «ШИНУ»" size=33 y=-25]
+[text text="с Источником(source) вместо Входов(Inputs) и Приёмником(Destination) вместо Выходов(Outputs)" size=33 y=25]
+#ab457c8b5e92327cc770b543c5e9defd

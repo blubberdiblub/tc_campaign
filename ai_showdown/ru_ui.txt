@@ -1,0 +1,16 @@
+
+[image id="0" file="0.png" x=-330]
+[image id="1" file="1.png" x=-270]
+[image id="2" file="2.png" x=-210]
+[image id="3" file="3.png" x=-150]
+[image id="4" file="4.png" x=-90]
+[image id="5" file="5.png" x=-30]
+[image id="6" file="6.png" x=30]
+[image id="7" file="7.png" x=90]
+[image id="8" file="8.png" x=150]
+[image id="9" file="9.png" x=210]
+[image id="10" file="10.png" x=270]
+[image id="11" file="11.png" x=330]
+
+[text id="description" text="Используйте стрелки для выбора карт" size=30 y=100]
+#9088283f61f9b3754d2bd01756574102

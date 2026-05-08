@@ -1,0 +1,2 @@
+[text id="description" text="Посчитайте ведущие нули" size=36]
+#87145b87e6369394bc9bea85718d0cb9

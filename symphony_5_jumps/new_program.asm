@@ -14,6 +14,8 @@ in r13
 in sp
 in flags
 
+or r1, zr, 100
+jmp r1
 add r5, r5, r12
 nand r2, r10, r12
 or sp, flags, r2

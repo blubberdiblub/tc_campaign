@@ -9,4 +9,8 @@ unlocks_special = ["wire_color", "wire_comments"]
 dialogue = [
   (mentor_centered, "Используя максимум 3 компонента, выведите [ON] только тогда, когда нечётное количество входов [ON]."),
 ]
+labels = {
+  "Input": "Вход",
+  "Output": "Выход",
+}
 #5bb75846ea65e294dfe606004e5f310c

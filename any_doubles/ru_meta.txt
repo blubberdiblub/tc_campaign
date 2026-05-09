@@ -11,4 +11,8 @@ dialogue = [
 
 [tip]Не усложняйте этот уровень.[/tip]"),
 ]
+labels = {
+  "Input": "Вход",
+  "Output": "Выход",
+}
 #b8e4dafbeac21d74952df2e1382ac4b5

@@ -7,4 +7,8 @@ tick_past_fail = 8
 dialogue = [
   (mentor_centered, "Постройте вентиль И(AND) с тремя входами."),
 ]
+labels = {
+  "Input": "Вход",
+  "Output": "Выход",
+}
 #43fc0ea5570dd77f838f171ed257e7f5

@@ -1,6 +1,6 @@
 kind = combinational
 hint_kind = combinational
-title = "Арифметико-логическое устройство (АЛУ) 2"
+title = "АЛУ 2"
 size = 48
 copy_solution_to_level = ["symphony_alu"]
 copy_solution_to_foundry = "Overture/ALU"
@@ -8,7 +8,7 @@ unlocks_pages = ["Circuits/The Foundry"]
 background = 6
 next_level = "foundry"
 dialogue = [
-  (mentor_centered, "Добавьте сложение и вычитание в вашу схему.
+  (mentor_centered, "Добавьте сложение и вычитание в арифметико-логическое устройство (АЛУ).
 
 Инструкции:
 
@@ -19,4 +19,9 @@ dialogue = [
 4 СЛОЖ(ADD)
 5 ВЫЧ(SUB)[/color]"),
 ]
+labels = {
+  "Opcode": "Опкод",
+  "Result": "Результат",
+}
+#a45c5bd4fa7161ba580bd2083a54de43
 #a45c5bd4fa7161ba580bd2083a54de43

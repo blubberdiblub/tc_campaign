@@ -9,4 +9,8 @@ dialogue = [
   (mentor_centered, "请搭建一个与给定真值表匹配的电路。
 [tip]多数关卡都自带提示（上方的灯泡按钮）。如果你卡关了，不妨看看这些提示。[/tip]"),
 ]
+labels = {
+    "Input": "输入",
+    "Output": "输出",
+}
 #5202f97d8c2ee82fcbc49ba1148ffc1f

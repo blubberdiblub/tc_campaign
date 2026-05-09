@@ -7,4 +7,8 @@ tick_past_fail = 8
 dialogue = [
   (mentor_centered, "搭建一个拥有三路输入的或门（OR）。"),
 ]
+labels = {
+    "Input": "输入",
+    "Output": "输出",
+}
 #24fe1c59c073621024aad3913688f3e0

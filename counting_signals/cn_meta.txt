@@ -13,4 +13,8 @@ dialogue = [
 [tip]此关卡的解法不很简洁，你需要用到比前几关里更多的元件。[/tip]
 "),
 ]
+labels = {
+    "Input": "输入",
+    "Output": "输出",
+}
 #da3cc6e488faffb3a9524abfd60a5363

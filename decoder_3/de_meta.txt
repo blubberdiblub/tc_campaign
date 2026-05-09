@@ -1,0 +1,17 @@
+kind = combinational
+hint_kind = combinational
+title = "3 Bit Decoder"
+size = 30
+unlocks_components = [com_decoder_3]
+tick_past_fail = 8
+dialogue = [
+    (mentor_centered, `Mit einer 3 Bit Eingabe gibt es 8 Kombinationen. Baue einen Schaltkreis der eine Ausgabe auswählt für jeweils eine der 8 Kombinationen. Nicht mehr als 1 Bit sollte [ON] sein zur selben Zeit.`),
+]
+post_mortem = [
+    (mentor, `Ich habe einen "Deaktivieren" Bit zu dieser Komponente hinzugefügt, der wird später hilfreich.`)
+]
+labels = {
+  "Input": "Eingabe",
+  "Output": "Ausgabe",
+}
+#9afbe414fce6f69c55eedf2ad523a98e

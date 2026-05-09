@@ -14,3 +14,4 @@ labels = {
   "Output": "Выход",
 }
 #65a9da42299f76d97ecad3cb8896defb
+#65a9da42299f76d97ecad3cb8896defb

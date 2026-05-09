@@ -1,0 +1,28 @@
+kind = combinational
+hint_kind = combinational
+title = "NOT Gatter"
+size = 30
+unlocks_components = [com_not_bit]
+tick_past_fail = 2
+background = 4
+unlocks_special = ["level_map"]
+dialogue = [
+  (mentor_centered, "Jetzt wo du das NAND Gatter freigeschaltet hast, ist es Zeit das du selber einen Schaltkreis baust."),
+  (mentor_centered, "Im letzten Level hast du eine Wahrheitstabelle gemacht die den Schaltkreis beschreibt. In diesem Level baust du den Schaltkreis der zur Wahrheitstabelle passt."),
+  (mentor_centered, "Verwende NAND Gatter, um ein NOT Gatter zu bauen
+
+Verwende: [b]NAND Gatter[/b]
+#EINGABE 1: [OFF][ON][OFF][ON]
+#EINGABE 2: [OFF][OFF][ON][ON]
+#AUSGABE:  [ON][ON][ON][OFF]
+
+Baue: [b]NOT Gatter[/b]
+#EINGABE 1: [ON][OFF]
+#AUSGABE:  [OFF][ON]
+")
+]
+labels = {
+  "Input": "Eingabe",
+  "Output": "Ausgabe",
+}
+#03f44462d1104041e98dc27bc4c7b002

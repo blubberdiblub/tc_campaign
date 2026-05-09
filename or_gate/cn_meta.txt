@@ -10,4 +10,8 @@ dialogue = [
 [tip]双击一个元件后拖动，即可将它与相连的导线一起移动。[/tip]
   "),
 ]
+labels = {
+    "Input": "输入",
+    "Output": "输出",
+}
 #fbcb1e16417952c1a1d6d27a33fbbf9f

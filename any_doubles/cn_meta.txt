@@ -11,4 +11,8 @@ dialogue = [
 
 [tip]别把这一关想得太复杂。[/tip]"),
 ]
+labels = {
+    "Input": "输入",
+    "Output": "输出",
+}
 #b8e4dafbeac21d74952df2e1382ac4b5

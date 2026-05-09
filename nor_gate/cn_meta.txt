@@ -9,4 +9,8 @@ background = 4
 dialogue = [
   (mentor_centered, "请搭建电路，实现给定的真值表。"),
 ]
+labels = {
+    "Input": "输入",
+    "Output": "输出",
+}
 #65a9da42299f76d97ecad3cb8896defb

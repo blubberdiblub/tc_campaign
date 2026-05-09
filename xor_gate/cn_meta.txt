@@ -12,4 +12,8 @@ dialogue = [
   
 [tip]你可以将一个逻辑门的输出连接到多个逻辑门的输入端上。[/tip]"),
 ]
+labels = {
+    "Input": "输入",
+    "Output": "输出",
+}
 #c0e4b5ae312f5c426cbb56e212c85627

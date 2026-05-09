@@ -1,0 +1,8 @@
+kind = architecture
+title = "Sortieren"
+tests = 64
+size = 255
+dialogue = [
+  (mentor_centered, `In diesem Level ist es dein Job 16 Zahlen zu sortieren. Lese die Eingabe 16 mal, sortiere die Zahlen und gebe die Zahlen von der kleinsten bis zur größten wieder aus.`),
+]
+#4244987e29218e0fe95e2b4ce8465354

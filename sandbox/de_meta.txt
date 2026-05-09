@@ -1,0 +1,5 @@
+kind = architecture
+background = 4
+title = "Sandkasten"
+size = 255
+#1aa995cf1bbdf953e7bcb7e4050f2b5d

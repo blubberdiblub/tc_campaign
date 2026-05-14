@@ -1,7 +1,4 @@
-kind = architecture
 title = "The Maze"
-tests = 8
-size = 255
 dialogue = [
   (mentor_centered, `In this level you control a robot. Write an algorithm that guides him from the start to the door at the end of the maze.
 

@@ -1,10 +1,4 @@
-kind = sequential
-no_score = true
 title = "IO"
-size = 255
-copy_solution_to_level = ["symphony_3_alu"]
-immutable_isa = true
-shared_data_folder = "symphony"
 dialogue = [
   (mentor_centered, `In this level we add a way to input and output values to [color=#e49f44]Symphony[/color].
 

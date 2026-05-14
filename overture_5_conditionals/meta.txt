@@ -1,9 +1,4 @@
-kind = sequential
-immutable_isa = true
 title = "Turing Complete"
-size = 128
-unlocks_pages = ["Computer concepts/Turing complete"]
-copy_solution_to_level = ["binary_programming"]
 dialogue = [
   (mentor_centered, `Until this point all possible programs have been confined to running in order byte by byte.`),
   (mentor_centered, `Before, only code could influence memory, now memory must influence code. With the addition of conditional logic, our computer can run any algorithm, and calculate anything calculable. Like all non theoretical computers, this machine will only be limited by having finite memory.`),

@@ -1,9 +1,4 @@
-kind = sequential
 title = "Instruction aliases"
-size = 255
-no_score = true
-copy_solution_to_level = ["symphony_10_stack"]
-shared_data_folder = "symphony"
 dialogue = [
     (mentor_left, `Like previous levels, this level introduces new instructions. However, in this level you are not supposed to add additional hardware, but instead change the assembly specification to reuse already existing instruction hardware for new instructions.
 

@@ -1,9 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "Condition match"
-size = 48
-background = 6
-copy_solution_to_foundry = "Symphony/cond"
 dialogue = [
     (mentor_centered, `In this level the first input contains flags and the second argument contains a condition. We need to test if the flags match the condition. Compare the three flag input bits pairwise with the first three bits of the condition input. If any of the three pairs are both true, the condition is matched.
 

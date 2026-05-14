@@ -1,7 +1,4 @@
-kind = architecture
 title = "Sorting"
-tests = 64
-size = 255
 dialogue = [
   (mentor_centered, `In this level your job is to sort 16 numbers. Read the input 16 times one by one, sort them and output them smallest to largest.`),
 ]

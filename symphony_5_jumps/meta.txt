@@ -1,10 +1,4 @@
-kind = sequential
 title = "Jumps"
-size = 255
-immutable_isa = true
-copy_solution_to_level = ["symphony_6_ram"]
-no_score = true
-shared_data_folder = "symphony"
 dialogue = [
   (mentor_centered, `These are the [color=#ff9800]Modes[/color] of [color=#e49f44]Symphony[/color]:
 

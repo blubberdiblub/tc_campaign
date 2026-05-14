@@ -1,9 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "Second Tick"
-size = 30
-tick_past_fail = 4
-no_score = true
 dialogue = [
   (mentor_centered, "Output [ON] on the second tick only."),
 ]

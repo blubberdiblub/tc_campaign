@@ -1,9 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "Byte XOR"
-size = 32
-unlocks_components = [com_xor_word, com_xnor_word]
-background = 4
 dialogue = [
   (mentor_centered, "Create a circuit that XORs two bytes bitwise.")
 ]

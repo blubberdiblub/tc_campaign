@@ -1,12 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "Instruction decoder"
-size = 48
-copy_solution_to_foundry = "Symphony/DEC"
-copy_solution_to_level = ["symphony_decoder_2"]
-background = 6
-components_available = [com_static_indexer: 7]
-unlocks_components = [com_static_indexer]
 dialogue = [
   (mentor_centered, `
 Build a circuit that splits Symphony instructions into their different parts. This will be very helpful later.

@@ -1,7 +1,4 @@
-kind = architecture
 title = "Storage cracker"
-tests = 256
-size = 255
 dialogue = [
   (mentor_centered, "In this level you win when you output a secret code. No output will fail the level, so you could just try all numbers. 
 

@@ -1,9 +1,4 @@
-kind = sequential
-immutable_isa = true
-no_score = true
 title = "Immediate Values"
-size = 50
-copy_solution_to_level = ["overture_4_program"]
 dialogue = [
   (mentor_centered, "We need a way to directly move numbers from our program into registers. For this we use the immediate mode (when the two highest bits are [OFF][OFF]).
 

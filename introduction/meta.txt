@@ -1,10 +1,4 @@
-kind = misc
-no_score = true
 title = "Humble beginnings"
-size = 30
-no_controls = true
-background = 4
-next_level = "nand_gate"
 dialogue = [
   (mentor_centered, "Magic exists in the real world and it is called computer science. Programs are spells, made by combining simple things in complex ways. Show someone a program that adds and multiplies numbers in just the right way and they will see a character jumping around an endless green landscape, full of opportunity.
 

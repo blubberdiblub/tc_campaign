@@ -1,10 +1,4 @@
-kind = sequential
 title = "RAM"
-size = 255
-immutable_isa = true
-no_score = true
-copy_solution_to_level = ["symphony_7_ssd"]
-shared_data_folder = "symphony"
 dialogue = [
     (mentor_centered, `In this level we add loading from and storing to the same memory that is used for the program. We want to be able to read and write 32-bit words, 16-bit words and 8-bit bytes, so add 3 extra load ports and 3 store ports to the RAM component.
 

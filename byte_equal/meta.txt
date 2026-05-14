@@ -1,9 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "Equality"
-size = 32
-unlocks_components = [com_equal]
-background = 4
 dialogue = [
   (mentor_centered, "Output [ON] when both inputs are the same.")
 ]

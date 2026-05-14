@@ -1,11 +1,4 @@
-kind = misc
-no_score = true
 title = "Hex Racer"
-size = 3000
-no_controls = true
-no_state_ui = true
-background = 5
-unlocks_special = ["hex_numbers"]
 dialogue = [
   (mentor_centered, "When dealing with many bits, binary can become hard to read. Hexadecimal (base 16) represents each combination of 4 bits as its own character:
 

@@ -1,10 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "Double detection"
-size = 30
-tick_past_fail = 16
-no_score = true
-background = 5
 dialogue = [
   (mentor_centered, "This level has 4 inputs. 
 Output [ON] when 2 or more of them are [ON].

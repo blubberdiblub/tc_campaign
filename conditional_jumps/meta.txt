@@ -1,8 +1,4 @@
-kind = architecture
 title = "Conditional Jumps"
-tests = 42
-size = 255
-no_score = true
 dialogue = [
   (mentor_centered, `The goal of this level is to teach you about jumps and labels. 
 

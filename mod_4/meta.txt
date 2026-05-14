@@ -1,7 +1,4 @@
-kind = architecture
 title = "Mod 4"
-tests = 17
-size = 255
 dialogue = [
   (mentor_centered, "In this level you are given a number as input and you should return that number modulo 4 as a result.
 

@@ -1,9 +1,4 @@
-kind = sequential
-immutable_isa = true
-no_score = true
 title = "Registers"
-size = 50
-copy_solution_to_level = ["overture_2_alu"]
 dialogue = [
   (mentor_centered, `It is finally time to build your first computer. I will teach you how to build the [color=#e49f44]Overture[/color] architecture, an actual Turing complete machine, a true computer in every way.`),
   (mentor_centered, `In this level you need to create a circuit which can move from a [color=#c54d5e]source[/color] to a [color=#e49f44]destination[/color]. 

@@ -1,10 +1,4 @@
-kind = misc
-no_score = true
 title = "Binary Racer"
-size = 3000
-no_controls = true
-no_state_ui = true
-background = 5
 dialogue = [
   (mentor_centered, `This level teaches you binary.
 

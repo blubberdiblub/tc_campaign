@@ -1,11 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "XOR Gate"
-size = 30
-unlocks_components = [com_xor_bit]
-tick_past_fail = 4
-unlocks_pages = ["Computer concepts/Truth tables", "Computer concepts/Universal gates"]
-unlocks_special = ["profile"]
 dialogue = [
   (mentor_centered, "Last level you built a circuit that was [ON] when we were at the second tick. This level build a circuit that is [ON] when we are at the second OR third tick."),
   (mentor_centered, "This is also known as an XOR gate. This level is difficult, so don't be discouraged if you don't get the answer right away.

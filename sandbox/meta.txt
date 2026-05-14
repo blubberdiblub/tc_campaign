@@ -1,4 +1,1 @@
-kind = architecture
-background = 4
 title = "The Sandbox"
-size = 255

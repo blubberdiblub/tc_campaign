@@ -43,20 +43,12 @@ pub const scene.margin_right = 3
     While in mode #2 (Pixel 8)
         Screen memory offset (settings #1)
         Screen resolutions (settings #2)
-            0. 80x60
-            1. 160x120
-            2. 256x192
-            3. 320x240
-            4. 640x480
-            5. 800x600
-            6. 920x720
-            7. 1024x768
 */
 pub const screen.mode_index = 0
 pub const screen.mode_value = 2
 pub const screen.offset_index = 1
 pub const screen.resolution_index = 2
-pub const screen.resolution_value = 0
+pub const screen.resolution_value = 19 ; 80x60
 
 pub const screen.width = 80
 pub const screen.height = 60

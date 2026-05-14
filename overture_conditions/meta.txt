@@ -1,10 +1,4 @@
-kind = combinational
-hint_kind = combinational
-immutable_isa = true
 title = "Conditions"
-size = 48
-copy_solution_to_foundry = "Overture/Cond"
-background = 6
 dialogue = [
   (mentor_centered, "This level has a value input and 3 condition bit inputs.
 

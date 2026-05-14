@@ -1,10 +1,4 @@
-kind = sequential
 title = "Assembly programming"
-tests = 32
-size = 128
-copy_solution_to_architecture = "Overture"
-unlocks_pages = ["Assembly/Language Creation", "Assembly/Assembly Programming"]
-immutable_isa = true
 dialogue = [
   (mentor_centered, "Punchcard programming is tedious. Lets try adding 5 to the input again like in the previous level, but this time using assembly programming instead."),
   (mentor, `The point of an assembly language is to give human readable nicknames to the instructions that our machines execute. 

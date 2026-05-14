@@ -1,9 +1,4 @@
-kind = sequential
 title = "Symphony counter"
-size = 48
-background = 6
-copy_solution_to_level = ["symphony_counter_2"]
-copy_solution_to_foundry = "Symphony/count"
 dialogue = [
     (mentor_centered, `Build a 32 bit counter that increments by 4 by default, but can alternatively be overwritten with a specific value.
 

@@ -1,8 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "ASR"
-size = 45
-unlocks_components = [com_asr]
 dialogue = [
   (mentor_centered, `The shift you built in the last level is known as [b]logic[/b] shift, logically shifting right by 1 is the same as dividing by 2 for unsigned numbers. For signed numbers, if the top bit of the value is [ON], we fill the empty bits with [ON] instead of [OFF]. This is called [b]arithmetic shift right[/b], often written as [b]asr[/b] in assembly.
 

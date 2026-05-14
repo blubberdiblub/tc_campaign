@@ -1,11 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "Odd Number of Signals"
-size = 30
-tick_past_fail = 16
-no_score = true
-background = 5
-unlocks_special = ["wire_color", "wire_comments"]
 dialogue = [
   (mentor_centered, "Using a maximum of 3 components, output [ON] only when an odd number of inputs are [ON]"),
 ]

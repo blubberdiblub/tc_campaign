@@ -1,10 +1,4 @@
-kind = sequential
-no_score = true
 title = "Integrating ALU"
-size = 255
-copy_solution_to_level = ["symphony_4_immediates"]
-immutable_isa = true
-shared_data_folder = "symphony"
 dialogue = [
   (mentor_centered, `Add the ALU you built in the previous level to the circuit. The operation of each instruction is encoded in the [color=#ff6680]Opcode[/color].
 

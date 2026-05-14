@@ -1,8 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "Modulo"
-size = 255
-unlocks_components = [com_mod]
 dialogue = [
   (mentor_centered, "Output the modulo of the two inputs."),
 ]

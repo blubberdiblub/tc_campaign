@@ -1,7 +1,4 @@
-kind = architecture
 title = "Tower of Hanoi"
-tests = 64
-size = 255
 dialogue = [
   (mentor_centered, `In the game "Towers of Hanoi", you must move a stack of disks from one peg to another. The challenge is that only one disk can be moved at a time, only the top disk on a stack can be moved, and a larger disk can never be placed on top of a smaller one.`),
   (mentor_left, "The first 4 inputs will give you the following in order:

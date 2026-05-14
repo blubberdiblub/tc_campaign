@@ -1,9 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "Bigger OR Gate"
-size = 30
-unlocks_components = [com_or_3_bit]
-tick_past_fail = 8
 dialogue = [
   (mentor_centered, "Create an OR gate with 3 inputs."),
 ]

@@ -1,9 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "3 Bit Decoder"
-size = 30
-unlocks_components = [com_decoder_3]
-tick_past_fail = 8
 dialogue = [
     (mentor_centered, `With 3 bits of input there are 8 combinations. Make a circuit that selects 1 output for each of the 8 combinations. No more or less than 1 bit should be [ON] at a time.`),
 ]

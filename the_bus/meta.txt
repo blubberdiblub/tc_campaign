@@ -1,10 +1,4 @@
-kind = combinational
-hint_kind = combinational
-no_score = true
 title = "The bus"
-size = 30
-components_available = [com_switch_word: 4, com_not_bit: 2]
-background = 5
 dialogue = [
   (mentor_centered, `This level has 2 byte inputs and 2 byte outputs. Your goal is to move a number from one input to one output.
   

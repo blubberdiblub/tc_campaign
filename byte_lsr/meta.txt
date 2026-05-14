@@ -1,9 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "LSR"
-size = 45
-unlocks_components = [com_lsl, com_lsr, com_rol, com_ror]
-copy_solution_to_level = ["byte_asr"]
 dialogue = [
   (mentor_centered, `To shift a value 1 right just means moving all the bits in a byte to the right by 1 position.
 

@@ -1,10 +1,4 @@
-kind = sequential
 title = "Persistent Memory"
-size = 255
-immutable_isa = true
-no_score = true
-copy_solution_to_level = ["symphony_8_io_devices"]
-shared_data_folder = "symphony"
 dialogue = [
     (mentor_centered, `In this level we add an another RAM component, but for storing data between restarts.
 

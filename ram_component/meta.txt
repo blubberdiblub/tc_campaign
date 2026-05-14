@@ -1,7 +1,4 @@
-kind = sequential
 title = "Little Box"
-size = 16
-unlocks_components = [com_ram]
 dialogue = [
   (mentor_centered, "Can you fit 4 bytes of memory in this limited space?"),
   (mentor_centered, "In this level you have to build a circuit that 

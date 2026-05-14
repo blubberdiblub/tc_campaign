@@ -1,8 +1,4 @@
-kind = architecture
 title = "Nim"
-tests = 9
-size = 255
-background = 4
 dialogue = [
   (mentor_centered, "In this level you need to beat the AI in a simple card game. These are the rules: 
 

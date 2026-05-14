@@ -1,9 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "Bigger AND Gate"
-size = 30
-unlocks_components = [com_and_3_bit]
-tick_past_fail = 8
 dialogue = [
   (mentor_centered, "Create an AND gate with 3 inputs."),
 ]

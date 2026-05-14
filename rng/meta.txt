@@ -1,9 +1,4 @@
-kind = architecture
 title = "Random number generator"
-tests = 64
-size = 255
-background = 4
-arch_input_word_size = 32
 dialogue = [
   (level_centered, `In this level you only get one input, we call this the initial seed. The seed is put through the following steps to produce a pseudorandom number.
 

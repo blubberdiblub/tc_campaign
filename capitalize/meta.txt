@@ -1,7 +1,4 @@
-kind = architecture
 title = "Capitalize"
-tests = 3
-size = 255
 dialogue = [
   (mentor_centered, `The inputs in this level are sentences encoded as ASCII (see the manual). Each word is separated by a space which has the numeric value 32. Replace the first letter in each word with its uppercase counterpart.
 

@@ -1,12 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "Score"
-max_delay = 10
-max_gate = 40
-size = 46
-tick_past_fail = 0xff
-unlocks_components = [com_inc]
-unlocks_pages = ["Circuits/Delay"]
 dialogue = [
   (mentor_centered, "This level introduces effeciency scoring, which is based on time and energy.")
   (mentor_centered, "These equations are equal, yet not the same:

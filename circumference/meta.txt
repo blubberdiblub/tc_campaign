@@ -1,7 +1,4 @@
-kind = architecture
 title = "Circumference"
-tests = 42
-size = 255
 dialogue = [
   (mentor_centered, "In this level you are given a radius and you calculate the circumference.
 

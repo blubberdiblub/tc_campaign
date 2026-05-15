@@ -1,10 +1,5 @@
-kind = combinational
-hint_kind = combinational
 title = "无符号小于"
-size = 32
-unlocks_components = [com_less_u]
-background = 4
 dialogue = [
   (mentor_centered, "搭建一个电路，当第一路输入严格小于第二路输入时，输出 [ON]。注意，在本关中，输入应被视作[color=#dd6576]无符号整数[/color]。")
 ]
-#c53488c032b8efcad8c5483952f81134
+#82a76ef27aae835e450ed5b9c3410360

@@ -1,12 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "Счёт"
-max_delay = 10
-max_gate = 40
-size = 46
-tick_past_fail = 0xff
-unlocks_components = [com_inc]
-unlocks_pages = ["Circuits/Delay"]
 dialogue = [
   (mentor_centered, "Этот уровень вводит оценку эффективности, которая основана на времени и энергии.")
   (mentor_centered, "Эти уравнения равны, но не одинаковы:
@@ -34,4 +26,4 @@ dialogue = [
 
 Сделайте это не более чем за 40 вентилей и 10 задержки."),
 ]
-#b27dd198ae89454ae61c21c6690d8402
+#0af2db8b8dba1839d491906e12bb3152

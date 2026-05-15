@@ -1,8 +1,5 @@
-kind = architecture
 title = "Умножение на 6"
-tests = 42
-size = 255
 dialogue = [
   (mentor_centered, "Цель уровня — взять входное число и умножить его на 6 с помощью языка ассемблера."),
 ]
-#21eab5fe47c527c3b87a7499ee4a8294
+#9c56c683e0a510f1372fe88568553989

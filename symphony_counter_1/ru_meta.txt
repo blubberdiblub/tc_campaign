@@ -1,9 +1,4 @@
-kind = sequential
 title = "Счётчик Symphony"
-size = 48
-background = 6
-copy_solution_to_level = ["symphony_counter_2"]
-copy_solution_to_foundry = "Symphony/count"
 dialogue = [
     (mentor_centered, `Постройте 32-битный счётчик, который по умолчанию увеличивает значение на 4, но может быть перезаписан конкретным значением.
 
@@ -14,4 +9,4 @@ dialogue = [
 Левой кнопкой мыши по компонентам при активном инструменте установите ширину компонента.
 Новые размещаемые компоненты слова будут иметь эту ширину по умолчанию.`),
 ]
-#1b78923acaf94dc27ed470b3418914ab
+#f46ac10243bcf9d3e1492c3bbf85bc08

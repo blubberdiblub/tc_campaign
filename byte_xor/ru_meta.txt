@@ -1,10 +1,5 @@
-kind = combinational
-hint_kind = combinational
 title = "Байтовый ИСКЛ-ИЛИ(XOR)"
-size = 32
-unlocks_components = [com_xor_word, com_xnor_word]
-background = 4
 dialogue = [
   (mentor_centered, "Создайте схему, которая выполняет побитовое ИСКЛ-ИЛИ(XOR) двух байтов."),
 ]
-#e151db368d43c58835c8fb4812488a69
+#db4f2ca8b9600808ff79be5b178a4d19

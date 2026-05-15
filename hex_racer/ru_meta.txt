@@ -1,11 +1,4 @@
-kind = misc
-no_score = true
 title = "Шестнадцатеричная гонка"
-size = 3000
-no_controls = true
-no_state_ui = true
-background = 5
-unlocks_special = ["hex_numbers"]
 dialogue = [
   (mentor_centered, "Когда битов много, двоичная система становится неудобной для чтения. Шестнадцатеричная система (основание 16) представляет каждые 4 бита одним символом:
 
@@ -38,4 +31,4 @@ F [ON][ON][ON][ON]
 
 Чтобы пройти уровень, нужно победить на 3-м уровне."),
 ]
-#3f1d1dca3c6a9dfdbe55af77ea88df2f
+#b7e3836989cb1f93dd473525600cf13e

@@ -1,15 +1,8 @@
-kind = foundry
-no_score = true
-complete_on_load = true
 title = "元件工坊"
-size = 128
-background = 6
-unlocks_pages = ["Circuits/The foundry"]
-unlocks_components = [com_probe_wire_bit, com_probe_wire_word, com_probe_memory_bit, com_probe_memory_word, com_static_value, com_static_eval]
 dialogue = [
   (mentor_centered, "欢迎来到元件工坊。在此创建的电路可以在计算机架构中作为自定义元件直接调用。
 自定义元件的功能和外形取决于你在此设计的电路的具体结构和布局。"),
   (mentor_centered, "在“切换电路图”菜单中，你可以添加、删除自定义元件，也可以重命名已创建的元件。"),
   (mentor_centered, "本关并不是一个挑战关卡，而是一个工具性关卡。你随时可以回到关卡树界面，继续完成后续关卡。"),
 ]
-#1f594a71e85cd28c5329cfd93ee7a987
+#b328c8449c14af58b8159bace90502f4

@@ -1,9 +1,4 @@
-kind = sequential
-immutable_isa = true
-no_score = true
 title = "川流不息"
-size = 50
-copy_solution_to_level = ["overture_2_alu"]
 dialogue = [
   (mentor_centered, `是时候开始你的主线项目了。从现在开始，一步步搭建 [color=#e49f44]Overture[/color] 计算机架构吧。它是一台图灵完备的机器，是当之无愧的计算机！`),
   (mentor_centered, `本关里，你需要搭建一个电路，使之能够将数据从[color=#c54d5e]源[/color]复制到[color=#e49f44]目标[/color]。
@@ -38,4 +33,4 @@ dialogue = [
 [ON] [ON] [ON]  UNUSED（未使用）`),
   (overture),
 ]
-#eff6070c7591388ddec22e0bee0b20c9
+#4e1aa61f6635f1e96eea735ae819adda

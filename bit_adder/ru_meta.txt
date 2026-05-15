@@ -1,9 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "Полусумматор"
-size = 30
-tick_past_fail = 4
-background = 5
 dialogue = [
   (mentor_centered, "Мы измеряем Вселенную числами. Поэтому наша машина должна уметь считать."),
 
@@ -11,4 +6,4 @@ dialogue = [
 
 Как и в обычном сложении, если результат не помещается в один разряд, установите перенос в [b]1[/b]."),
 ]
-#dde753214fd461adc7f143939f5284a6
+#9ded5a3fc7d037461566c49acb90af03

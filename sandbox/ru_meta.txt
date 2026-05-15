@@ -1,5 +1,2 @@
-kind = architecture
-background = 4
 title = "Песочница"
-size = 255
-#1aa995cf1bbdf953e7bcb7e4050f2b5d
+#6135989f177d6d09fc6e496f5f107a68

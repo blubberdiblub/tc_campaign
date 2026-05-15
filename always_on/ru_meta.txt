@@ -1,11 +1,4 @@
-kind = combinational
-hint_kind = combinational
-no_score = true
 title = "Всегда включён"
-size = 30
-unlocks_components = [com_on, com_off]
-tick_past_fail = 2
-unlocks_pages = ["Computer concepts/De Morgan's laws"]
 dialogue = [
   (mentor_centered, "Постройте схему, которая всегда выдаёт [ON]."),
 ]
@@ -13,4 +6,4 @@ post_mortem = [
     (mentor_centered, `Этот уровень открывает первую страницу руководства. Она очень важная — обязательно внимательно прочитайте её.`),
     (manual, "Computer concepts/De Morgan's laws"),
   ]
-#b654281cc40e771f422c6de2b197a68a
+#8106c28c0334fb307089147fd316cf5a

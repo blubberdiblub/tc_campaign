@@ -1,10 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "成双成对"
-size = 30
-tick_past_fail = 16
-no_score = true
-background = 5
 dialogue = [
   (mentor_centered, "本关有 4 路输入。
 有 2 路或更多的输入为 [ON] 时，输出 [ON]。
@@ -15,4 +9,4 @@ labels = {
     "Input": "输入",
     "Output": "输出",
 }
-#b8e4dafbeac21d74952df2e1382ac4b5
+#7b08fcef1ee207e39c72dd664674f4a4

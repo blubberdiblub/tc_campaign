@@ -1,9 +1,5 @@
-kind = combinational
-hint_kind = combinational
 title = "乘法器"
-size = 55
-unlocks_components = [com_mul]
 dialogue = [
   (mentor_centered, "搭建一个电路，将两路 8 位输入相乘后输出。结果里超出 8 位的部分直接舍弃即可。"),
 ]
-#3a77267a4a13d03dd1786f457926be02
+#d0598b781726cf25bc03e264c2dbecd7

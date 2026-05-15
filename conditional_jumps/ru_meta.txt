@@ -1,8 +1,4 @@
-kind = architecture
 title = "Условные переходы"
-tests = 42
-size = 255
-no_score = true
 dialogue = [
   (mentor_centered, `Цель уровня — познакомить вас с переходами и метками.
 
@@ -21,4 +17,4 @@ dialogue = [
 
 Затем выведите количество прочитанных значений."),
 ]
-#15f6c48ef4c4b792da0a3300d2d2f985
+#a3f0f3ae2223bf54546c9eb63cd0fbfd

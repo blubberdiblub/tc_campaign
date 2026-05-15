@@ -1,10 +1,4 @@
-kind = sequential
 title = "汇编程序"
-tests = 32
-size = 128
-copy_solution_to_architecture = "Overture"
-unlocks_pages = ["Assembly/Language Creation", "Assembly/Assembly Programming"]
-immutable_isa = true
 dialogue = [
   (mentor_centered, "打孔式编程太无聊了。和上一关一样，这一关里你要计算一个整数加 5 的结果。不过这一次，你需要使用汇编语言。"),
   (mentor, `汇编语言本质上说，就是为电脑运行的指令取一个人类能读懂的别名。
@@ -17,4 +11,4 @@ dialogue = [
 单击程序存储器右上角的“编辑”按钮可以打开汇编语言编辑器，你可以在其中使用汇编语言编程。此外，你可以单击编辑器左上角的“汇编模式”按钮，将编辑器切换到“指令集模式”。在指令集模式下，你可以查阅 Overture 架构所支持的所有汇编指令。`),
   (overture),
 ]
-#7ef6dc35c7a7a3c6882cc456c589ead5
+#5d8105f90a94163b68f1e041b331b6e2

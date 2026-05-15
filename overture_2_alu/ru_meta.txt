@@ -1,10 +1,4 @@
-kind = sequential
-hint_kind = combinational
-immutable_isa = true
-no_score = true
 title = "АЛУ"
-size = 50
-copy_solution_to_level = ["overture_3_immediates"]
 dialogue = [
   (mentor_centered, `Пришло время объединить схему «Арифметико-логического устройства», которую вы сделали ранее, со схемой регистров. Схема АЛУ сохранена в Мастерской (как ALU) и теперь её можно добавить как компонент. Если забыли, какой пин за что отвечает, посмотрите схему в Мастерской.
 
@@ -23,4 +17,4 @@ dialogue = [
 labels = {
   "Instruction": "Инструкция",
 }
-#c2e688b2bf3318b1f04648026c9d8eb3
+#f3e49e3a7cad602a4300efec64f4c5f3

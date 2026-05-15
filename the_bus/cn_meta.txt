@@ -1,10 +1,4 @@
-kind = combinational
-hint_kind = combinational
-no_score = true
 title = "总线"
-size = 30
-components_available = [com_switch_word: 4, com_not_bit: 2]
-background = 5
 dialogue = [
   (mentor_centered, `本关有 2 个 8 位输入端和 2 个 8 位输出端。你的目标是将数值从指定的输入端复制到指定的输出端。
   
@@ -12,4 +6,4 @@ dialogue = [
 
 每个时钟刻里，应该只有一路输出取得目标数值。另一路输出引脚和输入断开（处于高阻态）。后者用“-”表示。`),
 ]
-#97396dd1dd2e13f79247e15d0ced8172
+#e0b9bc79e87ab500a7d35a8d4cc31ce8

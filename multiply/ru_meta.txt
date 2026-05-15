@@ -1,9 +1,5 @@
-kind = combinational
-hint_kind = combinational
 title = "Умножение"
-size = 55
-unlocks_components = [com_mul]
 dialogue = [
   (mentor_centered, "Умножьте два числа. Если результат не помещается в 8 битов, отбросьте лишние биты."),
 ]
-#3a77267a4a13d03dd1786f457926be02
+#d0598b781726cf25bc03e264c2dbecd7

@@ -1,10 +1,4 @@
-kind = sequential
 title = "Программирование на перфокартах"
-tests = 32
-size = 128
-copy_solution_to_level = ["assembly_programming"]
-unlocks_pages = ["Assembly/Assembly Programming", "Assembly/Language Creation"]
-immutable_isa = true
 dialogue = [
   (mentor_centered, `Теперь, когда вы построили свой первый компьютер, пришло время научиться его программировать.`),
 
@@ -12,4 +6,4 @@ dialogue = [
 
   (overture),
 ]
-#84797315a51e048b9e0a1c417d881411
+#b3aa9fea468e11b966fc3b221fc2253d

@@ -1,12 +1,4 @@
-kind = misc
-no_score = true
 title = "负数"
-size = 3000
-no_controls = true
-no_state_ui = true
-unlocks_pages = ["Computer concepts/Negative numbers"]
-background = 5
-unlocks_special = ["signed_numbers"]
 dialogue = [
   (mentor_centered, `要知道事物之间的差异，你就要做减法。而要想做减法，你得先会写负数。`),
   (mentor_centered, `本关里，你需要练习如何用“补码”表示负整数，这是二进制系统里负数最常用的表示方法。
@@ -17,4 +9,4 @@ dialogue = [
 
 `),
 ]
-#aa3b838b33d5196d4269d6ae74abc0fa
+#41855c8f5bb86a725a2e8a3d2942750a

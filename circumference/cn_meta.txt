@@ -1,8 +1,5 @@
-kind = architecture
 title = "三番两次"
-tests = 42
-size = 255
 dialogue = [
   (mentor_centered, "本关的目标是用汇编语言编写程序，从输入设备读取一个值，将其乘以 6 后输出。"),
 ]
-#3ab1c9776d766a06d9cde0e3449a761c
+#9c56c683e0a510f1372fe88568553989

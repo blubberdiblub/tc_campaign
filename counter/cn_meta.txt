@@ -1,7 +1,4 @@
-kind = sequential
 title = "计数器"
-size = 30
-unlocks_components = [com_counter]
 dialogue = [
   (mentor_centered, "搭建一个计数器。每个时钟刻，其中存储的数值都会自动加 1。
 
@@ -11,4 +8,4 @@ dialogue = [
 
 1 位的输入端用于切换步进模式和擦写模式，单字节的输入端则用于指定要写入的数值。"),
 ]
-#34fed1c2051eb0c4063d6e4395962b1e
+#d599d3d843f8a5c08a36556192b2febe

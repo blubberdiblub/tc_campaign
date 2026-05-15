@@ -1,12 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "Декодер инструкций"
-size = 48
-copy_solution_to_foundry = "Symphony/DEC"
-copy_solution_to_level = ["symphony_decoder_2"]
-background = 6
-components_available = [com_static_indexer: 7]
-unlocks_components = [com_static_indexer]
 dialogue = [
   (mentor_centered, `
 Постройте схему, которая разделяет инструкции Symphony на их отдельные части. Это очень пригодится позже.
@@ -29,4 +21,4 @@ dialogue = [
 
 Компонент статического индексатора — это специальный компонент, который позволяет сдвигать определённые биты провода без какой-либо задержки или стоимости вентилей. Изменяя число на компоненте, вы сдвигаете биты (положительное число сдвигает вправо). Затем нажмите на компонент, чтобы задать ширину выхода.`),
 ]
-#90f4afe1668fd19dd49b4cfca0b918a0
+#24af68fc32aa2875bf5be71ff62ad8af

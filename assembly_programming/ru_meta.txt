@@ -1,10 +1,4 @@
-kind = sequential
 title = "Программирование на ассемблере"
-tests = 32
-size = 128
-copy_solution_to_architecture = "Overture"
-unlocks_pages = ["Assembly/Language Creation", "Assembly/Assembly Programming"]
-immutable_isa = true
 dialogue = [
   (mentor_centered, "Программирование с помощью перфокарт — это довольно утомительно. Давайте попробуем ещё раз прибавить 5 к входному значению, как на предыдущем уровне, но теперь с помощью ассемблера."),
 
@@ -19,4 +13,4 @@ dialogue = [
 
   (overture),
 ]
-#7ef6dc35c7a7a3c6882cc456c589ead5
+#5d8105f90a94163b68f1e041b331b6e2

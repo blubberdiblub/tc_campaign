@@ -1,10 +1,4 @@
-kind = combinational
-no_score = true
 title = "Экзамен по логике"
-size = 30
-background = 5
-tick_past_fail = 4
-components_available = [com_off: -1, com_on: -1, com_not_bit: -1, com_nand_bit: -1, com_and_bit: -1, com_nor_bit: -1, com_or_bit: -1, com_xnor_bit: -1, com_xor_bit: -1]
 dialogue = [
   (mentor_centered, "Этот уровень создан, чтобы убедиться, что вы хорошо освоили булеву логику, прежде чем двигаться дальше. Хорошее понимание сильно поможет вам в будущем."),
 
@@ -13,4 +7,4 @@ dialogue = [
 post_mortem = [
     (mentor, `Отличная работа! Теперь, когда вы уверенно владеете булевой логикой, пришло время приступить к созданию вашего первого компьютера. Но сначала нужно изучить память и двоичную арифметику. Путь к мастерству долог, но очень приятен.`),
 ]
-#5688cedf35ce0c740f4e6558d2df5e53
+#4097b1bbd126347a62925e104fbb7bca

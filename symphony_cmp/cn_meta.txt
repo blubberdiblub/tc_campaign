@@ -1,9 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "举一反三"
-size = 48
-copy_solution_to_foundry = "Symphony/cmp"
-background = 6
 dialogue = [
   (mentor_centered, `在这一关里，你需要以三种不同方式比较两路 32 位输入的大小。每个结果都是一个 1 位的值，称为“标志位”（flag）。
 
@@ -14,4 +9,4 @@ Flags:
 
 如需学习如何制作 32 位元件，请参见“大步流星”关卡。`),
 ]
-#ecb91c8ab82881d9bbbbb08e4639f3cb
+#e8cf50dec2844d4eab38e6a290a71593

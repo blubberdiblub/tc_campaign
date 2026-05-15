@@ -1,12 +1,4 @@
-kind = misc
-no_score = true
 title = "Отрицательные числа"
-size = 3000
-no_controls = true
-no_state_ui = true
-unlocks_pages = ["Computer concepts/Negative numbers"]
-background = 5
-unlocks_special = ["signed_numbers"]
 dialogue = [
   (mentor_centered, `Чтобы отличать всякие штуки друг от друга, нужно уметь вычитать. А для вычитания сначала нужны отрицательные числа.`),
   (mentor_centered, `На этом уровне вводится «дополнительный код»(two's comliment) — самый распространённый способ представления отрицательных чисел.
@@ -15,4 +7,4 @@ dialogue = [
 
 Для прохождения уровня нужно дойти до 3-го уровня или дальше.`),
 ]
-#aa3b838b33d5196d4269d6ae74abc0fa
+#41855c8f5bb86a725a2e8a3d2942750a

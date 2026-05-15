@@ -1,7 +1,4 @@
-kind = sequential
 title = "Маленькая коробочка"
-size = 16
-unlocks_components = [com_ram]
 dialogue = [
   (mentor_centered, "Сможете ли вы разместить 4 байта памяти в этом ограниченном пространстве?"),
   (mentor_centered, "На этом уровне вам нужно построить схему, 
@@ -15,4 +12,4 @@ dialogue = [
 [tip]Пробел поворачивает компоненты.[/tip]
 "),
 ]
-#6c33dc1850c1ddb462e8940abbb19842
+#b8d925a8ce88a9fa9cab48dbb83a79a8

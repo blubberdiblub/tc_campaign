@@ -1,12 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "条分缕析"
-size = 48
-copy_solution_to_foundry = "Symphony/DEC"
-copy_solution_to_level = ["symphony_decoder_2"]
-background = 6
-components_available = [com_static_indexer: 7]
-unlocks_components = [com_static_indexer, com_static_indexer_config]
 dialogue = [
   (mentor_centered, `
 搭建一个电路，将 Symphony 的指令拆分为不同的部分。这个元件在后面的关卡里会很有用。
@@ -33,4 +25,4 @@ Symphony 指令有两种编码格式，取决于指令中是否使用了立即�
 
 静态索引器是一种特殊元件，它可以在不引入任何延迟和门开销的前提下，从一根导线中取出特定的若干位数值。点击元件后，在下方面板中可以调整元件截取数据的偏移量（正数表示右移），点击元件左侧的数字窗口则可以设置输出位宽。`),
 ]
-#90f4afe1668fd19dd49b4cfca0b918a0
+#24af68fc32aa2875bf5be71ff62ad8af

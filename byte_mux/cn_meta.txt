@@ -1,10 +1,5 @@
-kind = combinational
-hint_kind = combinational
 title = "数据选择器"
-size = 30
-unlocks_components = [com_mux]
-background = 5
 dialogue = [
     (mentor_centered, "当选通输入端为 [OFF] 时，将 A 路输入发送到输出端，否则将 B 路输入发送到输出端。"),
 ]
-#6bd0148fd1ed262bd9dc791bcf424b55
+#58e0296202da87c8034d89828c86331a

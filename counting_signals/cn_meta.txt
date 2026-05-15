@@ -1,11 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "信号计数"
-size = 30
-tick_past_fail = 16
-no_score = true
-unlocks_pages = ["Computer concepts/Binary"]
-background = 5
 dialogue = [
   (mentor_centered, "本关里你要实现的电路是一个二进制计数器，它的三个输出引脚分别对应 1、2、4 三个二进制数位。
 你需要计算四路输入里有多少路处于 [ON]，并将结果转换成二进制，发送到输出端的三个引脚上。
@@ -17,4 +10,4 @@ labels = {
     "Input": "输入",
     "Output": "输出",
 }
-#da3cc6e488faffb3a9524abfd60a5363
+#a0a59cee9db5d64f47ad3c80edd1ad4b

@@ -1,9 +1,4 @@
-kind = sequential
 title = "Изящное сохранение"
-size = 30
-unlocks_components = [com_register_bit]
-tick_past_fail = 13
-background = 1
 dialogue = [
   (mentor_centered, "Линия задержки позволяет хранить значение только 1 такт. Но иногда полезен компонент, который может хранить значение дольше."),
 
@@ -19,4 +14,4 @@ labels = {
   "Value": "Значение",
   "Output": "Выход",
 }
-#85b7c1b63ebe186174957f7f636acad9
+#d7a3f036b3f69287a5badd5ecd7fe1be

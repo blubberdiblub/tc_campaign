@@ -1,13 +1,7 @@
-kind = combinational
-hint_kind = combinational
 title = "全加器"
-size = 30
-unlocks_components = [com_full_adder]
-tick_past_fail = 8
-background = 5
 dialogue = [
   (mentor_centered, "上一关里，我们对两路输入进行了求和。这一关里我们对三路输入求和。和上一关相同，请对三路输入作二进制加法，使每个数位的结果为 [b]0[/b] 或 [b]1[/b]。
 
 与普通加法一样，如果结果不能用一位数来表示，将进位数设为 [b]1[/b]。"),
 ]
-#40718a0f8788ae0b364c58722a5fedf0
+#29fc420f073259b19e5186b286dea768

@@ -1,11 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "非门（NOT）"
-size = 30
-unlocks_components = [com_not_bit]
-tick_past_fail = 2
-background = 4
-unlocks_special = ["level_map"]
 dialogue = [
   (mentor_centered, "既然你已经解锁了与非门，那么是时候自己动手搭建一个电路了。"),
   (mentor_centered, "上一关里，你填写了描述给定电路的真值表。在这一关，你需要搭建一个与给定的真值表匹配的电路。"),
@@ -24,4 +17,4 @@ labels = {
   "Input": "输入",
   "Output": "输出",
 }
-#03f44462d1104041e98dc27bc4c7b002
+#c3ba80cde6a25c77cd6db2e4eed90415

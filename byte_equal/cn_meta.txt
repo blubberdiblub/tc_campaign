@@ -1,10 +1,5 @@
-kind = combinational
-hint_kind = combinational
 title = "整数判等"
-size = 32
-unlocks_components = [com_equal]
-background = 4
 dialogue = [
   (mentor_centered, "当两路输入相等时，输出 [ON]。")
 ]
-#507eb34ba5b985be22adaeecd7e37183
+#2841e831ee00b3761a8e578fae5bcc1a

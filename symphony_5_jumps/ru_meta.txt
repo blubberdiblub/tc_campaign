@@ -1,10 +1,4 @@
-kind = sequential
 title = "Переходы"
-size = 255
-immutable_isa = true
-copy_solution_to_level = ["symphony_6_ram"]
-no_score = true
-shared_data_folder = "symphony"
 dialogue = [
   (mentor_centered, `Вот [color=#ff9800]Режимы[/color] архитектуры [color=#e49f44]Symphony[/color]:
 
@@ -32,4 +26,4 @@ dialogue = [
 
 Если флаги соответствуют условию, перезапишите значение счётчика [color=#66ccff]аргументом B[/color].`),
 ]
-#2e9a33571e40881ac42f1df5806f438e
+#9c8a651d1b14c40134600ca8c81bff56

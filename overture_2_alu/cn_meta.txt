@@ -1,10 +1,4 @@
-kind = sequential
-hint_kind = combinational
-immutable_isa = true
-no_score = true
 title = "计算核心"
-size = 50
-copy_solution_to_level = ["overture_3_immediates"]
 dialogue = [
   (mentor_centered, `是时候把你已经做好的算术逻辑单元（ALU）加入到这个带有寄存器的电路里了。你之前设计的 ALU 已被保存在了元件工坊里，随时可以作为一个元件添加到电路图中。如果你忘了每个引脚的具体功能，可以打开元件工坊，重新确认一下电路图。
 
@@ -19,4 +13,4 @@ dialogue = [
 [tip]别忘记 3-8 译码器带有一个开关引脚，可以禁用所有输出。[/tip]`),
   (overture),
 ]
-#c2e688b2bf3318b1f04648026c9d8eb3
+#f3e49e3a7cad602a4300efec64f4c5f3

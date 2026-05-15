@@ -1,11 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "指令译码器"
-size = 24
-no_score = true
-copy_solution_to_foundry = "Overture/Dec"
-background = 6
-tick_past_fail = 4
 dialogue = [
   (mentor_centered, `你在“川流不息”一关中搭建的电路可以在寄存器之间复制数值，而在“算术逻辑引擎”中搭建的电路可以对 2 路输入进行多种运算。在后续的关卡中，你需要在同一个电路中同时进行这两种操作。要实现这一点，你需要搭建一个“指令译码器”。它能根据指令字节中我们尚未使用的那两位数值，来决定我们的计算机要在何种模式（MODE）下工作。`),
   (mentor_centered, `为了区分 4 种不同的指令，指令中最高的两位将被用来指定计算机的工作模式，如下所示：
@@ -18,4 +11,4 @@ dialogue = [
 
 根据输入确定我们要激活的模式（MODE），然后将相应的一路输出设为 [ON]。`),
 ]
-#b600ecde8e03956cd73ae354e813d4c2
+#901f07dcb15fc2a9f6175594f406aa21

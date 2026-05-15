@@ -1,12 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "算术逻辑单元（ALU）"
-size = 48
-copy_solution_to_level = ["symphony_alu"]
-copy_solution_to_foundry = "Overture/ALU"
-unlocks_pages = ["Circuits/The Foundry"]
-background = 6
-next_level = "foundry"
 dialogue = [
   (mentor_centered, "向你的电路中加入加法和减法功能，实现算术逻辑单元（ALU）。
 
@@ -19,4 +11,4 @@ dialogue = [
 4 ADD（加法）
 5 SUB（减法）[/color]"),
 ]
-#a45c5bd4fa7161ba580bd2083a54de43
+#c5c110db31fd516cc7f8eb86abe61bcb

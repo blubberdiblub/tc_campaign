@@ -1,10 +1,4 @@
-kind = sequential
 title = "Постоянная память"
-size = 255
-immutable_isa = true
-no_score = true
-copy_solution_to_level = ["symphony_8_io_devices"]
-shared_data_folder = "symphony"
 dialogue = [
     (mentor_centered, `На этом уровне мы добавляем ещё один компонент ОЗУ — для хранения данных между перезапусками.
 
@@ -20,4 +14,4 @@ dialogue = [
 [color=#ff6680]6[/color] store_32
 [color=#ff6680]7[/color] pstore`),
 ]
-#0d00e606c8067d1f4db35505d6131a84
+#6a7bff988e530d085c0ce9586a26eea2

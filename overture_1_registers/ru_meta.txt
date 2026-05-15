@@ -1,9 +1,4 @@
-kind = sequential
-immutable_isa = true
-no_score = true
 title = "Регистры"
-size = 50
-copy_solution_to_level = ["overture_2_alu"]
 dialogue = [
   (mentor_centered, `Наконец-то пришло время построить ваш первый компьютер. Я научу вас создавать архитектуру [color=#e49f44]Overture[/color] — настоящую машину Тьюринга, полноценный компьютер.`),
   (mentor_centered, `На этом уровне нужно создать схему, которая может перемещать значение из [color=#c54d5e]source[/color](источника) в [color=#e49f44]destination[/color](приёмник).
@@ -38,4 +33,4 @@ dialogue = [
 [ON] [ON] [ON]  UNUSED`),
   (overture),
 ]
-#eff6070c7591388ddec22e0bee0b20c9
+#4e1aa61f6635f1e96eea735ae819adda

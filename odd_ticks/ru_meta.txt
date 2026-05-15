@@ -1,10 +1,4 @@
-FILE: odd_ticks/ru_meta.txt
-kind = sequential
-no_score = true
 title = "Нечётные такты"
-size = 30
-tick_past_fail = 8
-background = 1
 dialogue = [
   (mentor_centered, "На предыдущем уровне вы узнали, что циклические зависимости запрещены. Теперь вы познакомитесь с единственным исключением."),
   (mentor_centered, `Линии задержки разрешено зависеть от собственного входа. Это потому, что вход влияет на остальную схему только на следующем такте.
@@ -15,4 +9,4 @@ dialogue = [
   [image="delay_line.png"]`),
   (mentor_centered, "Выведите [OFF] на чётных тактах и [ON] на нечётных."),
 ]
-#a2a863068e3fec86d1c27b5568f34ad5
+#263401a35ab64efb89c7e0aba931cf22

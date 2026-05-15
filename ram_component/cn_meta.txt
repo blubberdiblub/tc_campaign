@@ -1,7 +1,4 @@
-kind = sequential
 title = "方寸之间"
-size = 16
-unlocks_components = [com_ram]
 dialogue = [
   (mentor_centered, "你能在这有限的空间里塞下 4 个字节的寄存器吗？"),
   (mentor_centered, "在本关中，你需要设计一个电路，令它能向 4 个 8 位寄存器中随意写入或从中读取信息。
@@ -18,4 +15,4 @@ post_mortem = [
     (mentor, `在我们这种高等文明中，强迫囚犯重复劳动是奴役行径，技术上讲这是不合法的。
 所以我们找了个实习生为你的组件创建了一个 256 字节的版本。`)
 ]
-#18119ff071bf822e09d006943c1b9bf4
+#b8d925a8ce88a9fa9cab48dbb83a79a8

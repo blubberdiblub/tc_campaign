@@ -1,10 +1,4 @@
-kind = misc
-no_score = true
 title = "bescheidene Anfänge"
-size = 30
-no_controls = true
-background = 4
-next_level = "nand_gate"
 labels = {
   "Input": "Eingabe",
   "Output": "Ausgabe",
@@ -15,4 +9,4 @@ dialogue = [
  Wenn du Magie lernst, wird der Computer zu einem Portal zu einem Ort wo alles möglich ist."),
   (mentor_centered, "Dieses erste Level von diesem Spiel ist ein einfache Einführung in Schaltkreise. Das Spielfeld hat eine Eingabe, eine Ausgabe und ein Kabel dazwischen. Schalte einfach die Eingabe im linken Menü an, um das Level abzuschließen."),
 ]
-#adce989e5b5cf325330fceb5009463bf
+#c6deb48a8a9277a95466441e374a350c

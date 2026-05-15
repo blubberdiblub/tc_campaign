@@ -1,9 +1,5 @@
-kind = combinational
-hint_kind = combinational
 title = "1-битный декодер"
-size = 30
-unlocks_components = [com_decoder_1]
 dialogue = [
   (mentor_centered, "Создайте компонент, который может переключать сигнал между двумя пинами."),
 ]
-#a8acff388ccc044f07362972f4c098ea
+#3330487d298db0dc2b0606f6bfaaea64

@@ -1,13 +1,4 @@
-kind = combinational
-hint_kind = combinational
-no_score = true
 title = "二进制开关"
-size = 30
-unlocks_components = [com_switch_bit, com_switch_word]
-components_available = [com_switch_bit: 2, com_not_bit: 2]
-tick_past_fail = 4
-background = 5
-unlocks_pages = ["Circuits/Short circuit"]
 dialogue = [
   (mentor_centered, `当不同的组件向同一条线路上输出不同的值时，电路就会出错。不过，有些元件有灰色的输出引脚。这种引脚只在激活时产生输出，未激活时则与输出线“断开”（处于高阻态）。 这一关引入的二进制开关就是这种组件。
 
@@ -16,4 +7,4 @@ dialogue = [
 当下方的引脚处于 [OFF] 状态时，开关组件的输出端将被禁用。只要一次只启用至多一个开关，多个开关就可以共享一条输出线，而不引发短路。`),
   (mentor_centered, `利用 2 个非门和 2 个开关，搭建一个异或门（XOR）。`),
 ]
-#351cdfa36f679573cebea6b5f389e160
+#653bc849552e87c33cbeaa299dedfc07

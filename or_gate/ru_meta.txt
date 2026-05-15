@@ -1,10 +1,4 @@
-kind = combinational
-hint_kind = combinational
-no_score = true
 title = "Вентиль ИЛИ(OR)"
-size = 30
-unlocks_components = [com_or_bit]
-tick_past_fail = 4
 dialogue = [
   (mentor_centered, "Постройте схему, которая соответствует таблице.
 [tip]Дважды кликните по компоненту, чтобы переместить его вместе с подключёнными проводами.[/tip]"),
@@ -13,4 +7,4 @@ labels = {
   "Input": "Вход",
   "Output": "Выход",
 }
-#fbcb1e16417952c1a1d6d27a33fbbf9f
+#683a7ade15181eeec0a96b8143521bd8

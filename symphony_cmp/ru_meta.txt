@@ -1,9 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "Флаги сравнения"
-size = 48
-copy_solution_to_foundry = "Symphony/cmp"
-background = 6
 dialogue = [
   (mentor_centered, `На этом уровне нужно сравнить два 32-битных входа тремя разными способами. Каждый результат — это 1-битное значение, называемое «флагом».
 
@@ -14,4 +9,4 @@ dialogue = [
 
 Чтобы узнать, как делать 32-битные компоненты, сначала откройте уровень «Symphony counter», если ещё не сделали этого.`),
 ]
-#ecb91c8ab82881d9bbbbb08e4639f3cb
+#e8cf50dec2844d4eab38e6a290a71593

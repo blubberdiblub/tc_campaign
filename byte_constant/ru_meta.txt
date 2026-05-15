@@ -1,10 +1,5 @@
-kind = combinational
-hint_kind = combinational
 title = "Байтовая константа"
-size = 32
-unlocks_components = [com_constant]
-background = 4
 dialogue = [
   (mentor_centered, "Создайте схему, которая всегда выводит число 164."),
 ]
-#0e56dcda0f24fe9a94d8982fcb23efcb
+#1292e022e0f35662db822d72eb43a308

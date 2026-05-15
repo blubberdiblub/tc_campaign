@@ -1,15 +1,7 @@
-kind = combinational
-hint_kind = combinational
-no_score = true
 title = "超级加倍"
-size = 30
-unlocks_components = [com_splitter_bit_2, com_splitter_bit_4, com_splitter_bit_8, com_maker_bit_2, com_maker_bit_4, com_maker_bit_8]
-components_available = [com_splitter_bit_8: -1, com_maker_bit_8: -1]
-unlocks_pages = ["Computer concepts/Bytes"]
-background = 5
 dialogue = [
   (mentor_centered, "本关里，我们将引入单字节（byte）的信号。一个字节可表示一个 0 ~ 255 之间的整数。每个字节都由 8 个二进制位（bit）组成。在本关中，你将获得两个新的元件，第一个是分线器，它能将一条单字节导线（8 位线）分割成八条 1 位导线；第二个是集线器，其功能恰好相反。
 
 你需要利用这些元件，找到一种让输入翻倍的方法（本关输入范围为 0 ~ 127 的整数）。"),
 ]
-#59834cbc00d67fe3be8424a6cfb46388
+#1f02d8f695375891ef83779f45d29317

@@ -1,11 +1,4 @@
-kind = misc
-no_score = true
 title = "十六进制速算"
-size = 3000
-no_controls = true
-no_state_ui = true
-background = 5
-unlocks_special = ["hex_numbers"]
 dialogue = [
   (mentor_centered, "当数位很多时，二进制数的可读性会变差，十六进制（hexadecimal）则会更加简明易读。十六进制下，每个数位代表 4 个二进制位：
 
@@ -38,4 +31,4 @@ F [ON][ON][ON][ON]
 为通过本关，你至少需要连续通过 3 级。
 "),
 ]
-#3f1d1dca3c6a9dfdbe55af77ea88df2f
+#b7e3836989cb1f93dd473525600cf13e

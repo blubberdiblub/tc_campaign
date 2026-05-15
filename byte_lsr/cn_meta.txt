@@ -1,9 +1,4 @@
-kind = combinational
-hint_kind = combinational
 title = "逻辑右移"
-size = 45
-unlocks_components = [com_lsl, com_lsr, com_rol, com_ror]
-copy_solution_to_level = ["byte_asr"]
 dialogue = [
   (mentor_centered, `将数字“右移”一位的意思是将每一个二进制位向右（低位方向）移动一位，并在左侧补 0。
 
@@ -25,4 +20,4 @@ dialogue = [
 post_mortem = [
     (mentor, `你已经解锁了逻辑右移器。我们为你附送了一个逻辑左移器。`),
 ]
-#e3e25f7a82fa6fad6959da743421c1de
+#c9014c1628bc47fce1c36b3a6cfc0895

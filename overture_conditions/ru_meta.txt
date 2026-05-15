@@ -1,10 +1,4 @@
-kind = combinational
-hint_kind = combinational
-immutable_isa = true
 title = "Условия"
-size = 48
-copy_solution_to_foundry = "Overture/Cond"
-background = 6
 dialogue = [
   (mentor_centered, "На этом уровне есть вход значения и 3 входа битов условия.
 
@@ -26,4 +20,4 @@ labels = {
   "Input": "Вход",
   "Result": "Результат",
 }
-#be96f4676fb8047dac585e77048900f6
+#bc896beba7bb0b5d712e2a927e2f276b

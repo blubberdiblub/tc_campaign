@@ -1,8 +1,4 @@
-kind = sequential
 title = "整存整取"
-size = 30
-unlocks_components = [com_register_word, com_delay_line_word]
-background = 1
 dialogue = [
   (mentor_centered, `搭建一个可以[color=#ffcc44][b]存储[/b][/color]（[color=#ffcc44][b]STORE[/b][/color]）一字节数值的电路。
 
@@ -10,4 +6,4 @@ dialogue = [
 
 输出端应始终输出存储器中保存的数值。`),
 ]
-#16c1b9e8ec1da8c25ed649d63ebc4caf
+#667515cd05ae64924d5168dd66c283ee

@@ -1,10 +1,4 @@
-kind = sequential
 title = "Стек"
-size = 255
-immutable_isa = true
-shared_data_folder = "symphony"
-copy_solution_to_level = ["symphony_11_functions"]
-no_score = true
 dialogue = [
     (mentor_left, `Задача этого уровня — реализовать распространённую структуру данных под названием «стек». Вы можете делать с ним две вещи:
 
@@ -31,4 +25,4 @@ add sp, sp, 4
 
 Обратите внимание, что «push» вычитает из «sp», поэтому стек растёт вниз от старших адресов. Младшие адреса остаются свободными для ваших нужд.`),
 ]
-#3f9cab08a38a383b1b66338ee05dacc1
+#4c30cdc179188c7777c510c1bf665943

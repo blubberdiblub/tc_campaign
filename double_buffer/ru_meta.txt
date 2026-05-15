@@ -1,13 +1,6 @@
-kind = sequential
-no_score = true
 title = "Линии задержки"
-size = 30
-unlocks_components = [com_delay_line_bit]
-components_available = [com_delay_line_bit: -1]
-tick_past_fail = 14
-background = 1
 dialogue = [
   (mentor_centered, `На этом уровне вводится компонент «Линия задержки». Он принимает вход и выдаёт его на такт позже.`),
   (mentor_centered, "Постройте схему, которая выводит то же самое, что и вход, но с задержкой в 2 такта."),
 ]
-#c851854dce1b191b65a1eb921c10d053
+#ec7076b46968a6d77ccd3e2aadf0439d

@@ -1,10 +1,5 @@
-kind = combinational
-hint_kind = combinational
 title = "Второй такт"
-size = 30
-tick_past_fail = 4
-no_score = true
 dialogue = [
   (mentor_centered, "Выдайте [ON] только на втором такте."),
 ]
-#75ab9163f207529f6e94924aa9fe36eb
+#15b96b099f89fcd79dc28753dcffb994

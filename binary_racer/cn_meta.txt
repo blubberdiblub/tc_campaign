@@ -1,10 +1,4 @@
-kind = misc
-no_score = true
 title = "二进制速算"
-size = 3000
-no_controls = true
-no_state_ui = true
-background = 5
 dialogue = [
   (mentor_centered, `在这一关里，你要练习用二进制来表示整数。
 
@@ -13,4 +7,4 @@ dialogue = [
 为通过本关，你至少需要连续通过 3 级。
 `)
 ]
-#ecfc2acc7edbcbdcca9b0f59dd3cb462
+#241ec2264b2f058f8d3c81cd5ec4b892

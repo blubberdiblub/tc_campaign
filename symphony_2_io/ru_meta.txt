@@ -1,10 +1,4 @@
-kind = sequential
-no_score = true
 title = "Ввод-вывод"
-size = 255
-copy_solution_to_level = ["symphony_3_alu"]
-immutable_isa = true
-shared_data_folder = "symphony"
 dialogue = [
   (mentor_centered, `На этом уровне мы добавляем возможность вводить и выводить значения в [color=#e49f44]Symphony[/color].
 
@@ -31,4 +25,4 @@ dialogue = [
 2 out (отправить [color=#66ccff]аргумент B[/color] на выход)
 `),
 ]
-#daf478b52837d9eac53527905f7b88a0
+#42c271057ba0516012de1523c1fa03e0

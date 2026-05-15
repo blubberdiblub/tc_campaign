@@ -1,13 +1,8 @@
-kind = combinational
-hint_kind = combinational
 title = "3-битный декодер"
-size = 30
-unlocks_components = [com_decoder_3]
-tick_past_fail = 8
 dialogue = [
     (mentor_centered, "При 3-битном входе существует 8 возможных комбинаций. Постройте схему, которая выбирает ровно 1 выход для каждой из этих 8 комбинаций. В каждый момент времени должен быть [ON] не более и не менее одного бита."),
 ]
 post_mortem = [
     (mentor, "Я добавил бит «Запретить» к этому компоненту, он пригодится позже.")
 ]
-#9afbe414fce6f69c55eedf2ad523a98e
+#23e2435cd2e832a72666c95a036cc9c5

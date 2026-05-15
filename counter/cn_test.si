@@ -55,7 +55,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if output.output_is_z {
         ui_set_text("table[5][1]", `Z`)
-        set_error(`输出不不应为空（高阻态）。`)
+        set_error(`输出不应为空（高阻态）。`)
         return fail
     } else {
         ui_set_text("table[5][1]", `{output.output}`)

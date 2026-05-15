@@ -33,4 +33,7 @@ dialogue = [
 [ON] [ON] [ON]  UNUSED（未使用）`),
   (overture),
 ]
+labels = {
+  "Instruction": "指令",
+}
 #4e1aa61f6635f1e96eea735ae819adda

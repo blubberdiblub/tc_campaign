@@ -2,4 +2,8 @@ title = "单字节非门"
 dialogue = [
   (mentor_centered, '将输入字节中的每一位逐个取反（执行逻辑非运算）。'),
 ]
+labels = {
+  "Input": "输入",
+  "Output": "输出",
+}
 #5315369b41d1ff4e61538b71af5d4e49

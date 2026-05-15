@@ -8,4 +8,9 @@ dialogue = [
 输出   [ON][ON][ON][ON][ON][OFF][ON][ON]
 "),
 ]
+labels = {
+  "A": "A",
+  "B": "B",
+  "Output": "输出",
+}
 #a643ab3afd56f461cb5694aca6ef6852

@@ -8,7 +8,7 @@ dialogue = [
 labels = {
     "A": "A",
     "B": "B",
-    "Sum": "Sum（和）",
-    "Carry": "CARRY（输出进位）",
+    "Sum": "总和",
+    "Carry": "进位",
 }
 #9ded5a3fc7d037461566c49acb90af03

@@ -14,4 +14,9 @@ dialogue = [
 [ON] [ON] [OFF]    value ≤ 0
 [ON] [ON] [ON]    value > 0"),
 ]
+labels = {
+    "Condition": "条件码",
+    "Input": "输入数值",
+    "Result": "输出",
+}
 #bc896beba7bb0b5d712e2a927e2f276b

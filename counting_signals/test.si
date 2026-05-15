@@ -10,10 +10,6 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     var display_result = str(output.output)
 
-    if output.output_is_z {
-        display_result = "?"
-    }
-
     ui_set_text(`table[5][{tick + 1}]`, display_result)
 
     if #CORRECT_OUTPUT[tick] != output.output {

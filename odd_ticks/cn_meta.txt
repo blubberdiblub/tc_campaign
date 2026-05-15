@@ -9,4 +9,8 @@ dialogue = [
   [image="delay_line.png"]`),
   (mentor_centered, "请设计电路，在偶数刻输出 [OFF] ，奇数刻输出 [ON] 。"),
 ]
+labels = {
+  "Input": "输入",
+  "Output": "输出",
+}
 #263401a35ab64efb89c7e0aba931cf22

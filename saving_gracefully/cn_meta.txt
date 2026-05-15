@@ -10,4 +10,9 @@ dialogue = [
 
 "),
 ]
+labels = {
+  "Save": "写入",
+  "Value": "待写入数值",
+  "Output": "输出",
+}
 #d7a3f036b3f69287a5badd5ecd7fe1be

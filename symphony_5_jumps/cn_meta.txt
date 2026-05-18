@@ -1,0 +1,29 @@
+title = "指令折跃"
+dialogue = [
+  (mentor_centered, `下面是 [color=#e49f44]Symphony[/color] 的工作模式（[color=#ff9800]Modes[/color]）：
+
+0 IO（外设模式）
+1 ALU（运算模式）
+2 JUMP（跳转模式）
+3 RAM（访存模式）
+
+在这一关中，我们要实现 JUMP（条件跳转）模式。一如既往，指令的位模式如下所示：
+
+ [color=#ff9800]M[/color]  = Mode（运行模式）
+ [color=#ff6680]O[/color]  = Opcode（操作码）
+[color=#9966ff]0[/color]/[color=#9966ff]1[/color] = Immediate mode（立即数指示位）
+ [color=#ffe666]D[/color]  = Destination register（目标寄存器）
+ [color=#66ff99]A[/color]  = Argument A（参数 A）
+ [color=#66ccff]B[/color]  = Argument B（参数 B，可以是立即数）
+ [color=#bbbbbb]0[/color]  = Unused / zero（未使用或为零）
+
+当参数 B 不是立即数时，指令的位模式为：
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
+
+当参数 B 是立即数时，指令的位模式为：
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]1[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#66ccff]BBBBBBBB BBBBBBBB[/color]
+
+在 JUMP 模式下，[color=#66ff99]参数 A[/color] 指定的寄存器中存放的是标志位（flags），这个值需要与指令中给出的条件（即操作码 [color=#ff6680]Opcode[/color]）进行比较。你可以直接用“举一反三”这一关里搭建的自定义元件“cond”完成这个比较操作。
+
+如果标志位和指令中的条件匹配成功，那么你要用 [color=#66ccff]参数 B[/color] 覆盖计数器的值。`)]
+#9c8a651d1b14c40134600ca8c81bff56

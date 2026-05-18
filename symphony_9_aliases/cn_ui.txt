@@ -1,0 +1,2 @@
+[text id="description" text="向指令集中添加新指令的定义" size=36]
+#64cea150a3f080d451f1f275ed360590

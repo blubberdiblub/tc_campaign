@@ -36,11 +36,8 @@ def get_input(tick: Int) Input {
 
     var i = 0
     while i < 4 {
-        var text = `{.memory_state[i]}`
-        if offset == i {
-            text += `→{value}`
-        }
-        ui_set_text(`states[{i / 2 + 1}][{i % 2 + 1}]`, text)
+        var text = offset == i ? str(value) : str(.memory_state[i])
+        ui_set_text(`states[{i + 1}][1]`, text)
         i += 1
     }
 
@@ -54,24 +51,14 @@ def get_input(tick: Int) Input {
     text_value = markup(text_value)
     ui_set_text("actions[1][3]", text_value)
 
-    var text_add = ""
-    if add_1 == 0 {
-        text_add += "A"
-    } else {
-        text_add += "B"
-    }
-    if add_2 == 0 {
-        text_add += "0"
-    } else {
-        text_add += "1"
-    }
+    var text_add = str(add_1) + str(add_2)
     text_add = markup(text_add)
     ui_set_text("actions[1][2]", text_add)
 
     if load == 0 {
-        ui_set_text("actions[2][1]", "[OFF]")
-        ui_set_hidden("actions[2][2]", true)
-        ui_set_hidden("actions[2][3]", true)
+        ui_set_text("actions[3][1]", "[OFF]")
+        ui_set_hidden("actions[3][2]", true)
+        ui_set_hidden("actions[3][3]", true)
     } else {
         var text_state = `{.memory_state[add_1 * 2 + add_2]}`
         if text_state.len() < 3 {
@@ -81,23 +68,23 @@ def get_input(tick: Int) Input {
             text_state = text_state + " "
         }
         text_state = markup(text_state)
-        ui_set_text("actions[2][1]", "[ON]")
-        ui_set_text("actions[2][2]", `[right]从 {text_add}[/right]`)
-        ui_set_text("actions[2][3]", `[left] 读取 {text_state}[/left]`)
-        ui_set_hidden("actions[2][2]", false)
-        ui_set_hidden("actions[2][3]", false)
+        ui_set_text("actions[3][1]", "[ON]")
+        ui_set_text("actions[3][2]", `[right]从 {text_add}[/right]`)
+        ui_set_text("actions[3][3]", `[left] 读取 {text_state}[/left]`)
+        ui_set_hidden("actions[3][2]", false)
+        ui_set_hidden("actions[3][3]", false)
     }
 
     if save == 0 {
-        ui_set_text("actions[3][1]", "[OFF]")
-        ui_set_hidden("actions[3][2]", true)
-        ui_set_hidden("actions[3][3]", true)
+        ui_set_text("actions[4][1]", "[OFF]")
+        ui_set_hidden("actions[4][2]", true)
+        ui_set_hidden("actions[4][3]", true)
     } else {
-        ui_set_text("actions[3][1]", "[ON]")
-        ui_set_text("actions[3][2]", `[right]向 {text_add}[/right]`)
-        ui_set_text("actions[3][3]", `[left] 写入 {text_value}[/left]`)
-        ui_set_hidden("actions[3][2]", false)
-        ui_set_hidden("actions[3][3]", false)
+        ui_set_text("actions[4][1]", "[ON]")
+        ui_set_text("actions[4][2]", `[right]向 {text_add}[/right]`)
+        ui_set_text("actions[4][3]", `[left] 写入 {text_value}[/left]`)
+        ui_set_hidden("actions[4][2]", false)
+        ui_set_hidden("actions[4][3]", false)
     }
 
     return Input {
@@ -144,4 +131,4 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     }
 
 }
-#2db821a588cd1f63f3cceae020508a40
+#6a7a8474f9d8508d73b551019e523fd4

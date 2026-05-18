@@ -6,7 +6,7 @@ var size = random(41) + 1
 
 def arch_get_input(test: Int) Int {
 
-    ui_set_text("goal", `6 × {.size} 等于多少？`)
+    ui_set_text("goal", `2π × {.size} 等于多少？`)
     ui_set_hidden("note", false)
 
     return .size
@@ -15,11 +15,11 @@ def arch_get_input(test: Int) Int {
 def arch_check_output(test: Int, input: Int, output: Int) TestResult {
 
     if output != .size * 6 {
-        set_error(`6 × {.size} = {.size * 6}`)
+        set_error(`2π × {.size} = {.size * 6}`)
         return fail
     }
 
     return win
 
 }
-#81ca3e8891cb79fe09dfb3111531f1ac
+#334b92602c1c53cba40442920e42baa6

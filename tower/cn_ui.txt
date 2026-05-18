@@ -1,0 +1,11 @@
+[image x=-200 y=100 file="peg.png"]
+[image x=0 y=100 file="peg.png"]
+[image x=200 y=100 file="peg.png"]
+[image id="0" y=8 file="0.png"]
+[image id="1" y=8 file="1.png"]
+[image id="2" y=8 file="2.png"]
+[image id="3" y=8 file="3.png"]
+[image id="4" y=8 file="4.png"]
+[image id="magnet" file="magnet.png"]
+[text id="error_text" text="错了！你把大盘片放在小盘片的上面了！" size=36 hidden=true]
+#12c5d19cab5a32d1144c5fd6ade2bf44

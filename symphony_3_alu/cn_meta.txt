@@ -1,0 +1,16 @@
+title = "引擎发动"
+dialogue = [
+  (mentor_centered, `这一关里，你需要将“更新换代”一关里搭建的 ALU 整合进 Symphony 架构中。ALU 需要执行的操作由指令中的 [color=#ff6680]Opcode[/color]（操作码）部分给出。
+
+指令的位模式重述如下：
+
+[color=#ff9800]M[/color] = Mode（运行模式）
+[color=#ff6680]O[/color] = Opcode（操作码）
+[color=#ffe666]D[/color] = Destination register（目标寄存器）
+[color=#66ff99]A[/color] = Argument A（参数 A）
+[color=#66ccff]B[/color] = Argument B（参数 B）
+[color=#bbbbbb]0[/color] = Unused / zero（未使用或为零）
+
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#bbbbbb]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
+`)]
+#d2c2b205997f5332c23d7135a9f075ae

@@ -1,0 +1,17 @@
+title = "记忆永存"
+dialogue = [
+    (mentor_centered, `这一关里我们要为计算机添加一个非易失性的大容量存储器（外存），让它能在每次重启后仍然保留此前已有的数据。
+
+你需要为这个存储单元添加两条对应的指令 pload 和 pstore。它们和前一关里 32 位字长的访存指令功能类似，唯一的区别是，这两条指令控制的是新的外存单元。
+
+下表列出了我们在访存模式下所需使用的全部操作码（[color=#ff6680]Opcode[/color]）：
+[color=#ff6680]0[/color] load_8
+[color=#ff6680]1[/color] load_16
+[color=#ff6680]2[/color] load_32
+[color=#ff6680]3[/color] pload
+[color=#ff6680]4[/color] store_8
+[color=#ff6680]5[/color] store_16
+[color=#ff6680]6[/color] store_32
+[color=#ff6680]7[/color] pstore`),
+]
+#6a7bff988e530d085c0ce9586a26eea2

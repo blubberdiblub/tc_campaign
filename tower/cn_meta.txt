@@ -1,0 +1,35 @@
+title = "汉诺塔"
+dialogue = [
+  (mentor_centered, `汉诺塔是一个著名的数学问题。在这个问题中，桌上插有三根金属钎，其中一根串有一叠金属片，盘片自下而上由大到小排列。你的目标是将这些盘片移动到另一根指定的金属钎上。这个问题的难点在于，你一次只能移动一摞盘片中最顶上的那一个，并且所有金属钎上的盘片都必须保持下大上小的堆叠次序。`),
+  (mentor_left, "本关中，每个测例包含 4 个输入，它们的含义依次如下所列：
+disk_nr - 初始的盘片总数（2 至 4 个）
+source - 初始串有盘片的金属钎号码（源）
+destination - 盘片移动的目标金属钎号码（目标）
+spare - 第三根金属钎（除源和目标以外）的号码
+
+你可以向输出端发送下列数值来控制一块电磁铁，从而移动金属盘片：
+0 - 将电磁铁移动到 0 号金属钎
+1 - 将电磁铁移动到 1 号金属钎
+2 - 将电磁铁移动到 2 号金属钎
+5 - 切换电磁铁的开关状态
+
+你可以先尝试用方向键和回车键控制电磁铁，进行试玩。"),
+  (mentor_left, `这一关有一定难度，但也是一个练习函数调用的好问题。下面给出的是一个参考算法，它需要借助递归函数（recursive function）来实现。“递归”的意思是函数自己调用自己：
+
+[b]汉诺塔算法（伪代码）：[/b]
+[box]func move(disk_nr, source, dest, spare) {
+    if disk_nr is 0 {
+        move disk from source to dest
+    } else {
+        move(disk_nr - 1, source, spare, dest)
+        move disk from source to dest
+        move(disk_nr - 1, spare, dest, source)
+    }
+}[/box]
+
+[tip]注意在调用函数时将可能改写的寄存器压栈，并在返回时弹出。[/tip]`),
+]
+post_mortem = [
+  (mentor, `干得好。你已经解决了汉诺塔问题，说明你对 Symphony 架构的汇编编程已经有足够的了解了。在接下来的关卡中，我们会进一步优化这个架构的性能。`)
+]
+#919354fbdcc3be3cda0de445a6e8d59b

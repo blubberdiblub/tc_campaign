@@ -1,0 +1,50 @@
+title = "千头万绪"
+dialogue = [
+  (mentor_centered, `终于到了该搭建 [color=#e49f44]Symphony[/color] 架构的时候了！`),
+  (mentor_centered, `
+Symphony 架构中，多数指令都带有两个参数，并输出一个结果（如 ADD、OR 等）。
+
+为了实现这个功能，[color=#e49f44]Symphony[/color] 的每条指令占用 4 个字节，这样你就可以在一条指令中编码所有三个操作数。比如说，我们可以将任意两个寄存器的值相加，并将结果存入任意一个寄存器中，而这三个寄存器的地址都在指令的参数中指定。另外，所有的程序指令都存储在一个名为“Main Memory”（主存）的 RAM 组件中。`),
+  (mentor_centered, `以下是 [color=#e49f44]Symphony[/color] 的 16 个寄存器的名称：
+
+0 zr
+1 r1
+2 r2
+3 r3
+4 r4
+5 r5
+6 r6
+7 r7
+8 r8
+9 r9
+10 r10
+11 r11
+12 r12
+13 r13
+14 sp
+15 flags
+
+零号寄存器“zr”的值永远是 0，或者说写入“zr”的任何数值都会被丢弃，我们可以利用这一特点来简化一些指令的硬件实现。“sp”和“flags”本质上是两个普通的寄存器，它们有特别的名称，并将在后续关卡中被留作特殊用途。你应该尽量避免手动擦写其中的数值，除非你明白这样做会产生什么结果。
+
+和 Overture 架构不同，这一次我们不使用单独的 16 个寄存器。我们使用一个名为“Register File”的内存组件来模拟这一组寄存器。`),
+  (mentor_centered, `现在，请你在这一关里，按照我们上述的解释和要求，利用给定的硬件，搭建一个能访问指定寄存器，并执行 NAND 指令的电路。它是 Symphony 架构的基础。
+
+以下是不使用立即数时 Symphony 架构中指令的编码方式：
+
+[color=#ff9800]M[/color] = Mode（运行模式）
+[color=#ff6680]O[/color] = Opcode（操作码）
+[color=#ffe666]D[/color] = Destination register（目标寄存器）
+[color=#66ff99]A[/color] = Argument A（参数 A）
+[color=#66ccff]B[/color] = Argument B（参数 B）
+[color=#bbbbbb]0[/color] = Unused / zero（未使用或为零）
+
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#bbbbbb]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
+
+参数 A、参数 B 和目标都是寄存器地址，你需要使用“条分缕析”关卡中解锁的指令译码器从指令中取出这三个地址。注意：内存组件的加载和存储端口接收的地址是以字节为单位的，但每个 32 位的寄存器占用 4 个字节。这意味着你需要计算寄存器的地址，而不是直接把寄存器的编号传递给内存读写端口。
+
+另外，在这一关中，[color=#ff9800]Mode[/color]（运行模式）始终为 1，而[color=#ff6680]Opcode[/color]（操作码）始终为 0。这意味着我们只需要从指定的寄存器中读出第一个参数与第二个参数，进行 NAND 运算，并将结果存入目标寄存器中。目前你可以直接使用一个 32 位与非门来代替 ALU。
+
+[center][image="cn_symphony_diagram_1.png"][/center]
+`),
+]
+#ab38f7c6b3a61168c0429d69110cc5b5

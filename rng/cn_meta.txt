@@ -1,0 +1,13 @@
+title = "千变万化"
+dialogue = [
+  (level_centered, `这一关里，测例只包含一个输入值，我们把这个值称作随机种子（seed）。我们可以通过以下三个步骤用随机种子来生成一个伪随机数：
+
+[b]32 位异或移位（Xorshift）伪随机数生成算法：[/b]
+[box]temp1  = seed  xor (seed  lsr 13)
+temp2  = temp1 xor (temp1 lsl 17)
+result = temp2 xor (temp2 lsr 5)[/box]
+
+每次生成伪随机数后，请将结果 result 发送到输出端，然后将其作为新的随机种子生成下一个伪随机数。
+`)]
+]
+#0fb6159e9d7849cf367be853e6ee6d48

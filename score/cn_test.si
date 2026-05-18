@@ -1,0 +1,27 @@
+
+def get_input(tick: Int) Input {
+
+    ui_set_text("goal", `将 {tick} 加 1 并输出`)
+    return Input {input: U8 tick}
+
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    let expected = (input.input + 1)
+
+    if expected != output.output {
+
+        set_error(`输出应为 {expected}。`)
+        return fail
+
+    }
+
+    if tick == 0xff {
+
+        return win
+
+    }
+
+}
+#82ac37f6397c5eb235c4d1a9996bc946

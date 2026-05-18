@@ -1,7 +1,7 @@
-[text text="如果你始终沿着左手边（或右手边）走，那么你最终一定能到达出口。" y=-120 size=22]
-[text text="下面是这种解法的伪代码：" y=-80 size=22]
-[text text="[left][b]前进一步[/b][/left]" y=-40 x=-300 size=22]
-[text text="[left][b]原地左转[/b][/left]" y=0 x=-300 size=22]
-[text text="[left][b]如果面前是墙，原地右转；重复这一步，直到面前不是墙壁为止[/b][/left]" y=40 x=-300 size=22]
-[text text="[left][b]返回第一步并重复上述操作[/b][/left]" y=80 x=-300 size=22]
-#dde2b2cfe6729bfb4d2957f8c2651b5b
+[text text="如果你始终沿着左手边（或右手边）走，那么你最终一定能到达出口。" y=-100 size=22]
+[text text="下面是这种解法的伪代码：" y=-60 size=22]
+[text text="[left][b]前进一步[/b][/left]" y=-20 x=-300 size=22]
+[text text="[left][b]原地左转[/b][/left]" y=20 x=-300 size=22]
+[text text="[left][b]如果面前是墙，原地右转；重复这一步，直到面前不是墙壁为止[/b][/left]" y=60 x=-300 size=22]
+[text text="[left][b]返回第一步并重复上述操作[/b][/left]" y=100 x=-300 size=22]
+#90bd543d794aefc10b0a2b9b9b423776

@@ -14,4 +14,8 @@ dialogue = [
 Здесь вместо [OFF] вставляется [ON].
 `),
 ]
-#1778af9a1240787fc5dfa2dfa75ad341
+labels = {
+  "Input": "Вход",
+  "Output": "Выход",
+}
+#49b99b166d3e367f3618b21b89f7d9d9

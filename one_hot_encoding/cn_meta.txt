@@ -5,4 +5,8 @@ dialogue = [
 本关的限制是，你最多只能使用 3 个元件。另外，你也不能使用之前解锁的译码器。
 `),
 ]
+labels = {
+    "Input": "输入",
+    "Output": "输出",
+}
 #f4ea8f1ac60bdbdb1e9d05eeca5a05cc

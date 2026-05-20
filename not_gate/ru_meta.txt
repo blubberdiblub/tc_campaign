@@ -20,8 +20,4 @@ labels = {
   "Input": "Вход",
   "Output": "Выход",
 }
-labels = {
-  "Input": "Вход",
-  "Output": "Выход",
-}
 #c3ba80cde6a25c77cd6db2e4eed90415

@@ -2,4 +2,7 @@ title = "整型常量"
 dialogue = [
   (mentor_centered, "搭建一个电路，让它始终输出 164。")
 ]
+labels = {
+    "Output": "输出",
+}
 #1292e022e0f35662db822d72eb43a308

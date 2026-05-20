@@ -18,4 +18,10 @@ dialogue = [
 
 其中计算比较标志的元件 cmp 正是你在“举一反三”这一关中搭建好的那个版本。"),
 ]
+labels = {
+    "Opcode": "操作码",
+    "Argument A": "参数 A",
+    "Argument B": "参数 B",
+    "Result": "输出",
+}
 #fc840f8a4d21bb8570ec288d22103743

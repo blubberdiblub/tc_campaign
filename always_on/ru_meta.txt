@@ -6,4 +6,8 @@ post_mortem = [
     (mentor_centered, `Этот уровень открывает первую страницу руководства. Она очень важная — обязательно внимательно прочитайте её.`),
     (manual, "Computer concepts/De Morgan's laws"),
   ]
+labels = {
+  "Input": "Вход",
+  "Output": "Выход",
+}
 #8106c28c0334fb307089147fd316cf5a

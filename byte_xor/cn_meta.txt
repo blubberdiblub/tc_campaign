@@ -2,4 +2,7 @@ title = "整型异或"
 dialogue = [
   (mentor_centered, "搭建一个电路，对两路整数输入执行按位异或运算。")
 ]
+labels = {
+    "Result": "输出",
+}
 #db4f2ca8b9600808ff79be5b178a4d19

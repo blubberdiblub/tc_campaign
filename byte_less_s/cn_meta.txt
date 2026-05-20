@@ -2,4 +2,7 @@ title = "有符号小于"
 dialogue = [
   (mentor_centered, "搭建一个电路，当第一路输入严格小于第二路输入时，输出 [ON]。注意，在本关中，输入应被视作[color=#dd6576]有符号整数[/color]。")
 ]
+labels = {
+    "Result": "输出",
+}
 #d8b14e7906815a3d52a2a00628981153

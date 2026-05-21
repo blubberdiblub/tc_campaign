@@ -11,4 +11,11 @@ dialogue = [
 
 根据输入确定我们要激活的模式（MODE），然后将相应的一路输出设为 [ON]。`),
 ]
+labels = {
+    "Instruction": "指令",
+    "Immediate": "立即数模式",
+    "ALU": "运算模式",
+    "Move": "复制模式",
+    "Condition": "条件跳转模式",
+}
 #901f07dcb15fc2a9f6175594f406aa21

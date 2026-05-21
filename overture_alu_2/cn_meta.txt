@@ -12,6 +12,9 @@ dialogue = [
 5 SUB（减法）[/color]"),
 ]
 labels = {
+    "Opcode": "操作码",
+    "A": "A",
+    "B": "B",
     "Result": "输出",
 }
 #c5c110db31fd516cc7f8eb86abe61bcb

@@ -13,4 +13,7 @@ dialogue = [
 [tip]别忘记 3-8 译码器带有一个开关引脚，可以禁用所有输出。[/tip]`),
   (overture),
 ]
+labels = {
+    "Instruction": "指令",
+}
 #f3e49e3a7cad602a4300efec64f4c5f3

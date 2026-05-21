@@ -1,0 +1,43 @@
+title = "内存"
+dialogue = [
+    (mentor_centered, `在这一关里，我们要添加对主存（即程序所在的内存单元 Main Memory）的读取和写入功能。我们希望能够实现对于 32 位、16 位和 8 位三种字长的数据读写操作，因此需要为主存元件额外添加 3 个读取端口和 3 个写入端口。
+
+请将我们新提供的端口元件插入到指令读取端口与主存之间。`)
+    (mentor_centered, `和先前的关卡一样，[color=#e49f44]Symphony[/color] 的工作模式（[color=#ff9800]Mode[/color]）如下：
+
+[color=#ff9800]0[/color] IO（外设模式）
+[color=#ff9800]1[/color] ALU（运算模式）
+[color=#ff9800]2[/color] JUMP（跳转模式）
+[color=#ff9800]3[/color] RAM（访存模式）
+
+指令的位模式如下：
+ [color=#ff9800]M[/color]  = Mode（运行模式）
+ [color=#ff6680]O[/color]  = Opcode（操作码）
+[color=#9966ff]0[/color]/[color=#9966ff]1[/color] = Immediate mode（立即数指示位）
+ [color=#ffe666]D[/color]  = Destination register（目标寄存器）
+ [color=#66ff99]A[/color]  = Argument A（参数 A）
+ [color=#66ccff]B[/color]  = Argument B（参数 B，可以是立即数）
+ [color=#bbbbbb]0[/color]  = Unused / zero（未使用或为零）
+
+当参数 B 不是立即数时，指令的位模式为：
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
+
+当参数 B 是立即数时，指令的位模式为：
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]1[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#66ccff]BBBBBBBB BBBBBBBB[/color]`)
+    (mentor_centered, `在这一关里，我们要实现 RAM（访存）模式。目前，该模式有六个操作码（[color=#ff6680]Opcode[/color]）：
+[color=#ff6680]0[/color] load_8
+[color=#ff6680]1[/color] load_16
+[color=#ff6680]2[/color] load_32
+[color=#ff6680]3[/color] [color=#bbbbbb]（留作它用）[/color]
+[color=#ff6680]4[/color] store_8
+[color=#ff6680]5[/color] store_16
+[color=#ff6680]6[/color] store_32
+
+读取类指令（load_XX）应从指令的 [color=#66ccff]参数 B[/color] 对应的内存地址处读出数值，并将结果存入 [color=#ffe666]目标[/color] 寄存器。
+
+写入类指令（store_XX）应将 [color=#66ff99]参数 A[/color] 寄存器中的数值，存入主存位于 [color=#66ccff]参数 B[/color] 的地址处。
+
+所有指令读写的内存地址偏移量都以字节为单位。数字后缀决定了从内存读取或写入的位宽。例如，load_8 指令应读出 8 位数据，store_16 指令应从目标地址开始写入 16 位数据。`),
+    (mentor_centered, `注意，内存的读写端口是从上到下依次执行操作的。如果一个读取端口位于写入端口的下方，它会在写入之后才读取；如果位于写入端口上方，则会在写入之前读取。当端口读写同一地址时，这个顺序会很重要，因为所有读取端口都会尝试等待它们上方的写入端口完成操作，也就是会对这些写入端口产生依赖关系。在这一关中，所有的读取端口都必须位于写入端口的上方，否则就会导致循环依赖。`),
+]
+#69df4fe2827c729d921021a415934542

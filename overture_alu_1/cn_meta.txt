@@ -10,6 +10,9 @@ dialogue = [
 3 NOR（按位或非）[/color]"),
 ]
 labels = {
+    "Opcode": "操作码",
+    "A": "A",
+    "B": "B",
     "Result": "输出",
 }
 #4b039cbca7401fd7812afdb20193653c

@@ -1,0 +1,21 @@
+const #CORRECT_OUTPUT = [U1 0,1,1,0]
+
+def get_input(tick: Int) Input {
+    return Input {input: U2 tick}
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    if output.output_is_z {
+        set_error("输出不应为空（高阻态）")
+        return fail
+    }
+
+    if output.output != #CORRECT_OUTPUT[tick] {
+        return fail
+    }
+    if tick == 3 {
+        return win
+    }
+}
+#2c4ad81adcb277538f94af653440e71d

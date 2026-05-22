@@ -2,7 +2,7 @@ title = "LSR"
 dialogue = [
   (mentor_centered, `To shift a value 1 right just means moving all the bits in a byte to the right by 1 position.
 
-This operantion is known as [b]logic shift right[/b] and in assembly it is often abbreviated as [b]lsr[/b].
+This operation is known as [b]logical shift right[/b] and in assembly it is often abbreviated as [b]lsr[/b].
 
 For example [b]180 lsr 1[/b]
 

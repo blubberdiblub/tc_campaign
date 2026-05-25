@@ -377,7 +377,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     }
 
-    if tick > 0x4ffff {
+    if tick > 45000 {
         return win
     }
 

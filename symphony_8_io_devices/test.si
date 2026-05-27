@@ -269,7 +269,7 @@ def get_input(tick: Int) Input {
 def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if get_screen_connection("screen") != "Main Memory" {
-        set_error(`Connect the screen to the "Main Memory" component.`)
+        set_error(`Link the screen to the "Main Memory" component (use the little red button in the corner of the screen).`)
         return fail
 
     }

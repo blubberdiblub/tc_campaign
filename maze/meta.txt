@@ -15,6 +15,6 @@ You can also use the arrow keys to play around with the robot manually.
 
 `),]
 post_mortem = [
-    (mentor, `Great job. You finished the maze and clearly master Overture assembly now. But Overture is too basic, it is good for learning, but is missing many features. Your next project will be to build towards Symphony, a more powerful computer which has RAM, a screen, a keyboard and lets you reuse code through functions. On the way there you will have to build some new components, learn about the stack and other things.`)
+    (mentor_left, `Great job. You finished the maze and clearly master Overture assembly now. But Overture is too basic, it is good for learning, but is missing many features. Your next project will be to build towards Symphony, a more powerful computer which has RAM, a screen, a keyboard and lets you reuse code through functions. On the way there you will have to build some new components, learn about the stack and other things.`)
 ]
 ]

@@ -4,5 +4,5 @@ dialogue = [
   (mentor_centered, `This circuit contains a "NAND gate" that I want you to examine. I want you to document its behavior by filling in the "truth table" in the panel you see below. Only the two input rows of the truth table are filled out. Your task is to experiment with the inputs to the circuit, observe what the NAND gate does and fill the last row of the truth table.`),
 ]
 post_mortem = [
-  (mentor, `Correct! You have unlocked the NAND gate. Out of this fundamental building block, you will construct everything else in this game.`)
+  (mentor_left, `Correct! You have unlocked the NAND gate. Out of this fundamental building block, you will construct everything else in this game.`)
 ]

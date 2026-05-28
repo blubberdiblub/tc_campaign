@@ -1,6 +1,6 @@
 def get_input(tick: Int) Input {
 
-    return Input {input: U3 tick}
+    return Input {input: U3 tick, disable: U1 (tick >> 3)}
 
 }
 
@@ -8,7 +8,15 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     var value = Int output.output
 
-    if value != 1 << tick {
+    if input.disable == 1 {
+        if value != 0 {
+
+            set_error(`Expected all outputs to be OFF since the disable bit is ON`)
+            return fail
+
+        }
+
+    } elif value != 1 << tick {
 
         set_error(`Expected output {tick} to be ON and other outputs to be OFF`)
         return fail
@@ -16,7 +24,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     }
 
 
-    if tick == 7 {
+    if tick == 15 {
 
         return win
 

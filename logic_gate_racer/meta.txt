@@ -4,5 +4,5 @@ dialogue = [
   (mentor_centered, `You will be tested on a few different circuits here. When you hit the "Run" button, your circuit will be tested and you will get a green mark if it was correct or a red mark otherwise. The level is complete when 4 of the 5 marks in the history box below are green.`),
 ]
 post_mortem = [
-    (mentor, `Great job. Now that you have a firm grasp of Boolean logic, it is time to work towards building your first computer. But first you must learn about memory and binary arithmetic. The path to mastery is as long as it is satisfying.`)
+    (mentor_left, `Great job. Now that you have a firm grasp of Boolean logic, it is time to work towards building your first computer. But first you must learn about memory and binary arithmetic. The path to mastery is as long as it is satisfying.`)
 ]

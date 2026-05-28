@@ -13,7 +13,7 @@ A 0 value is pop, remove and output the last number you stored.
 `),
 ]
 post_mortem = [
-  (mentor, `Since the stack is so useful for programming, a "push" and "pop" instruction will be added to the next Symphony level. Both of these are synonyms for two other instructions and they both use the "sp" register (short for stack pointer) to keep track of the stack.
+  (mentor_left, `Since the stack is so useful for programming, a "push" and "pop" instruction will be added to the next Symphony level. Both of these are synonyms for two other instructions and they both use the "sp" register (short for stack pointer) to keep track of the stack.
 
 "push" is a synonym for:
 sub sp, sp, 4

@@ -18,5 +18,5 @@ And [b]180 lsr 3[/b]
 `),
 ]
 post_mortem = [
-    (mentor, `In addition to giving you a shift right component, you also get a shift left component.`),
+    (mentor_left, `In addition to giving you a shift right component, you also get a shift left component.`),
 ]

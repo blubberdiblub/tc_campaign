@@ -30,5 +30,5 @@ Play with the magnet manually by using the arrow keys to move and enter to toggl
 [tip]Remember to push register values to the stack to store them in function that changes them.[/tip]`),
 ]
 post_mortem = [
-  (mentor, `Well done. You solved the Tower of Hanoi puzzle and clearly master Symphony assembly. The next thing you will learn about is optimizing and performance.`)
+  (mentor_left, `Well done. You solved the Tower of Hanoi puzzle and clearly master Symphony assembly. The next thing you will learn about is optimizing and performance.`)
 ]

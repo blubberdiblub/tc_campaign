@@ -2,5 +2,5 @@
 "Input 0",              "a",            "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
 "Input 1",              "b",            "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
 "Desired output",       "a NAND b",     "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
-"Current ouput",        " ??? ",        "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"Current output",        " ??? ",        "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
 [/table]

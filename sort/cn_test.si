@@ -1,0 +1,49 @@
+
+var input_cursor = 0
+var output_cursor = 0
+var raw_numbers = array(<Int>, 16)
+var sorted_numbers = array(<Int>, 16)
+
+
+{
+    var i = 0
+    while i < 16 {
+        
+        let number = random(0x100)
+        raw_numbers[i] = number
+        sorted_numbers[i] = number
+        ui_set_text(`text_{i}`, str(number))
+        i += 1
+
+    }
+}
+
+sort($sorted_numbers)
+
+
+def arch_get_input(test: Int) Int {
+
+    .input_cursor += 1
+    return .input_cursor <= 16 ? .raw_numbers[.input_cursor - 1] : 0
+
+}
+
+def arch_check_output(test: Int, input: Int, output: Int) TestResult {
+
+    if output != .sorted_numbers[.output_cursor] {
+
+        set_error(`排序后，数组中 {.output_cursor} 号元素的值应为 {.sorted_numbers[.output_cursor]} 而非 {output}。`)
+        return fail        
+
+    }
+
+    if .output_cursor == 15 {
+
+        return win
+
+    }
+
+    .output_cursor += 1
+
+}
+#c87f9f623e0b526a069cfd4f341bdb2a

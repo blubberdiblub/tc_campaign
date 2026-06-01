@@ -1,6 +1,6 @@
 def get_input(tick: Int) Input {
 
-    return Input {input: U3 tick}
+    return Input {input: U3 tick, disable: U1 (tick >> 3)}
 
 }
 
@@ -8,19 +8,27 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     var value = Int output.output
 
-    if value != 1 << tick {
+    if input.disable == 1 {
+        if value != 0 {
 
-        set_error(`预期仅有第 {tick} 路输出为 [ON]。`)
+            set_error(`“禁用”位使能时，所有输出都应为 [OFF]。`)
+            return fail
+
+        }
+
+    } elif value != 1 << tick {
+
+        set_error(`预期结果为仅第 {tick} 路输出为 [ON]。`)
         return fail
 
     }
 
 
-    if tick == 7 {
+    if tick == 15 {
 
         return win
 
     }
 
 }
-#49096cafec7d9679e20bfb565819f628
+#dc5401ef278ec0b069e6b2e8bcd5b743

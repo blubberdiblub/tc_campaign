@@ -1,0 +1,82 @@
+
+var sp = 0
+var ram = array(<U8>, 1000)
+var waiting_for_pop = 0
+var count = 0
+
+def get_input(tick: Int) Input {
+
+    var result = random(2) == 0 ? 1 + random(0xfe) : 0
+
+    if .sp == 0 {
+
+        result = 1 + random(0xfe)
+
+    }
+
+    return Input {input: U32 result}
+
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    {
+
+
+        if input.input_enabled {
+
+            let push = input.input != 0
+
+            if push {
+
+                .ram[.sp] = U8 input.input
+                .sp += 1
+
+
+            } else { // Pop
+
+                if .waiting_for_pop == 1 {
+
+                    set_error(`你需要弹出栈顶值并将其发送到输出端。`)
+                    return fail
+
+                }
+
+                .waiting_for_pop = 1
+                .sp -= 1
+
+            }
+
+        }
+
+    }
+
+    if !output.output_enabled { 
+        return pass 
+    }
+
+    if .waiting_for_pop == 0 {
+
+        set_error(`只有输入为 0 时才应输出数据。`)
+        return fail
+
+    }
+
+    if output.output != U32 .ram[.sp] {
+
+        set_error(`栈顶数据应为 {.ram[.sp]} 而非 {output.output}。`)
+        return fail
+
+    }
+
+    .waiting_for_pop = 0
+    .count += 1
+
+    if .count >= 1000 {
+
+        return win
+
+    }
+
+}
+#bb7b0714cda6db8b99fff6fe29fbf7a5

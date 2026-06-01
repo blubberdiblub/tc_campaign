@@ -18,11 +18,11 @@ dialogue = [
 `),
 ]
 post_mortem = [
-    (mentor, `你已经解锁了逻辑右移器。我们为你附送了一个逻辑左移器。`),
+    (mentor_left, `你已经解锁了逻辑右移器。我们为你附送了一个逻辑左移器。`),
 ]
 labels = {
     "Input": "输入",
     "Shift": "右移量",
     "Result": "输出",
 }
-#630fa48e91cd58130e4273b742910077
+#efae5a04fa40d237d55091049f6ac8ef

@@ -3,6 +3,6 @@
 "Input 1",              "b",            "[right][ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
 "Carry in",             "c",            "[right][ANY][/right]"
 "Desired output",       "a + b + c",    "[right]    [ANY]    [ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
-"Current ouput",        "???",          "[right]    [ANY]    [ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
+"Current output",        "???",          "[right]    [ANY]    [ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
 "",                     "",             "[color=#E49F44][left]Carry out        Sum[/left][/color]"
 [/table]

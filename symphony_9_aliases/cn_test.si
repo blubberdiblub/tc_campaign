@@ -1,0 +1,39 @@
+
+def get_input(tick: Int) Input {
+    
+    return Input {input: U32 10}
+
+}
+
+def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    switch tick
+        0 {
+
+            if get_ram_value("Register File", 1 * 4, <U32>) != 0x1235 {
+                set_error(`第一条指令应将常量 0x1235 移入寄存器 r1 中。`)
+                return fail
+            }
+
+        }
+        1 {
+
+            if get_ram_value("Register File", 2 * 4, <U32>) != 0xffffedcb {
+                set_error(`寄存器 r2 的值应为 0xffffedcb。`)
+                return fail
+            }
+
+        }
+        2 {
+
+            if get_ram_value("Register File", 3 * 4, <U32>) != 0x1234 {
+                set_error(`寄存器 r3 的值应为 0x1234。`)
+                return fail
+            }
+
+            return win
+
+        } 
+
+}
+#e93707438dd7c858813066391083090f

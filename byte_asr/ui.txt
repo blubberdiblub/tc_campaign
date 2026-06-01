@@ -2,5 +2,5 @@
 "Shift",                "???"
 "Input",                "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
 "Desired output",       "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
-"Current ouput",        "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+"Current output",        "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
 [/table]

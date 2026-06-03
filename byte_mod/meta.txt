@@ -1,4 +1,4 @@
 title = "Modulo"
 dialogue = [
-  (mentor_centered, "Output the modulo of the two inputs."),
+  (mentor_centered, "Output the modulo of the two inputs. If the second input (the divisor) is 0, the result should be the same as the first input (the dividend)."),
 ]

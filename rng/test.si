@@ -1,6 +1,7 @@
 
 
-var seed = 1 + random(0xfffe)
+var initial_seed = 1 + random(0xfffe)
+var seed = initial_seed
 var count = 0
 
 def show_calculations(seed: Int) {
@@ -16,7 +17,7 @@ def show_calculations(seed: Int) {
 
 def arch_get_input(test: Int) Int {
 
-    return .seed
+    return .initial_seed
 
 }
 

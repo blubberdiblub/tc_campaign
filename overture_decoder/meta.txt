@@ -1,4 +1,4 @@
-title = "Instruction Decoder"
+title = "Instruction decoder"
 dialogue = [
   (mentor_centered, `The circuit you built in the "Registers" level can copy values between registers, while the "Arithmetic Engine" can do different operations on 2 inputs. But you need to be able to do both in the same circuit. To do this, build a "decoder", which will decide which mode our computer is in, based on the 2 bits we haven't used yet.`),
   (mentor_centered, `To distinguish between the instructions of 4 different kinds, the two highest bits will be used to determine which MODE we are in as follows:

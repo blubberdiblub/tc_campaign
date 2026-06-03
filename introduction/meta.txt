@@ -1,7 +1,4 @@
 title = "Humble beginnings"
 dialogue = [
-  (mentor_centered, "Magic exists in the real world and it is called computer science. Programs and circuits are like spells, made by combining simple things in complex ways. Show someone a computer that adds and multiplies numbers in just the right way and they will see a character jumping around an endless green landscape, full of opportunity.
-
-If you learn the magic, computers become a portal to a place where anything is possible."),
   (mentor_centered, "This first level of the game is a simple introduction to circuits. Here you have an input and an output with a wire in between. Simply turn on the input in the left hand menu to complete the level."),
 ]

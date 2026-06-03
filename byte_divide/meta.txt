@@ -1,4 +1,4 @@
 title = "Divide"
 dialogue = [
-  (mentor_centered, "Divide the two inputs and output the result. Note, this level is optional, because it is very hard."),
+  (mentor_centered, "Divide the two inputs and output the result. Note, this level is optional, because it is very hard. If the second input (the divisor) is 0, the result should be 0."),
 ]

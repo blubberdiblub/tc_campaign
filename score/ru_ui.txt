@@ -1,2 +1,0 @@
-[text id="goal" size=45 text="Увеличьте вход на 1"]
-#965b52a9833b344d91cef97af766c2b0

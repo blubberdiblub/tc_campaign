@@ -1,1 +1,1 @@
-[disassembly_text_description id="instruction" size=33 default_text="Add 5 to the input using binary programming" width=1000]
+[disassembly_text_description id="instruction" size=33 default_text=(31337_65391114076509, `Add 5 to the input using binary programming`) width=1000]

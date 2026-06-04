@@ -1,2 +1,0 @@
-[text text="要通过这一关，只需要在之前实现的可擦写存储器上稍作调整即可。" size=37]
-#22af2afc7fc6fe8d7ccd1b2e3b68a4cd

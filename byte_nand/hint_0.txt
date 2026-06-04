@@ -1,1 +1,1 @@
-[text text="Byte NAND of 2 binary numbers is just the NAND gate applied bitwise between them" size=37]
+[text text=(31337_88766421259023, `Byte NAND of 2 binary numbers is just the NAND gate applied bitwise between them`) size=37]

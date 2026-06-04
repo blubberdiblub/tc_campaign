@@ -1,2 +1,0 @@
-[text text="我们可以使用译码器来指定要启用的源和目标。" size=37]
-#bb6c6d53725d70ebe84bad677babca1d

@@ -1,7 +1,0 @@
-[table id="table" size=27 x=-50 spacing_y=4]
-"Инструкция",      "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
-"Желаемый режим",     "???"
-"Желаемый выход",   "[ANY][ANY][ANY][ANY]"
-"Текущий выход",   "[ANY][ANY][ANY][ANY]"
-[/table]
-#dac3021f8b1b9b2c8c8d3a509cb567b6

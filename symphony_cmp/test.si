@@ -20,7 +20,10 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     let result = (sless << 2) | (uless << 1) | equal
 
     if Int output.result != result {
-        set_error(`Expected output: {U1 sless}{U1 uless}{U1 equal}.`)
+        let a = U1 sless
+        let b = U1 uless
+        let c = U1 equal
+        set_error((31337_55730459238598, `Expected output: {a}{b}{c}.`))
         return fail
 
     }

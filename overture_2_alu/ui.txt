@@ -1,1 +1,1 @@
-[disassembly_text_description id="instruction" size=33 default_text="Integrate the ALU into the circuit" width=1000]
+[disassembly_text_description id="instruction" size=33 default_text=(31337_49706182840588, `Integrate the ALU into the circuit`) width=1000]

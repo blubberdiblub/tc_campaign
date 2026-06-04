@@ -1,1 +1,1 @@
-[text text="First of all, let's place our 4 bytes of memories on the board " size=37]
+[text text=(31337_32597308066943, `First of all, let's place our 4 bytes of memories on the board `) size=37]

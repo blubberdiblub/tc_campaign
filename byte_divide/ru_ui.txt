@@ -1,2 +1,0 @@
-[text id="description" text="Разделите два числа." size=37]
-#d0005e23e1c29aae0383ba09a6669476

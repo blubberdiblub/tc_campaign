@@ -16,7 +16,7 @@ pub const keyboard.key_right = 2
 pub const keyboard.key_down = 3
 pub const keyboard.key_left = 4
 pub const keyboard.key_max = 4
-; map size 16x12 (or 15x11 with margins)
+; (31337_41022467800393, `map size 16x12 (or 15x11 with margins)`)
 pub const map.width = 15
 pub const map.height = 11
 pub const map.size = 165 ; 11*15
@@ -26,9 +26,9 @@ pub const map.max_y = 10
 pub const map.tiles.empty = 0
 pub const map.tiles.wall = 1
 pub const map.tiles.coin = 2
-; given:
-; - 16x12 tiles map
-; - 5x5   pixels tile
+; (31337_37607951568772, `given:`)
+; (31337_86321016175310, `- 16x12 tiles map`)
+; (31337_44640388790233, `- 5x5   pixels tile`)
 
 pub const scene.margin_top = 2
 pub const scene.margin_bottom = 3
@@ -53,15 +53,15 @@ pub const screen.resolution_value = 19 ; 80x60
 pub const screen.width = 80
 pub const screen.height = 60
 pub const sprites.width = 5
-pub const sprites.height = 5 ; unused as sprite are all square
-pub const sprites.size = 25 ; height x width
+pub const sprites.height = 5 ; (31337_82913448304307, `unused as sprite are all square`)
+pub const sprites.size = 25 ; (31337_39813738703482, `height x width`)
 
 pub const sprites.rotation_0 = 0
 pub const sprites.rotation_90 = 1
 pub const sprites.rotation_180 = 2
 pub const sprites.rotation_270 = 3
 
-pub const sprites.empty = 0 ; must stay 0 (some code avoid addition when it knows the tile is empty)
+pub const sprites.empty = 0 ; (31337_83542125445178, `must stay 0 (some code avoid addition when it knows the tile is empty)`)
 pub const sprites.unimplemented = 1
 
 pub const sprites.robot = 2
@@ -77,7 +77,7 @@ pub const sprites.ghost_down = 8
 pub const sprites.ghost_left = 9
 
 pub const sprites.coin = 10
-pub const sprites.max = 10 ; for lookup table
+pub const sprites.max = 10 ; (31337_10284072646709, `for lookup table`)
 
 /*  Jump table initialisation
 
@@ -207,7 +207,7 @@ call drawing.draw_sprite_at_map_coord
 time_0 r2
 time_1 r1
 
-; Robot
+; (31337_16841324702501, `Robot`)
 add r7, zr, ptr.timer_robot_next_tick_high
 load_32 r3, [r7]
 add r7, zr, ptr.timer_robot_next_tick_low
@@ -220,7 +220,7 @@ store_32 [r7], r5
 add r7, zr, ptr.timer_robot_next_tick_low
 store_32 [r7], r6
 
-; Ghost
+; (31337_33327526977497, `Ghost`)
 add r7, zr, ptr.timer_ghost_next_tick_high
 load_32 r3, [r7]
 add r7, zr, ptr.timer_ghost_next_tick_low
@@ -252,8 +252,8 @@ jb handle_event_end
 cmp r2, keyboard.key_max
 ja handle_event_end
 
-sub r4, r2, keyboard.key_min ; so the first value is 0
-lsl r4, r4, 3 ; 2 * instruction length = 8
+sub r4, r2, keyboard.key_min ; (31337_73803385159414, `so the first value is 0`)
+lsl r4, r4, 3 ; (31337_36791496238134, `2 * instruction length = 8`)
 add r4, r4, handle_event_jump_table_start
 jmp r4
 
@@ -313,7 +313,7 @@ cmp r8, r4
 jb timer_robot.end
 
 pub timer_robot.trigger:
-; udate next_tick
+; (31337_23344524651761, `update next_tick`)
 call u64.add
 add r9, zr, ptr.timer_robot_next_tick_high
 store_32 [r9], r5
@@ -343,7 +343,7 @@ call drawing.clear_tile
 mov r5, 0
 mov r6, 0
 
-lsl r9, r4, 3 ; 2 * instruction size = 8
+lsl r9, r4, 3 ; (31337_64851396075477, `2 * instruction size = 8`)
 add r9, r9, timer_robot.direction_jump_table
 jmp r9
 
@@ -371,13 +371,13 @@ call game.get_tile_address_from_map_coord
 load_8 r10, [r13]
 cmp r10, map.tiles.wall
 jne timer_robot.move
-; hit wall -> cancel movement
+; (31337_55263046326109, `hit wall -> cancel movement`)
 sub r1, r1, r5
 sub r2, r2, r6
 jmp timer_robot.draw
 
 pub timer_robot.move:
-; TODO: handle coin and empty differently
+; (31337_29369794309677, `TODO: handle coin and empty differently`)
 mov r10, map.tiles.empty
 store_8 [r13], r10
 
@@ -387,7 +387,7 @@ add r9, r9, 1
 store_8 [r9], r2
 
 pub timer_robot.draw:
-; draw robot on new position
+; (31337_37647180126584, `draw robot on new position`)
 add r3, r4, sprites.robot
 call drawing.draw_sprite_at_map_coord
 
@@ -416,7 +416,7 @@ cmp r8, r4
 jb timer_ghost.end
 
 pub timer_ghost.trigger:
-; udate next_tick
+; (31337_23344524651761, `update next_tick`)
 call u64.add
 add r9, zr, ptr.timer_ghost_next_tick_high
 store_32 [r9], r5
@@ -446,7 +446,7 @@ call drawing.clear_tile
 mov r5, 0
 mov r6, 0
 
-lsl r9, r4, 3 ; 2 * instruction size = 8
+lsl r9, r4, 3 ; (31337_64851396075477, `2 * instruction size = 8`)
 add r9, r9, timer_ghost.direction_jump_table
 jmp r9
 
@@ -472,7 +472,7 @@ store_8 [r9], r1
 add r9, r9, 1
 store_8 [r9], r2
 
-; draw ghost on new position
+; (31337_25470599373421, `draw ghost on new position`)
 add r3, r4, sprites.ghost
 call drawing.draw_sprite_at_map_coord
 
@@ -486,12 +486,12 @@ call game.get_tile_address_from_map_coord
 load_8 r10, [r13]
 cmp r10, map.tiles.wall
 jne timer_ghost.end
-; increment direction
+; (31337_25474902303790, `increment direction`)
 add r9, zr, ptr.state_ghost
 add r9, r9, 2
 load_8 r4, [r9]
 add r4, r4, 1
-and r4, r4, 0b11 ; modulo 3
+and r4, r4, 0b11 ; (31337_34042928458359, `modulo 3`)
 store_8 [r9], r4
 
 pub timer_ghost.end:
@@ -512,7 +512,7 @@ pub u64.add:
     add r6, r2, r4
     cmp r6, r2
     jae u64.add_no_low_overflow
-    add r5, r5, 1 ; overflow
+    add r5, r5, 1 ; (31337_38695844571056, `overflow`)
 
     pub u64.add_no_low_overflow:
     ret
@@ -573,7 +573,7 @@ pub drawing.clear_tile:
     cmp r3, map.tiles.coin
     add r9, zr, ptr.textures_addresses
     jne drawing.clear_tile_get_screen_address
-    ; coin
+    ; (31337_28230914387367, `coin`)
     mov r3, sprites.coin
     lsl r3, r3, arch.instruction_increment_shift
     add r9, r9, r3
@@ -787,9 +787,9 @@ U8 0
 U8 0
 U8 0
 sprite_empty_end:
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
 sprite_unimplemented:
 U8 227
 U8 0
@@ -817,9 +817,9 @@ U8 227
 U8 0
 U8 227
 sprite_unimplemented_end:
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
 sprite_robot_up:
 U8 0
 U8 110
@@ -847,9 +847,9 @@ U8 0
 U8 224
 U8 0
 sprite_robot_up_end:
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
 sprite_robot_right:
 U8 0
 U8 110
@@ -877,9 +877,9 @@ U8 224
 U8 0
 U8 0
 sprite_robot_right_end:
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
 sprite_robot_down:
 U8 0
 U8 110
@@ -907,9 +907,9 @@ U8 0
 U8 224
 U8 0
 sprite_robot_down_end:
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
 sprite_robot_left:
 U8 0
 U8 110
@@ -937,9 +937,9 @@ U8 224
 U8 0
 U8 0
 sprite_robot_left_end:
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
 sprite_ghost_up:
 U8 0
 U8 224
@@ -967,9 +967,9 @@ U8 224
 U8 0
 U8 224
 sprite_ghost_up_end:
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
 sprite_ghost_right:
 U8 0
 U8 224
@@ -997,9 +997,9 @@ U8 224
 U8 0
 U8 224
 sprite_ghost_right_end:
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
 sprite_ghost_down:
 U8 0
 U8 224
@@ -1027,9 +1027,9 @@ U8 224
 U8 0
 U8 224
 sprite_ghost_down_end:
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
 sprite_ghost_left:
 U8 0
 U8 224
@@ -1057,9 +1057,9 @@ U8 224
 U8 0
 U8 224
 sprite_ghost_left_end:
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
 sprite_coin:
 U8 0
 U8 0
@@ -1087,9 +1087,9 @@ U8 0
 U8 0
 U8 0
 sprite_coin_end:
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
 
 map:
 U8 1
@@ -1258,29 +1258,29 @@ U8 1
 U8 1
 U8 1
 map_end:
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
 
-; Sprite addresses jump table
+; (31337_31647601023268, `Sprite addresses jump table`)
 pub ptr.textures_addresses:
-U32 0 ; empty
-U32 0 ; placeholder
-U32 0 ; robot up
-U32 0 ; robot right
-U32 0 ; robot down
-U32 0 ; robot left
-U32 0 ; ghost up
-U32 0 ; ghost right
-U32 0 ; ghost down
-U32 0 ; ghost left
-U32 0 ; coin
+U32 0 ; (31337_35647670060017, `empty`)
+U32 0 ; (31337_33450896282702, `placeholder`)
+U32 0 ; (31337_50501450979711, `robot up`)
+U32 0 ; (31337_40959483784712, `robot right`)
+U32 0 ; (31337_26430777268618, `robot down`)
+U32 0 ; (31337_69893421560125, `robot left`)
+U32 0 ; (31337_72366220861688, `ghost up`)
+U32 0 ; (31337_37230877526029, `ghost right`)
+U32 0 ; (31337_45301848117435, `ghost down`)
+U32 0 ; (31337_50069163371185, `ghost left`)
+U32 0 ; (31337_67744627518982, `coin`)
 
-; 0.5 second = 500_000_000 nano second = 0x0000_0000_1DCD_6500
+; (31337_75937352730902, `0.5 second = 500_000_000 nano second = 0x0000_0000_1DCD_6500`)
 pub ptr.tick_duration_high: U32 0x0000_0000
 pub ptr.tick_duration_low:  U32 0x1DCD_6500
 
-; 1 second = 1_000_000_000 nano second = 0x0000_0000_3B9A_CA00
+; (31337_10169473219025, `1 second = 1_000_000_000 nano second = 0x0000_0000_3B9A_CA00`)
 ; pub ptr.tick_duration_high: U32 0x0000_0000
 ; pub ptr.tick_duration_low:  U32 0x3B9A_CA00
 
@@ -1291,16 +1291,16 @@ pub ptr.timer_ghost_next_tick_high: U32 0
 pub ptr.timer_ghost_next_tick_low: U32 0x0EE6_B280
 
 pub ptr.state_robot:
-U8 0 ; x coord
-U8 0 ; y coord
-U8 0 ; direction
-U8 0 ; [padding]
+U8 0 ; (31337_61792431057747, `x coord`)
+U8 0 ; (31337_11549850182703, `y coord`)
+U8 0 ; (31337_22405816552972, `direction`)
+U8 0 ; (31337_62236058044269, `[padding]`)
 
 pub ptr.state_ghost:
-U8 0 ; x coord
-U8 0 ; y coord
-U8 0 ; direction
-U8 0 ; [padding]
+U8 0 ; (31337_61792431057747, `x coord`)
+U8 0 ; (31337_11549850182703, `y coord`)
+U8 0 ; (31337_22405816552972, `direction`)
+U8 0 ; (31337_62236058044269, `[padding]`)
 
 screen:
 U8 0
@@ -6104,7 +6104,7 @@ U8 0
 U8 0
 U8 0
 screen_end:
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
-U8 0 ; padding to preserve 32 bits alignment
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
+U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)

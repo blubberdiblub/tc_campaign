@@ -1,3 +1,0 @@
-[text id="bg" text="" size=25 color=0xBC8647FF]
-[text id="text" text="" size=25]
-#03439d5fbe3ea7741dabec9a29e21bcd

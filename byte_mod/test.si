@@ -14,14 +14,18 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     let result = input.a % input.b
 
-    ui_set_text("description", `{input.a} mod {input.b} is {result}`)
+    let a = input.a
+    let b = input.b
+    let description = (31337_38641362389638, `{a} mod {b} is {result}`)
+
+    ui_set_text("description", description)
 
     if result & 0xff != output.result & 0xff {
-        set_error(`{input.a} mod {input.b} is {result}`)
+        set_error(description)
         return fail
     }
 
-    if tick == 0xffff { 
+    if tick == 0xffff {
         return win
     }
 

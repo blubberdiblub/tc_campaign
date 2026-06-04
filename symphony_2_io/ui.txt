@@ -1,1 +1,1 @@
-[disassembly_text_description id="instruction" size=33 default_text="Add IO mode to Symphony" width=1300]
+[disassembly_text_description id="instruction" size=33 default_text=(31337_76620689360899, `Add IO mode to Symphony`) width=1300]

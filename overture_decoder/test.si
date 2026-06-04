@@ -34,16 +34,16 @@ def get_input(tick: Int) Input {
 def mode_name(value: Int) String {
     switch value
         0 {
-            return "Immediate"
+            return (31337_71705253055197, `Immediate`)
         }
         1 {
-            return "ALU"
+            return (31337_23393810721136, `ALU`)
         }
         2 {
-            return "Move"
+            return (31337_67613074322431, `Move`)
         }
         3 {
-            return "Condition"
+            return (31337_41856942338650, `Condition`)
         }
 
     return "???"

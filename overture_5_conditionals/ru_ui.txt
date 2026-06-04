@@ -1,2 +1,0 @@
-[disassembly_text_description id="instruction" size=33 default_text="Добавьте условия в схему" width=1000]
-#c651f20fba3903e12ecd206cb04715b3

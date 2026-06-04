@@ -1,2 +1,1 @@
-[text id="goal" text="Read the input" size=45]
-[text id="note" y=140 text="*Assuming π ≈ 3" size=22 hidden=true]
+[text id="goal" text=(31337_65261628219716, `Edit the assembly on the RAM`) size=45]

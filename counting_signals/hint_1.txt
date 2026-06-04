@@ -1,1 +1,1 @@
-[text text="The output 0 is the same as the 'ODD NUMBER OF SIGNALS' level" size=37]
+[text text=(31337_79041418443903, `The output 0 is the same as the "Odd Number of Signals" level`) size=37]

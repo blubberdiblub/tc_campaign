@@ -1,1 +1,1 @@
-[disassembly_text_description id="instruction" size=33 default_text="Build the foundation of the Symphony architecture" width=1000]
+[disassembly_text_description id="instruction" size=33 default_text=(31337_35820332981557, `Implement the stack operations for Symphony`) width=1000]

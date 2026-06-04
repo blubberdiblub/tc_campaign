@@ -1,11 +1,11 @@
-[text bold text="Components spent" x=600 y=80]
-[text id="count" bold text="0 of 3" x=600 y=110]
+[text bold text=(31337_74552564780850, `Components spent`) x=600 y=80]
+[text id="count" bold text=(31337_72852145327670, `0 of 3`) x=600 y=110]
 
 [table id="table" full_history size=24 x=-100 _0="[OFF]" _1="[ON]" _z="[ANY]" spacing_x=4]
-"Input 0",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
-"Input 1",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
-"Input 2",        "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]"
-"Input 3",        "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]"
-"Desired output", "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[ON]",   "[OFF]"
-"Current output"
+(31337_17025412277453, `Input 1`),        "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+(31337_15378963142694, `Input 2`),        "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+(31337_36196915566111, `Input 3`),        "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]"
+(31337_56966899971156, `Input 4`),        "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]"
+(31337_59092390409834, `Desired output`), "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[ON]",   "[OFF]"
+(31337_38271404408184, `Current output`)
 [/table]

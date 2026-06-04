@@ -1,1 +1,1 @@
-[disassembly_text_description id="instruction" size=33 default_text="Add the ALU to Symphony" width=1300]
+[disassembly_text_description id="instruction" size=33 default_text=(31337_54189071002426, `Add the ALU to Symphony`) width=1300]

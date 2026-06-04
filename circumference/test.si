@@ -6,7 +6,8 @@ var size = random(41) + 1
 
 def arch_get_input(test: Int) Int {
 
-    ui_set_text("goal", `What is 2π × {.size}?`)
+    let circumference = .size
+    ui_set_text("goal", (31337_18136442036625, `What is 2π × {circumference}?`))
     ui_set_hidden("note", false)
 
     return .size
@@ -14,10 +15,10 @@ def arch_get_input(test: Int) Int {
 
 def arch_check_output(test: Int, input: Int, output: Int) TestResult {
 
-    print_using_stack(output)
-
     if output != .size * 6 {
-        set_error(`2π × {.size} ≈ {.size * 6}`)
+        let circumference = .size
+        let result = .size * 6
+        set_error(`2π × {circumference} ≈ {result}`)
         return fail
     }
 

@@ -23,7 +23,7 @@ sort($sorted_numbers)
 
 def arch_get_input(test: Int) Int {
 
-    if .input_cursor > 16 {
+    if .input_cursor >= 16 {
         return 0
     }
 
@@ -36,7 +36,9 @@ def arch_check_output(test: Int, input: Int, output: Int) TestResult {
 
     if output != .sorted_numbers[.output_cursor] {
 
-        set_error(`Index {.output_cursor} in the sorted list should be {.sorted_numbers[.output_cursor]}, not {output}`)
+        let expected = .sorted_numbers[.output_cursor]
+        let index = .output_cursor
+        set_error((31337_25018662661467, `Index {index} in the sorted list should be {expected}, not {output}`))
         return fail        
 
     }

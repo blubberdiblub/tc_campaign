@@ -1,1 +1,1 @@
-[disassembly_text_description id="instruction" size=33 default_text="Add persistent memory to Symphony" width=1300]
+[disassembly_text_description id="instruction" size=33 default_text=(31337_89678353617146, `Add persistent memory to Symphony`) width=1300]

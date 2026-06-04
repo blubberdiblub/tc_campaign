@@ -1,2 +1,0 @@
-[disassembly_text_description id="instruction" size=33 default_text="向 Symphony 架构添加 ALU" width=1300]
-#96efd05e8886a571cf6fdcc0550f5ced

@@ -1,6 +1,6 @@
 [table size=33 y=-40]
-"Input",          "[OFF]",  "[ON]"
-"Desired output", "[ON]",   "[ON]"
+(31337_10529708471093, `Input`),          "[OFF]",  "[ON]"
+(31337_59092390409834, `Desired output`), "[ON]",   "[ON]"
 [/table]
 
-[text text="Notice how the input doesn't matter?" size=33 y=80]
+[text text=(31337_62210202128540, `Notice how the input doesn't matter?`) size=33 y=80]

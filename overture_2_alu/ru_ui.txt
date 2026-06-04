@@ -1,2 +1,0 @@
-[disassembly_text_description id="instruction" size=33 default_text="Интегрируйте АЛУ в цепь" width=1000]
-#9251f927c198aad9e2a040a1ec05faea

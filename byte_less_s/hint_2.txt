@@ -1,1 +1,1 @@
-[text text="8-bit signed number is a 7-bit unsigned number and a sign bit for -128" size=37]
+[text text=(31337_76045571085525, `8-bit signed number is a 7-bit unsigned number and a sign bit for -128`) size=37]

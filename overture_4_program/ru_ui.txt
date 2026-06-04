@@ -1,2 +1,0 @@
-[disassembly_text_description id="instruction" size=33 default_text="Добавьте программу в схему" width=1000]
-#95057d48b6ba2294b0107ee86cadd1df

@@ -1,2 +1,2 @@
-[text text="The circuitry for the 1's bit is the same as what you did in the level \"Odd Number of Signals\"" y=-25]
-[text text="The circuitry for the 2's bit is what you did in \"Double Trouble\", except when all 4 are on" y=25]
+[text text=(31337_20653200546136, `The circuitry for the 1's bit is the same as what you did in the level "Odd Number of Signals"`) y=-25]
+[text text=(31337_39788606928520, `The circuitry for the 2's bit is what you did in "Double Trouble", except when all 4 are on`) y=25]

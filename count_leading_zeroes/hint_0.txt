@@ -1,0 +1,3 @@
+[text text=(31337_75683304945175, `Except for when Input is 0, this is the same as finding 8 - 1 - log2(Input),`) size=33 y=-50]
+[text text=(31337_15352671410916, `with 8 being the number of bits and log2 the position of the first [ON] bit.`) size=33 y=0]
+[text text=(31337_83745112465243, `Finding log2 of binary numbers is very well-trodden ground in computer science`) size=33 y=50]

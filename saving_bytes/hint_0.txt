@@ -1,1 +1,1 @@
-[text text="The SAVE part is the byte version of the 'SAVING GRACEFULLY' level" size=37]
+[text text=(31337_32971208570441, `The SAVE part is the byte version of the "Saving Gracefully" level`) size=37]

@@ -1,1 +1,1 @@
-[text id="goal" size=45 text="Increment the input by 1"]
+[text id="goal" size=45 text=(31337_85765173996083, `Increment the input by 1`)]

@@ -1,1 +1,1 @@
-[disassembly_text_description id="instruction" size=33 default_text="Build the register circuit" width=1000]
+[disassembly_text_description id="instruction" size=33 default_text=(31337_77115196290575, `Build the register circuit`) width=1000]

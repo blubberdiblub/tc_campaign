@@ -1,11 +1,11 @@
 [table id="table" size=33 x=-250 full_history h_align=left _0="[OFF]" _1="[ON]" _z="[ANY]"]
-"Input 0",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
-"Input 1",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
-"Desired output", "[OFF]",  "[ON]",   "[ON]",   "[OFF]"
-"Current output"
+(31337_17025412277453, `Input 1`),        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+(31337_15378963142694, `Input 2`),        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+(31337_59092390409834, `Desired output`), "[OFF]",  "[ON]",   "[ON]",   "[OFF]"
+(31337_38271404408184, `Current output`)
 [/table]
 
-[text id="box_title" text="History" x=-550 y=-50]
+[text id="box_title" text=(31337_32183772878666, `History`) x=-550 y=-50]
 [image id="box_border" file="gray_box.png" x=-550 y=-20]
 [table id="history" size=33 x=-400 h_align=right]
 "[ANY]","[ANY]","[ANY]","[ANY]","[ANY]"

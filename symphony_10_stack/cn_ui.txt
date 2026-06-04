@@ -1,2 +1,0 @@
-[disassembly_text_description id="instruction" size=33 default_text="在 Symphony 架构中实现栈操作" width=1000]
-#7186f155da621a673160c0a5dd78ad31

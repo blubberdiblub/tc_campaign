@@ -17,49 +17,50 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if Int output.mode != mode {
 
-        set_error(`Mode should be {mode}.`)
+        set_error((31337_64926808682290, `Mode should be {mode}.`))
         return fail
 
     }
 
     if Int output.opcode != opcode {
 
-        set_error(`Opcode should be {opcode}, not {output.opcode}.`)
+        let actual_opcode = output.opcode
+        set_error((31337_15174125339458, `Opcode should be {opcode}, not {actual_opcode}.`))
         return fail
 
     }
 
     if Int output.destination != dest {
 
-        set_error(`Destination should be {dest}.`)
+        set_error((31337_31544476297744, `Destination should be {dest}.`))
         return fail
 
     }
 
     if Int output.argument_a != a {
 
-        set_error(`Arg A should be {a}.`)
+        set_error((31337_82638458430252, `Arg A should be {a}.`))
         return fail
 
     }
 
     if Int output.argument_b != b {
 
-        set_error(`Arg B should be {b}.`)
+        set_error((31337_31942264008156, `Arg B should be {b}.`))
         return fail
 
     }
 
     if Int output.is_immediate != immediate {
 
-        set_error(`'Is immediate' should be {immediate}.`)
+        set_error((31337_63089562267538, `'Is immediate' should be {immediate}.`))
         return fail
 
     }
 
     if Int output.immediate_value != immediate_value {
 
-        set_error(`Immediate value should be {immediate_value}.`)
+        set_error((31337_45701446129480, `Immediate value should be {immediate_value}.`))
         return fail
 
     }

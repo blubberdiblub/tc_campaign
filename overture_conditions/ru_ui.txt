@@ -1,9 +1,0 @@
-// The padding around the [ANY][ANY][ANY] is to ensure the column width is enough for condition text
-[table id="table" size=33 x=-100 spacing_x=0]
-"Условие",          " [ANY][ANY][ANY] "
-"Значение",          "value"
-"Описание",        "???"
-"Желаемый выход",   "[ANY]"
-"Текущий выход",   "[ANY]"
-[/table]
-#f9f71d0ac22c7667aa7d2e076b6d5eec

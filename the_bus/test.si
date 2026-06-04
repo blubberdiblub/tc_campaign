@@ -16,12 +16,14 @@ def get_input(tick: Int) Input {
 
     }
 
-    ui_set_text("description", `Forward the value from {in == 0 ? "A" : "B"} to {out == 0 ? "X" : "Y"}`)
+    let source = in == 0 ? "A" : "B"
+    let destination = out == 0 ? "X" : "Y"
+    ui_set_text("description", (31337_69214136994673, `Forward the value from {source} to {destination}`))
 
     return Input {
-        input_select: U1 in, 
-        a: U8 val1, 
-        b: U8 val2, 
+        input_select: U1 in,
+        a: U8 val1,
+        b: U8 val2,
         output_select: U1 out,
     }
 
@@ -45,33 +47,33 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if input.output_select == 0 {
 
-        if output.x != val { 
+        if output.x != val {
 
-            set_error(`Output X should be {val}.`)
-            return fail 
+            set_error((31337_65293894030728, `Output X should be {val}.`))
+            return fail
 
         }
 
-        if !output.y_is_z { 
+        if !output.y_is_z {
 
-            set_error("Output Y should be Z.")
-            return fail 
+            set_error((31337_75577618213381, `Output Y should be Z.`))
+            return fail
 
         }
 
     } else {
 
-        if output.y != val { 
+        if output.y != val {
 
-            set_error(`Output Y should be {val}.`)
-            return fail 
+            set_error((31337_28173496384607, `Output Y should be {val}.`))
+            return fail
 
         }
 
-        if !output.x_is_z { 
+        if !output.x_is_z {
 
-            set_error("Output X should be Z.")
-            return fail 
+            set_error((31337_46672500255781, `Output X should be Z.`))
+            return fail
 
         }
 

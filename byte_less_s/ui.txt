@@ -1,1 +1,1 @@
-[text id="description" text="Make a circuit that outputs [ON], when the first input is less than the second one." size=37]
+[text id="description" text=(31337_33907970782848, `Make a circuit that outputs [ON], when the first input is less than the second one.`) size=37]

@@ -1,0 +1,1 @@
+[text text=(31337_61996387838431, `The purple wires implement the immediate mode`) size=33]

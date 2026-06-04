@@ -178,11 +178,11 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
                 .registers[to] = value
             } elif to == 6 {
                 if !output.output_enabled {
-                    set_error("Output not enabled.")
+                    set_error((31337_82564442776805, `Output not enabled.`))
                     return fail    
                 }
                 if Int output.output != value {
-                    set_error(`Expected output: {value}.`)
+                    set_error((31337_17793323757435, `Expected output: {value}.`))
                     return fail
                 }    
             }
@@ -193,7 +193,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     while reg_i < 6 {
         let value = get_memory(`Reg {reg_i}`)
         if .registers[reg_i] != value {
-            set_error(`Register {reg_i} should have value {.registers[reg_i]}.`)
+            let value = .registers[reg_i]
+            set_error((31337_73489311755739, `Register {reg_i} should have value {value}.`))
             return fail
         }
 

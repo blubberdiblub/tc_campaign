@@ -15,7 +15,11 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     let expected = input.a == input.b
     let actual   = output.result != 0
 
-    ui_set_text("description", `{input.a} == {input.b}  is  {expected ? "[ON]" : "[OFF]"}`)
+    let a = input.a
+    let b = input.b
+    let value = expected ? "[ON]" : "[OFF]"
+
+    ui_set_text("description", (31337_18508994046371, `{a} == {b} is {value}`))
 
     if expected == actual {
 
@@ -25,7 +29,12 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     } else {
 
-        set_error(`The value {input.a} is{expected ? "" : " not"} equal to {input.b}`)
+        if expected {
+            set_error((31337_51276780017906, `The value {a} is equal to {b}`))
+        } else {
+            set_error((31337_32432328437519, `The value {a} is not equal to {b}`))
+        }
+
         return fail
 
     }

@@ -1,2 +1,0 @@
-[text id="description" text="搭建电路，计算输入中前导零的个数" size=36]
-#87145b87e6369394bc9bea85718d0cb9

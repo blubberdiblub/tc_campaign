@@ -1,1 +1,1 @@
-[text text="The last AND result is unused, so we can safely delete it" size=37]
+[text text=(31337_50044461577278, `The last AND result is unused, so we can safely delete it`) size=37]

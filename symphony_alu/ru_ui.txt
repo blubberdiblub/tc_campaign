@@ -1,2 +1,0 @@
-[text id="description" text="Реализуйте АЛУ Symphony"]
-#f54c55be4af75bc529d505d0bf85a3d3

@@ -1,1 +1,1 @@
-[disassembly_text_description id="instruction" size=33 default_text="Observe how function calls work" width=1300]
+[disassembly_text_description id="instruction" size=33 default_text=(31337_51514522389782, `Observe how function calls work`) width=1300]

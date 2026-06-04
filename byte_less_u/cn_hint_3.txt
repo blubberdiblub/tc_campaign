@@ -1,4 +1,0 @@
-[text text="我们没有减法器，只能先取相反数，然后做加法。" size=33 y=-50]
-[text text="例如，要求 1100 - 1001，我们就要计算 1100 + (-1001)。" size=33]
-[text text="更一般的表示是 Input_1 ADD (NEG Input_2)。" size=33 y=50]
-#f74c852d6ff8aeb6b0fdfb094d82fab9

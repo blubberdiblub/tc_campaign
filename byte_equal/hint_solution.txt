@@ -1,2 +1,2 @@
-[text text="An XOR of 2 numbers is 0 if and only if they are equal" size=33 y=-25]
-[text text="Then we check a byte is 0 by checking all its bits are 0" size=33 y=25]
+[text text=(31337_85034261531833, `An XOR of 2 numbers is 0 if and only if they are equal`) size=33 y=-25]
+[text text=(31337_88637818475024, `Then we check a byte is 0 by checking all its bits are 0`) size=33 y=25]

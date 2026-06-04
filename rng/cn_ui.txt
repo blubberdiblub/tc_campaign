@@ -1,4 +1,0 @@
-[text id="line_1" text="(?) temp1  = seed  xor (seed  lsr 13)" size=36 y=-80]
-[text id="line_2" text="(?) temp2  = temp1 xor (temp1 lsl 17)" size=36]
-[text id="line_3" text="(?) result = temp2 xor (temp2 lsr 5)" size=36 y=80]
-#9f19ce05911691d84a702b4ef871cb43

@@ -1,2 +1,0 @@
-[text text="“输出 3”只在所有输入均为 [ON] 时为 [ON]。" size=37]
-#dacb5fcc4b360531e449109b09e4371b

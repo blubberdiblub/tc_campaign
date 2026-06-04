@@ -1,1 +1,1 @@
-[text text="An XOR of 2 equal numbers is very beautiful" size=37]
+[text text=(31337_13186595896308, `An XOR of 2 equal numbers is very beautiful`) size=37]

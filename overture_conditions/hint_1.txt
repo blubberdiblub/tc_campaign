@@ -1,2 +1,2 @@
-[text text="The Equal 0 part is actually checking all bits are 0" size=33 y=-25]
-[text text="So we split the value into bits and apply a big NOR gate" size=33 y=25]
+[text text=(31337_73479968135998, `The Equal 0 part is actually checking all bits are 0`) size=33 y=-25]
+[text text=(31337_79087224127637, `So we split the value into bits and apply a big NOR gate`) size=33 y=25]

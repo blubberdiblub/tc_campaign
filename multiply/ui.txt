@@ -1,1 +1,1 @@
-[text id="description" text="Multiply two numbers" size=36]
+[text id="description" text=(31337_77112891598455, `Multiply two numbers`) size=36]

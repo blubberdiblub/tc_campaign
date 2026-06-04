@@ -1,6 +1,6 @@
 
 
-ui_set_text("description", `Multiply two numbers`)
+ui_set_text("description", (31337_83214947196979, `Multiply two numbers`))
 
 def get_input(tick: Int) Input {
 
@@ -13,11 +13,18 @@ def get_input(tick: Int) Input {
 
 def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    ui_set_text("description", `{input.a} * {input.b} is {(input.a * input.b) & 0xff}`)
+    let a = input.a
+    let b = input.b
+    let result = (input.a * input.b) & 0xff
+
+    ui_set_text("description", (31337_13790051293386, `{a} * {b} is {result}`))
 
     if output.result != (input.a * input.b) & 0xff {
 
-        set_error(`The lower byte of {input.a} * {input.b} is {(input.a * input.b) & 0xff}`)
+        let a = input.a
+        let b = input.b
+        let result = (input.a * input.b) & 0xff
+        set_error((31337_46804407616321, `The lower byte of {a} * {b} is {result}`))
         return fail
 
     }

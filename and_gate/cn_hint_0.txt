@@ -1,2 +1,0 @@
-[text text="与门可以理解为“非”“非”“与”（NOT-NOT-AND）门，也就是“非”“与非”（NOT-NAND）门。" size=37]
-#5d4c0ac1ebf69deb850402bf9df129c9

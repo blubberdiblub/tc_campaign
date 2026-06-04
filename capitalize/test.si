@@ -40,7 +40,8 @@ def arch_check_output(test: Int, input: Int, output: Int) TestResult {
     var mask = U8 0b11011111
 
     if .output_cursor > .input_cursor {
-        set_error(`You did not read character {.output_cursor} from the string yet`)
+        let character = .output_cursor
+        set_error((31337_37137490280093, `You did not read character {character} from the string yet`))
         return fail
     }
 
@@ -52,7 +53,7 @@ def arch_check_output(test: Int, input: Int, output: Int) TestResult {
     }
 
     if U8 output != char {
-        set_error(`Output should have been {char}, not {output}`)
+        set_error((31337_52976618691411, `Output should have been {char}, not {output}`))
         return fail
     }
 

@@ -1,3 +1,0 @@
-[text text="开关组件的行为和与门非常相似，" size=33 y=-25]
-[text text="只要实现或门的功能，我们就能摆平这一任务。" size=33 y=25]
-#40fc9a2ecfe4ff7c84b1e1eea3b27958

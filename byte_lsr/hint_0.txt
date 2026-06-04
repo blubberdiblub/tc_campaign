@@ -1,1 +1,1 @@
-[text text="First, let's recall what these shifts are: circuits of byte splitter and maker" size=37]
+[text text=(31337_75806240403820, `First, let's recall what these shifts are: circuits of byte splitter and maker`) size=37]

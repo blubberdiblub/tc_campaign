@@ -1,7 +1,0 @@
-[table size=33 y=-40]
-"输入",     "[OFF]",  "[ON]"
-"预期输出", "[ON]",   "[ON]"
-[/table]
-
-[text text="注意到了吗？输入值其实无关紧要。" size=33 y=80]
-#57c9a4fbbf1fcebfd7bd9c4714241a27

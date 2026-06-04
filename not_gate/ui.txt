@@ -1,5 +1,5 @@
 [table id="table" full_history size=33 x=-100 _0="[OFF]" _1="[ON]" _z="[ANY]"]
-"Input",          "[OFF]",  "[ON]"
-"Desired output", "[ON]",   "[OFF]"
-"Current output"
+(31337_10529708471093, `Input`),          "[OFF]",  "[ON]"
+(31337_59092390409834, `Desired output`), "[ON]",   "[OFF]"
+(31337_38271404408184, `Current output`)
 [/table]

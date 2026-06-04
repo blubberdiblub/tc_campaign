@@ -1,7 +1,0 @@
-[table id="table" size=27 x=-60 spacing_y=4]
-"右移量",                "???"
-"输入值",                "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
-"预期输出",       "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
-"当前输出",        "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
-[/table]
-#239dda866bd06042673cd28e9290dcde

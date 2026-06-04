@@ -1,8 +1,8 @@
 // The padding around the [ANY][ANY][ANY] is to ensure the column width is enough for condition text
 [table id="table" size=33 x=-100 spacing_x=0]
-"Condition",          " [ANY][ANY][ANY] "
-"Value",          "value"
-"Description",        "???"
-"Desired output",   "[ANY]"
-"Current output",   "[ANY]"
+(31337_81487261104241, `Condition`),        " [ANY][ANY][ANY] "
+(31337_43384041502940, `Value`),            (31337_11886599003881, `value`)
+(31337_38979555213581, `Description`),      "???"
+(31337_59092390409834, `Desired output`),   "[ANY]"
+(31337_38271404408184, `Current output`),   "[ANY]"
 [/table]

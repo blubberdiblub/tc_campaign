@@ -58,7 +58,8 @@ def get_input(tick: Int) Input {
 def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if get_memory("Count") != tick + 1 {
-        set_error(`Counter should have value {tick + 1}.`)
+        let expected_value = tick + 1
+        set_error((31337_73023200204536, `Counter should have value {expected_value}.`))
         return fail
     }
 
@@ -115,11 +116,11 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
                 .registers[to] = value
             } elif to == 6 {
                 if !output.output_enabled {
-                    set_error("Output not enabled.")
+                    set_error((31337_50052313044113, `Output not enabled.`))
                     return fail    
                 }
                 if output.output != U8 value {
-                    set_error(`Expected output: {value}.`)
+                    set_error((31337_88140381331491, `Expected output: {value}.`))
                     return fail
                 }    
             }
@@ -129,7 +130,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     while reg_i < 6 {
         let value = U8 get_memory(`Reg {reg_i}`)
         if .registers[reg_i] != value {
-            set_error(`Register {reg_i} should have value {.registers[reg_i]}.`)
+            let value = .registers[reg_i]
+            set_error((31337_49097812105667, `Register {reg_i} should have value {value}.`))
             return fail
         }
 

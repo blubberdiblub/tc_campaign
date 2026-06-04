@@ -1,2 +1,2 @@
-[text text="We can make a 9-bit custom component" size=33 y=-25]
-[text text="Or we can break down NEG into NOT and ADD_1 to manipulate" size=33 y=25]
+[text text=(31337_11293872851403, `We can make a 9-bit custom component`) size=33 y=-25]
+[text text=(31337_17291563256662, `Or we can break down NEG into NOT and ADD_1 to manipulate`) size=33 y=25]

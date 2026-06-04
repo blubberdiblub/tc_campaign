@@ -1,2 +1,2 @@
-[text text="Using the ON output of the decoder, we can enable the corresponding cell to load from" y=-25]
-[text text="And don't forget another switch to only output when LOAD is ON" y=25]
+[text text=(31337_51243843817679, `Using the ON output of the decoder, we can enable the corresponding cell to load from`) y=-25]
+[text text=(31337_78963222298606, `And don't forget another switch to only output when LOAD is ON`) y=25]

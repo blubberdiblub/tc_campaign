@@ -1,2 +1,0 @@
-[text text="对剩余 7 个位也各自配置一个全加器。" size=37]
-#175fdcd4f1655f3aeab76522649fdfc9

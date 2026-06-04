@@ -1,3 +1,3 @@
-[text text="The CARRY is ON if and only if both inputs are ON" size=33 y=-25]
-[text text="The SUM requires the same reasoning from the 'ODD NUMBER OF SIGNALS' level" size=33 y=25]
+[text text=(31337_90884846016283, `The CARRY is ON if and only if both inputs are ON`) size=33 y=-25]
+[text text=(31337_32998192994042, `The SUM requires the same reasoning from the "Odd Number of Signals" level`) size=33 y=25]
 

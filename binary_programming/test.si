@@ -19,10 +19,13 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     }
 
     if input.input + 5 != output.output {
+        let input_value = input.input
+        let expected_value = input.input + 5
+        let actual_value = output.output
         if !output.output_enabled {
-            set_error(`{input.input} + 5 is {input.input + 5}, not Z.`)
+            set_error((31337_81797824381193, `{input_value} + 5 is {expected_value}, not Z.`))
         } else {
-            set_error(`{input.input} + 5 is {input.input + 5}, not {output.output}.`)
+            set_error((31337_61846111928326, `{input_value} + 5 is {expected_value}, not {actual_value}.`))
         }
         return fail
     }

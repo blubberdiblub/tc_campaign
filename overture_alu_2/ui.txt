@@ -1,7 +1,7 @@
 [table id="table" size=27 x=-100 spacing_y=4]
-"Opcode",           " OP ",       "[ANY][ANY][ANY]"
-"Input 1",          "a",            "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
-"Input 2",          "b",            "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
-"Desired output",   "???",          "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
-"Current output",   "???",          "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+(31337_53936374688885, `Opcode`),           " OP ",         "[ANY][ANY][ANY]"
+(31337_17025412277453, `Input 1`),          "a",            "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+(31337_15378963142694, `Input 2`),          "b",            "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+(31337_59092390409834, `Desired output`),   "???",          "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+(31337_38271404408184, `Current output`),   "???",          "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
 [/table]

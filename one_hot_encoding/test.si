@@ -9,7 +9,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if get_component_count() > 5 {
 
-        set_error(`Do not use more than 3 components.`)
+        set_error((31337_60812617177494, `Do not use more than 3 components.`))
         return fail
 
     }
@@ -24,7 +24,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if zeroes != 64 {
 
-        set_error(`The output on pin {64 - zeroes} is wrong.`)
+        let pin = 64 - zeroes
+        set_error((31337_74562193652628, `The output on pin {pin} is wrong.`))
         return fail
 
     }

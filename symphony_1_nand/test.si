@@ -59,13 +59,13 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                     if !output_enabled {
 
-                        set_error(`Output should have been enabled.`)
+                        set_error((31337_56149980430079, `Output should have been enabled.`))
                         return true
                     }
 
                     if output_value != expected_output {
 
-                        set_error(`Output should have been {expected_output}, not {output_value}.`)
+                        set_error((31337_74043498193765, `Output should have been {expected_output}, not {output_value}.`))
                         return true
 
                     }
@@ -81,7 +81,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
                     .registers[dest] = U32 (.saved_time >> 32)
 
                     if .registers[dest] != U32 get_ram_value("Register File", dest * 4, <U32>) {
-                        set_error(`The time component shouldn't have been enabled since the last time_0 instruction's execution.`)
+                        set_error((31337_35453700742253, `The time component shouldn't have been enabled since the last time_0 instruction's execution.`))
                         return true
                     }
                 }
@@ -249,7 +249,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     if U32 actual_counter != .counter {
 
         ui_set_instruction(0, 0, 0)
-        set_error(`You should have read address {.counter} from the Main Memory, not {actual_counter}. You must have not updated the counter correctly last tick.`)
+        let expected_value = .counter
+        set_error((31337_34545926188340, `You should have read address {expected_value} from the Main Memory, not {actual_counter}. You must have not updated the counter correctly last tick.`))
         return fail
 
     }
@@ -276,7 +277,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
                 if reg == 0 {
 
-                    set_error(`The 'zr' register should always be zero (address 0 in the 'Register File').`)
+                    set_error((31337_81124009043205, `The 'zr' register should always be zero (address 0 in the 'Register File').`))
 
                 } else {
 
@@ -286,7 +287,10 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
                         15 { register = "'flags'" }
                         default { register = `r{reg}`}
 
-                    set_error(`{register} ('Register File' address {reg * 4}) should have hex value 0x{hex(8, Int .registers[reg])}, not 0x{hex(8, Int value)}`)
+                    let address = reg * 4
+                    let expected_value = "0x" + hex(8, Int .registers[reg])
+                    let actual_value = "0x" + hex(8, Int value)
+                    set_error((31337_84654787309709, `{register} ('Register File' address {address}) should have hex value {expected_value}, not {actual_value}`))
 
                 }
                 return fail
@@ -307,7 +311,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         while i < 11000 {
             let value = get_ram_value("Main Memory", i, <U8>)
             if .ram[i] != value {
-                set_error(`Main Memory address {i} is supposed to have value {.ram[i]}, not {value}`)
+                let expected_value = .ram[i]
+                set_error((31337_55420494010123, `Main Memory address {i} is supposed to have value {expected_value}, not {value}`))
                 return fail
             }
             i += 1
@@ -322,7 +327,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         while i < 1000 {
             let value = get_ram_value("Persistent Memory", i, <U8>)
             if .ssd[i] != value {
-                set_error(`Persistent Memory address {i} is supposed to have value {.ssd[i]}, not {value}`)
+                let expected_value = .ssd[i]
+                set_error((31337_68153781027719, `Persistent Memory address {i} is supposed to have value {expected_value}, not {value}`))
                 return fail
             }
             i += 1
@@ -333,7 +339,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
         let value = get_screen_settings("screen", 3)
         if value != .screen_setting {
-            set_error(`Screen setting 3 is supposed to be {.screen_setting}, not {value}`)
+            let expected_value = .screen_setting
+            set_error((31337_40674051088628, `Screen setting 3 is supposed to be {expected_value}, not {value}`))
             return fail
         }
 

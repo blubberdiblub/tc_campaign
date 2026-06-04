@@ -1,2 +1,2 @@
-[text text="The circular dependency can be complex, involving many different wires and components" y=-25]
-[text text="Some even deceptive like this example, which may make sense in pure logic form" y=25]
+[text text=(31337_71118235828147, `The circular dependency can be complex, involving many different wires and components`) y=-25]
+[text text=(31337_13967626449720, `Some even deceptive like this example, which may make sense in pure logic form`) y=25]

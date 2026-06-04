@@ -1,5 +1,5 @@
 [table id="table" size=27 x=-60 spacing_y=4]
-"Input",                "???",    "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
-"Desired output",       "???",    "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
-"Current output",        "???",    "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+(31337_10529708471093, `Input`),                "???",    "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+(31337_59092390409834, `Desired output`),       "???",    "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+(31337_38271404408184, `Current output`),       "???",    "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
 [/table]

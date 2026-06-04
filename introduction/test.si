@@ -1,6 +1,4 @@
 
-print("JIT works")
-
 def get_input(tick: Int) Input {
     return Input {input: U1 1}
 }

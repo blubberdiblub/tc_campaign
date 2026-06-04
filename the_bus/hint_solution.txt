@@ -1,2 +1,2 @@
-[text text="Tweak the Multiplexer to share its input wire, instead of output wire, for the selective output" size=33 y=-25]
-[text text="The purple wire in the middle is the BUS" size=33 y=25]
+[text text=(31337_55189990966587, `Tweak the Multiplexer to share its input, instead of output, for the selective output`) size=33 y=-25]
+[text text=(31337_86286155471986, `The purple wire in the middle is the BUS`) size=33 y=25]

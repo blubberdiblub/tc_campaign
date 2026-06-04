@@ -1,0 +1,2 @@
+[text text=(31337_40521556880682, `One of the methods is to divide the problem:`) size=33 y=-25]
+[text text=(31337_46035077948196, `What is log2 of a 2-bit non-zero binary number (i.e. 1, 2, or 3)?`) size=33 y=25]

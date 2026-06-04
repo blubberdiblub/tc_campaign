@@ -1,2 +1,0 @@
-[text id="description" text="搭建一个电路，当两路输入相等时，输出 [ON]。" size=37]
-#033e102d43a8a37298d246c9c64010a9

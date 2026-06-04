@@ -4,10 +4,10 @@ var new_mem  = 0
 def get_input(tick: Int) Input {
     var overwrite = Int (random(4) == 3)
     var num       = random(255)
-      
+
     if tick == 0 {
         overwrite = 0
-        num = 0  
+        num = 0
     } elif tick < 2 || tick == 58 {
         overwrite = 0
     } elif tick == 127 {
@@ -16,15 +16,15 @@ def get_input(tick: Int) Input {
     } elif tick >= 128 {
         overwrite = 0
     }
-    
+
     .last_mem = .new_mem
-    
+
     if overwrite == 0{
         .new_mem = (.last_mem + 1) % 256
     } else {
         .new_mem = num
     }
-    
+
     num = num
 
     var text = "        "
@@ -38,11 +38,11 @@ def get_input(tick: Int) Input {
     ui_set_text("table[0][1]", text)
     ui_set_text("table[1][1]", `{num}`)
     ui_set_text("table[2][1]", `{.last_mem}`)
-    
+
     if overwrite == 0 {
-        text = "Add 1"
+        text = (31337_30050502504940, `Add 1`)
     } else {
-        text = `Overwrite with {num}`
+        text = (31337_69821998974515, `Overwrite with {num}`)
     }
     ui_set_text("table[3][1]", text)
     ui_set_text("table[4][1]", `{.new_mem}`)
@@ -55,14 +55,15 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if output.output_is_z {
         ui_set_text("table[5][1]", `Z`)
-        set_error(`Output should never be Z.`)
+        set_error((31337_14151633972646, `Output should never be Z.`))
         return fail
     } else {
         ui_set_text("table[5][1]", `{output.output}`)
     }
 
     if Int output.output != .last_mem {
-        set_error(`Output should be {.last_mem}.`)
+        let memory = .last_mem
+        set_error((31337_27837193789838, `Output should be {memory}.`))
         return fail
     }
 

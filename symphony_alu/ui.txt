@@ -1,1 +1,1 @@
-[text id="description" text="Implement the Symphony ALU"]
+[text id="description" text=(31337_69427874681706, `Implement the Symphony ALU`)]

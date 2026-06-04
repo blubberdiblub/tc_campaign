@@ -21,7 +21,8 @@ def get_input(tick: Int) Input {
     ui_set_text("table[0][1]", text)
     ui_set_text("table[1][1]", `{input.a}`)
     ui_set_text("table[2][1]", `{input.b}`)
-    ui_set_text("table[3][1]", `SELECT Input {1 + input.select}`)
+    let select = 1 + input.select
+    ui_set_text("table[3][1]", (31337_15140861344476, `SELECT Input {select}`))
 
     return input
 

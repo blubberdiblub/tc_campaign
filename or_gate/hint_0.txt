@@ -1,8 +1,8 @@
 [table size=33 x=-50 y=-55]
-"Input 0",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
-"Input 1",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
-"Desired output", "[ON]",   "[OFF]",  "[OFF]",  "[OFF]"
+(31337_17025412277453, `Input 1`),        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+(31337_15378963142694, `Input 2`),        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+(31337_59092390409834, `Desired output`), "[ON]",   "[OFF]",  "[OFF]",  "[OFF]"
 [/table]
 
-[text text="The truth table tells us that the OR gate is ON" size=33 y=65]
-[text text="if and only if NOT both inputs are OFF" size=33 y=115]
+[text text=(31337_49190016957852, `The truth table tells us that the OR gate is ON`) size=33 y=65]
+[text text=(31337_29061908449874, `if and only if NOT both inputs are OFF`) size=33 y=115]

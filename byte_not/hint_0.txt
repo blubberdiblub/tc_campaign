@@ -1,1 +1,1 @@
-[text text="Byte NOT of a binary number is just the NOT gate applied bitwise to the binary number" size=37]
+[text text=(31337_55051011788323, `Byte NOT of a binary number is just the NOT gate applied bitwise to the binary number`) size=37]

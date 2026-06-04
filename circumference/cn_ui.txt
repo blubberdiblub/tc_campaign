@@ -1,3 +1,0 @@
-[text id="goal" text="从输入设备读取数值" size=45]
-[text id="note" y=40 text="* 近似取 π ≈ 3" size=22 hidden=true]
-#6f4204e98ec684ba32d5ede1dafcd116

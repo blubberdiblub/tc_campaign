@@ -1,2 +1,2 @@
-[text id="goal" text="Read the input" size=45]
-[text id="note" y=40 text="*Assuming π ≈ 3" size=22 hidden=true]
+[text id="goal" text=(31337_24129473753872, `Read the input`) size=45]
+[text id="note" y=40 text=(31337_47357954866257, `*Assuming π ≈ 3`) size=22 hidden=true]

@@ -1,2 +1,0 @@
-[text id="description" text="搭建 Symphony 架构使用的比较标志（flag）生成器" size=36]
-#39f81258b0e9b64f255f21fb073621e2

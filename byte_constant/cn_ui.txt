@@ -1,2 +1,0 @@
-[text id="description" text="搭建一个电路，让它始终输出 164。" size=37]
-#68168b0d83bfe98f32e07bba5696703b

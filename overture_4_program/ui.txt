@@ -1,1 +1,1 @@
-[disassembly_text_description id="instruction" size=33 default_text="Add a program to the circuit" width=1000]
+[disassembly_text_description id="instruction" size=33 default_text=(31337_62678678871254, `Add a program to the circuit`) width=1000]

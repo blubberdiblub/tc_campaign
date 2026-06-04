@@ -1,1 +1,1 @@
-[text text="The zr register is always 0"]
+[text text=(31337_53304466331066, `The zr register is always 0`)]

@@ -19,11 +19,11 @@ def redraw() {
 
         if !.bot_to_move {
 
-            ui_set_text("description", `You lost!`)
+            ui_set_text("description", (31337_27262056315410, `You lost!`))
 
         } else {
 
-            ui_set_text("description", `You won!`)
+            ui_set_text("description", (31337_42147812867053, `You won!`))
 
         }
 
@@ -31,15 +31,16 @@ def redraw() {
 
         if .bot_to_move {
 
-            ui_set_text("description", `Hit enter to see what the oponent does`)
+            ui_set_text("description", (31337_64085588225039, `Hit enter to see what the oponent does`))
 
         } elif .player_choice == 0 {
 
-            ui_set_text("description", `Use the arrow keys to take cards`)
+            ui_set_text("description", (31337_85502688597126, `Use the arrow keys to take cards`))
 
         } else {
 
-            ui_set_text("description", `Hit enter to take {.player_choice} cards`)
+            let card_count = .player_choice
+            ui_set_text("description", (31337_49299754864790, `Hit enter to take {card_count} cards`))
 
         }
 
@@ -170,7 +171,7 @@ def arch_check_output(test: Int, input: Int, output: Int) TestResult {
 
     if output == 0 || output > 3 || output < 0 {
 
-        set_error("You may only take 1, 2 or 3 cards")
+        set_error((31337_29769682738867, `You may only take 1, 2 or 3 cards`))
         return fail
 
     }
@@ -178,7 +179,7 @@ def arch_check_output(test: Int, input: Int, output: Int) TestResult {
     if output >= cards_left {
 
         .cards_taken = 0
-        set_error("You took the last card")
+        set_error((31337_90440029783715, `You took the last card`))
         return fail
 
     }

@@ -31,7 +31,7 @@ def arch_check_output(test: Int, input: Int, output: Int) TestResult {
 
     if output != result {
     
-        set_error(`The next seed should be {result}, not {output}`)
+        set_error((31337_77825640575531, `The next seed should be {result}, not {output}`))
         return fail
     
     }

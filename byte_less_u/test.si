@@ -14,7 +14,11 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     let expected = (U8 input.a < U8 input.b)
     let actual = (output.result != 0)
 
-    ui_set_text("description", `{U8 input.a} < {U8 input.b}  is  {expected ? "[ON]" : "[OFF]"}`)
+    let a = U8 input.a
+    let b = U8 input.b
+    let value = expected ? "[ON]" : "[OFF]"
+
+    ui_set_text("description", (31337_75551771019196, `{a} < {b}  is  {value}`))
 
     if expected == actual {
 
@@ -24,7 +28,11 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     } else {
 
-        set_error(`The value {U8 input.a} is{expected ? "" : " not"} less than {U8 input.b}`)
+        if expected {
+            set_error((31337_54835419299907, `The value {a} is less than {b}`))
+        } else {
+            set_error((31337_50702714470018, `The value {a} is not less than {b}`))
+        }
         return fail
 
     }

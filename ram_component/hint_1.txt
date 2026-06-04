@@ -1,2 +1,2 @@
-[text text="Then we need to decide on which memory cell to load from/save to" y=-25]
-[text text="This is where a decoder comes in handy" y=25]
+[text text=(31337_73686127519870, `Then we need to decide on which memory cell to load from/save to`) y=-25]
+[text text=(31337_86131527203527, `This is where a decoder comes in handy`) y=25]

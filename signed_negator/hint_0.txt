@@ -1,2 +1,2 @@
-[text text="A negative of a binary number can be obtained" size=33 y=-25]
-[text text="by flipping its bits (byte NOT) and then adding one" size=33 y=25]
+[text text=(31337_77523753173621, `A negative of a binary number can be obtained`) size=33 y=-25]
+[text text=(31337_59964726775903, `by flipping its bits (byte NOT) and then adding one`) size=33 y=25]

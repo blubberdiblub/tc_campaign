@@ -55,18 +55,18 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
             switch opcode & 0xf
                 #INPUT    { .registers[dest] = U32 input }
-                #OUTPUT   { 
+                #OUTPUT   {
                     let expected_output = Int b_value
 
                     if !output_enabled {
 
-                        set_error(`Output should have been enabled.`)
+                        set_error((31337_85916420035294, `Output should have been enabled.`))
                         return true
                     }
 
                     if output_value != expected_output {
 
-                        set_error(`Output should have been {expected_output}, not {output_value}.`)
+                        set_error((31337_21000091589999, `Output should have been {expected_output}, not {output_value}.`))
                         return true
 
                     }
@@ -82,7 +82,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
                     .registers[dest] = U32 (.saved_time >> 32)
 
                     if .registers[dest] != U32 get_ram_value("Register File", dest * 4, <U32>) {
-                        set_error(`The time component shouldn't have been enabled since the last time_0 instruction's execution.`)
+                        set_error((31337_60841927788704, `The time component shouldn't have been enabled since the last time_0 instruction's execution.`))
                         return true
                     }
                 }
@@ -101,9 +101,9 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
             switch opcode
                 0  { result = ~(a_value &  b_value) }
                 1  { result =   a_value |  b_value }
-                2  { result =   a_value &  b_value } 
-                3  { result = ~(a_value |  b_value) } 
-                4  { result =   a_value +  b_value } 
+                2  { result =   a_value &  b_value }
+                3  { result = ~(a_value |  b_value) }
+                4  { result =   a_value +  b_value }
                 5  { result =   a_value -  b_value }
                 6  { result =   a_value ^  b_value }
                 7  { result =   a_value << b_value }
@@ -122,7 +122,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
             let met     = matched != ((opcode & 0b1000) > 0)
 
             if met {
-                
+
                 .counter = b_value
 
             } else {
@@ -170,7 +170,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
                 #LOAD_32 {
 
                     if b_value < #MAX_RAM - 4 {
-                        
+
                         .registers[dest] = (U32 .ram[b_value] << 24) | (U32 .ram[b_value + 1] << 16) | (U32 .ram[b_value + 2] << 8) | (U32 .ram[b_value + 3])
 
                     }
@@ -241,7 +241,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
 }
 
-def get_input(tick: Int) Input { 
+def get_input(tick: Int) Input {
 
     if tick < 0xff {
 
@@ -262,7 +262,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     if U32 actual_counter != .counter {
 
         ui_set_instruction(0, 0, 0)
-        set_error(`You should have read address {.counter} from the Main Memory, not {actual_counter}. You must have not updated the counter correctly last tick.`)
+        let expected_value = .counter
+        set_error((31337_17745932940157, `You should have read address {expected_value} from the Main Memory, not {actual_counter}. You must have not updated the counter correctly last tick.`))
         return fail
 
     }
@@ -289,7 +290,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
                 if reg == 0 {
 
-                    set_error(`The 'zr' register should always be zero (address 0 in the 'Register File').`)
+                    set_error((31337_29078414770160, `The 'zr' register should always be zero (address 0 in the 'Register File').`))
 
                 } else {
 
@@ -299,7 +300,10 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
                         15 { register = "'flags'" }
                         default { register = `r{reg}`}
 
-                    set_error(`{register} ('Register File' address {reg * 4}) should have hex value 0x{hex(8, Int .registers[reg])}, not 0x{hex(8, Int value)}`)
+                    let address = reg * 4
+                    let expected_value = "0x" + hex(8, Int .registers[reg])
+                    let actual_value = "0x" + hex(8, Int value)
+                    set_error((31337_70740757119887, `{register} ('Register File' address {address}) should have hex value {expected_value}, not {actual_value}`))
 
                 }
                 return fail
@@ -320,7 +324,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         while i < 11000 {
             let value = get_ram_value("Main Memory", i, <U8>)
             if .ram[i] != value {
-                set_error(`Main Memory address {i} is supposed to have value {.ram[i]}, not {value}`)
+                let expected_value = .ram[i]
+                set_error((31337_74663212299349, `Main Memory address {i} is supposed to have value {expected_value}, not {value}`))
                 return fail
             }
             i += 1
@@ -335,7 +340,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         while i < 1000 {
             let value = get_ram_value("Persistent Memory", i, <U8>)
             if .ssd[i] != value {
-                set_error(`Persistent Memory address {i} is supposed to have value {.ssd[i]}, not {value}`)
+                let expected_value = .ssd[i]
+                set_error((31337_22469925230320, `Persistent Memory address {i} is supposed to have value {expected_value}, not {value}`))
                 return fail
             }
             i += 1

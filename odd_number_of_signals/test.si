@@ -2,7 +2,8 @@ const #CORRECT_OUTPUT = [U1 0,1,1,0, 1,0,0,1, 1,0,0,1, 0,1,1,0]
 
 def on_manual_input(action: Int) {
 
-    ui_set_text("count", `{get_component_count() - 2} of 3`)
+    let count = get_component_count() - 2
+    ui_set_text("count", (31337_36609687959808, `{count} of 3`))
 
 }
 
@@ -14,11 +15,12 @@ def get_input(tick: Int) Input {
 
 def check_output(tick: Int, input: Input, output: Output) TestResult {
 
-    ui_set_text("count", `{get_component_count() - 2} of 3`)
+    let count = get_component_count() - 2
+    ui_set_text("count", (31337_79968621207030, `{count} of 3`))
 
     if get_component_count() > 5 {
 
-        set_error(`You may not use more than 3 components in this level`)
+        set_error((31337_40553112323959, `You may not use more than 3 components in this level`))
         return fail
 
     }

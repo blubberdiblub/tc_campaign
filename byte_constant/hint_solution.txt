@@ -1,1 +1,1 @@
-[text text="The binary representation of 164 is 1010 0100"  size=37]
+[text text=(31337_67841603404086, `The binary representation of 164 is 1010 0100`) size=37]

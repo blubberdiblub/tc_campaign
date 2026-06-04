@@ -1,7 +1,7 @@
 [table id="table" full_history size=27 x=-50]
-"Input 0",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]", "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
-"Input 1",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]", "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
-"Input 2",        "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]", "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]"
-"Disabled",       "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]", "[ON]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]"
-"Desired bit",    "0",          "1",          "2",          "3",          "4",          "5",          "6",          "7",      "x",          "x",          "x",          "x",          "x",          "x",          "x",          "x"
+(31337_17025412277453, `Input 1`),        "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]", "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
+(31337_15378963142694, `Input 2`),        "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]", "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
+(31337_36196915566111, `Input 3`),        "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]", "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]"
+(31337_23128720321555, `Disabled`),       "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]", "[ON]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]"
+(31337_20191487800946, `Desired bit`),    "0",          "1",          "2",          "3",          "4",          "5",          "6",          "7",      "x",          "x",          "x",          "x",          "x",          "x",          "x",          "x"
 [/table]

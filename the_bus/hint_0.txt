@@ -1,1 +1,1 @@
-[text text="Use switches to put the inputs on the same wire"]
+[text text=(31337_42863588667057, `Use switches to put the inputs on the same wire`)]

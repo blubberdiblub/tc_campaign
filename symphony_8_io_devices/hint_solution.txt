@@ -1,0 +1,1 @@
+[text text=(31337_48843089545173, `The new grey wires implement the interaction with the IO devices`) size=33]

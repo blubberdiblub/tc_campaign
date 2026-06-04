@@ -1,2 +1,0 @@
-[text id="description" text="Выберите правильный выход" size=36]
-#210b518127af4c9ac05af5dfdb36f9f0

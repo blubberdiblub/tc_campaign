@@ -1,0 +1,1 @@
+[text text=(31337_78759770178685, `The purple wires implement the interaction with the main memory`) size=33]

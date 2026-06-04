@@ -1,1 +1,1 @@
-[text id="description" text="Create a circuit that XORs two bytes bitwise." size=37]
+[text id="description" text=(31337_62779271315005, `Create a circuit that XORs two bytes bitwise.`) size=37]

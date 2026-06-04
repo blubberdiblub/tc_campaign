@@ -1,2 +1,0 @@
-[text text="选取输入则和数据选择器的思路相同。" size=37]
-#f81aeed7164e192f485da1aaeef82430

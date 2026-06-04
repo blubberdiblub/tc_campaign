@@ -17,7 +17,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if Bool output.result != result {
 
-        set_error(`The correct output is {U1 result}`)
+        set_error((31337_73051402798264, `The correct output is {U1 result}`))
         return fail
 
     }

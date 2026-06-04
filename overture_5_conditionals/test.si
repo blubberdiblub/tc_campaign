@@ -214,8 +214,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         }
         #MOVE >> 6 {
 
-            let from   = (instruction >> 3) & 0b111
-            let to     = instruction & 0b111
+            let from = (instruction >> 3) & 0b111
+            let to   = instruction & 0b111
 
             var value = U8 0
             if from <= 5 {
@@ -228,11 +228,11 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
                 .registers[to] = value
             } elif to == 6 {
                 if !output.output_enabled {
-                    set_error("Output not enabled.")
+                    set_error((31337_36308361121667, `Output not enabled.`))
                     return fail    
                 }
                 if output.output != U8 value {
-                    set_error(`Expected output: {value}.`)
+                    set_error((31337_33411257451562, `Expected output: {value}.`))
                     return fail
                 }    
             }
@@ -283,7 +283,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     while reg_i < 6 {
         let value = U8 get_memory(`Reg {reg_i}`)
         if .registers[reg_i] != value {
-            set_error(`Register {reg_i} should have value {.registers[reg_i]}.`)
+            let value = .registers[reg_i]
+            set_error((31337_35224907301551, `Register {reg_i} should have value {value}.`))
             return fail
         }
 
@@ -291,7 +292,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     }
 
     if U8 get_memory("Count") != .counter {
-        set_error(`Counter memory should be {.counter}.`)
+        let expected_value = .counter
+        set_error((31337_24524168624111, `Counter memory should be {expected_value}.`))
         return fail
     }
 

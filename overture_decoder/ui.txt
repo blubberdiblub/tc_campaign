@@ -1,6 +1,6 @@
 [table id="table" size=27 x=-50 spacing_y=4]
-"Instruction",      "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
-"Desired mode",     "???"
-"Desired output",   "[ANY][ANY][ANY][ANY]"
-"Current output",   "[ANY][ANY][ANY][ANY]"
+(31337_55162862394836, `Instruction`),      "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+(31337_35299017249605, `Desired mode`),     "???"
+(31337_59092390409834, `Desired output`),   "[ANY][ANY][ANY][ANY]"
+(31337_38271404408184, `Current output`),   "[ANY][ANY][ANY][ANY]"
 [/table]

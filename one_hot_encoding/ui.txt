@@ -1,1 +1,1 @@
-[text id="description" text="Select the correct output" size=36]
+[text id="description" text=(31337_61210012476835, `Select the correct output`) size=36]

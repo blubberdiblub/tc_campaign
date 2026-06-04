@@ -7,7 +7,7 @@ def get_input(tick: Int) Input {
 def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if Int output.output != (1 << tick) {
-        set_error(`Expected only output {tick} to be ON`)
+        set_error((31337_58804917157759, `Expected only output {tick} to be ON`))
         return fail
     }
 

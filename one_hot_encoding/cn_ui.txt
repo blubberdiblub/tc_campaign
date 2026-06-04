@@ -1,2 +1,0 @@
-[text id="description" text="根据输入值，激活对应的输出线路" size=36]
-#210b518127af4c9ac05af5dfdb36f9f0

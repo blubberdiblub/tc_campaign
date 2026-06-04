@@ -1,0 +1,1 @@
+[text text=(31337_34652721020070, `The grey wires implement the IO mode`) size=33]

@@ -1,2 +1,2 @@
-[text text="Just add 1 to loop wire of the Delay Line" size=33 y=-25]
-[text text="But using a Full Adder here is an overkill!" size=33 y=25]
+[text text=(31337_22938387275450, `Just add 1 to loop wire of the Delay Line`) size=33 y=-25]
+[text text=(31337_81327009436542, `But using a Full Adder here is an overkill!`) size=33 y=25]

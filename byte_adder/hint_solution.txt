@@ -1,2 +1,2 @@
-[text text="Carry-out of the last bit is the carry-in of the next" size=33 y=-25]
-[text text="Connect the carry-in and carry-out of the level to complete the circuit" size=33 y=25]
+[text text=(31337_36646953278480, `Carry-out of the last bit is the carry-in of the next`) size=33 y=-25]
+[text text=(31337_69804974830322, `Connect the carry-in and carry-out of the level to complete the circuit`) size=33 y=25]

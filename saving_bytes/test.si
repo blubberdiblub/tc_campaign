@@ -1,6 +1,16 @@
 var memory      = U8 0
 var next_memory = U8 0
 
+def get_padded_number(num: U8) String {
+    var s = `{num}`
+    if s.len() < 3 {
+        s = " " + s
+    }
+    if s.len() < 3 {
+        s = s + " "
+    }
+    return s
+}
 
 def get_input(tick: Int) Input {
 
@@ -22,14 +32,26 @@ def get_input(tick: Int) Input {
 
     }
 
+    var text = ""
+    if save == 0 {
+        text = "[OFF]"
+    } else {
+        text = "[ON]"
+    }
+    ui_set_text("table[0][1]", text)
+    ui_set_text("table[1][1]", `{get_padded_number(num)}`)
+
     return Input {save: U1 save, input: U8 num}
 
 }
 
 def check_output(tick: Int, input: Input, output: Output) TestResult {
+    ui_set_text("table[2][1]", `{get_padded_number(.memory)}`)
+    ui_set_text("table[3][1]", `{get_padded_number(output.output)}`)
 
     if output.output != .memory {
-        set_error(`Expected output {.memory}.`)
+        let expected_output = .memory
+        set_error((31337_60269032570207, `Expected output {expected_output}.`))
         return fail
     }
 

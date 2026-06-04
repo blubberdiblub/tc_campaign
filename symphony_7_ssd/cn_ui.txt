@@ -1,2 +1,0 @@
-[disassembly_text_description id="instruction" size=33 default_text="向 Symphony 架构添加非易失性存储器" width=1300]
-#b8668507f6512d944f4cf7eea46d2b6f

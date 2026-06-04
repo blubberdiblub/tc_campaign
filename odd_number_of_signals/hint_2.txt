@@ -1,4 +1,4 @@
-[text text="even number + even number = even number" size=33 y=-75]
-[text text="odd number + odd number = even number" size=33 y=-25]
-[text text="odd number + even number = odd number" size=33 y=25]
-[text text="Now do we have a component that mimics this behavior?" size=33 y=75]
+[text text=(31337_28104365880572, `even number + even number = even number`) size=33 y=-75]
+[text text=(31337_49444546097133, `odd number + odd number = even number`) size=33 y=-25]
+[text text=(31337_59534613718377, `odd number + even number = odd number`) size=33 y=25]
+[text text=(31337_57603105454008, `Now do we have a component that mimics this behavior?`) size=33 y=75]

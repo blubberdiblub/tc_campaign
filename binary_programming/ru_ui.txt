@@ -1,2 +1,0 @@
-[disassembly_text_description id="instruction" size=33 default_text="Прибавьте 5 к входному значению с помощью программирования на перфокартах" width=1000]
-#8cf28c95910f9cf03e9cd6a4be2b65d4

@@ -1,2 +1,0 @@
-[disassembly_text_description id="instruction" size=33 default_text="搭建可以按照指令读写寄存器的电路" width=1000]
-#ec8ac0593af5abf3df774b07c59bfd3c

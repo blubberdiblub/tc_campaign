@@ -1,3 +1,3 @@
-[text text="A simple circuit where the input depends on its own output is a looped NOT gate" y=-50]
-[text text="Note the red erroneous wire" y=0]
-[text text="This is an error in other levels, but the goal of this one" y=50]
+[text text=(31337_21613887420121, `A simple circuit where the input depends on its own output is a looped NOT gate`) y=-50]
+[text text=(31337_57091568089512, `Note the red erroneous wire`) y=0]
+[text text=(31337_64834808154176, `This is an error in other levels, but the goal of this one`) y=50]

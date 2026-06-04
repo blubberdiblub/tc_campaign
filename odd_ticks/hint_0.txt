@@ -1,2 +1,2 @@
-[text text="The input is merely a distraction" size=33 y=-25]
-[text text="The information comes from the tick count, this is where the Delay Line shines" size=33 y=25]
+[text text=(31337_69947751578736, `The input is merely a distraction`) size=33 y=-25]
+[text text=(31337_75667038547709, `The information comes from the tick count, this is where the Delay Line shines`) size=33 y=25]

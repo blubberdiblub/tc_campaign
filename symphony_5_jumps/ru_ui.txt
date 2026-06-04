@@ -1,2 +1,0 @@
-[disassembly_text_description id="instruction" size=33 default_text="Добавьте переходы в Symphony" width=1300]
-#c453f4944ef3545e8a6bec861d09fe85

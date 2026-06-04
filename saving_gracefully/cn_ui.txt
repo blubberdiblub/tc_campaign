@@ -1,8 +1,0 @@
-
-[table id="table" full_history size=33 x=-50 _0="[OFF]" _1="[ON]" _z="[ANY]"]
-"写入",           "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
-"待写入数值",          "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[OFF]"
-"预期输出", "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[OFF]"
-"当前输出"
-[/table]
-#a9034a18874fdc4852374476bcd4f240

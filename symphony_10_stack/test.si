@@ -37,7 +37,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
                 if .waiting_for_pop == 1 {
 
-                    set_error(`You did not output the last popped value.`)
+                    set_error((31337_77129086767196, `You did not output the last popped value.`))
                     return fail
 
                 }
@@ -64,7 +64,9 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if output.output != U32 .ram[.sp] {
 
-        set_error(`{.ram[.sp]} is supposed to be on top of the stack, not {output.output}.`)
+        let expected_value = .ram[.sp]
+        let actual_value = output.output
+        set_error((31337_35910734851012, `{expected_value} is supposed to be on top of the stack, not {actual_value}.`))
         return fail
 
     }

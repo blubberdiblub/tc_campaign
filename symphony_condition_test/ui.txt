@@ -1,1 +1,1 @@
-[text id="description" text="Implement the Symphony flags" size=36]
+[text id="description" text=(31337_60849966858957, `Implement the Symphony flags`) size=36]

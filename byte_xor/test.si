@@ -14,14 +14,21 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     let result = input.a ^ input.b
 
-    ui_set_text("description", `{input.a} XOR {input.b}  is  {result}`)
+    let a = input.a
+    let b = input.b
+    let description = (31337_54747903652562, `{a} XOR {b} is {result}`)
+
+    ui_set_text("description", description)
 
     if result != output.result {
-        set_error(`0x{hex(2, Int input.a)} XOR 0x{hex(2, Int input.b)}  is  0x{hex(2, Int result)}`)
+        let a = "0x" + hex(2, Int input.a)
+        let b = "0x" + hex(2, Int input.b)
+        let hex_result = "0x" + hex(2, Int result)
+        set_error(description)
         return fail
     }
 
-    if tick == 0xffff { 
+    if tick == 0xffff {
         return win
     }
 

@@ -1,2 +1,2 @@
-[text text="This level is similar to 'THE BUS'" size=33 y=-25]
-[text text="with the source in place of Inputs and destination Outputs" size=33 y=25]
+[text text=(31337_87908319845833, `This level is similar to "The Bus"`) size=33 y=-25]
+[text text=(31337_25938996008186, `with the source in place of Inputs and destination Outputs`) size=33 y=25]

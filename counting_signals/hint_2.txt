@@ -1,1 +1,1 @@
-[text text="The output 2 is ON if and only if all signals are ON" size=37]
+[text text=(31337_90442785399123, `The output 2 is ON if and only if all signals are ON`) size=37]

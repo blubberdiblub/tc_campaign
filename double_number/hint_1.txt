@@ -1,1 +1,1 @@
-[text text="To double a number in binary format is to shift the bit position by one" size=37]
+[text text=(31337_29000872588470, `To double a number in binary format is to shift the bit position by one`) size=37]

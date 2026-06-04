@@ -69,8 +69,8 @@ def get_input(tick: Int) Input {
         }
         text_state = markup(text_state)
         ui_set_text("actions[3][1]", "[ON]")
-        ui_set_text("actions[3][2]", `[right] Load {text_state} [/right]`)
-        ui_set_text("actions[3][3]", `[left]from {text_add}[/left]`)
+        ui_set_text("actions[3][2]", `[right] ` + (31337_55086379351729, `Load {text_state}`) + ` [/right]`)
+        ui_set_text("actions[3][3]", `[left]` + (31337_84281112792950, `from {text_add}`) + `[/left]`)
         ui_set_hidden("actions[3][2]", false)
         ui_set_hidden("actions[3][3]", false)
     }
@@ -81,8 +81,8 @@ def get_input(tick: Int) Input {
         ui_set_hidden("actions[4][3]", true)
     } else {
         ui_set_text("actions[4][1]", "[ON]")
-        ui_set_text("actions[4][2]", `[right] Save {text_value} [/right]`)
-        ui_set_text("actions[4][3]", `[left]to {text_add}[/left]`)
+        ui_set_text("actions[4][2]", `[right] ` + (31337_52597500133853, `Save {text_value}`) + ` [/right]`)
+        ui_set_text("actions[4][3]", `[left]` + (31337_30890819163380, `to {text_add}`) + `[/left]`)
         ui_set_hidden("actions[4][2]", false)
         ui_set_hidden("actions[4][3]", false)
     }
@@ -100,11 +100,13 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     if input.load == 1 {
 
         if .memory_state[input.address] != Int output.output {
+            let expected_value = .memory_state[input.address]
+            let actual_value = output.output
 
             if output.output_is_z {
-                set_error(`Output was Z, but it should have been {.memory_state[input.address]}.`)
+                set_error((31337_29258463778822, `Output was Z, but it should have been {expected_value}.`))
             } else {
-                set_error(`Output was {output.output}, but it should have been {.memory_state[input.address]}.`)
+                set_error((31337_48251194975794, `Output was {actual_value}, but it should have been {expected_value}.`))
             }
 
             return fail
@@ -114,7 +116,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     } else {
 
         if !output.output_is_z {
-            set_error(`Output should have been Z.`)
+            set_error((31337_45179662026844, `Output should have been Z.`))
             return fail
         }
 

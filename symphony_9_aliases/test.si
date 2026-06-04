@@ -11,7 +11,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         0 {
 
             if get_ram_value("Register File", 1 * 4, <U32>) != 0x1235 {
-                set_error(`The first instruction should have moved hex value 0x1235 to r1.`)
+                set_error((31337_44683006232656, `The first instruction should have moved hex value 0x1235 to r1.`))
                 return fail
             }
 
@@ -19,7 +19,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         1 {
 
             if get_ram_value("Register File", 2 * 4, <U32>) != 0xffffedcb {
-                set_error(`r2 should have had hex value 0xffffedcb.`)
+                set_error((31337_83123414679662, `r2 should have had hex value 0xffffedcb.`))
                 return fail
             }
 
@@ -27,7 +27,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         2 {
 
             if get_ram_value("Register File", 3 * 4, <U32>) != 0x1234 {
-                set_error(`r3 should have had hex value 0x1234`)
+                set_error((31337_67087756287234, `r3 should have had hex value 0x1234`))
                 return fail
             }
 

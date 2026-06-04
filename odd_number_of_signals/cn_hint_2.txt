@@ -1,5 +1,0 @@
-[text text="偶数 + 偶数 = 偶数" size=33 y=-75]
-[text text="奇数 + 奇数 = 偶数" size=33 y=-25]
-[text text="奇数 + 偶数 = 奇数" size=33 y=25]
-[text text="现在，我们是否有一个组件能模拟这种行为？" size=33 y=75]
-#642cf5d59cdda65b04fc73eb242c320c

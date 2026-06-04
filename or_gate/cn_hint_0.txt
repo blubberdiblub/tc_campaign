@@ -1,9 +1,0 @@
-[table size=33 x=-50 y=-55]
-"输入 1",        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
-"输入 2",        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
-"预期输出", "[OFF]",   "[ON]",  "[ON]",  "[ON]"
-[/table]
-
-[text text="从或门的真值表可以看出，只要有一路输入是 [ON]，" size=33 y=65]
-[text text="输出就会是 [ON]。" size=33 y=115]
-#df78fbad2b2954aa90e9e627eb6d80bf

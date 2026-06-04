@@ -271,3 +271,46 @@ pstore [%adr(register)], %value(register)
 pstore [%adr(immediate)], %value(register)
 01110111 0000vvvv aaaaaaaa aaaaaaaa
 # (31337_59344052643304, `Store %value to address %adr in persistent memory.`)
+
+
+mov %a(register), %b(register)
+00100001 aaaa0000 0000bbbb 00000000
+# (31337_53941960758392, `Moves a value from %b to %a.`)
+
+mov %a(register), %b(immediate)
+00110001 aaaa0000 bbbbbbbb bbbbbbbb
+# (31337_34859363394334, `Moves a value to %a.`)
+
+neg %a(register), %b(register)
+00100101 aaaa0000 0000bbbb 00000000
+# (31337_72894099288447, `Negates a %b and stores it in %a.`)
+
+neg %a(register), %b(immediate)
+00110101 aaaa0000 bbbbbbbb bbbbbbbb
+# (31337_57504570243305, `Negates a value and stores it in %a.`)
+
+not %a(register), %b(register)
+00100011 aaaa0000 0000bbbb 00000000
+# (31337_55357258069734, `Nots %b and stores it in %a.`)
+
+not %a(register), %b(immediate)
+00110011 aaaa0000 bbbbbbbb bbbbbbbb
+# (31337_40508048121543, `Nots a value and stores it in %a.`)
+
+
+push %a(register)
+00110101 11101110 00000000 00000100   01100110 0000aaaa 00001110 00000000
+# (31337_28545157055801, `Pushes %a on to the stack. This instruction is a synonym for:   sub sp, sp, 4   store_32 [sp], %a`)
+
+pop %a(register)
+01100010 aaaa0000 00001110 00000000   00110100 11101110 00000000 00000100
+# (31337_54469754973269, `Pops %a off the stack. This instruction is a synonym for:   load_32 %a, [sp]   add sp, sp, 4`)
+
+call %a(label)
+00000111 11110000 00000000 00000000   00110100 11111111 00000000 00010100   00110101 11101110 00000000 00000100   01100110 00001111 00001110 00000000   01011000 00001111 aaaaaaaa aaaaaaaa
+# (31337_57788320241950, `Calls %a. Overwrites the flag register. This instruction is a synonym for:   counter flags   add flags, flags, 20   sub sp, sp, 4   store_32 [sp], flags   jmp %a`)
+
+ret
+01100010 11110000 00001110 00000000   00110100 11101110 00000000 00000100   01001000 00001111 00001111 00000000
+# (31337_48332460366102, `Returns from the last function call. Overwrites the flag register. This instruction is a synonym for:   load_32 flags, [sp]   add sp, sp, 4   jmp flags`)
+

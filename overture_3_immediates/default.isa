@@ -24,7 +24,7 @@ out 110
 [instructions]
 
 mov %a(out_register), %b(in_register)
-10bbbaaa
+10aaabbb
 # (31337_45432635426071, `Moves a value from %b to %a.`)
 
 imm %a(immediate | label)

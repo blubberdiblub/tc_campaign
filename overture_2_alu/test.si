@@ -113,8 +113,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         }
         #MOVE {
 
-            let from = (instruction >> 3) & 0b111
-            let to   = instruction & 0b111
+            let from = instruction & 0b111
+            let to   = (instruction >> 3) & 0b111
 
             var value = 0
             if from <= 5 {

@@ -23,4 +23,4 @@ dialogue = [
 post_mortem_first_win = [
     (mentor_smile, `Вы сделали это! Вы действительно построили настоящий компьютер! Потрясающе.`),
 ]
-#3145258b2cafa88597b26caee73d0e5b
+#0536bce93b77ea48640cbd64630b3cc9

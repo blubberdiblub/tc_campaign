@@ -7,4 +7,4 @@ labels = {
     "B": "除数",
     "Result": "商",
 }
-#915ed88e9bbe61edd19691f30b492ad0
+#cdbbec56352b38f6a2a9bc317d58ab4a

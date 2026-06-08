@@ -7,4 +7,4 @@ labels = {
     "B": "除数",
     "Result": "余数",
 }
-#aa7d83b493dad394a9e6f53c6ee811cb
+#ed85d2ff40ff5f4c42f8de363c7950c0

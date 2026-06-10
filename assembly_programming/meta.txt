@@ -9,5 +9,4 @@ Conventionally, an instruction syntax will begin with an abbreviated word (calle
 Also by convention, the destination is on the left. So in the above example we move a value to r1 from r2. If you learn these conventions you will be able to read real life assembly languages.
 
 Click "Edit" on the RAM component to open the assembly editor. From there, click "ASM" in the upper left corner to get the full list of Overture instructions.`),
-  (overture),
 ]

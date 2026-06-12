@@ -1,0 +1,9 @@
+title = "Porte NAND"
+dialogue = [
+  (mentor_centered, 'Cette première section du jeu porte sur la "logique booléenne". La logique booléenne décrit les formes d'opérations les plus simples que les ordinateurs peuvent faire. En fait, ces opérations sont à la base de tous les autres opérations dans l'ordinateur.'),
+  (mentor_centered, "Ce circuit contient une "porte NAND" que je veux que vous examiniez. Je veux que vous documentiez son comportement en remplissant la "table de vérité" dans le panneau que vous voyez ci-dessous. Seules les deux premières lignes de la table de vérité sont remplies. Votre tâche est d'expérimenter avec les entrées du circuit, d'observer ce que fait la porte NAND et de remplir la dernière ligne de la table de vérité."),
+]
+post_mortem = [
+  (mentor_left, 'Correct! Vous avez débloqué la porte NAND. À partir de ce bloc de construction fondamental, vous construirez tout le reste dans ce jeu.'),
+]
+#c6a55d8d801921ce1e4634caa024f16a

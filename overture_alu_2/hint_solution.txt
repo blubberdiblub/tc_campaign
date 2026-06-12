@@ -1,2 +1,2 @@
 [text text=(31337_30599543511275, `An extension using 3-bit decoder instead of 2-bit`) size=33 y=-25]
-[text text=(31337_61118397217284, `A SUB B isq A ADD (NEG B)`) size=33 y=25]
+[text text=(31337_61118397217284, `A SUB B is A ADD (NEG B)`) size=33 y=25]

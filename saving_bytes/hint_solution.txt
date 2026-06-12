@@ -1,1 +1,1 @@
-[text text=(31337_81069243257230, `The LOAD part is just a byte Switch`) size=37]
+[text text=(31337_73980120059844, `We just make the byte version out of the "Saving Gracefully" level`) size=33]

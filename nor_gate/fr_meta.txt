@@ -1,4 +1,4 @@
-title = "Porte NON-OU"
+title = "Porte NOR"
 dialogue = [
   (mentor_centered, "Create the circuit that matches the table."),
 ]

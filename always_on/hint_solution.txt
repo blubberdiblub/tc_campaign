@@ -1,1 +1,1 @@
-[text text=(31337_33906573915218, `Pick any gate that outputs ON when its inputs are not connected to anything`) size=37]
+[text text=(31337_33906573915218, `Pick any gate that outputs [ON] when its inputs are not connected to anything`) size=37]

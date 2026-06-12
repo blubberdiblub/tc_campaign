@@ -1,7 +1,7 @@
 
 def get_input(tick: Int) Input {
 
-    switch random(6)
+    switch random(5)
         0 {
             let value = U32 random(0x10000_0000)
             return Input {argument_a: value, argument_b: value}
@@ -18,14 +18,10 @@ def get_input(tick: Int) Input {
             return Input {argument_a: U32 random(0x10000_0000), argument_b: U32 random(0x10000_0000)}
         }
         4 {
-            let value = U32 1 << U32 random(32)
-            return Input {argument_a: U32 value + 1, argument_b: U32 value}
+            let value = U32 random(0x10000_0000)
+            let mask = U32 1 << U32 random(32)
+            return Input {argument_a: value, argument_b: value ^ mask}
         }
-        5 {
-            let value = U32 1 << U32 random(32)
-            return Input {argument_a: U32 value, argument_b: U32 value + 1}
-        }
-
 
 }
 

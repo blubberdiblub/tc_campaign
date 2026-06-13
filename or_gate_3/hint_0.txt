@@ -1,1 +1,1 @@
-[text text=(31337_67313804184537, `A bigger AND is but multiple ANDs in succession`) size=37]
+[text text=(31337_67313804184537, `A bigger OR is but multiple ORs in succession`) size=37]

@@ -5,12 +5,5 @@ dialogue = [
 The 3 bits select the condition as shown below. Check the value against the selected condition and output [ON] if it is satisfied and [OFF] otherwise.
 
 Bit code:   Turn [ON] when:
-[OFF] [OFF] [OFF]    Never
-[OFF] [OFF] [ON]    Always
-[OFF] [ON] [OFF]    If value = 0
-[OFF] [ON] [ON]    If value ≠ 0
-[ON] [OFF] [OFF]    If value < 0
-[ON] [OFF] [ON]    If value ≥ 0
-[ON] [ON] [OFF]    If value ≤ 0
-[ON] [ON] [ON]    If value > 0"),
+[left]          [OFF][OFF][OFF]   Never[/left][left]          [OFF][OFF][ON]   Always[/left][left]          [OFF][ON][OFF]   If value = 0[/left][left]          [OFF][ON][ON]   If value ≠ 0[/left][left]          [ON][OFF][OFF]   If value < 0[/left][left]          [ON][OFF][ON]   If value ≥ 0[/left][left]          [ON][ON][OFF]   If value ≤ 0[/left][left]          [ON][ON][ON]   If value > 0[/left]"),
 ]

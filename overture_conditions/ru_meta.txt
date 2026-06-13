@@ -6,18 +6,11 @@ dialogue = [
 выведите [ON], если оно выполнено, и [OFF] в противном случае.
 
 Код битов:   Включить [ON], когда:
-[OFF] [OFF] [OFF]   Никогда
-[OFF] [OFF] [ON]   Всегда
-[OFF] [ON] [OFF]    Если значение = 0
-[OFF] [ON] [ON]    Если значение ≠ 0
-[ON] [OFF] [OFF]    Если значение < 0
-[ON] [OFF] [ON]    Если значение ≥ 0
-[ON] [ON] [OFF]    Если значение ≤ 0
-[ON] [ON] [ON]    Если значение > 0"),
+[left]       [OFF][OFF][OFF]   Никогда[/left][left]       [OFF][OFF][ON]   Всегда[/left][left]       [OFF][ON][OFF]   Если значение = 0[/left][left]       [OFF][ON][ON]   Если значение ≠ 0[/left][left]       [ON][OFF][OFF]   Если значение < 0[/left][left]       [ON][OFF][ON]   Если значение ≥ 0[/left][left]       [ON][ON][OFF]   Если значение ≤ 0[/left][left]       [ON][ON][ON]   Если значение > 0[/left]"),
 ]
 labels = {
   "Condition": "Условие",
   "Input": "Вход",
   "Result": "Результат",
 }
-#bc896beba7bb0b5d712e2a927e2f276b
+#97a96b9d4108d8575d69c6de7a4449eb

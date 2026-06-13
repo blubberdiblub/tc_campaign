@@ -1,0 +1,5 @@
+title = "Grande porte AND"
+dialogue = [
+  (mentor_centered, "Crée une porte AND à 3 entrées."),
+]
+#643c2fc40e6a86bc1a769608659eefb4

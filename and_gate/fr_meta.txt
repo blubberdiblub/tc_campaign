@@ -1,0 +1,6 @@
+title = "Porte AND"
+dialogue = [
+  (mentor_centered, "Créez le circuit qui correspond au tableau.
+[tip]La plupart des niveaux disposent d'indice (l'ampoule) Tu peux cliquer dessus si tu es bloqué.[/tip]"),
+]
+#9a663b613cdf4c0327aabc80daf02b10

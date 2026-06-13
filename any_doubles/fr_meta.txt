@@ -1,0 +1,8 @@
+title = "Détection des doubles"
+dialogue = [
+  (mentor_centered, "Ce niveau comporte 4 entrées. 
+Renvoie [ON] lorsque 2 entrées ou plus sont [ON].
+
+[tip]Ne te prends pas trop la tête.[/tip]"),
+]
+#7b08fcef1ee207e39c72dd664674f4a4

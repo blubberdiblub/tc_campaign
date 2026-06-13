@@ -1,0 +1,10 @@
+title = "Course binaire"
+dialogue = [
+  (mentor_centered, `Ce niveau t'enseigne le binaire.
+
+Ajuste les bits dans le panneau de niveau pour que leur somme corresponde au nombre décimal de la question.
+
+Tu dois réussir le niveau 3 pour passer.
+`)
+]
+#241ec2264b2f058f8d3c81cd5ec4b892

@@ -291,11 +291,11 @@ neg %a(register), %b(immediate)
 
 not %a(register), %b(register)
 00100011 aaaa0000 0000bbbb 00000000
-# (31337_55357258069734, `Nots %b and stores it in %a.`)
+# (31337_55357258069734, `Toggles the bits of %b and stores it in %a.`)
 
 not %a(register), %b(immediate)
 00110011 aaaa0000 bbbbbbbb bbbbbbbb
-# (31337_40508048121543, `Nots a value and stores it in %a.`)
+# (31337_40508048121543, `Toggles the bits of a value and stores it in %a.`)
 
 
 push %a(register)

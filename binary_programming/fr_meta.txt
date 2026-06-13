@@ -1,0 +1,7 @@
+title = "Programmation par cartes perforées"
+dialogue = [
+  (mentor_centered, `Maintenant que tu as construit ton premier ordinateur, il est temps d'apprendre à le programmer.`),
+  (mentor_centered, `Clique sur le bouton «Edit» du composant «Programme» pour commencer la programmation de ton ordinateur avec des cartes perforées. ton ordinateur devrait lire une valeur en entrée, lui ajouter 5 et la restituer.`),
+  (overture),
+]
+#b3aa9fea468e11b966fc3b221fc2253d

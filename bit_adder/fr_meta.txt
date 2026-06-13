@@ -1,0 +1,8 @@
+title = "Demi-additionneur"
+dialogue = [
+  (mentor_centered, "Nous mesurons l'univers avec des nombres. Notre machine doit donc savoir compter."),
+  (mentor_centered, "Traite les entrées comme [b]0[/b] ou [b]1[/b] selon qu'elles sont [OFF] ou [ON]. Additionne-les en binaire, tel que le résultat soit soit [b]0[/b] soit [b]1[/b].
+
+Comme pour une addition normale, si le résultat ne peut pas être décrit avec un seul bit, définis la retenue sur [b]1[/b]."),
+]
+#9ded5a3fc7d037461566c49acb90af03

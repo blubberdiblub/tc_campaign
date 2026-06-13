@@ -1,0 +1,7 @@
+title = "Piratage du stockage"
+dialogue = [
+  (mentor_centered, "Dans ce niveau, tu gagnes si tu envoies le code secret en sortie. Aucune sortie fera échouer le niveau, tu peux donc essayer tous les nombres. 
+
+Tu peux également exploiter le fait que la valeur d'entrée sera 1 après une estimation trop élevée et 0 si non."),
+]
+#60af33f2abe93b6151c47c2a9199da7e

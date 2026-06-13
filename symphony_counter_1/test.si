@@ -26,8 +26,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if memory_value != Int .next_memory {
 
-        let expected_memomry = .next_memory
-        set_error((31337_54301125260332, `Memory is supposed to be {expected_memomry}, not {memory_value}`))
+        let expected_memory = .next_memory
+        set_error((31337_54301125260332, `Memory is supposed to be {expected_memory}, not {memory_value}`))
         return fail
 
     }
@@ -41,9 +41,9 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if U32 output.output != .memory {
 
-        let expected_memomry = .memory
+        let expected_memory = .memory
 
-        set_error((31337_84451713761977, `Output should be {expected_memomry}`))
+        set_error((31337_84451713761977, `Output should be {expected_memory}`))
         return fail
 
     }

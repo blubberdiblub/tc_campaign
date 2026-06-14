@@ -1,0 +1,5 @@
+title = "Décodeur 2 bits"
+dialogue = [
+    (mentor_centered, `Avec 2 bits d'entrée, il existe 4 combinaisons. crée un circuit qui sélectionne une sortie pour chacune des 4 combinaisons. Pas plus ni moins d'un bit ne doit être [ON] à la fois.`),
+]
+#23e9ce25083fcd584c070567aec7586d

@@ -1,0 +1,11 @@
+title = "Décodeur d'instructions"
+dialogue = [
+  (mentor_centered, `Le circuit que tu as construit au niveau "Registres" peut copier des valeurs entre les registres, alors que la "partie arithmétique" peut effectuer différentes opérations sur 2 entrées. Mais tu dois pouvoir faire les deux dans le même circuit. Pour ce faire, construis un « décodeur » qui déterminera le mode de fonctionnement de notre ordinateur en fonction des 2 bits que nous n'avons pas encore utilisés.`),
+  (mentor_centered, `Pour distinguer les instructions de 4 types différents, Les deux bits de poids fort seront utilisés pour déterminer le MODE actif, comme suit:
+
+[left][OFF][OFF][ANY][ANY][ANY][ANY][ANY][ANY] Immédiat[/left][left][OFF] [ON][ANY][ANY][ANY][ANY][ANY][ANY] ALU[/left][left][ON][OFF][ANY][ANY][ANY][ANY][ANY][ANY] Move[/left][left][ON] [ON][ANY][ANY][ANY][ANY][ANY][ANY] Condition[/left]
+Ici, [ANY] signifie n'importe quelle valeur.
+
+Identifie le MODE en cours à partir de l'entrée, puis envoie [ON] vers la sortie appropriée.`),
+]
+#b01d14da73a6b39bbc02069a4fc38e19

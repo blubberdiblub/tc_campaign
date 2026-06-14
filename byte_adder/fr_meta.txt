@@ -1,0 +1,10 @@
+title = "Addition d'octet"
+dialogue = [
+  (mentor_centered, "Additionne les deux octets d'entrée. Chaque bit de sortie doit être le résultat de l'addition des bits correspondants des entrées, et potentiellement une retenue."),
+  (mentor_centered, "Si le résultat ne tient pas sur 8 bits, définie la retenue de sortie sur [ON] (on peut le considérer comme le neuvième bit)
+  
+Enfin, il y a également une retenue d'entrée. Ceci est utile pour chaîner des additionneurs d'octets afin d'additionner des nombres plus grands. tu peux considérer cette retenue comme l'ajout de 0 [OFF] ou de 1 [ON].
+."),
+    (mentor_centered, `De plus, ce niveau comporte de nombreux tests. Clique droit sur le bouton Exécuter pour augmenter la vitesse du test.`),
+]
+#24512496fd16f0805c91860b1bb3b140

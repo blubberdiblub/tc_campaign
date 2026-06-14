@@ -1,0 +1,26 @@
+title = "Turing Complete"
+dialogue = [
+  (mentor_centered, `Jusqu'à présent, tous les programmes possibles étaient limités à une exécution séquentielle octet par octet.`),
+  (mentor_centered, `Auparavant, seul le code pouvait influencer la mémoire , désormais, c'est la mémoire qui doit influencer le code. Grâce à l'ajout de la logique conditionnelle, notre ordinateur peut exécuter n'importe quel algorithme et calculer tout ce qui est calculable. Comme tous les ordinateurs non théoriques, cette machine ne sera limitée que par sa mémoire finie.`),
+  (mentor_ceentered, `La dernière chose qu'il nous faut ajouter est un mécanisme permettant de modifier le compteur de programme par le biais d'instructions lorsque certaines conditions sont remplies.
+
+Lorsque les deux bits de poids fort sont [ON][ON], nous sommes en mode conditionnel. En mode conditionnel, la valeur du registre 3 est comparée aux conditions définies par les 3 bits de poids faible de l'instruction. Si la condition est vraie, nous écrasons le compteur avec la valeur de REG 0.
+Modifier le compteur de manière conditionnelle signifie que nous pouvons ignorer des instructions en fonction de conditions ou exécuter des instructions dans une boucle.
+
+Conditions:
+[OFF] [OFF] [OFF] Jamais
+[OFF] [OFF] [ON] Toujours
+[OFF] [ON] [OFF] Si [color=#e49f44]REG 3[/color] = 0
+[OFF] [ON] [ON] Si [color=#e49f44]REG 3[/color] ≠ 0 
+[ON] [OFF] [OFF] Si [color=#e49f44]REG 3[/color] < 0
+[ON] [OFF] [ON] Si [color=#e49f44]REG 3[/color] ≥ 0
+[ON] [ON] [OFF] Si [color=#e49f44]REG 3[/color] ≤ 0 
+[ON] [ON] [ON] Si [color=#e49f44]REG 3[/color] > 0
+
+Ces conditions correspondent au composant de condition qui a été enregistré dans la fonderie.`),
+  (overture),
+]
+post_mortem_first_win = [
+    (mentor_smile, `Tu l'as fait ! Tu as vraiment construit un vrai ordinateur ! Génial.`),
+]
+#0536bce93b77ea48640cbd64630b3cc9

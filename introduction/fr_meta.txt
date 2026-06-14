@@ -1,6 +1,6 @@
 title = "Débuts modestes"
 dialogue = [
-  (mentor_centered, "Ce premier niveau du jeu est une simple introduction aux circuits. Ici, vous avez une entrée et une sortie avec un fil entre les deux. Allumez simplement l'entrée dans le menu de gauche pour terminer le niveau."),
+  (mentor_centered, "Ce premier niveau du jeu est une simple introduction aux circuits. Ici, tu as une entrée et une sortie avec un fil entre les deux. Allume simplement l'entrée dans le menu de gauche pour terminer le niveau."),
 ]
 labels = {
   "Input": "Entrée",

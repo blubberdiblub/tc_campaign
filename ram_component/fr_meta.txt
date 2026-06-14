@@ -1,0 +1,15 @@
+title = "Petite boîte"
+dialogue = [
+  (mentor_centered, "Peut-on faire tenir 4 octets de mémoire dans cet espace limité ?"),
+  (mentor_centered, "Dans ce niveau, tu dois construire un circuit capable de 
+stocker ou charger des données à partir de 4 octets de mémoire différents.
+
+Tu disposes d'un bit qui détermine si tu dois charger. Un autre bit détermine si tu dois stocker et il vient avec une valeur correspondante.
+De plus, tu disposes de 2 bits d'adresse. 
+
+Avec 2 bits, il existe 4 combinaisons, une pour chaque octet de mémoire de ce niveau.
+
+[tip]La barre d'espace permet de faire pivoter les composants.[/tip]
+"),
+]
+#b8d925a8ce88a9fa9cab48dbb83a79a8

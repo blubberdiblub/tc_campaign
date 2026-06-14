@@ -1,0 +1,34 @@
+title = "Course hexadécimale"
+dialogue = [
+  (mentor_centered, "Lorsqu'il s'agit de nombreuses données binaires, le langage peut devenir difficile à lire. Hexadécimale (base 16) représente chaque combinaison de 4 bits avec son propre caractère:
+
+0 [OFF][OFF][OFF][OFF]
+1 [OFF][OFF][OFF][ON]
+2 [OFF][OFF][ON][OFF]
+3 [OFF][OFF][ON][ON]
+4 [OFF][ON][OFF][OFF]
+5 [OFF][ON][OFF][ON]
+6 [OFF][ON][ON][OFF]
+7 [OFF][ON][ON][ON]
+8 [ON][OFF][OFF][OFF]
+9 [ON][OFF][OFF][ON]
+A [ON][OFF][ON][OFF]
+B [ON][OFF][ON][ON]
+C [ON][ON][OFF][OFF]
+D [ON][ON][OFF][ON]
+E [ON][ON][ON][OFF]
+F [ON][ON][ON][ON]
+
+Prenons l'exemple d'un système où l'hexadécimal est plus clair : comparons la représentation du plus grand nombre sur 16 bits:
+
+Binaire:      1111111111111111
+Décimale:     65535
+Hexadécimale: FFFF
+
+Il n'est pas facile de déterminer si le binaire comporte un chiffre manquant ou si le nombre décimal est correct, L'hexadécimal, en revanche, est immédiatement clair. (une fois qu'on s'habitue à la représentation bien sûr)."),
+  (mentor_centered,  "Ajuste les bits dans le panneau de niveau pour que leur somme corresponde au nombre hexadécimal de la question.
+
+Tu dois réussir le niveau 3 pour passer.
+"),
+]
+#b7e3836989cb1f93dd473525600cf13e

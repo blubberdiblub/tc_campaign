@@ -1,0 +1,12 @@
+title = "Nombres négatifs"
+dialogue = [
+  (mentor_centered, `Pour connaître la différence entre deux choses, il faut soustraire. Pour soustraire, il faut d'abord des nombres négatifs.`),
+  (mentor_centered, `Ce niveau introduit le « complément à deux », la représentation la plus courante des nombres négatifs.
+  
+Ici, le bit de poids fort est inversé. Pour les octets, cela signifie que le 8e bit passe de 128 à -128..
+
+Tu termineras ce niveau lorsque tu atteindras le niveau 3 ou un niveau supérieur.
+
+`),
+]
+#41855c8f5bb86a725a2e8a3d2942750a

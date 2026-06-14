@@ -1,0 +1,5 @@
+title = "Diviser"
+dialogue = [
+  (mentor_centered, "Divise les deux entrées et envoie le résultat en sortie. Note que ce niveau est optionnel, parce que c'est très difficile. Si la deuxième entrée (le diviseur) est 0, le résultat doit être 0."),
+]
+#cdbbec56352b38f6a2a9bc317d58ab4a

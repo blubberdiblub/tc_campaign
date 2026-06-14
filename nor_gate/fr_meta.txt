@@ -1,5 +1,5 @@
 title = "Porte NOR"
 dialogue = [
-  (mentor_centered, "Create the circuit that matches the table."),
+  (mentor_centered, "Crée le circuit qui correspond au tableau."),
 ]
 #4164deab28cf9ba1fbaf3ab957d79bcb

@@ -1,0 +1,12 @@
+title = "Circonférence"
+dialogue = [
+  (mentor_centered, "Dans ce niveau, on te donne un rayon et tu calcules la circonférence.
+
+Voici l'équation: 2×π×r
+
+r est l'entrée.
+Et tu peux simplifier π par 3.
+
+Envoie le résultat en sortie une fois calculé."),
+]
+#9c56c683e0a510f1372fe88568553989

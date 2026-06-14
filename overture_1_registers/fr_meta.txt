@@ -1,0 +1,36 @@
+title = "Registres"
+dialogue = [
+  (mentor_centered, `Il est enfin temps de construire ton premier ordinateur. Je vais t'apprendre à construire l'architecture [color=#e49f44]Overture[/color], une véritable machine Turing complète, un véritable ordinateur à tous égards.`),
+  (mentor_centered, `Dans ce niveau, vous devez créer un circuit qui peut déplacer vers une [color=#e49f44]destination[/color] depuis une [color=#c54d5e]source[/color]. 
+
+L'octet d'instruction à ce niveau détermine la [color=#e49f44]destination[/color] et la [color=#c54d5e]source[/color]. 
+
+les bits 1, 2 et 3 donne la [color=#c54d5e]source[/color].Les bits 4, 5 et 6 donne la [color=#e49f44]destination[/color].`),
+
+  (mentor_centered, `La [color=#c54d5e]Source[/color] et la [color=#e49f44]destination[/color] peut être 1 un des 6 registres, Nous les nommerons respectivement de REG 0 à REG 5. 
+  
+De plus, cette carte possède un composant d'entrée dédié, qui peut être la [color=#c54d5e]source[/color] et un composant de sortie, qui peut être la [color=#e49f44]destination[/color].`),
+  (mentor_centered, `Voici les séquences binaires pour chaque [color=#c54d5e]source[/color] et [color=#e49f44]destination[/color].
+
+[color=#c54d5e]Source[/color]:
+[OFF] [OFF] [OFF]  REG 0 
+[OFF] [OFF] [ON]  REG 1 
+[OFF] [ON] [OFF]  REG 2 
+[OFF] [ON] [ON]  REG 3 
+[ON] [OFF] [OFF]  REG 4 
+[ON] [OFF] [ON]  REG 5 
+[ON] [ON] [OFF]  #Entrée 
+[ON] [ON] [ON]  Inutilisé
+
+[color=#e49f44]Destination[/color]:
+[OFF] [OFF] [OFF]  REG 0 
+[OFF] [OFF] [ON]  REG 1 
+[OFF] [ON] [OFF]  REG 2 
+[OFF] [ON] [ON]  REG 3 
+[ON] [OFF] [OFF]  REG 4 
+[ON] [OFF] [ON]  REG 5 
+[ON] [ON] [OFF]  #Sortie
+[ON] [ON] [ON]  Inutilisé`),
+  (overture),
+]
+#40c6ef375ab41104a652a7e3f9b21e57

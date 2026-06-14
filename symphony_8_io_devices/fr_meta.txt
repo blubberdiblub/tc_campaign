@@ -1,0 +1,34 @@
+title = "Périphériques IO"
+dialogue = [
+    (mentor_centered, `Pour ce niveau, vous devez placer trois nouveaux composants d'IO : l'écran, l'horloge et le clavier.
+
+Reliez également l'écran au composant RAM nommé "Mémoire principale".
+`)
+    (mentor_left, `Jusqu'à présent, le mode IO ne comportait que 3 instructions, mais il est temps d'en ajouter plusieurs autres. Voici les codes d'opération pour la liste complète des instructions d'IO:
+
+0  nop       Ne rien faire
+1  in        Entrée
+2  out       Sortie
+3  keyboard  Lire la valeur du clavier
+4  screen    Définir les paramètres de l'écran
+5  time_0    Lire les 32 bits de poids faible du temps
+6  time_1    Lisez les 32 bits de poids fort du temps
+7  counter   Lire la valeur du compteur
+
+
+L'écran peut interpréter les octets du composant RAM auquel il est lié de plusieurs manières (voir manuel).L'écran comporte les entrées "Activer", "Index du paramètre" et "Valeur", qui permettent d'interagir avec les registres internes de l'écran (également expliqués dans le manuel).
+Lorsqu'une instruction d'écran est exécutée , le registre de l'écran fourni par l'argument A doit être défini sur la valeur de l'argument B (qui peut être une valeur immédiate ou provenir d'un registre).
+
+Le composant de temp renvoie le temps en nanosecondes écoulées depuis le 1er janvier 1970 (l'époque Unix) sous forme d'un nombre de 64 bits. Cette architecture ne traitant que 32 bits, la valeur est divisée en deux parties pouvant être lues séparément. Cependant, la combinaison de ses valeurs temporelles provenant de deux cycles d'horloge distincts peut en réalité produire des valeurs futures ou passées, en raison de dépassements de capacité. Pour éviter ce problème, nous ne lisons le minuteur que lors de l'exécution de « time_0 » et stockons le résultat afin que « time_1 » puisse le lire ultérieurement. Cela signifie que « time_1 » doit être égal à 0 si « time_0 » n'a pas encore été exécuté.
+
+Le compteur fait référence au composant personnalisé qui détermine le décalage à partir duquel l'assembleur est lu. Ceci devrait afficher le décalage actuel.
+
+La valeur du clavier doit être une combinaison des broches de sortie « Touche enfoncée » et « Valeur de la touche », comme ceci:
+
+D = Touche enfoncée
+V = Valeur de la Touche
+
+0000000D VVVVVVVV
+`),
+]
+#371e31b5262661c5d003f54d78bff327

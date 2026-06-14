@@ -1,0 +1,7 @@
+title = "Additionneur complet"
+dialogue = [
+  (mentor_centered, "Au niveau précédent, nous avons additionné 2 entrées, cette fois, nous en avons 3. Une fois encore, additionnez les entrées en binaire, tel que le résultat soit soit [b]0[/b] soit [b]1[/b].
+
+Comme pour une addition normale, si le résultat ne peut pas être décrit avec un seul chiffre, définis la retenue sur [b]1[/b]."),
+]
+#29fc420f073259b19e5186b286dea768

@@ -1,0 +1,5 @@
+title = "XOR octet"
+dialogue = [
+  (mentor_centered, "Crée un circuit qui effectue un XOR bit à bit sur deux octets.")
+]
+#db4f2ca8b9600808ff79be5b178a4d19

@@ -1,9 +1,9 @@
 title = "Toujours ON"
 dialogue = [
-  (mentor_centered, "Créez un circuit qui donne toujours [ON]."),
+  (mentor_centered, "Crée un circuit qui donne toujours [ON]."),
 ]
 post_mortem = [  
-    (mentor_centered, `Ce niveau débloque votre première page de manuel. Celui-ci est important, assurez-vous d'y prêter attention.`),
+    (mentor_centered, `Ce niveau débloque ta première page de manuel. Celui-ci est important, assure-toi d'y prêter attention.`),
     (manual, "Principes informatiques/Les lois de De Morgan"),
   ]
 #8106c28c0334fb307089147fd316cf5a

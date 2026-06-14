@@ -1,0 +1,9 @@
+title = "Le bus"
+dialogue = [
+  (mentor_centered, `Ce niveau comporte des entrées de 2 octets et des sorties de 2 octets. Ton objectif est de déplacer un nombre d'une entrée vers une sortie.
+  
+Le premier bit d'entrée détermine l'entrée de départ. Le second bit d'entrée détermine la sortie de destination.
+
+À chaque cycle, une seule sortie doit recevoir la valeur, l'autre sortie devant recevoir Z (aucune valeur). Ceci sera indiqué par "-" sur la sortie.`),
+]
+#e0b9bc79e87ab500a7d35a8d4cc31ce8

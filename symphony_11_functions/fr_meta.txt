@@ -1,0 +1,19 @@
+title = "Fonctions"
+dialogue = [
+  (mentor_centered, `Il est parfois utile de réutiliser une section de code. Nous appelons ces sections des "fonctions". Pour réutiliser du code, saute au début de la fonction et retourne à l'origine de l'appel une fois la fonction terminée. Ont dit "appeler" une fonction lorsqu'on saute vers elle, et revenir de la fonction est un "retour". 
+  
+Mais pour que cette section de code soit réellement réutilisable, le saut de retour devra pouvoir renvoyer vers différents emplacements, selon l'endroit d'où la fonction a été appelée.
+
+On pourrait stocker la valeur du compteur dans un registre avant d'appeler la fonction et utiliser cette valeur lors du retour. Cependant, si cela était fait de cette manière, une fonction ne pourrait pas appeler une autre fonction, car cela écraserait l'adresse de retour d'origine.
+
+Supposons que la fonction A appelle la fonction B, qui appelle la fonction C. Lorsque nous voulons revenir de C, Nous n'avons besoin que de l'adresse de retour pour B et, pour B, nous n'avons besoin que de l'adresse pour A. En général, quelle que soit la fonction que nous examinons et la manière dont elles s'appellent les unes les autres, La dernière adresse de retour que nous avons ajoutée est toujours la première dont nous aurons besoin à nouveau. C’est exactement le comportement de la pile.
+`),
+(mentor_centered, `Dans ce niveau, les instructions "call" et "ret" ont été ajoutés à ta liste d'instructions. Ces deux termes sont des synonymes complexes.
+
+"call" est utilisé pour entrer dans une fonction. Elle empile l'adresse de l'instruction suivante sur la pile(stack) (en lisant le compteur et en ajoutant un décalage)et passe ensuite au début de la fonction.
+
+"ret" est utilisé pour revenir depuis une fonction. elle retire l'adresse de retour de la pile(pop) et effectue un saut vers l'adresse de retour`)
+(mentor_centered, `Comme les fonctions modifient probablement la valeur des registres, il peut être judicieux d'empiler les valeurs pour les sauvegarder, puis de les dépiler pour les restaurer. Il n'est pas important que cela soit fait à l'intérieur ou à l'extérieur de la fonction appelée, Il est toutefois de bonne pratique d'établir une convention à cet effet (appelée "convention d'appel"), de sorte que toutes les fonctions soient compatibles entre elles.`)
+  (mentor_centered, `Ce niveau est uniquement là pour te permettre d'observer le fonctionnement des fonctions, il n'y a pas de test. Assure-toi d'avoir lu et parcouru l'assembleur jusqu'à la fin pour comprendre comment tout fonctionne. Ce sera nécessaire pour les niveaux futurs.`)
+]
+#75c1ad159fa4e15dec44faa900886aa1

@@ -1,0 +1,13 @@
+title = "Sauvegarder avec grâce"
+dialogue = [
+  (mentor_centered, "La ligne à retard ne nous permet de stocker une valeur que pendant 1 cycle . Mais parfois, un composant capable de stocker une valeur pendant de longues périodes est utile.
+
+Nous voulons que tu construises un tel composant."),
+  (mentor_centered, "Dans ce niveau, tu as 2 entrées.
+Lorsque la première entrée est [ON], mets à jour la valeur stockée.
+La deuxième entrée est la valeur.
+Renvoie toujours en sortie ce qui est actuellement stocké.
+
+"),
+]
+#d7a3f036b3f69287a5badd5ecd7fe1be

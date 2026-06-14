@@ -1,0 +1,6 @@
+title = "Programme"
+dialogue = [
+  (mentor_centered, `Le composant d'entrée d'instructions a été supprimé. Il a été remplacé par un composant RAM contenant le programme. La RAM possède un "port de chargement" qui lui est connecté. Lorsque la broche d'activation du port de charge est activée, Il enverra en sortie une valeur provenant de la RAM, d'après l'adresse donnée. Chaque cycle, utilise le compteur pour charger l'instruction suivante depuis la mémoire du programme.`),
+  (overture),
+]
+#8eede2367da7df9ee84b18c8e0f08306

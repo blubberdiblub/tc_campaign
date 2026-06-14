@@ -1,0 +1,22 @@
+title = "Sauts conditionnels(jump)"
+dialogue = [
+  (mentor_centered, `L'objectif de ce niveau est de t'apprendre les sauts et les labels. 
+
+Un saut(jump) est une instruction qui écrase le compteur. 
+
+Écraser le compteur signifie que nous « sautons » à une instruction située ailleurs dans notre programme, au lieu de simplement passer à la suivante.
+`),
+  (mentor_left, `Si tu utilises un nombre fixe comme destination de saut, tu devras le mettre à jour à chaque fois que tu ajoutes ou supprimes du code.
+
+Tu peux en revanche utiliser une fonctionnalité appelée [color=#66ccff]label[/color] pour marquer un emplacement dans le programme qui se met à jour automatiquement lorsque tu modifie quoi que ce soit, comme ça:
+
+[box][color=#66ccff]mon_label[/color]:     [color=#aaaaaa]; Ceci est un label[/color]
+[color=#9966ff]imm[/color] [color=#66ccff]mon_label[/color]  [color=#aaaaaa]; Charge le décalage du label[/color]
+[/box]
+  `),
+  (mentor_centered, "Pour terminer ce niveau, lis les données jusqu'à ce que tu voies le nombre 37. 
+
+Ensuite, envoie en sortie le nombre de fois où tu as lu l'entrée."),
+
+]
+#a3f0f3ae2223bf54546c9eb63cd0fbfd

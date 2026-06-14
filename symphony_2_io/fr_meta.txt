@@ -1,0 +1,32 @@
+title = "IO(Entrée/Sortie)"
+dialogue = [
+  (mentor_centered, `À ce niveau, nous ajoutons à [color=#e49f44]Symphony[/color] un moyen de lire des valeurs en entrée et de les envoyer en sortie .
+
+Une fois de plus voici comment les instructions sont codées:
+
+[color=#ff9800]M[/color] = Mode
+[color=#ff6680]O[/color] = Opcode
+[color=#ffe666]D[/color] = Registre de destination
+[color=#66ff99]A[/color] = Argument A
+[color=#66ccff]B[/color] = Argument B
+[color=#bbbbbb]0[/color] = Inutilisé / zero
+
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#bbbbbb]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
+
+Tout comme avec [color=#e49f44]Overture[/color] Il existe 4 modes:
+
+0 IO
+1 ALU
+2 JUMP
+3 RAM
+
+Cependant, à ce niveau, tu n'as à te soucier que du mode IO et ALU. En mode ALU, exécute l'instruction NAND comme au niveau précédent. Exécute l'une des instructions suivantes, en fonction de l'opcode:
+
+0 nop (Ne rien faire)
+1 in  (Envoie l'entrée vers [color=#ffe666]le registre de destination[/color])
+2 out (Envoie l'[color=#66ccff]argument B[/color] en sortie)
+
+
+`),
+]
+#42c271057ba0516012de1523c1fa03e0

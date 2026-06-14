@@ -1,0 +1,28 @@
+title = "Stack(pile)"
+dialogue = [
+    (mentor_left, `Le défi de ce niveau consiste à implémenter une structure de programmation courante appelée "stack" (pile en français). Tu es censé le faire en assembleur. Vous pouvez faire deux choses avec une pile:
+
+[color=#66ccff]PUSH[/color] - Empile un nombre à la pile
+[color=#66ccff]POP[/color]  - Dépile la dernière valeur ajoutée à la pile
+
+On peut comparer la structure de données de type pile à une pile physique d'assiettes dans un restaurant bondé. Le lave-vaisselle [color=#66ccff]push[/color](empile) des assiettes sur la pile et le chef va les [color=#66ccff]pop[/color](dépiler).
+
+Lis l'entrée de ce niveau pour obtenir l'opération suivante. 
+Une entrée non-0 correspond à une opération d'empilement (push), dans ce cas, stocke la valeur afin de pouvoir la dépiler(pop) ultérieurement. 
+Une valeur de 0 correspond à une opération de dépilement(pop), retire et envoie en sortie le dernier nombre que tu as enregistré.
+`),
+]
+post_mortem = [
+  (mentor_left, `Puisque la pile est si utile pour la programmation, les instructions "push" et "pop" seront ajoutées au niveau suivant de Symphony. Ces deux instructions sont synonymes de deux autres instructions et utilisent toutes deux le registre « sp » (abréviation de pointeur de pile) pour suivre la pile.
+
+"push" est un synonyme de:
+sub sp, sp, 4
+store_32 [sp], %value
+
+"pop" est un synonyme de:
+load_32 %destination, [sp]
+add sp, sp, 4
+
+Tu remarqueras peut-être que "push" soustrait "sp" de sorte que la pile s'étend vers le bas à partir des adresses les plus élevées. Cela te laisse la possibilité d'utiliser les adresses basses comme bon te semble.`)
+]
+#bbb726848129e3bbd4feee6c8cc9614b

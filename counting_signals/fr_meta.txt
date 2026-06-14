@@ -1,0 +1,9 @@
+title = "Counting Signals"
+dialogue = [
+  (mentor_centered, "Le composant de sortie de ce niveau est un compteur binaire où les trois premières broches correspondent à 1, 2 et 4.
+Utilise le compteur binaire pour afficher le nombre de signaux.
+
+[tip]La solution pour ce niveau n'est pas très élégante et nécessite davantage de composants.[/tip]
+"),
+]
+#a0a59cee9db5d64f47ad3c80edd1ad4b

@@ -1,0 +1,14 @@
+title = "Unité arithmétique et logique (ALU) 2"
+dialogue = [
+  (mentor_centered, "Ajoute l'addition et la soustraction à ton circuit.
+
+Instructions:
+
+[color=#87a8c8]0 NAND
+1 OR
+2 AND
+3 NOR
+4 ADD
+5 SUB[/color]"),
+]
+#c5c110db31fd516cc7f8eb86abe61bcb

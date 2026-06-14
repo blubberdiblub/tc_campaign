@@ -1,0 +1,10 @@
+title = "Mod 4"
+dialogue = [
+  (mentor_centered, "Dans ce niveau, tu as un nombre en entrée et tu dois renvoyer ce nombre modulo 4.
+
+Le défi est que tu n'as que 8 cycle pour obtenir le résultat souhaité.
+
+Note: Tu n'as pas besoin de modifier ton matériel, Il te suffit de trouver l'astuce pour calculer rapidement le modulo 4.
+"),
+]
+#cc0ac3d1e68967fcc1d6938d8b04d54d

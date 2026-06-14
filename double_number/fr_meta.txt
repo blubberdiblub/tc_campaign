@@ -1,0 +1,7 @@
+title = "Double le nombre"
+dialogue = [
+  (mentor_centered, "Ce niveau introduit les valeurs d'octets, qui sont représentés par des nombres compris entre 0 et 255. Les octets sont composés de 8 bits, chaque bit représente un chiffre binaire du nombre. On vous donne deux nouveaux composants, l'un d'eux prend un octet et le divise en bits, tandis que l'autre fait l'inverse.
+
+En utilisant ces composants, trouvez comment doubler le nombre d'entrée (jusqu'à 127)."),
+]
+#1f02d8f695375891ef83779f45d29317

@@ -1,0 +1,21 @@
+title = "Le labyrinthe"
+dialogue = [
+  (mentor_centered, `Dans ce niveau, tu contrôles un robot. Écris un algorithme qui le guide du départ jusqu'à la porte située à la sortie du labyrinthe.
+
+Voici les trois commandes que tu peux envoyé en sortie:
+0 Tourner à gauche
+1 Avancer
+2 Tournez à droite
+
+Tu peux également utiliser les touches fléchées pour manipuler le robot manuellement.
+`),
+  (mentor_centered, `Lis les entrées pour déterminer ce que le robot voit devant lui. ce sera toujours un de ses résultats :
+0 Rien
+1 Mur
+
+`),]
+post_mortem = [
+    (mentor_left, `Excellent travail. tu as terminé le labyrinthe et maîtrises désormais parfaitement l'assemblage d'Overture. Mais Overture est trop basique, c'est bon pour apprendre, mais il lui manque de nombreuses fonctionnalités. Ton prochain projet sera de construire Symphony, un ordinateur plus puissant doté de RAM, d'un écran, d'un clavier et te permettant de réutiliser du code grâce à des fonctions. En chemin, tu devras construire de nouveaux composants, en apprendre davantage sur la pile et d'autres choses.`)
+]
+]
+#50a4b7217a1fe378a97b787a02c84adf

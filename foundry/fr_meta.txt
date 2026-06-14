@@ -1,0 +1,8 @@
+title = "La fonderie"
+dialogue = [
+  (mentor_centered, "Bienvenue à la fonderie, Les circuits que tu crée ici pourront être utilisés comme composants dans des architectures.
+Le circuit que tu crée définit le comportement du composant et la disposition définit sa forme."),
+  (mentor_centered, "Il est possible d'ajouter, de renommer ou de supprimer des composants à l'aide du menu Schémas."),
+  (mentor_centered, "Puisque ce niveau est un outil et non un défi, tu peux aller à la carte des niveaux et continuer quand tu le souhaites.."),
+]
+#b328c8449c14af58b8159bace90502f4

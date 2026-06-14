@@ -1,0 +1,12 @@
+title = "Unité arithmétique et logique (ALU) 1"
+dialogue = [
+(mentor_centered, "crée un dispositif capable d'appliquer OR, NAND, NOR ou AND sur deux octets d'entrée. La troisième entrée sera l'instruction. Une instruction, c'est simplement le nom donné au nombre qui détermine ce qu'il faut calculer.
+
+Instructions:
+
+[color=#87a8c8]0 NAND
+1 OR
+2 AND
+3 NOR[/color]"),
+]
+#4b039cbca7401fd7812afdb20193653c

@@ -1,0 +1,42 @@
+title = "RAM"
+dialogue = [
+    (mentor_centered, `Dans ce niveau, nous ajoutons le chargement et le stockage dans la même mémoire que celle utilisée pour le programme. Nous souhaitons pouvoir lire et écrire des mots de 32 bits, des mots de 16 bits et des octets de 8 bits ; il faut donc ajouter 3 ports de chargement et 3 ports de stockage supplémentaires au composant RAM.
+
+Insère les nouveaux composants de port fournis entre le port de chargement "Instructions" et le composant RAM "Mémoire principale".`)
+    (mentor_centered, `Une fois de plus, ce sont les [color=#ff9800]Modes[/color] de [color=#e49f44]Symphony[/color]:
+
+[color=#ff9800]0[/color] IO
+[color=#ff9800]1[/color] ALU
+[color=#ff9800]2[/color] JUMP
+[color=#ff9800]3[/color] RAM
+
+And the encoding looks like this:
+ [color=#ff9800]M[/color]  = Mode
+ [color=#ff6680]O[/color]  = Opcode
+[color=#9966ff]0[/color]/[color=#9966ff]1[/color] = Mode immédiat
+ [color=#ffe666]D[/color]  = Registre de destination
+ [color=#66ff99]A[/color]  = Argument A
+ [color=#66ccff]B[/color]  = Argument B (éventuellement une valeur immédiate)
+ [color=#bbbbbb]0[/color]  = inutilisé / zero
+
+Encodage de l'instruction si l'argument B n'est pas une valeur immédiate:
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
+Encodage de l'instruction si l'argument B est une valeur immédiate:
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]1[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#66ccff]BBBBBBBB BBBBBBBB[/color]`)
+    (mentor_centered, `À ce niveau, nous implémentons le mode RAM. Pour l'instant, il y a six [color=#ff6680]opcodes[/color] dans ce mode:
+[color=#ff6680]0[/color] load_8
+[color=#ff6680]1[/color] load_16
+[color=#ff6680]2[/color] load_32
+[color=#ff6680]3[/color] [color=#bbbbbb]réservé[/color]
+[color=#ff6680]4[/color] store_8
+[color=#ff6680]5[/color] store_16
+[color=#ff6680]6[/color] store_32
+
+Les instructions "load" doivent charger la valeur à partir de la mémoire du programme à l'adresse [color=#66ccff]argument B[/color] et stocker le résultat dans le registre de [color=#ffe666]destination[/color].
+
+Les instructions "store" doivent stocker la valeur dans le register [color=#66ccff]argument A[/color] de la mémoire du programme à l'adresse [color=#66ccff]argument B[/color].
+
+Le suffixe numérique détermine la largeur, en bits, du nombre de bits à écrire ou à lire en mémoire, donc l'instruction 'load_8' devrait charger 8 bits de données & un 'store_16' devrait stocker 16 bits de données commençant à cette adresse.`),
+    (mentor_centered, `Note que les ports fonctionnent de haut en bas. Un port de chargement lira après un port de stockage s'il est placé plus bas, mais avant s'il est placé plus haut. Cela a son importance lorsque les ports chargent et stockent à la même adresse. En général, tous les ports attendent les ports de stockage situés au-dessus d'eux et ont donc une dépendance à leur égard. À ce niveau, les ports de chargement doivent être situés au-dessus des ports de stockage, sinon tu obtiendras une dépendance circulaire.`),
+]
+#69df4fe2827c729d921021a415934542

@@ -1,0 +1,14 @@
+title = "Intégration de l'ALU"
+dialogue = [
+  (mentor_centered, `Ajoute l'unité arithmétique et logique (ALU) que tu as construite au niveau précédent au circuit. Le fonctionnement de chaque instruction est encodé dans l'[color=#ff6680]Opcode[/color].
+
+[color=#ff9800]M[/color] = Mode
+[color=#ff6680]O[/color] = Opcode
+[color=#ffe666]D[/color] = Registre de destination
+[color=#66ff99]A[/color] = Argument A
+[color=#66ccff]B[/color] = Argument B
+[color=#bbbbbb]0[/color] = Inutilisé / zero
+
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#bbbbbb]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
+`)]
+#d2c2b205997f5332c23d7135a9f075ae

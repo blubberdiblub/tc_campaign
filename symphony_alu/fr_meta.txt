@@ -1,0 +1,21 @@
+title = "ALU de Symphony"
+dialogue = [
+  (mentor_centered, "Il s'agit d'une copie de l'ALU d'Overture . Il est temps de le mettre à jour en 32 bits et d'ajouter quelques nouvelles instructions.
+
+Instructions:
+
+[color=#87a8c8]0 NAND
+1 OR
+2 AND
+3 NOR
+4 ADD
+5 SUB
+6 XOR
+7 LSL
+8 LSR
+9 ASR
+10 CMP[/color]
+
+L'opération cmp est celle pour laquelle tu as déjà créé un composant personnalisé au niveau précédent."),
+]
+#fc840f8a4d21bb8570ec288d22103743

@@ -1,0 +1,9 @@
+title = "Sauvegarde d'octets"
+dialogue = [
+  (mentor_centered, `Crée un circuit qui peut [color=#ffcc44][b]SAUVEGARDER[/b][/color] un octet.
+
+Quand l'entrée "SAUVEGARDER" est [ON], [color=#ffcc44][b]SAUVEGARDE[/b][/color] l'octet d'enrée.
+
+Envoie la valeur stockée vers la sortie.`),
+]
+#667515cd05ae64924d5168dd66c283ee

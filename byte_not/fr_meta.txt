@@ -1,0 +1,5 @@
+title = "NOT octet"
+dialogue = [
+  (mentor_centered, `"NOT" chaque bit de l'octet d'entrée.`),
+]
+#5315369b41d1ff4e61538b71af5d4e49

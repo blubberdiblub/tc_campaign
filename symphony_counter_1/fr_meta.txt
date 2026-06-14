@@ -1,0 +1,12 @@
+title = "Compteur de Symphony"
+dialogue = [
+    (mentor_centered, `Crée un compteur 32 bits qui s'incrémente de 4 par défaut, mais qui peut être redéfini avec une valeur spécifique.
+
+Connecte également la sonde mémoire fournie à un composant 32 bits contenant la valeur de la mémoire du compteur.`),
+    (mentor_centered, `Pour modifier la largeur de mot du composant, tu devras utiliser un outil de réglage de la taille près du panneau de gauche. (ressemble à une flèche bidirectionnelle et à un nombre).
+
+Clique droit sur l'outil de Taille pour spécifier la largeur cible.
+Un clic gauche sur les composants lorsque l'outil est actif permet de définir la largeur de mot du composant.
+Les nouveaux composants octet auront cette largeur de bits par défaut.`),
+]
+#f46ac10243bcf9d3e1492c3bbf85bc08

@@ -1,0 +1,5 @@
+title = "Constante Octet"
+dialogue = [
+  (mentor_centered, "Crée un circuit qui donnera toujours le nombre 164 en sortie.")
+]
+#1292e022e0f35662db822d72eb43a308

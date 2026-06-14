@@ -1,0 +1,5 @@
+title = "Décodeur 3 bits"
+dialogue = [
+    (mentor_centered, `Avec 3 bits d'entrée, il existe 8 combinaisons. Crée un circuit qui sélectionne une sortie pour chacune des 8 combinaisons. De plus, il existe une entrée de désactivation. Lorsqu'elle est [ON], toutes les sorties doivent être [OFF].`),
+]
+#6f16e49b181e1bc22e413bb144e45545

@@ -1,0 +1,5 @@
+title = "Décodeur 1 bit"
+dialogue = [
+  (mentor_centered, "Crée un composant capable de commuter un signal entre deux broches."),
+]
+#3330487d298db0dc2b0606f6bfaaea64

@@ -1,0 +1,17 @@
+title = "Mémoire persistante"
+dialogue = [
+    (mentor_centered, `À ce niveau, nous ajoutons un autre composant RAM, mais pour stocker les données entre les redémarrages.
+
+Ajoute ensuite deux nouvelles instructions mémoire, « pload » et « pstore », qui doivent fonctionner comme les variantes 32 bits des instructions de chargement et de stockage du niveau précédent, mais en accédant à la Ram "mémoire persistante" au lieu de la mémoire du programme.
+
+Voici tous les [color=#ff6680]opcodes[/color] en mode mémoire:
+[color=#ff6680]0[/color] load_8
+[color=#ff6680]1[/color] load_16
+[color=#ff6680]2[/color] load_32
+[color=#ff6680]3[/color] pload
+[color=#ff6680]4[/color] store_8
+[color=#ff6680]5[/color] store_16
+[color=#ff6680]6[/color] store_32
+[color=#ff6680]7[/color] pstore`),
+]
+#6a7bff988e530d085c0ce9586a26eea2

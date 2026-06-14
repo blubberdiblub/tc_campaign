@@ -1,0 +1,7 @@
+title = "Dépendance circulaire"
+dialogue = [
+  (mentor_centered,  `Crée une «dépendance circulaire». Il s'agit d'un circuit où l'entrée d'un composant dépend de sa propre sortie. Dans une situation de dépendance circulaire, Il n'est pas possible de déterminer la sortie d'un composant, car il faudrait d'abord déterminer l'entrée, qui dépend de la sortie et ainsi de suite (d'où le terme « circulaire »).
+
+Cet état n'est normalement pas autorisé dans les autres niveaux, mais dans ce niveau, l'objectif est de le causer, pour comprendre de quoi il s'agit avant d'aller plus loin.`),
+]
+#92b9dc866754b5ce31b1bb35bb301691

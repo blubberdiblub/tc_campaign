@@ -1,0 +1,17 @@
+title = "Porte NOT"
+dialogue = [
+  (mentor_centered, "Maintenant que tu as déverrouillé la porte NAND, il est temps pour toi de construire toi-même un circuit."),
+  (mentor_centered, "Au niveau précédent, tu as établi la table de vérité décrivant le circuit. Dans ce niveau, tu construis le circuit correspondant à cette table de vérité."),
+  (mentor_centered, "Construis une porte NOT à l'aide de portes NAND.
+
+En utilisant: [b]une porte NAND[/b]
+#Entrée 1: [OFF][ON][OFF][ON]
+#Entrée 2: [OFF][OFF][ON][ON]
+#Sortie:  [ON][ON][ON][OFF]
+
+construis: [b]une porte NOT[/b]
+#Entrée 1: [ON][OFF]
+#Sortie:  [OFF][ON]
+")
+]
+#c3ba80cde6a25c77cd6db2e4eed90415

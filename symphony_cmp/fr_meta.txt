@@ -1,0 +1,12 @@
+title = "Drapeaux de comparaison (flags)"
+dialogue = [
+  (mentor_centered, `Dans ce niveau, tu compares deux entrées 32 bits de trois manières différentes. Chaque résultat est une valeur binaire appelée "drapeau"(flag).
+
+Flags:
+Definit le bit 0 à 1 si les entrées sont égales.
+Definit le bit 1 à 1 si la première entrée est inférieure (non signée) à la deuxième entrée.
+Definit le bit 2 à 1 si la première entrée est inférieure (signée) à la deuxième entrée.
+
+Pour apprendre à créer des composants 32 bits, ouvres d'abord le niveau "Compteur Symphonie" si tu ne l'as pas déjà fait.`),
+]
+#e8cf50dec2844d4eab38e6a290a71593

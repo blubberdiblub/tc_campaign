@@ -1,0 +1,5 @@
+title = "Égalité"
+dialogue = [
+  (mentor_centered, "Renvoie [ON] en sortie lorsque les deux entrées sont identiques.")
+]
+#2841e831ee00b3761a8e578fae5bcc1a

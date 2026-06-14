@@ -1,0 +1,5 @@
+title = "Modulo"
+dialogue = [
+  (mentor_centered, "Renvoie le modulo des deux entrées en sortie. Si la deuxième entrée (le diviseur) est 0, Le résultat devrait être identique à la première entrée (le dividende)."),
+]
+#ed85d2ff40ff5f4c42f8de363c7950c0

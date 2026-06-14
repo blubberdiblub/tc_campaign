@@ -1,0 +1,5 @@
+title = "Multiplexeur"
+dialogue = [
+    (mentor_centered, "Lorsque l'entrée du sélecteur de bits est [OFF], envoie A en sortie, sinon envoie B."),
+]
+#58e0296202da87c8034d89828c86331a

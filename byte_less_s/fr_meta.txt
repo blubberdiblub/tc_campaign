@@ -1,0 +1,5 @@
+title = "Inférieur signé"
+dialogue = [
+  (mentor_centered, "Crée un circuit qui active la sortie [ON] lorsque la première entrée est inférieure à la seconde. Interpréte les octets comme étant [color=#dd6576]signé[/color].")
+]
+#d8b14e7906815a3d52a2a00628981153

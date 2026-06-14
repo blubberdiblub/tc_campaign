@@ -1,0 +1,5 @@
+title = "Multiplier"
+dialogue = [
+  (mentor_centered, "Multiplie deux nombres. Si le résultat ne tient pas dans 8 bits, ignore les bits supplémentaires."),
+]
+#d0598b781726cf25bc03e264c2dbecd7

@@ -5,4 +5,31 @@ dialogue = [
 N’utilise pas plus de 3 composants. De plus, tu ne pouvez utiliser aucun des décodeurs que tu as construits précédemment.
 `),
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate":"immédiat",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+  "A":"A",
+  "B":"B",
+  "Save":"Sauvegarder",
+  "Address":"Addresse",
+  "Adress":"Adresse",
+  "ALU":"ALU",
+  "Move":"Déplacer(move)",
+
+}
 #f4ea8f1ac60bdbdb1e9d05eeca5a05cc

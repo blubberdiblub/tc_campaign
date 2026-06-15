@@ -2,4 +2,31 @@ title = "Multiplier"
 dialogue = [
   (mentor_centered, "Multiplie deux nombres. Si le résultat ne tient pas dans 8 bits, ignore les bits supplémentaires."),
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate":"immédiat",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+  "A":"A",
+  "B":"B",
+  "Save":"Sauvegarder",
+  "Address":"Addresse",
+  "Adress":"Adresse",
+  "ALU":"ALU",
+  "Move":"Déplacer(move)",
+
+}
 #d0598b781726cf25bc03e264c2dbecd7

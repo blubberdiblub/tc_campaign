@@ -9,4 +9,31 @@ dialogue = [
   [image="delay_line.png"]`),
   (mentor_centered, "Envoie en sortie [OFF] sur les cycles pairs et [ON] sur les cycles impairs."),
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate":"immédiat",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+  "A":"A",
+  "B":"B",
+  "Save":"Sauvegarder",
+  "Address":"Addresse",
+  "Adress":"Adresse",
+  "ALU":"ALU",
+  "Move":"Déplacer(move)",
+
+}
 #263401a35ab64efb89c7e0aba931cf22

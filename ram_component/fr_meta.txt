@@ -12,4 +12,27 @@ Avec 2 bits, il existe 4 combinaisons, une pour chaque octet de mémoire de ce n
 [tip]La barre d'espace permet de faire pivoter les composants.[/tip]
 "),
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+  "A":"A",
+  "B":"B",
+  "Save":"Sauvegarder",
+  "Address":"Addresse",
+  
+}
 #b8d925a8ce88a9fa9cab48dbb83a79a8

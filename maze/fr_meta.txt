@@ -18,4 +18,31 @@ post_mortem = [
     (mentor_left, `Excellent travail. tu as terminé le labyrinthe et maîtrises désormais parfaitement l'assemblage d'Overture. Mais Overture est trop basique, c'est bon pour apprendre, mais il lui manque de nombreuses fonctionnalités. Ton prochain projet sera de construire Symphony, un ordinateur plus puissant doté de RAM, d'un écran, d'un clavier et te permettant de réutiliser du code grâce à des fonctions. En chemin, tu devras construire de nouveaux composants, en apprendre davantage sur la pile et d'autres choses.`)
 ]
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate":"immédiat",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+  "A":"A",
+  "B":"B",
+  "Save":"Sauvegarder",
+  "Address":"Addresse",
+  "Adress":"Adresse",
+  "ALU":"ALU",
+  "Move":"Déplacer(move)",
+
+}
 #50a4b7217a1fe378a97b787a02c84adf

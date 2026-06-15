@@ -9,4 +9,19 @@ Clique droit sur l'outil de Taille pour spécifier la largeur cible.
 Un clic gauche sur les composants lorsque l'outil est actif permet de définir la largeur de mot du composant.
 Les nouveaux composants octet auront cette largeur de bits par défaut.`),
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+"Mode":"Mode",
+"Destination":"Destination",
+"Opcode":"Opcode",
+"Argument A":"Argument A",
+"Argument B":"Argument B",
+"Is Immediate":"est valeur immédiate",
+"Immediate Value":"valeur immédiate",
+"Value":"valeur",
+"Overwrite":"écrasé",
+}
 #f46ac10243bcf9d3e1492c3bbf85bc08

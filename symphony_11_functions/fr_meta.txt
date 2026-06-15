@@ -16,4 +16,25 @@ Supposons que la fonction A appelle la fonction B, qui appelle la fonction C. Lo
 (mentor_centered, `Comme les fonctions modifient probablement la valeur des registres, il peut être judicieux d'empiler les valeurs pour les sauvegarder, puis de les dépiler pour les restaurer. Il n'est pas important que cela soit fait à l'intérieur ou à l'extérieur de la fonction appelée, Il est toutefois de bonne pratique d'établir une convention à cet effet (appelée "convention d'appel"), de sorte que toutes les fonctions soient compatibles entre elles.`)
   (mentor_centered, `Ce niveau est uniquement là pour te permettre d'observer le fonctionnement des fonctions, il n'y a pas de test. Assure-toi d'avoir lu et parcouru l'assembleur jusqu'à la fin pour comprendre comment tout fonctionne. Ce sera nécessaire pour les niveaux futurs.`)
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+  "A":"A",
+  "B":"B",
+  
+}
 #75c1ad159fa4e15dec44faa900886aa1

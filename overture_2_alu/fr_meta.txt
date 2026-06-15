@@ -13,4 +13,31 @@ Pour ce niveau, tu n'as à te soucier que du mode déplacement(Move) et du mode 
 [tip]N'oublie pas que le composant décodeur 3 bits possède un bit de désactivation.[/tip]`),
   (overture),
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate":"immédiat",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+  "A":"A",
+  "B":"B",
+  "Save":"Sauvegarder",
+  "Address":"Addresse",
+  "Adress":"Adresse",
+  "ALU":"ALU",
+  "Move":"Déplacer(move)",
+
+}
 #f3e49e3a7cad602a4300efec64f4c5f3

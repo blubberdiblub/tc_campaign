@@ -39,4 +39,25 @@ Les instructions "store" doivent stocker la valeur dans le register [color=#66cc
 Le suffixe numérique détermine la largeur, en bits, du nombre de bits à écrire ou à lire en mémoire, donc l'instruction 'load_8' devrait charger 8 bits de données & un 'store_16' devrait stocker 16 bits de données commençant à cette adresse.`),
     (mentor_centered, `Note que les ports fonctionnent de haut en bas. Un port de chargement lira après un port de stockage s'il est placé plus bas, mais avant s'il est placé plus haut. Cela a son importance lorsque les ports chargent et stockent à la même adresse. En général, tous les ports attendent les ports de stockage situés au-dessus d'eux et ont donc une dépendance à leur égard. À ce niveau, les ports de chargement doivent être situés au-dessus des ports de stockage, sinon tu obtiendras une dépendance circulaire.`),
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+  "A":"A",
+  "B":"B",
+  
+}
 #69df4fe2827c729d921021a415934542

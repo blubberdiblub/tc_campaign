@@ -32,4 +32,8 @@ Manipulez l'aimant manuellement en utilisant les flèches directionnelles pour l
 post_mortem = [
   (mentor_left, `Bravo ! Tu as résolu l'énigme des tours de Hanoï et tu maîtrises clairement l'assembleur Symphony. Tu vas ensuite apprendre l'optimisation et la performance.`)
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+}
 #59a88e30077485d4ede04b29a7f5ba84

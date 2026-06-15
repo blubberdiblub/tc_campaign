@@ -5,4 +5,8 @@ dialogue = [
   
 [tip]Tu peux connecter une sortie à plusieurs portes logiques.[/tip]"),
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+}
 #8f992b97739345414aff706e3344a7cd

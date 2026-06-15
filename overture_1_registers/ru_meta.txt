@@ -1,16 +1,16 @@
 title = "Регистры"
 dialogue = [
   (mentor_centered, `Наконец-то пришло время построить ваш первый компьютер. Я научу вас создавать архитектуру [color=#e49f44]Overture[/color] — настоящую машину Тьюринга, полноценный компьютер.`),
-  (mentor_centered, `На этом уровне нужно создать схему, которая может перемещать значение из [color=#c54d5e]source[/color](источника) в [color=#e49f44]destination[/color](приёмник).
+  (mentor_centered, `На этом уровне нужно создать схему, которая может перемещать значение в [color=#e49f44]destination[/color](приёмник) из [color=#c54d5e]source[/color](источника).
 
-Байт инструкции определяет [color=#c54d5e]source[/color](источник) и [color=#e49f44]destination[/color](приёмник).
+Байт инструкции определяет [color=#e49f44]destination[/color](приёмник) и [color=#c54d5e]source[/color](источник).
 
-Биты 1, 2 и 3 задают [color=#e49f44]приёмник[/color]. Биты 4, 5 и 6 задают [color=#c54d5e]источник[/color].`),
+Биты 1, 2 и 3 задают [color=#c54d5e]source[/color](источник). Биты 4, 5 и 6 задают  [color=#e49f44]destination[/color](приёмник).`),
 
-  (mentor_centered, `[color=#c54d5e]Источник[/color] и [color=#e49f44]приёмник[/color] могут быть одним из 6 регистров, которые мы назовём REG 0–REG 5 соответственно.
+  (mentor_centered, `[color=#c54d5e]Source[/color](источник) и [color=#e49f44]destination[/color](приёмник) могут быть одним из 6 регистров, которые мы назовём REG 0–REG 5 соответственно.
   
-Кроме того, на карте есть специальный компонент входа, который может быть [color=#c54d5e]источником[/color], и компонент выхода, который может быть [color=#e49f44]приёмником[/color].`),
-  (mentor_centered, `Вот битовые шаблоны для каждого [color=#c54d5e]источника[/color] и [color=#e49f44]приёмника[/color].
+Кроме того, на карте есть специальный компонент входа, который может быть [color=#c54d5e]source[/color](источником), и компонент выхода, который может быть [color=#e49f44]destination[/color](приёмником).`),
+  (mentor_centered, `Вот битовые шаблоны для каждого [color=#c54d5e]source[/color](источника) и [color=#e49f44]destination[/color](приёмника).
 
 [color=#c54d5e]Источник[/color]:
 [OFF] [OFF] [OFF]  REG 0 
@@ -33,4 +33,7 @@ dialogue = [
 [ON] [ON] [ON]  UNUSED`),
   (overture),
 ]
-#4e1aa61f6635f1e96eea735ae819adda
+labels = {
+  "Instruction": "Инструкции",
+}
+#40c6ef375ab41104a652a7e3f9b21e57

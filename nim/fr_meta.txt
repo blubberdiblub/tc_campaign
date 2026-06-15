@@ -7,4 +7,31 @@ Il y a 12 cartes sur la table et chaque joueur, à son tour, doit piocher entre 
 Lire l'entrée t'indiquera le nombre actuel de cartes. L'envoi de 1, 2 ou 3 en sortie sélectionnera ce nombre de cartes. L'adversaire réagit immédiatement, tu peux donc lire l'entrée immédiatement après ta sortie pour obtenir le résultat de son action.")
   (mentor_centered, `De plus, les schémas sont partagés entre les différents niveaux d'architecture, tu peux donc résoudre ce problème avec Overture ou Symphony. Clique sur l'icône de fichier en haut à gauche pour changé de schémas.`)
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate":"immédiat",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+  "A":"A",
+  "B":"B",
+  "Save":"Sauvegarder",
+  "Address":"Addresse",
+  "Adress":"Adresse",
+  "ALU":"ALU",
+  "Move":"Déplacer(move)",
+
+}
 #dd4544ac08b5cc82f86d1bc0093fe0cf

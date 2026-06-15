@@ -7,4 +7,31 @@ Les 3 bits sélectionnent la condition comme indiqué ci-dessous. Vérifie la va
 Binaire:   Renvoie [ON] quand:
 [left]          [OFF][OFF][OFF]   Jamais[/left][left]          [OFF][OFF][ON]   Toujours[/left][left]          [OFF][ON][OFF]   Si la valeur = 0[/left][left]          [OFF][ON][ON]   Si la valeur ≠ 0[/left][left]          [ON][OFF][OFF]   Si la valeur < 0[/left][left]          [ON][OFF][ON]   Si la valeur ≥ 0[/left][left]          [ON][ON][OFF]   Si la valeur ≤ 0[/left][left]          [ON][ON][ON]   Si la valeur > 0[/left]"),
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate":"immédiat",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+  "A":"A",
+  "B":"B",
+  "Save":"Sauvegarder",
+  "Address":"Addresse",
+  "Adress":"Adresse",
+  "ALU":"ALU",
+  "Move":"Déplacer(move)",
+
+}
 #97a96b9d4108d8575d69c6de7a4449eb

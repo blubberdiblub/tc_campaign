@@ -25,4 +25,25 @@ add sp, sp, 4
 
 Tu remarqueras peut-être que "push" soustrait "sp" de sorte que la pile s'étend vers le bas à partir des adresses les plus élevées. Cela te laisse la possibilité d'utiliser les adresses basses comme bon te semble.`)
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+  "A":"A",
+  "B":"B",
+  
+}
 #bbb726848129e3bbd4feee6c8cc9614b

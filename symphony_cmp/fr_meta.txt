@@ -9,4 +9,22 @@ Definit le bit 2 à 1 si la première entrée est inférieure (signée) à la de
 
 Pour apprendre à créer des composants 32 bits, ouvres d'abord le niveau "Compteur Symphonie" si tu ne l'as pas déjà fait.`),
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+}
 #e8cf50dec2844d4eab38e6a290a71593

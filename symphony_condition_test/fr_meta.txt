@@ -5,4 +5,22 @@ dialogue = [
 Enfin, le quatrième bit de la condition inverse le résultat. Ainsi, si la condition est remplie, mais que le quatrième bit est à [ON], la sortie est [OFF].
 `),
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+}
 #be72680afbe92bc870b5b907015f6133

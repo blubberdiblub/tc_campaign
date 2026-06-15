@@ -3,4 +3,25 @@ dialogue = [
   (mentor_centered, "En prenant l'entrée comme signée (où le 8ème bit vaut -128), Créez un composant qui prend un nombre et inverse le signe.
 Par exemple, 4 NEG deviendrait -4. -9 NEG devient 9."),
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+  "A":"A",
+  "B":"B",
+  
+}
 #d33b19150168e5fea7ff8ca1f8763af6

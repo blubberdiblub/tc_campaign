@@ -1,4 +1,4 @@
-title = "IO(Entrée/Sortie)"
+title = "Symphony IO(Entrée/Sortie)"
 dialogue = [
   (mentor_centered, `À ce niveau, nous ajoutons à [color=#e49f44]Symphony[/color] un moyen de lire des valeurs en entrée et de les envoyer en sortie .
 
@@ -29,4 +29,25 @@ Cependant, à ce niveau, tu n'as à te soucier que du mode IO et ALU. En mode AL
 
 `),
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+  "A":"A",
+  "B":"B",
+  
+}
 #42c271057ba0516012de1523c1fa03e0

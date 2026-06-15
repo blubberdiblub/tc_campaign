@@ -1,4 +1,4 @@
-title = "Décodeur d'instructions"
+title = "Décodeur d'instructions Symphony"
 dialogue = [
   (mentor_centered, `
 Crée un circuit qui divise les instructions de Symphony en leurs différentes parties. Cela te sera très utile par la suite.
@@ -21,4 +21,17 @@ Il existe deux encodages pour les instructions Symphony, selon que l'on utilise 
 
 L'indexeur statique est un composant spécial qui permet de décaler certains bits d'un fil, sans délai ni coût de portes logiques. Modifier le chiffre sur le composant décalera les bits (Un nombre positif se déplace vers la droite). Clique ensuite sur le composant pour définir la largeur de sortie.`),
 ]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+"Mode":"Mode",
+"Destination":"Destination",
+"Opcode":"Opcode",
+"Argument A":"Argument A",
+"Argument B":"Argument B",
+"Is Immediate":"est valeur immédiate",
+"Immediate Value":"valeur immédiate",
+}
 #24af68fc32aa2875bf5be71ff62ad8af

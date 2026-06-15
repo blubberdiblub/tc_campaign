@@ -1,4 +1,4 @@
-title = "Immédiats"
+title = "Valeurs immédiates symphony"
 dialogue = [
   (mentor_centered, `Il est parfois utile de charger une valeur directement depuis le programme plutôt que depuis les registres. Une valeur directement encodée dans une instruction est appelée valeur immédiate. Avec [color=#e49f44]Symphony[/color], nous pouvons remplacer l'argument B par une valeur immédiate dans n'importe quelle instruction. Cela se fait en positionnant le quatrième bit à 1 et en codant la valeur dans les deux derniers octets comme suit:
 
@@ -20,4 +20,25 @@ Encodage de l'instruction si l'argument B est une valeur immédiate:
 [image="symphony_diagram_2.png"]
 
 `),]
+labels={
+  "Input":"Entrée",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+  "A":"A",
+  "B":"B",
+  
+}
 #c3f34ba2cd003a8047d90a5227377d76

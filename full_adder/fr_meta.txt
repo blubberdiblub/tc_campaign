@@ -4,4 +4,35 @@ dialogue = [
 
 Comme pour une addition normale, si le résultat ne peut pas être décrit avec un seul chiffre, définis la retenue sur [b]1[/b]."),
 ]
+labels={
+  "Input":"Entrée",
+  "Input 1":"Entrée 1",
+  "Input 2":"Entrée 2",
+  "Output":"Sortie",
+  "Input select":"Entrée sélectionnée",
+  "Output select":"Sortie sélectionnée",
+  "Mode":"Mode",
+  "Destination":"Destination",
+  "Opcode":"Opcode",
+  "Argument A":"Argument A",
+  "Argument B":"Argument B",
+  "Is Immediate":"est valeur immédiate",
+  "Immediate":"immédiat",
+  "Immediate Value":"valeur immédiate",
+  "Value":"valeur",
+  "Overwrite":"écrasé",
+  "Flags":"Drapeaux",
+  "Condition":"Condition",
+  "Result":"Résultat",
+  "A":"A",
+  "B":"B",
+  "Save":"Sauvegarder",
+  "Address":"Addresse",
+  "Adress":"Adresse",
+  "ALU":"ALU",
+  "Move":"Déplacer(move)",
+  "Sum":"somme",
+  "Carry":"Retenue",
+
+}
 #29fc420f073259b19e5186b286dea768

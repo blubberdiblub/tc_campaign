@@ -2,11 +2,6 @@ title = "Symphony rapide"
 dialogue = [
     (mentor_centered, `L'objectif de ce niveau est simple, Réduis le délai de Symphonie à 175 ou moins. Reviens en arrière sur les niveaux précédents et améliore tes scores si nécessaire.`),
 ]
-post_mortem = [
-    (mentor_left, `Incroyable, tu as fini le jeu ! Regarde le chemin parcouru depuis la porte NAND . 
-
-À partir d'ici, tu peux rivaliser avec d'autres joueurs pour obtenir les meilleurs scores ou construire tout ce que tu veux dans le bac à sable. Et n'oublie pas de nous suivre sur Steam, nous travaillons encore sur les niveaux futurs.`),
-]
 labels={
   "Input":"Entrée",
   "Output":"Sortie",

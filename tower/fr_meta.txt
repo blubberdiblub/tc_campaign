@@ -30,7 +30,9 @@ Manipulez l'aimant manuellement en utilisant les flèches directionnelles pour l
 [tip]N'oublie pas d'empiler les valeurs des registres pour les stocker quand tu es dans une fonction qui va les modifier.[/tip]`),
 ]
 post_mortem = [
-  (mentor_left, `Bravo ! Tu as résolu l'énigme des tours de Hanoï et tu maîtrises clairement l'assembleur Symphony. Tu vas ensuite apprendre l'optimisation et la performance.`)
+    (mentor_left, `Incroyable, tu as fini le jeu ! Regarde le chemin parcouru depuis la porte NAND . 
+
+À partir d'ici, tu peux rivaliser avec d'autres joueurs pour obtenir les meilleurs scores ou construire tout ce que tu veux dans le bac à sable. Et n'oublie pas de nous suivre sur Steam, nous travaillons encore sur les niveaux futurs.`),
 ]
 labels={
   "Input":"Entrée",

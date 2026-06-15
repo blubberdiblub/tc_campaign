@@ -1,4 +1,4 @@
-title = "Storage cracker"
+title = "Code breaker"
 dialogue = [
   (mentor_centered, "In this level you win when you output a secret code. No output will fail the level, so you could just try all numbers. 
 

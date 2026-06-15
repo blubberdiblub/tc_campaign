@@ -1,4 +1,4 @@
-title = "Double detection"
+title = "Double Detection"
 dialogue = [
   (mentor_centered, "This level has 4 inputs. 
 Output [ON] when 2 or more of them are [ON].

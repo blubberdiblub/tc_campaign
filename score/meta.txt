@@ -1,6 +1,6 @@
 title = "Score"
 dialogue = [
-  (mentor_centered, "This level introduces effeciency scoring, which is based on time and energy.")
+  (mentor_centered, "This level introduces efficiency scoring, which is based on time and energy.")
   (mentor_centered, "These equations are equal, yet not the same:
 
 ((A + B) + C) + D

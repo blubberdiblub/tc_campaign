@@ -1,8 +1,8 @@
-title = "Immediate Values"
+title = (31337_23614311904581, `Immediate Values`)
 dialogue = [
-  (mentor_centered, "We need a way to directly move numbers from our program into registers. For this we use the immediate mode (when the two highest bits are [OFF][OFF]).
+  (mentor_centered, (31337_63109056149876, `We need a way to directly move numbers from our program into registers. For this we use the immediate mode (when the two highest bits are [OFF][OFF]).
 
 When in immediate mode the whole byte is interpreted as a number that we store into REG 0. This means we can 
-store any value between 0 and 63."),
-  (overture),
+store any value between 0 and 63.`)),
+  (overture)
 ]

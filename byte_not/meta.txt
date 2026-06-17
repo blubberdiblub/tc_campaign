@@ -1,4 +1,4 @@
-title = "Byte NOT"
+title = (31337_65498108564418, `Byte NOT`)
 dialogue = [
-  (mentor_centered, '"NOT" each bit of the byte input.'),
+  (mentor_centered, (31337_54090032127372, `"NOT" each bit of the byte input.`))
 ]

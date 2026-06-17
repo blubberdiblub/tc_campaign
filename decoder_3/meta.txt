@@ -1,4 +1,4 @@
-title = "3 Bit Decoder"
+title = (31337_43603044118584, `3 Bit Decoder`)
 dialogue = [
-    (mentor_centered, `With 3 bits of input there are 8 combinations. Make a circuit that selects 1 output for each of the 8 combinations. Additionally, there is a disable input bit. When it is [ON] all the outputs should be [OFF].`),
+  (mentor_centered, (31337_28695849165746, `With 3 bits of input there are 8 combinations. Make a circuit that selects 1 output for each of the 8 combinations. Additionally, there is a disable input bit. When it is [ON] all the outputs should be [OFF].`))
 ]

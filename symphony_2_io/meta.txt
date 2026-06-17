@@ -1,6 +1,6 @@
-title = "IO"
+title = (31337_85119202720349, `IO`)
 dialogue = [
-  (mentor_centered, `In this level we add a way to input and output values to [color=#e49f44]Symphony[/color].
+  (mentor_centered, (31337_66929200224494, `In this level we add a way to input and output values to [color=#e49f44]Symphony[/color].
 
 Again, this is how instructions are encoded:
 
@@ -27,7 +27,5 @@ However, in this level you only have to worry about IO and ALU mode. When in ALU
 2 out (Send [color=#66ccff]argument B[/color] to output)
 
 
-`),
+`))
 ]
-
-

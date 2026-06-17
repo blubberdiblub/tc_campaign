@@ -1,6 +1,6 @@
-title = "Code breaker"
+title = (31337_16764912826624, `Code breaker`)
 dialogue = [
-  (mentor_centered, "In this level you win when you output a secret code. No output will fail the level, so you could just try all numbers. 
+  (mentor_centered, (31337_13984847380002, `In this level you win when you output a secret code. No output will fail the level, so you could just try all numbers. 
 
-Alternatively, you may be able to use the fact that the input will be 1 after a guess that was too high and 0 otherwise."),
+Alternatively, you may be able to use the fact that the input will be 1 after a guess that was too high and 0 otherwise.`))
 ]

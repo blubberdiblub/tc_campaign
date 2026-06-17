@@ -1,4 +1,4 @@
-title = "Byte XOR"
+title = (31337_41472172986798, `Byte XOR`)
 dialogue = [
-  (mentor_centered, "Create a circuit that XORs two bytes bitwise.")
+  (mentor_centered, (31337_70973830134418, `Create a circuit that XORs two bytes bitwise.`))
 ]

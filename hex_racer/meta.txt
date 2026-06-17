@@ -1,6 +1,6 @@
-title = "Hex Racer"
+title = (31337_45399195121692, `Hex Racer`)
 dialogue = [
-  (mentor_centered, "When dealing with many bits, binary can become hard to read. Hexadecimal (base 16) represents each combination of 4 bits as its own character:
+  (mentor_centered, (31337_65517909958697, `When dealing with many bits, binary can become hard to read. Hexadecimal (base 16) represents each combination of 4 bits as its own character:
 
 0 [OFF][OFF][OFF][OFF]
 1 [OFF][OFF][OFF][ON]
@@ -25,9 +25,9 @@ Binary:      1111111111111111
 Decimal:     65535
 Hexadecimal: FFFF
 
-It is not easy to tell if the binary is missing a digit or if the decimal number is correct, the hexadecimal on the other hand is immediately clear (once you get used to the representation at least)."),
-  (mentor_centered,  "Toggle the bits in the level panel so they add up to the hexadecimal number in the question.
+It is not easy to tell if the binary is missing a digit or if the decimal number is correct, the hexadecimal on the other hand is immediately clear (once you get used to the representation at least).`)),
+  (mentor_centered, (31337_87098190175913, `Toggle the bits in the level panel so they add up to the hexadecimal number in the question.
 
 You must beat level 3 to pass.
-"),
+`))
 ]

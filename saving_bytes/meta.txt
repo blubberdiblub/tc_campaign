@@ -1,8 +1,8 @@
-title = "Saving Bytes"
+title = (31337_41663630841312, `Saving Bytes`)
 dialogue = [
-  (mentor_centered, `Create a circuit that can [color=#ffcc44][b]STORE[/b][/color] a byte.
+  (mentor_centered, (31337_87293777622656, `Create a circuit that can [color=#ffcc44][b]STORE[/b][/color] a byte.
 
 When the "SAVE" input is [ON], [color=#ffcc44][b]STORE[/b][/color] the input byte.
 
-At all times output the stored value to the output.`),
+At all times output the stored value to the output.`))
 ]

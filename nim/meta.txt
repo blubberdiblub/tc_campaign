@@ -1,9 +1,9 @@
-title = "Nim"
+title = (31337_19817843844200, `Nim`)
 dialogue = [
-  (mentor_centered, "In this level you need to beat the AI in a simple card game. These are the rules: 
+  (mentor_centered, (31337_53912339443439, `In this level you need to beat the AI in a simple card game. These are the rules: 
 
 There are 12 cards on the table and each player takes turn and must pick up between 1 and 3 cards. You start and the player who picks up the last card (the joker) loses.
 
-Reading input will give you the current number of cards. Sending 1, 2 or 3 to output will pick up that number of cards. The opponent reacts immediately, so you may read the input immediately after your output to get the result of his action.")
-  (mentor_centered, `Also, schematics are shared across architecture levels, so you can solve this with either Overture or Symphony. Click the file icon in the upper left corner to change shematics.`)
+Reading input will give you the current number of cards. Sending 1, 2 or 3 to output will pick up that number of cards. The opponent reacts immediately, so you may read the input immediately after your output to get the result of his action.`)),
+  (mentor_centered, (31337_47072576894526, `Also, schematics are shared across architecture levels, so you can solve this with either Overture or Symphony. Click the file icon in the upper left corner to change shematics.`))
 ]

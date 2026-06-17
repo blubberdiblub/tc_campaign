@@ -1,6 +1,6 @@
-title = "Arithmetic Logic Unit (ALU) 2"
+title = (31337_20519420764551, `Arithmetic Logic Unit (ALU) 2`)
 dialogue = [
-  (mentor_centered, "Add addition and subtraction to your circuit.
+  (mentor_centered, (31337_39134024311972, `Add addition and subtraction to your circuit.
 
 Instructions:
 
@@ -9,5 +9,5 @@ Instructions:
 2 AND
 3 NOR
 4 ADD
-5 SUB[/color]"),
+5 SUB[/color]`))
 ]

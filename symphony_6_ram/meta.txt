@@ -1,9 +1,9 @@
-title = "RAM"
+title = (31337_41276257356528, `RAM`)
 dialogue = [
-    (mentor_centered, `In this level we add loading from and storing to the same memory that is used for the program. We want to be able to read and write 32-bit words, 16-bit words and 8-bit bytes, so add 3 extra load ports and 3 store ports to the RAM component.
+  (mentor_centered, (31337_69462908463194, `In this level we add loading from and storing to the same memory that is used for the program. We want to be able to read and write 32-bit words, 16-bit words and 8-bit bytes, so add 3 extra load ports and 3 store ports to the RAM component.
 
-Insert the newly provided port components in between the 'Instructions' load port & the 'Main Memory' RAM component.`)
-    (mentor_centered, `Once again, these are the [color=#ff9800]Modes[/color] of [color=#e49f44]Symphony[/color]:
+Insert the newly provided port components in between the 'Instructions' load port & the 'Main Memory' RAM component.`)),
+  (mentor_centered, (31337_73426457129430, `Once again, these are the [color=#ff9800]Modes[/color] of [color=#e49f44]Symphony[/color]:
 
 [color=#ff9800]0[/color] IO
 [color=#ff9800]1[/color] ALU
@@ -22,8 +22,8 @@ And the encoding looks like this:
 Instruction encoding if argument B is not an immediate value:
 [color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
 Instruction encoding if argument B is an immediate value:
-[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]1[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#66ccff]BBBBBBBB BBBBBBBB[/color]`)
-    (mentor_centered, `In this level we implement the RAM mode. For now, there are six [color=#ff6680]opcodes[/color] in this mode:
+[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]1[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#66ccff]BBBBBBBB BBBBBBBB[/color]`)),
+  (mentor_centered, (31337_65386575947998, `In this level we implement the RAM mode. For now, there are six [color=#ff6680]opcodes[/color] in this mode:
 [color=#ff6680]0[/color] load_8
 [color=#ff6680]1[/color] load_16
 [color=#ff6680]2[/color] load_32
@@ -36,7 +36,6 @@ The 'load' instructions should load the value from program memory at address [co
 
 The 'store' instructions should store the value in the [color=#66ccff]argument A[/color] register to program memory at address [color=#66ccff]argument B[/color].
 
-The numerical suffix determines the width in bits of how many bits should be written to or read from memory, so a 'load_8' instruction should load 8 bits of data & a 'store_16' should store 16 bits of data starting at that address.`),
-    (mentor_centered, `Note that ports act from top to bottom. A load port will read after a store port if it is placed lower, but before if it is placed higher. This matters when the ports load and store to the same address. In general all ports wait for store ports above them and therefore have a dependency on them. In this level the load ports must be above the store ports or you will get a circular dependency.`),
+The numerical suffix determines the width in bits of how many bits should be written to or read from memory, so a 'load_8' instruction should load 8 bits of data & a 'store_16' should store 16 bits of data starting at that address.`)),
+  (mentor_centered, (31337_43585926436336, `Note that ports act from top to bottom. A load port will read after a store port if it is placed lower, but before if it is placed higher. This matters when the ports load and store to the same address. In general all ports wait for store ports above them and therefore have a dependency on them. In this level the load ports must be above the store ports or you will get a circular dependency.`))
 ]
-

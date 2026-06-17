@@ -1,9 +1,0 @@
-title = "Байтовый НЕ(NOT)"
-dialogue = [
-  (mentor_centered, "Инвертируйте каждый бит входного байта."),
-]
-labels = {
-  "Input": "Вход",
-  "Output": "Выход",
-}
-#5315369b41d1ff4e61538b71af5d4e49

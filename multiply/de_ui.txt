@@ -1,2 +1,0 @@
-[text id="description" text="Multipliziere zwei Zahlen" size=36]
-#998e40228ec8c6db013bba381286f987

@@ -1,6 +1,6 @@
-title = "Jumps"
+title = (31337_39122914366346, `Jumps`)
 dialogue = [
-  (mentor_centered, `These are the [color=#ff9800]Modes[/color] of [color=#e49f44]Symphony[/color]:
+  (mentor_centered, (31337_57225943470132, `These are the [color=#ff9800]Modes[/color] of [color=#e49f44]Symphony[/color]:
 
 0 IO
 1 ALU
@@ -24,4 +24,5 @@ Instruction encoding if argument B is an immediate value:
 
 In JUMP mode, the value in the register specified by [color=#66ff99]argument A[/color] are the flags and should be compared with the condition, which is the [color=#ff6680]opcode[/color]. To compare them, use the "cond" custom component you built earlier.
 
-If the flags match the condition, overwrite the counter value with [color=#66ccff]argument B[/color].`)]
+If the flags match the condition, overwrite the counter value with [color=#66ccff]argument B[/color].`))
+]

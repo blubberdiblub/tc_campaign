@@ -1,21 +1,20 @@
-title = "Conditional Jumps"
+title = (31337_47703565240245, `Conditional Jumps`)
 dialogue = [
-  (mentor_centered, `The goal of this level is to teach you about jumps and labels. 
+  (mentor_centered, (31337_40525671378957, `The goal of this level is to teach you about jumps and labels. 
 
 A jump is an instruction that overwrites the counter. 
 
 Overwriting the counter means we "jump" to an instruction somewhere else in our program, instead of simply proceeding to the next.
-`),
-  (mentor_left, `If you use a fixed number as your jump destination, you will have to update it every time you add or remove code.
+`)),
+  (mentor_left, (31337_65712025748767, `If you use a fixed number as your jump destination, you will have to update it every time you add or remove code.
 
 Instead you can use a feature called a [color=#66ccff]label[/color] to mark a location in the program that automatically updates when you change anything, like so:
 
 [box][color=#66ccff]my_label[/color]:     [color=#aaaaaa]; This is a label[/color]
 [color=#9966ff]imm[/color] [color=#66ccff]my_label[/color]  [color=#aaaaaa]; Load the offset of the label[/color]
 [/box]
-  `),
-  (mentor_centered, "To finish this level, read the input until you see the number 37. 
+  `)),
+  (mentor_centered, (31337_38150072401115, `To finish this level, read the input until you see the number 37. 
 
-Then output a count of how many times you read the input."),
-
+Then output a count of how many times you read the input.`))
 ]

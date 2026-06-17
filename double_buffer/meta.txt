@@ -1,5 +1,5 @@
-title = "Delayed Lines"
+title = (31337_81657957055974, `Delayed Lines`)
 dialogue = [
-  (mentor_centered, `This level introduces the Delay Line component. It takes its input and outputs it 1 tick later.`),
-  (mentor_centered, "Construct a circuit that outputs the same as the input, just delayed by 2 ticks."),
+  (mentor_centered, (31337_66914768639545, `This level introduces the Delay Line component. It takes its input and outputs it 1 tick later.`)),
+  (mentor_centered, (31337_28070798445412, `Construct a circuit that outputs the same as the input, just delayed by 2 ticks.`))
 ]

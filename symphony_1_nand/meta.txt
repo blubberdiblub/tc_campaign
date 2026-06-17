@@ -1,11 +1,11 @@
-title = "Wire Spaghetti"
+title = (31337_62556352127349, `Wire Spaghetti`)
 dialogue = [
-  (mentor_centered, `Finally it is time for you to start building the [color=#e49f44]Symphony[/color] architecture!`),
-  (mentor_centered, `
+  (mentor_centered, (31337_70083014183793, `Finally it is time for you to start building the [color=#e49f44]Symphony[/color] architecture!`)),
+  (mentor_centered, (31337_36086882016175, `
 Most instructions take 2 arguments and produce 1 result (like ADD, OR etc). 
 
-[color=#e49f44]Symphony[/color] uses 4 bytes per instruction and can encode all three in each instruction, which are stored in the RAM component named "Main Memory". This means we can for example ADD any two registers and store the result in any other register.`),
-  (mentor_centered, `These are the names of the 16 registers of [color=#e49f44]Symphony[/color]:
+[color=#e49f44]Symphony[/color] uses 4 bytes per instruction and can encode all three in each instruction, which are stored in the RAM component named "Main Memory". This means we can for example ADD any two registers and store the result in any other register.`)),
+  (mentor_centered, (31337_88649654188267, `These are the names of the 16 registers of [color=#e49f44]Symphony[/color]:
 
 0 zr
 1 r1
@@ -26,8 +26,8 @@ Most instructions take 2 arguments and produce 1 result (like ADD, OR etc).
 
 "zr" will always produce 0 when read, so any write to "zr" will be discarded, we can use this to simplify our hardware. "sp" and "flags" are normal registers that just happen to have different names. They will be reserved for special purposes later.
 
-Instead of using individual registers, use the provided RAM component that is named "Register File".`),
-  (mentor_centered, `With all of that explained, implement the NAND instruction.
+Instead of using individual registers, use the provided RAM component that is named "Register File".`)),
+  (mentor_centered, (31337_83483553172261, `With all of that explained, implement the NAND instruction.
 
 This is how the instructions are encoded:
 
@@ -44,5 +44,5 @@ Use the decoder to separate the destination and argument registers. Be careful: 
 Also, in this level the [color=#ff9800]Mode[/color] is always 1 and the [color=#ff6680]Opcode[/color] is always 0. This means we NAND the first argument with the second and store the result to the result register. For now you can just use a 32 bit NAND gate in place of the ALU.
 
 [center][image="symphony_diagram_1.png"][/center]
-`),
+`))
 ]

@@ -1,9 +1,0 @@
-[table id="table" size=27 x=-100 spacing_y=4]
-"Eingabe 0",              "a",            "[right][ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
-"Eingabe 1",              "b",            "[right][ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
-"Carry in",             "c",            "[right][ANY][/right]"
-"Gewünschte Ausgabe",       "a + b + c",    "[right]    [ANY]    [ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
-"Aktuelle Ausgabe",        "???",          "[right]    [ANY]    [ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]"
-"",                     "",             "[color=#E49F44][left]Carry out        Sum[/left][/color]"
-[/table]
-#1127eb74b0cea8bdb99f8864ad56f89f

@@ -1,6 +1,6 @@
-title = "LSR"
+title = (31337_36654581830314, `LSR`)
 dialogue = [
-  (mentor_centered, `To shift a value 1 right just means moving all the bits in a byte to the right by 1 position.
+  (mentor_centered, (31337_57629598331916, `To shift a value 1 right just means moving all the bits in a byte to the right by 1 position.
 
 This operation is known as [b]logical shift right[/b] and in assembly it is often abbreviated as [b]lsr[/b].
 
@@ -13,10 +13,10 @@ And [b]180 lsr 3[/b]
 [ON] [OFF] [ON] [ON] [OFF] [ON] [OFF] [OFF] Shifts this by 3:
 [OFF] [OFF] [OFF] [ON] [OFF] [ON] [ON] [OFF]
 
-`),
-  (mentor_centered, `The task in this level is to shift the first input to the right by the value given in the second input.
-`),
+`)),
+  (mentor_centered, (31337_26791208073532, `The task in this level is to shift the first input to the right by the value given in the second input.
+`))
 ]
 post_mortem = [
-    (mentor_left, `In addition to giving you a shift right component, you also get a shift left component.`),
+  (mentor_left, (31337_83781539475221, `In addition to giving you a shift right component, you also get a shift left component.`))
 ]

@@ -1,8 +1,8 @@
-title = "Count leading zeroes"
+title = (31337_18890527031365, `Count leading zeroes`)
 dialogue = [
-    (mentor_left, `Create a circuit that starts from the most significant bit and counts how many in a row are [OFF]
+  (mentor_left, (31337_30557055303267, `Create a circuit that starts from the most significant bit and counts how many in a row are [OFF]
 
 The answer for this for example is 3, since it has 3 leading [OFF] bits:
 [OFF][OFF][OFF][ON][OFF][ON][OFF][ON]
-`),
+`))
 ]

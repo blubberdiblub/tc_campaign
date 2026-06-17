@@ -1,9 +1,0 @@
-title = "奇数计数技术"
-dialogue = [
-  (mentor_centered, "用不超过 3 个元件搭建电路。仅在输入中为 [ON] 的数量为奇数时输出 [ON]。"),
-]
-labels = {
-    "Input": "输入",
-    "Output": "输出",
-}
-#d4552a8ee17485ab7a5d3a1781aa5536

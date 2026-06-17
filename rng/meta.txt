@@ -1,6 +1,6 @@
-title = "Random number generator"
+title = (31337_83969937380086, `Random number generator`)
 dialogue = [
-  (level_centered, `In this level you only get one input, we call this the initial seed. The seed is put through the following steps to produce a pseudorandom number.
+  (info_left, (31337_90664310835282, `In this level you only get one input, we call this the initial seed. The seed is put through the following steps to produce a pseudorandom number.
 
 [b]32 bit xorshift RNG:[/b]
 [box]temp1  = seed  xor (seed  lsr 13)
@@ -8,5 +8,5 @@ temp2  = temp1 xor (temp1 lsl 17)
 result = temp2 xor (temp2 lsr 5)[/box]
 
 Finally output "result" and then use it as the seed of the next iteration.
-`)]
+`))
 ]

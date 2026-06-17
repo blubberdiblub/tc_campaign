@@ -1,4 +1,4 @@
-title = "NOR Gate"
+title = (31337_72918877035793, `NOR Gate`)
 dialogue = [
-  (mentor_centered, "Create the circuit that matches the table."),
+  (mentor_centered, (31337_56653221050913, `Create the circuit that matches the table.`))
 ]

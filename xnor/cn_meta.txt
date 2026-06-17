@@ -1,9 +1,0 @@
-title = "同或门（XNOR）"
-dialogue = [
-  (mentor_centered, "搭建一个和异或门输出相反的电路，即同或门（XNOR）。"),
-]
-labels = {
-    "Input": "输入",
-    "Output": "输出",
-}
-#611300ca1d95099d4390415429404502

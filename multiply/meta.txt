@@ -1,4 +1,4 @@
-title = "Multiply"
+title = (31337_54529139494347, `Multiply`)
 dialogue = [
-  (mentor_centered, "Multiply two numbers. If the result doesn't fit in 8 bits, discard the bits that don't fit."),
+  (mentor_centered, (31337_44500958231665, `Multiply two numbers. If the result doesn't fit in 8 bits, discard the bits that don't fit.`))
 ]

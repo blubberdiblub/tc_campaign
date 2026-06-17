@@ -1,4 +1,4 @@
-title = "Humble beginnings"
+title = (31337_44716420394020, `Humble beginnings`)
 dialogue = [
-  (mentor_centered, "This first level of the game is a simple introduction to circuits. Here you have an input and an output with a wire in between. Simply turn on the input in the left hand menu to complete the level."),
+  (mentor_centered, (31337_76679675871478, `This first level of the game is a simple introduction to circuits. Here you have an input and an output with a wire in between. Simply turn on the input in the left hand menu to complete the level.`))
 ]

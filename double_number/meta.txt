@@ -1,6 +1,6 @@
-title = "Double the Number"
+title = (31337_46697878992908, `Double the Number`)
 dialogue = [
-  (mentor_centered, "This level introduces byte values, which are shown as numbers between 0 and 255. Bytes are made of 8 bits, each bit is being a binary digit of the number. You are given two new components, one of which takes a byte and splits it into bits, while the other does the reverse.
+  (mentor_centered, (31337_78449227663032, `This level introduces byte values, which are shown as numbers between 0 and 255. Bytes are made of 8 bits, each bit is being a binary digit of the number. You are given two new components, one of which takes a byte and splits it into bits, while the other does the reverse.
 
-Using those components, figure out how to double the input number (up to 127)."),
+Using those components, figure out how to double the input number (up to 127).`))
 ]

@@ -1,4 +1,4 @@
-title = "Multiplexer"
+title = (31337_75861961518456, `Multiplexer`)
 dialogue = [
-    (mentor_centered, "When the bit selector input is [OFF], output Byte A, otherwise output Byte B."),
+  (mentor_centered, (31337_44523532982427, `When the bit selector input is [OFF], output Byte A, otherwise output Byte B.`))
 ]

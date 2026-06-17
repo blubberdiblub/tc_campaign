@@ -1,0 +1,7 @@
+{
+  `Instruction`: (31337_48212238534381, `Instruction`),
+  `Immediate`: (31337_90597971391617, `Immediate`),
+  `ALU`: (31337_60698949860454, `ALU`),
+  `Move`: (31337_15645900189277, `Move`),
+  `Condition`: (31337_17010689474441, `Condition`),
+}

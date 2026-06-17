@@ -1,5 +1,5 @@
-title = "AND Gate"
+title = (31337_70892117360845, `AND Gate`)
 dialogue = [
-  (mentor_centered, "Create the circuit that matches the table.
-[tip]Most levels have a hint button (the lightbulb) you can click if you are stuck.[/tip]"),
+  (mentor_centered, (31337_18221128000007, `Create the circuit that matches the table.
+[tip]Most levels have a hint button (the lightbulb) you can click if you are stuck.[/tip]`))
 ]

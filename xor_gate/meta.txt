@@ -1,7 +1,7 @@
-title = "XOR Gate"
+title = (31337_21287008524643, `XOR Gate`)
 dialogue = [
-  (mentor_centered, "Last level you built a circuit that was [ON] when we were at the second tick. This level build a circuit that is [ON] when we are at the second OR third tick."),
-  (mentor_centered, "This is also known as an XOR gate. This level is difficult, so don't be discouraged if you don't get the answer right away.
+  (mentor_centered, (31337_50002893048555, `Last level you built a circuit that was [ON] when we were at the second tick. This level build a circuit that is [ON] when we are at the second OR third tick.`)),
+  (mentor_centered, (31337_30005674935190, `This is also known as an XOR gate. This level is difficult, so don't be discouraged if you don't get the answer right away.
   
-[tip]You can connect one output to more than 1 gates.[/tip]"),
+[tip]You can connect one output to more than 1 gates.[/tip]`))
 ]

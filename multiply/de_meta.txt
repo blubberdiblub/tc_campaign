@@ -1,5 +1,0 @@
-title = "Multiplizieren"
-dialogue = [
-  (mentor_centered, "Multipliziere zwei Zahlen miteinander. Wenn das Ergebnis nicht in 8 Bits reinpasst, verwerfe die Bits die nicht reinpassen"),
-]
-#d0598b781726cf25bc03e264c2dbecd7

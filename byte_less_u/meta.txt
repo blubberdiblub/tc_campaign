@@ -1,4 +1,4 @@
-title = "Unsigned Less"
+title = (31337_39605373706887, `Unsigned Less`)
 dialogue = [
-  (mentor_centered, "Create a circuit that outputs [ON] when the first input is less than the second. Interpret the bytes as being [color=#dd6576]unsigned[/color].")
+  (mentor_centered, (31337_68842379350661, `Create a circuit that outputs [ON] when the first input is less than the second. Interpret the bytes as being [color=#dd6576]unsigned[/color].`))
 ]

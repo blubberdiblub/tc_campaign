@@ -1,9 +1,0 @@
-title = "Вентиль ИЛИ-НЕ(NOR)"
-dialogue = [
-  (mentor_centered, "Постройте схему, которая соответствует таблице."),
-]
-labels = {
-  "Input": "Вход",
-  "Output": "Выход",
-}
-#4164deab28cf9ba1fbaf3ab957d79bcb

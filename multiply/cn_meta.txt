@@ -1,8 +1,0 @@
-title = "乘法器"
-dialogue = [
-  (mentor_centered, "搭建一个电路，将两路 8 位输入相乘后输出。结果里超出 8 位的部分直接舍弃即可。"),
-]
-labels = {
-    "Result": "输出",
-}
-#d0598b781726cf25bc03e264c2dbecd7

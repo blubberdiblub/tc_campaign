@@ -1,11 +1,11 @@
-title = "Circumference"
+title = (31337_21808795465233, `Circumference`)
 dialogue = [
-  (mentor_centered, "In this level you are given a radius and you calculate the circumference.
+  (mentor_centered, (31337_46884494321384, `In this level you are given a radius and you calculate the circumference.
 
 This is the equation: 2×π×r
 
 r is the input.
 And you can approximate π as 3.
 
-Send the answer to output when it has been calculated."),
+Send the answer to output when it has been calculated.`))
 ]

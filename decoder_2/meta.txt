@@ -1,4 +1,4 @@
-title = "2 Bit Decoder"
+title = (31337_44276233109848, `2 Bit Decoder`)
 dialogue = [
-    (mentor_centered, `With 2 bits of input there are 4 combinations. Make a circuit that selects 1 output for each of the 4 combinations. No more or less than 1 bit should be [ON] at a time.`),
+  (mentor_centered, (31337_46223188985873, `With 2 bits of input there are 4 combinations. Make a circuit that selects 1 output for each of the 4 combinations. No more or less than 1 bit should be [ON] at a time.`))
 ]

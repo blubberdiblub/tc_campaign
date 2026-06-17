@@ -1,8 +1,8 @@
-title = "NAND Gate"
+title = (31337_39082333495604, `NAND Gate`)
 dialogue = [
-  (mentor_centered, `The first section of the game is about "Boolean logic". Boolean logic describes the simplest forms of calculation computers can do. In fact these calculations are what every other calculation in the computer is made out of.`),
-  (mentor_centered, `This circuit contains a "NAND gate" that I want you to examine. I want you to document its behavior by filling in the "truth table" in the panel you see below. Only the two input rows of the truth table are filled out. Your task is to experiment with the inputs to the circuit, observe what the NAND gate does and fill the last row of the truth table.`),
+  (mentor_centered, (31337_65167079914703, `The first section of the game is about "Boolean logic". Boolean logic describes the simplest forms of calculation computers can do. In fact these calculations are what every other calculation in the computer is made out of.`)),
+  (mentor_centered, (31337_68865507501612, `This circuit contains a "NAND gate" that I want you to examine. I want you to document its behavior by filling in the "truth table" in the panel you see below. Only the two input rows of the truth table are filled out. Your task is to experiment with the inputs to the circuit, observe what the NAND gate does and fill the last row of the truth table.`))
 ]
 post_mortem = [
-  (mentor_left, `Correct! You have unlocked the NAND gate. Out of this fundamental building block, you will construct everything else in this game.`)
+  (mentor_left, (31337_50880631203389, `Correct! You have unlocked the NAND gate. Out of this fundamental building block, you will construct everything else in this game.`))
 ]

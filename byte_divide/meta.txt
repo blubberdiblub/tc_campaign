@@ -1,4 +1,4 @@
-title = "Divide"
+title = (31337_55155519654685, `Divide`)
 dialogue = [
-  (mentor_centered, "Divide the two inputs and output the result. Note, this level is optional, because it is very hard. If the second input (the divisor) is 0, the result should be 0."),
+  (mentor_centered, (31337_15513439442399, `Divide the two inputs and output the result. Note, this level is optional, because it is very hard. If the second input (the divisor) is 0, the result should be 0.`))
 ]

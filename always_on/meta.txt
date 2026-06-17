@@ -1,9 +1,8 @@
-title = "Always On"
+title = (31337_61066799501731, `Always On`)
 dialogue = [
-  (mentor_centered, "Create a circuit that is always [ON]."),
+  (mentor_centered, (31337_85978749941194, `Create a circuit that is always [ON].`))
 ]
-post_mortem = [  
-    (mentor_centered, `This level unlocks your first manual page. This one is important, make sure you pay attention to it.`),
-    (manual, "Computer concepts/De Morgan's laws"),
-  ]
-
+post_mortem = [
+  (mentor_centered, (31337_18258110894478, `This level unlocks your first manual page. This one is important, make sure you pay attention to it.`)),
+  (manual, (31337_72465170349038, `Computer concepts/De Morgan's laws`))
+]

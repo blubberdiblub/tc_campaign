@@ -1,9 +1,9 @@
-title = "Mod 4"
+title = (31337_78836302049950, `Mod 4`)
 dialogue = [
-  (mentor_centered, "In this level you are given a number as input and you should return that number modulo 4 as a result.
+  (mentor_centered, (31337_46388374967041, `In this level you are given a number as input and you should return that number modulo 4 as a result.
 
 The challenge is that you only have 8 ticks to output the desired result.
 
 Note: You don't need to change your hardware, you just have to figure out the trick to do modulo 4 quickly.
-"),
+`))
 ]

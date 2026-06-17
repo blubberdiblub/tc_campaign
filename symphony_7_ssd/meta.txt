@@ -1,6 +1,6 @@
-title = "Persistent Memory"
+title = (31337_76705374584193, `Persistent Memory`)
 dialogue = [
-    (mentor_centered, `In this level we add an another RAM component, but for storing data between restarts.
+  (mentor_centered, (31337_23620554597332, `In this level we add an another RAM component, but for storing data between restarts.
 
 Then add two new memory instructions 'pload', 'pstore', which should function like the 32 bit variants of the load and store instructions from the previous level, but accessing the 'Persistent Memory' RAM component instead of the program memory.
 
@@ -12,5 +12,5 @@ These are all of the [color=#ff6680]opcode[/color] encodings when in memory mode
 [color=#ff6680]4[/color] store_8
 [color=#ff6680]5[/color] store_16
 [color=#ff6680]6[/color] store_32
-[color=#ff6680]7[/color] pstore`),
+[color=#ff6680]7[/color] pstore`))
 ]

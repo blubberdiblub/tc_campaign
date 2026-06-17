@@ -1,6 +1,6 @@
-title = "OR Gate"
+title = (31337_81822607191994, `OR Gate`)
 dialogue = [
-  (mentor_centered, "Create the circuit that matches the table.
+  (mentor_centered, (31337_46797361496226, `Create the circuit that matches the table.
 [tip]Double click on a component to move it together with connected wires.[/tip]
-  "),
+  `))
 ]

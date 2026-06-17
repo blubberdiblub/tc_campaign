@@ -1,9 +1,0 @@
-title = "Большой вентиль ИЛИ(OR)"
-dialogue = [
-  (mentor_centered, "Постройте вентиль ИЛИ(OR) с тремя входами."),
-]
-labels = {
-  "Input": "Вход",
-  "Output": "Выход",
-}
-#74fb3ac6b2959b0351514e6c185f5ec9

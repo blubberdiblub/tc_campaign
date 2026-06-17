@@ -1,6 +1,6 @@
-title = "Integrating ALU"
+title = (31337_78613176066303, `Integrating ALU`)
 dialogue = [
-  (mentor_centered, `Add the ALU you built in the previous level to the circuit. The operation of each instruction is encoded in the [color=#ff6680]Opcode[/color].
+  (mentor_centered, (31337_13069282666558, `Add the ALU you built in the previous level to the circuit. The operation of each instruction is encoded in the [color=#ff6680]Opcode[/color].
 
 [color=#ff9800]M[/color] = Mode
 [color=#ff6680]O[/color] = Opcode
@@ -10,5 +10,5 @@ dialogue = [
 [color=#bbbbbb]0[/color] = Unused / zero
 
 [color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#bbbbbb]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
-`)]
-
+`))
+]

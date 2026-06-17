@@ -1,4 +1,4 @@
-title = "Second Tick"
+title = (31337_69913560783046, `Second Tick`)
 dialogue = [
-  (mentor_centered, "Output [ON] on the second tick only."),
+  (mentor_centered, (31337_11961528105462, `Output [ON] on the second tick only.`))
 ]

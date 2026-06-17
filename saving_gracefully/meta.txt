@@ -1,12 +1,12 @@
-title = "Saving Gracefully"
+title = (31337_39874917169400, `Saving Gracefully`)
 dialogue = [
-  (mentor_centered, "The Delay Line only allows us to store a value for 1 tick. But sometimes a component that can store a value for longer periods of time is useful.
+  (mentor_centered, (31337_61501859914469, `The Delay Line only allows us to store a value for 1 tick. But sometimes a component that can store a value for longer periods of time is useful.
 
-We want you to build such a component."),
-  (mentor_centered, "In this level you have 2 inputs.
+We want you to build such a component.`)),
+  (mentor_centered, (31337_13114757255411, `In this level you have 2 inputs.
 When the first input is [ON], update the stored value.
 The second input is the value.
 Always output what is currently stored.
 
-"),
+`))
 ]

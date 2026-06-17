@@ -1,9 +1,0 @@
-title = "或非门（NOR）"
-dialogue = [
-  (mentor_centered, "请搭建电路，实现给定的真值表。"),
-]
-labels = {
-    "Input": "输入",
-    "Output": "输出",
-}
-#4164deab28cf9ba1fbaf3ab957d79bcb

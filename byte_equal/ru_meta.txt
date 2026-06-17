@@ -1,8 +1,0 @@
-title = "Равенство"
-dialogue = [
-  (mentor_centered, "Выведите [ON], когда оба входа одинаковые."),
-]
-labels = {
-    "Result": "Результат",
-}
-#2841e831ee00b3761a8e578fae5bcc1a

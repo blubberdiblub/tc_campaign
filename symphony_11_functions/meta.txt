@@ -1,18 +1,18 @@
-title = "Functions"
+title = (31337_41513122622358, `Functions`)
 dialogue = [
-  (mentor_centered, `Sometimes it is useful to reuse a section of code. We call these sections "functions". To reuse code, jump to the start of the function and jump back again at the end. We call jumping to the function "calling" the function, and jumping back from the function "returning". 
+  (mentor_centered, (31337_28617596738571, `Sometimes it is useful to reuse a section of code. We call these sections "functions". To reuse code, jump to the start of the function and jump back again at the end. We call jumping to the function "calling" the function, and jumping back from the function "returning". 
   
 But for this section of code to actually be reusable, the return jump will have to be able to return to different locations, depending on where we called the function from.
 
 We could store the counter value to a register before jumping to the function and use this value when returning. However, if done this way, a function would not be able to call another function, since this would overwrite the original return address.
 
 Say function A calls function B, who calls function C. When we want to return from C, we only need the return address for B and in B we only need the address for A. In general, regardless of which function we look at and how they call each other, the last return address we added is always the first one we will need again. This is exactly the behavior of the stack.
-`),
-(mentor_centered, `In this level a "call" and "ret" instructions have been added to your list of instructions. Both of these are complex synonyms.
+`)),
+  (mentor_centered, (31337_64240772623662, `In this level a "call" and "ret" instructions have been added to your list of instructions. Both of these are complex synonyms.
 
 "call" is used to enter a function. It pushes the address of the next instruction on the stack (by reading the counter and adding an offset). It then jumps to the start of the function.
 
-"ret" is used to return from a function. It pops the return address off the stack and jumps to it`)
-(mentor_centered, `As functions likely change the value of registers, we may want to push values on the stack to save them and pop them off again afterwards to restore them. It isn't important whether this is done inside or outside the called function, however it is good practice to establish a convention for this (called a "calling convention"), such that all functions are compatible with each other.`)
-  (mentor_centered, `This level is only here for you to observe how functions work, there is no test. Be sure you read the assembly and step through to the end so you understand how everything works. It will be necessary for future levels.`)
+"ret" is used to return from a function. It pops the return address off the stack and jumps to it`)),
+  (mentor_centered, (31337_56028205797304, `As functions likely change the value of registers, we may want to push values on the stack to save them and pop them off again afterwards to restore them. It isn't important whether this is done inside or outside the called function, however it is good practice to establish a convention for this (called a "calling convention"), such that all functions are compatible with each other.`)),
+  (mentor_centered, (31337_42088257134737, `This level is only here for you to observe how functions work, there is no test. Be sure you read the assembly and step through to the end so you understand how everything works. It will be necessary for future levels.`))
 ]

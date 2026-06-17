@@ -1,6 +1,0 @@
-[table id="table" full_history size=33 x=-100 _0="[OFF]" _1="[ON]" _z="[ANY]"]
-"Eingabe",          "[OFF]",  "[ON]"
-"Gewünschte Ausgabe", "[ON]",   "[OFF]"
-"Aktuelle Ausgabe"
-[/table]
-#0e7805c00de07cd3f8499047d99f0fa9

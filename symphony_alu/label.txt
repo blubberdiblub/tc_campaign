@@ -1,0 +1,6 @@
+{
+  `Opcode`: (31337_26207217884026, `Opcode`),
+  `Argument A`: (31337_26325060783055, `Argument A`),
+  `Result`: (31337_13327132168076, `Result`),
+  `Argument B`: (31337_24747841106265, `Argument B`),
+}

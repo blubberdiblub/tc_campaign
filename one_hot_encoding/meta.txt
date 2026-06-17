@@ -1,7 +1,7 @@
-title = "One hot encoding"
+title = (31337_12296593054599, `One hot encoding`)
 dialogue = [
-  (mentor_centered, `The input decides which output should be turned [ON]. So if the input is 7, send [ON] to the 7th output and [OFF] to all the others.
+  (mentor_centered, (31337_17817215316423, `The input decides which output should be turned [ON]. So if the input is 7, send [ON] to the 7th output and [OFF] to all the others.
 
 Do not use more than 3 components. Also, you may not use any of the decoders you built before.
-`),
+`))
 ]

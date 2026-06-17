@@ -1,4 +1,4 @@
-title = "Byte Constant"
+title = (31337_55259569122850, `Byte Constant`)
 dialogue = [
-  (mentor_centered, "Create a circuit that always outputs the number 164.")
+  (mentor_centered, (31337_55176290924321, `Create a circuit that always outputs the number 164.`))
 ]

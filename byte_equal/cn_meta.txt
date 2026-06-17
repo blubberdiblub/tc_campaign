@@ -1,8 +1,0 @@
-title = "整数判等"
-dialogue = [
-  (mentor_centered, "当两路输入相等时，输出 [ON]。")
-]
-labels = {
-    "Result": "输出",
-}
-#2841e831ee00b3761a8e578fae5bcc1a

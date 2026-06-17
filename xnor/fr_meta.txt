@@ -1,9 +1,0 @@
-title = "Porte XNOR"
-dialogue = [
-  (mentor_centered, "Créez la porte XOR inversé, également appelée XNOR."),
-]
-labels={
-  "Input":"Entrée",
-  "Output":"Sortie",
-}
-#611300ca1d95099d4390415429404502

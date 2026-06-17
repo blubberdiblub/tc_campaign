@@ -1,6 +1,6 @@
-title = "Circular Dependency"
+title = (31337_25862237357880, `Circular Dependency`)
 dialogue = [
-  (mentor_centered,  'Create a "circular dependency". This is a circuit where the input of a component relies on its own output. In a circular dependency situation, it is not possible to determine the output of a component, because you would first need to determine the input, which relies on the output and so on (hence the "circular").
+  (mentor_centered, (31337_24156270270079, `Create a "circular dependency". This is a circuit where the input of a component relies on its own output. In a circular dependency situation, it is not possible to determine the output of a component, because you would first need to determine the input, which relies on the output and so on (hence the "circular").
 
-This state is normally not allowed in other levels, but in this level the goal is to create it, so you understand what it is before going forward.'),
+This state is normally not allowed in other levels, but in this level the goal is to create it, so you understand what it is before going forward.`))
 ]

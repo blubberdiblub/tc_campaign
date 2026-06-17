@@ -1,10 +1,10 @@
-title = "Counter"
+title = (31337_68850421394935, `Counter`)
 dialogue = [
-  (mentor_centered, "Build a counter that will increase by 1 each tick.
+  (mentor_centered, (31337_42949183679479, `Build a counter that will increase by 1 each tick.
 
 Additionally, there should be an option for overwriting the counter with a given value.
 
 You are given two inputs, a bit and a byte.
 
-The bit input should toggle between counting and overwriting with the value of the byte."),
+The bit input should toggle between counting and overwriting with the value of the byte.`))
 ]

@@ -1,9 +1,0 @@
-title = "第二刻"
-dialogue = [
-  (mentor_centered, "搭建一个电路，只在第二个时钟刻输出 [ON] 。"),
-]
-labels = {
-    "Input": "输入",
-    "Output": "输出",
-}
-#15b96b099f89fcd79dc28753dcffb994

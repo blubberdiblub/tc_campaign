@@ -1,9 +1,9 @@
-title = "Bit Switch"
+title = (31337_12922292218235, `Bit Switch`)
 dialogue = [
-  (mentor_centered, `If components output different values on the same wire, you get an error. However, some components have grey output pins, these are not outputting at all when the component is not enabled. This is the case for the Bit Switch component.
+  (mentor_centered, (31337_88100823584262, `If components output different values on the same wire, you get an error. However, some components have grey output pins, these are not outputting at all when the component is not enabled. This is the case for the Bit Switch component.
 
 [center][image="switch.png"][/center]
 
-When the bottom pin is [OFF], the output is disabled. More than 1 output can connect to the same wire without causing error, if no more than one of them is enabled.`),
-  (mentor_centered, `Using 2 NOT gates and 2 Switches, build an XOR gate.`),
+When the bottom pin is [OFF], the output is disabled. More than 1 output can connect to the same wire without causing error, if no more than one of them is enabled.`)),
+  (mentor_centered, (31337_77268807700313, `Using 2 NOT gates and 2 Switches, build an XOR gate.`))
 ]

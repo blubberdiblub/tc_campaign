@@ -1,6 +1,6 @@
-title = "Instruction decoder"
+title = (31337_13883461694525, `Instruction decoder`)
 dialogue = [
-  (mentor_centered, `
+  (mentor_centered, (31337_71911284169222, `
 Build a circuit that splits Symphony instructions into their different parts. This will be very helpful later.
 
 There are two encodings for Symphony instructions, depending on whether we are using immediate values or not:
@@ -16,8 +16,8 @@ There are two encodings for Symphony instructions, depending on whether we are u
 [color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
 
 [color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]1[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#66ccff]BBBBBBBB BBBBBBBB[/color]
-  `),
-  (mentor_centered, `Use the static indexer component to solve this level. 
+  `)),
+  (mentor_centered, (31337_41138026161536, `Use the static indexer component to solve this level. 
 
-The static indexer component is a special component that allows you to shift certain bits from a wire, without any delay or gates cost. Changing the number on the component will shift bits (positive number shifts to the right). Then click on the component to set the output width.`),
+The static indexer component is a special component that allows you to shift certain bits from a wire, without any delay or gates cost. Changing the number on the component will shift bits (positive number shifts to the right). Then click on the component to set the output width.`))
 ]

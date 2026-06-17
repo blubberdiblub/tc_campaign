@@ -1,6 +1,6 @@
-title = "ALU"
+title = (31337_76398546711745, `ALU`)
 dialogue = [
-  (mentor_centered, `Time to merge in the "Arithmetic Logic Unit" circuit you made previously with the register circuit. The ALU circuit was saved in the foundry and can now be added as a component. If you forgot which pin does what, check the circuit in the foundry.
+  (mentor_centered, (31337_17602708328746, `Time to merge in the "Arithmetic Logic Unit" circuit you made previously with the register circuit. The ALU circuit was saved in the foundry and can now be added as a component. If you forgot which pin does what, check the circuit in the foundry.
 
 Use the decoder you built to figure out if we should move between registers or do ALU calculations. Here are the 4 different modes again:
 [OFF][OFF] Immediate
@@ -10,6 +10,6 @@ Use the decoder you built to figure out if we should move between registers or d
 
 For this level you only have to worry about the move and ALU mode. When in ALU mode, take [color=#e49f44]REG 1[/color] and [color=#e49f44]REG 2[/color] as inputs, and store the result in [color=#e49f44]REG 3[/color].
 
-[tip]Don't forget the 3 bit decoder component has a disable bit.[/tip]`),
-  (overture),
+[tip]Don't forget the 3 bit decoder component has a disable bit.[/tip]`)),
+  (overture)
 ]

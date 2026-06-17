@@ -1,6 +1,6 @@
-title = "Capitalize"
+title = (31337_22440157378882, `Capitalize`)
 dialogue = [
-  (mentor_centered, `The inputs in this level are sentences encoded as ASCII (see the manual). Each word is separated by a space which has the numeric value 32. Replace the first letter in each word with its uppercase counterpart.
+  (mentor_centered, (31337_36850349097673, `The inputs in this level are sentences encoded as ASCII (see the manual). Each word is separated by a space which has the numeric value 32. Replace the first letter in each word with its uppercase counterpart.
 
-The possible input characters are a to z lowercase and space`),
+The possible input characters are a to z lowercase and space`))
 ]

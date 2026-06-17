@@ -1,0 +1,5 @@
+{
+  `Argument A`: (31337_26325060783055, `Argument A`),
+  `Argument B`: (31337_24747841106265, `Argument B`),
+  `Result`: (31337_13327132168076, `Result`),
+}

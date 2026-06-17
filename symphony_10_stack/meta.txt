@@ -1,6 +1,6 @@
-title = "Stack"
+title = (31337_29798404581087, `Stack`)
 dialogue = [
-    (mentor_left, `The challenge of this level is to implement a common programming structure called a "stack". You are supposed to do this in assembly. You can do two things with a stack:
+  (mentor_left, (31337_68315222097089, `The challenge of this level is to implement a common programming structure called a "stack". You are supposed to do this in assembly. You can do two things with a stack:
 
 [color=#66ccff]PUSH[/color] - Adds a number to the stack
 [color=#66ccff]POP[/color]  - Removes the last added value from the stack
@@ -10,10 +10,10 @@ You can think of the stack data structure like a physical stack of plates in a b
 Read the input in this level to get the next operation. 
 A non-0 input is a push, in this case store the value so it can be popped later. 
 A 0 value is pop, remove and output the last number you stored.
-`),
+`))
 ]
 post_mortem = [
-  (mentor_left, `Since the stack is so useful for programming, a "push" and "pop" instruction will be added to the next Symphony level. Both of these are synonyms for two other instructions and they both use the "sp" register (short for stack pointer) to keep track of the stack.
+  (mentor_left, (31337_90806029597852, `Since the stack is so useful for programming, a "push" and "pop" instruction will be added to the next Symphony level. Both of these are synonyms for two other instructions and they both use the "sp" register (short for stack pointer) to keep track of the stack.
 
 "push" is a synonym for:
 sub sp, sp, 4
@@ -23,5 +23,5 @@ store_32 [sp], %value
 load_32 %destination, [sp]
 add sp, sp, 4
 
-You may notice that "push" subtracts from "sp" so that the stack grows downwards from the high addresses. This leaves the low addresses for you to use as you see fit.`)
+You may notice that "push" subtracts from "sp" so that the stack grows downwards from the high addresses. This leaves the low addresses for you to use as you see fit.`))
 ]

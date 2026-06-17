@@ -1,6 +1,6 @@
-title = "Full Adder"
+title = (31337_42735906141201, `Full Adder`)
 dialogue = [
-  (mentor_centered, "In the previous level we added together 2 inputs, this time we add 3. Once again, add the inputs together in binary, such that the result is either [b]0[/b] or [b]1[/b].
+  (mentor_centered, (31337_34381936755276, `In the previous level we added together 2 inputs, this time we add 3. Once again, add the inputs together in binary, such that the result is either [b]0[/b] or [b]1[/b].
 
-As with normal addition, if the result cannot be described with one digit, set the carry to [b]1[/b]."),
+As with normal addition, if the result cannot be described with one digit, set the carry to [b]1[/b].`))
 ]

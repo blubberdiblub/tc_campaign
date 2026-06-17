@@ -1,6 +1,6 @@
-title = "Instruction aliases"
+title = (31337_20456965663323, `Instruction aliases`)
 dialogue = [
-    (mentor_left, `Like previous levels, this level introduces new instructions. However, in this level you are not supposed to add additional hardware, but instead change the assembly specification to reuse already existing instruction hardware for new instructions.
+  (mentor_left, (31337_41535895646297, `Like previous levels, this level introduces new instructions. However, in this level you are not supposed to add additional hardware, but instead change the assembly specification to reuse already existing instruction hardware for new instructions.
 
 Click on the "ISA" button in the top left corner of the Assembler window and study how instructions are implemented. Then add the following three new instructions:
 
@@ -14,7 +14,5 @@ not %a(register), %b(register)
 Bitwise NOT each bit in register %b and store the result in %a.[/box]
 
 Once these instructions are added, the assembly code will be valid and running it will complete the level.
-`),
+`))
 ]
-
-

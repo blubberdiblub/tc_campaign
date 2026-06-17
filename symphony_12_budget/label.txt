@@ -1,0 +1,9 @@
+{
+  `Main Memory`: (31337_41903613959902, `Main Memory`),
+  `Register File`: (31337_28246040923235, `Register File`),
+  `Instruction`: (31337_48212238534381, `Instruction`),
+  `Persistent Memory`: (31337_18099138932731, `Persistent Memory`),
+  `screen`: (31337_80985404567327, `screen`),
+  `time`: (31337_35059654572638, `time`),
+  `keyboard`: (31337_79162322081640, `keyboard`),
+}

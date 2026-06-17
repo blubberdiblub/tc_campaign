@@ -1,9 +1,0 @@
-title = "三路与门"
-dialogue = [
-  (mentor_centered, "搭建一个有三路输入的与门（AND）。"),
-]
-labels = {
-    "Input": "输入",
-    "Output": "输出",
-}
-#643c2fc40e6a86bc1a769608659eefb4

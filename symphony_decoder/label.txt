@@ -1,0 +1,10 @@
+{
+  `Mode`: (31337_48506758479060, `Mode`),
+  `Opcode`: (31337_26207217884026, `Opcode`),
+  `Destination`: (31337_67128656777473, `Destination`),
+  `Argument A`: (31337_26325060783055, `Argument A`),
+  `Argument B`: (31337_24747841106265, `Argument B`),
+  `Is Immediate`: (31337_16402377924132, `Is Immediate`),
+  `Immediate Value`: (31337_40584554497383, `Immediate Value`),
+  `Instruction`: (31337_48212238534381, `Instruction`),
+}

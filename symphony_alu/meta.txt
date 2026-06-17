@@ -1,6 +1,6 @@
-title = "Symphony ALU"
+title = (31337_71902120982324, `Symphony ALU`)
 dialogue = [
-  (mentor_centered, "This is a copy of the Overture ALU. Time to upgrade it to 32 bits and a few new instructions.
+  (mentor_centered, (31337_52048822283735, `This is a copy of the Overture ALU. Time to upgrade it to 32 bits and a few new instructions.
 
 Instructions:
 
@@ -16,5 +16,5 @@ Instructions:
 9 ASR
 10 CMP[/color]
 
-The cmp operation is the one you already created a custom component for in the previous level."),
+The cmp operation is the one you already created a custom component for in the previous level.`))
 ]

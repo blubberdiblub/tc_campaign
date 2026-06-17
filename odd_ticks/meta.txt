@@ -1,11 +1,11 @@
-title = "Odd Ticks"
+title = (31337_54648226811178, `Odd Ticks`)
 dialogue = [
-  (mentor_centered, "In a previous level you learned how we don't allow circular dependencies. Now you must learn the one exception."),
-  (mentor_centered, `The delay line is allowed to depend on its own input. This is because its input does not influence the rest of the circuit until next tick.
+  (mentor_centered, (31337_17699211754487, `In a previous level you learned how we don't allow circular dependencies. Now you must learn the one exception.`)),
+  (mentor_centered, (31337_75292456030647, `The delay line is allowed to depend on its own input. This is because its input does not influence the rest of the circuit until next tick.
   
-[image="delay_line.png"]`),
-  (mentor_centered, `Orange pins in the game never affect the output in the same tick. They therefore never cause circular dependencies.
+[image="delay_line.png"]`)),
+  (mentor_centered, (31337_60625429879527, `Orange pins in the game never affect the output in the same tick. They therefore never cause circular dependencies.
   
-  [image="delay_line.png"]`),
-  (mentor_centered, "Output [OFF] on the even ticks and [ON] on the odd ticks."),
+  [image="delay_line.png"]`)),
+  (mentor_centered, (31337_85913836277587, `Output [OFF] on the even ticks and [ON] on the odd ticks.`))
 ]

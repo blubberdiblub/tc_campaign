@@ -1,8 +1,8 @@
-title = "NOT Gate"
+title = (31337_16394937100308, `NOT Gate`)
 dialogue = [
-  (mentor_centered, "Now that you unlocked the NAND gate, it is time for you to build a circuit yourself."),
-  (mentor_centered, "In the last level you made the truth table that described the circuit. In this level you build the circuit that matches truth table."),
-  (mentor_centered, "Using NAND gates, build the NOT gate
+  (mentor_centered, (31337_80163590000700, `Now that you unlocked the NAND gate, it is time for you to build a circuit yourself.`)),
+  (mentor_centered, (31337_56423993638708, `In the last level you made the truth table that described the circuit. In this level you build the circuit that matches truth table.`)),
+  (mentor_centered, (31337_64052600264884, `Using NAND gates, build the NOT gate
 
 Using: [b]NAND gate[/b]
 #INPUT 1: [OFF][ON][OFF][ON]
@@ -12,5 +12,5 @@ Using: [b]NAND gate[/b]
 Build: [b]NOT gate[/b]
 #INPUT 1: [ON][OFF]
 #OUTPUT:  [OFF][ON]
-")
+`))
 ]

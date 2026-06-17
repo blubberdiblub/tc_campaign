@@ -1,7 +1,7 @@
-title = "Little Box"
+title = (31337_14374127314134, `Little Box`)
 dialogue = [
-  (mentor_centered, "Can you fit 4 bytes of memory in this limited space?"),
-  (mentor_centered, "In this level you have to build a circuit that 
+  (mentor_centered, (31337_76851096880864, `Can you fit 4 bytes of memory in this limited space?`)),
+  (mentor_centered, (31337_68663841862704, `In this level you have to build a circuit that 
 can store or load from 4 different bytes of memory.
 
 You are given 1 bit that determines if you are to load. Another bit determines if you are to store and it comes with a corresponding value.
@@ -10,5 +10,5 @@ Additionally, you have 2 address bits.
 With 2 bits, there are 4 combinations, one for each byte of memory in this level.
 
 [tip]Spacebar rotates components.[/tip]
-"),
+`))
 ]

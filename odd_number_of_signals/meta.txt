@@ -1,4 +1,4 @@
-title = "Odd Number of Signals"
+title = (31337_44190469254011, `Odd Number of Signals`)
 dialogue = [
-  (mentor_centered, "Using a maximum of 3 components, output [ON] only when an odd number of inputs are [ON]"),
+  (mentor_centered, (31337_63242509760527, `Using a maximum of 3 components, output [ON] only when an odd number of inputs are [ON]`))
 ]

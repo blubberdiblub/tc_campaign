@@ -1,4 +1,4 @@
-title = "Bigger OR Gate"
+title = (31337_68089739910654, `Bigger OR Gate`)
 dialogue = [
-  (mentor_centered, "Create an OR gate with 3 inputs."),
+  (mentor_centered, (31337_29275887429601, `Create an OR gate with 3 inputs.`))
 ]

@@ -1,7 +1,7 @@
-title = "Tower of Hanoi"
+title = (31337_29450953142176, `Tower of Hanoi`)
 dialogue = [
-  (mentor_centered, `In the game "Towers of Hanoi", you must move a stack of disks from one peg to another. The challenge is that only one disk can be moved at a time, only the top disk on a stack can be moved, and a larger disk can never be placed on top of a smaller one.`),
-  (mentor_left, "The first 4 inputs will give you the following in order:
+  (mentor_centered, (31337_23374750315066, `In the game "Towers of Hanoi", you must move a stack of disks from one peg to another. The challenge is that only one disk can be moved at a time, only the top disk on a stack can be moved, and a larger disk can never be placed on top of a smaller one.`)),
+  (mentor_left, (31337_72724057674158, `The first 4 inputs will give you the following in order:
 disk_nr - The highest disk number in the pile (2 to 4)
 source - Which location number to move from
 destination - Where to move the pile to
@@ -13,8 +13,8 @@ Control the magnet with the following outputs:
 2 - Move the magnet to spot 2
 5 - Toggle the magnet on or off
 
-Play with the magnet manually by using the arrow keys to move and enter to toggle."),
-  (mentor_left, `This level is difficult, but it is a good opportunity for you to use functions. In fact the following solution to the level contains a "recursive function", which means a function that calls itself:
+Play with the magnet manually by using the arrow keys to move and enter to toggle.`)),
+  (mentor_left, (31337_81427576809439, `This level is difficult, but it is a good opportunity for you to use functions. In fact the following solution to the level contains a "recursive function", which means a function that calls itself:
 
 [b]Tower of Hanoi algorithm:[/b]
 [box]func move(disk_nr, source, dest, spare) {
@@ -27,10 +27,10 @@ Play with the magnet manually by using the arrow keys to move and enter to toggl
     }
 }[/box]
 
-[tip]Remember to push register values to the stack to store them in function that changes them.[/tip]`),
+[tip]Remember to push register values to the stack to store them in function that changes them.[/tip]`))
 ]
 post_mortem = [
-    (mentor_left, `Amazing, you finished the game! Look how far you have come from the NAND gate. 
+  (mentor_left, (31337_62636370223849, `Amazing, you finished the game! Look how far you have come from the NAND gate. 
 
-From here you can compete for high scores with other players or build anything you want in the sandbox. And don't forget to follow us on Steam, we are still working on future levels.`),
+From here you can compete for high scores with other players or build anything you want in the sandbox. And don't forget to follow us on Steam, we are still working on future levels.`))
 ]

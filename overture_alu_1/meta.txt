@@ -1,11 +1,11 @@
-title = "Arithmetic Logic Unit (ALU) 1"
+title = (31337_16562043259074, `Arithmetic Logic Unit (ALU) 1`)
 dialogue = [
-(mentor_centered, "Create a device that can OR, NAND, NOR or AND two byte inputs. The third input will be the instruction. An instruction is just what we call the number that determines what to compute.
+  (mentor_centered, (31337_31234606133949, `Create a device that can OR, NAND, NOR or AND two byte inputs. The third input will be the instruction. An instruction is just what we call the number that determines what to compute.
 
 Instructions:
 
 [color=#87a8c8]0 NAND
 1 OR
 2 AND
-3 NOR[/color]"),
+3 NOR[/color]`))
 ]

@@ -1,4 +1,4 @@
-title = "1 Bit Decoder"
+title = (31337_55345008240214, `1 Bit Decoder`)
 dialogue = [
-  (mentor_centered, "Create a component that can switch a signal between 2 pins."),
+  (mentor_centered, (31337_64947954189801, `Create a component that can switch a signal between 2 pins.`))
 ]

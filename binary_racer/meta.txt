@@ -1,9 +1,9 @@
-title = "Binary Racer"
+title = (31337_37988524800638, `Binary Racer`)
 dialogue = [
-  (mentor_centered, `This level teaches you binary.
+  (mentor_centered, (31337_78267067157141, `This level teaches you binary.
 
 Toggle the bits in the level panel so they add up to the decimal number in the question.
 
 You must beat level 3 to pass.
-`)
+`))
 ]

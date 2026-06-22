@@ -1,3 +1,11 @@
+kind = combinational
+hint_kind = combinational
+no_score = true
+size = 30
+unlocks_components = [com_splitter_bit_2, com_splitter_bit_4, com_splitter_bit_8, com_maker_bit_2, com_maker_bit_4, com_maker_bit_8]
+components_available = [com_splitter_bit_8: -1, com_maker_bit_8: -1]
+unlocks_pages = ["Computer concepts/Bytes"]
+background = 5
 title = (31337_46697878992908, `Double the Number`)
 dialogue = [
   (mentor_centered, (31337_78449227663032, `This level introduces byte values, which are shown as numbers between 0 and 255. Bytes are made of 8 bits, each bit is being a binary digit of the number. You are given two new components, one of which takes a byte and splits it into bits, while the other does the reverse.

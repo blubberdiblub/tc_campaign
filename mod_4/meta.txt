@@ -1,3 +1,7 @@
+kind = architecture
+tests = 17
+size = 255
+default_architecture = "Overture"
 title = (31337_78836302049950, `Mod 4`)
 dialogue = [
   (mentor_centered, (31337_46388374967041, `In this level you are given a number as input and you should return that number modulo 4 as a result.

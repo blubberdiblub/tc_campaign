@@ -1,3 +1,7 @@
+kind = architecture
+tests = 64
+size = 255
+default_architecture = "Symphony"
 title = (31337_29450953142176, `Tower of Hanoi`)
 dialogue = [
   (mentor_centered, (31337_23374750315066, `In the game "Towers of Hanoi", you must move a stack of disks from one peg to another. The challenge is that only one disk can be moved at a time, only the top disk on a stack can be moved, and a larger disk can never be placed on top of a smaller one.`)),

@@ -1,4 +1,9 @@
-title = (31337_37729390402296, `Comparison flags`)
+kind = combinational
+hint_kind = combinational
+size = 48
+copy_solution_to_foundry = "Symphony/cmp"
+background = 6
+title = (31337_37729390402296, `Comparison Flags`)
 dialogue = [
   (mentor_centered, (31337_64818361855764, `In this level you compare two 32 bit inputs in three different ways. Each result is a 1 bit value called a "flag".
 

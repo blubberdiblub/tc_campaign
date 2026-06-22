@@ -1,3 +1,9 @@
+kind = sequential
+no_score = true
+size = 255
+copy_solution_to_level = ["symphony_2_io"]
+immutable_isa = true
+shared_data_folder = "symphony"
 title = (31337_62556352127349, `Wire Spaghetti`)
 dialogue = [
   (mentor_centered, (31337_70083014183793, `Finally it is time for you to start building the [color=#e49f44]Symphony[/color] architecture!`)),

@@ -1,3 +1,9 @@
+kind = combinational
+no_score = true
+size = 30
+background = 5
+tick_past_fail = 4
+components_available = [com_off: -1, com_on: -1, com_not_bit: -1, com_nand_bit: -1, com_and_bit: -1, com_nor_bit: -1, com_or_bit: -1, com_xnor_bit: -1, com_xor_bit: -1]
 title = (31337_57679157572023, `Logic Exam`)
 dialogue = [
   (mentor_centered, (31337_35186537961257, `This level is here to make sure you master Boolean logic before you proceed. Being good at this will help you a lot in the future.`)),

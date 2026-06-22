@@ -1,3 +1,7 @@
+kind = architecture
+tests = 8
+size = 255
+default_architecture = "Overture"
 title = (31337_90660848232877, `The Maze`)
 dialogue = [
   (mentor_centered, (31337_84960209408475, `In this level you control a robot. Write an algorithm that guides him from the start to the door at the end of the maze.

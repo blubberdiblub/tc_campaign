@@ -1,4 +1,9 @@
-title = (31337_47348572622406, `Punchcard programming`)
+kind = sequential
+tests = 32
+size = 128
+copy_solution_to_level = ["assembly_programming"]
+immutable_isa = true
+title = (31337_47348572622406, `Punchcard Programming`)
 dialogue = [
   (mentor_centered, (31337_23659479615536, `Now that you have built your first computer it is time to learn how to program it.`)),
   (mentor_centered, (31337_12002017150690, `Click on the "Edit" button on the "Program" component to start punchcard programming your computer. Your computer should read an input, add 5 to it and output it again.`)),

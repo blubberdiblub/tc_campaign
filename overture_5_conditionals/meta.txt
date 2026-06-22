@@ -1,3 +1,9 @@
+kind = sequential
+immutable_isa = true
+no_score = true
+size = 128
+unlocks_pages = ["Computer concepts/Turing complete"]
+copy_solution_to_level = ["binary_programming"]
 title = (31337_59169726539090, `Turing Complete`)
 dialogue = [
   (mentor_centered, (31337_77166984247940, `Until this point all possible programs have been confined to running in order byte by byte.`)),

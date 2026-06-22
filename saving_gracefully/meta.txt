@@ -1,3 +1,8 @@
+kind = sequential
+size = 30
+unlocks_components = [com_register_bit]
+tick_past_fail = 13
+background = 1
 title = (31337_39874917169400, `Saving Gracefully`)
 dialogue = [
   (mentor_centered, (31337_61501859914469, `The Delay Line only allows us to store a value for 1 tick. But sometimes a component that can store a value for longer periods of time is useful.

@@ -1,3 +1,9 @@
+kind = sequential
+no_score = true
+size = 255
+copy_solution_to_level = ["symphony_4_immediates"]
+immutable_isa = true
+shared_data_folder = "symphony"
 title = (31337_78613176066303, `Integrating ALU`)
 dialogue = [
   (mentor_centered, (31337_13069282666558, `Add the ALU you built in the previous level to the circuit. The operation of each instruction is encoded in the [color=#ff6680]Opcode[/color].

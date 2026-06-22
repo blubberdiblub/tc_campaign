@@ -1,3 +1,8 @@
+kind = combinational
+hint_kind = combinational
+size = 32
+unlocks_components = [com_less_u]
+background = 4
 title = (31337_39605373706887, `Unsigned Less`)
 dialogue = [
   (mentor_centered, (31337_68842379350661, `Create a circuit that outputs [ON] when the first input is less than the second. Interpret the bytes as being [color=#dd6576]unsigned[/color].`))

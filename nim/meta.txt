@@ -1,3 +1,8 @@
+kind = architecture
+tests = 9
+size = 255
+background = 4
+default_architecture = "Symphony"
 title = (31337_19817843844200, `Nim`)
 dialogue = [
   (mentor_centered, (31337_53912339443439, `In this level you need to beat the AI in a simple card game. These are the rules: 

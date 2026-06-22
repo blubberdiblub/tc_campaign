@@ -1,3 +1,10 @@
+kind = combinational
+hint_kind = combinational
+size = 48
+copy_solution_to_level = ["symphony_alu"]
+copy_solution_to_foundry = "Overture/ALU"
+background = 6
+next_level = "foundry"
 title = (31337_20519420764551, `Arithmetic Logic Unit (ALU) 2`)
 dialogue = [
   (mentor_centered, (31337_39134024311972, `Add addition and subtraction to your circuit.

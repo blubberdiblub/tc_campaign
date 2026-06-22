@@ -1,3 +1,8 @@
+kind = sequential
+no_score = true
+size = 30
+tick_past_fail = 8
+background = 1
 title = (31337_54648226811178, `Odd Ticks`)
 dialogue = [
   (mentor_centered, (31337_17699211754487, `In a previous level you learned how we don't allow circular dependencies. Now you must learn the one exception.`)),

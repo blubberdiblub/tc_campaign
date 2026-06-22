@@ -1,3 +1,8 @@
+kind = combinational
+hint_kind = combinational
+size = 55
+unlocks_components = [com_add]
+background = 5
 title = (31337_62793095496458, `Adding Bytes`)
 dialogue = [
   (mentor_centered, (31337_31490345812891, `Add the two input bytes. Each output bit in the output should be a result of the addition of the corresponding bits from the inputs, and potentially a carry.`)),

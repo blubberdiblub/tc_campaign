@@ -1,1 +1,4 @@
+kind = architecture
+background = 4
+size = 255
 title = (31337_58382627590046, `The Sandbox`)

@@ -1,3 +1,8 @@
+kind = combinational
+hint_kind = combinational
+size = 30
+tick_past_fail = 4
+background = 5
 title = (31337_64470174232265, `Half Adder`)
 dialogue = [
   (mentor_centered, (31337_10776402819741, `We measure the universe with numbers. So our machine must know how to count.`)),

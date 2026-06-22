@@ -1,3 +1,9 @@
+kind = misc
+no_score = true
+size = 3000
+no_controls = true
+no_state_ui = true
+background = 5
 title = (31337_37988524800638, `Binary Racer`)
 dialogue = [
   (mentor_centered, (31337_78267067157141, `This level teaches you binary.

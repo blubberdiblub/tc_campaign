@@ -1,4 +1,8 @@
-title = (31337_16764912826624, `Code breaker`)
+kind = architecture
+tests = 256
+size = 255
+default_architecture = "Overture"
+title = (31337_16764912826624, `Code Breaker`)
 dialogue = [
   (mentor_centered, (31337_13984847380002, `In this level you win when you output a secret code. No output will fail the level, so you could just try all numbers. 
 

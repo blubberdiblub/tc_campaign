@@ -1,3 +1,9 @@
+kind = combinational
+hint_kind = combinational
+size = 48
+unlocks_components = [com_or_word, com_and_word, com_nor_word]
+copy_solution_to_level = ["overture_alu_2"]
+background = 6
 title = (31337_16562043259074, `Arithmetic Logic Unit (ALU) 1`)
 dialogue = [
   (mentor_centered, (31337_31234606133949, `Create a device that can OR, NAND, NOR or AND two byte inputs. The third input will be the instruction. An instruction is just what we call the number that determines what to compute.

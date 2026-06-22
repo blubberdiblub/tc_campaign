@@ -1,3 +1,9 @@
+kind = sequential
+no_score = true
+size = 255
+copy_solution_to_level = ["symphony_5_jumps"]
+immutable_isa = true
+shared_data_folder = "symphony"
 title = (31337_46968415562883, `Immediates`)
 dialogue = [
   (mentor_centered, (31337_85471608475185, `Sometimes it is useful to load a value directly from the program instead of from registers. A value directly encoded in an instruction is called an immediate value. With [color=#e49f44]Symphony[/color], we can replace argument B with an immediate in any instruction. This is done by setting the fourth bit to 1 and encoding the value in the last two bytes like so:

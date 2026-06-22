@@ -1,1 +1,4 @@
+kind = preview_architecture
+background = 4
+size = 255
 title = (31337_46932595269557, `Hub Preview`)

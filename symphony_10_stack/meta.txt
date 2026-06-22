@@ -1,3 +1,9 @@
+kind = sequential
+size = 255
+immutable_isa = true
+shared_data_folder = "symphony"
+copy_solution_to_level = ["symphony_11_functions"]
+no_score = true
 title = (31337_29798404581087, `Stack`)
 dialogue = [
   (mentor_left, (31337_68315222097089, `The challenge of this level is to implement a common programming structure called a "stack". You are supposed to do this in assembly. You can do two things with a stack:

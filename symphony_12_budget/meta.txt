@@ -1,3 +1,8 @@
+kind = sequential
+size = 255
+immutable_isa = true
+max_delay = 175
+shared_data_folder = "symphony"
 title = (31337_69806637130600, `Fast Symphony`)
 dialogue = [
   (mentor_centered, (31337_68182570848466, `The objective of this level is simple, reduce the delay of Symphony to 175 or below. Go back through previous levels and improve scores if you have to.`))

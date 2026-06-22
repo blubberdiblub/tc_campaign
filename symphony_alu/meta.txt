@@ -1,3 +1,9 @@
+kind = combinational
+hint_kind = combinational
+size = 48
+copy_solution_to_foundry = "Symphony/ALU"
+copy_solution_to_level = ["symphony_fast_alu"]
+background = 6
 title = (31337_71902120982324, `Symphony ALU`)
 dialogue = [
   (mentor_centered, (31337_52048822283735, `This is a copy of the Overture ALU. Time to upgrade it to 32 bits and a few new instructions.

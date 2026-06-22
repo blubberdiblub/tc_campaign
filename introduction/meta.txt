@@ -1,4 +1,10 @@
-title = (31337_44716420394020, `Humble beginnings`)
+kind = misc
+no_score = true
+size = 30
+no_controls = true
+background = 4
+next_level = "nand_gate"
+title = (31337_44716420394020, `Humble Beginnings`)
 dialogue = [
   (mentor_centered, (31337_76679675871478, `This first level of the game is a simple introduction to circuits. Here you have an input and an output with a wire in between. Simply turn on the input in the left hand menu to complete the level.`))
 ]

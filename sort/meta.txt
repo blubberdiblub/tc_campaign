@@ -1,3 +1,7 @@
+kind = architecture
+tests = 64
+size = 255
+default_architecture = "Symphony"
 title = (31337_76043573058111, `Sorting`)
 dialogue = [
   (mentor_centered, (31337_23043475637417, `In this level your job is to sort 16 numbers. Read the input 16 times one by one, sort them and output them smallest to largest.`))

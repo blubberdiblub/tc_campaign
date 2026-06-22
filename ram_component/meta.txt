@@ -1,3 +1,6 @@
+kind = sequential
+size = 16
+unlocks_components = [com_ram]
 title = (31337_14374127314134, `Little Box`)
 dialogue = [
   (mentor_centered, (31337_76851096880864, `Can you fit 4 bytes of memory in this limited space?`)),

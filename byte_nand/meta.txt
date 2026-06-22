@@ -1,3 +1,8 @@
+kind = combinational
+hint_kind = combinational
+size = 30
+unlocks_components = [com_nand_word]
+background = 5
 title = (31337_11980470862173, `Byte NAND`)
 dialogue = [
   (mentor_centered, (31337_52274910421610, `NAND each bit of the input bytes and output the result.

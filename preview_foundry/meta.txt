@@ -1,1 +1,4 @@
+kind = preview_foundry
+background = 6
+size = 255
 title = (31337_78694087261378, `Hub Preview`)

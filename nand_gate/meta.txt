@@ -1,3 +1,10 @@
+kind = misc
+no_score = true
+size = 30
+unlocks_components = [com_nand_bit]
+no_controls = true
+background = 4
+next_level = "not_gate"
 title = (31337_39082333495604, `NAND Gate`)
 dialogue = [
   (mentor_centered, (31337_65167079914703, `The first section of the game is about "Boolean logic". Boolean logic describes the simplest forms of calculation computers can do. In fact these calculations are what every other calculation in the computer is made out of.`)),

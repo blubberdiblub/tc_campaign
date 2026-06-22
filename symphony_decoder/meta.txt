@@ -1,4 +1,13 @@
-title = (31337_13883461694525, `Instruction decoder`)
+kind = combinational
+hint_kind = combinational
+size = 48
+copy_solution_to_foundry = "Symphony/DEC"
+copy_solution_to_level = ["symphony_decoder_2"]
+background = 6
+no_score = true
+components_available = [com_static_indexer: 7]
+unlocks_components = [com_static_indexer, com_static_indexer_config, com_static_value, com_static_eval, com_register_word_config, com_delay_line_word_config]
+title = (31337_13883461694525, `Instruction Decoder`)
 dialogue = [
   (mentor_centered, (31337_71911284169222, `
 Build a circuit that splits Symphony instructions into their different parts. This will be very helpful later.

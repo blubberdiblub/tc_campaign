@@ -1,3 +1,9 @@
+kind = sequential
+size = 255
+immutable_isa = true
+copy_solution_to_level = ["symphony_6_ram"]
+no_score = true
+shared_data_folder = "symphony"
 title = (31337_39122914366346, `Jumps`)
 dialogue = [
   (mentor_centered, (31337_57225943470132, `These are the [color=#ff9800]Modes[/color] of [color=#e49f44]Symphony[/color]:

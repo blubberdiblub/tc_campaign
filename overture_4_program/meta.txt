@@ -1,3 +1,11 @@
+kind = sequential
+immutable_isa = true
+no_score = true
+size = 128
+copy_solution_to_level = ["overture_5_conditionals"]
+unlocks_components = [com_load_port, com_store_port]
+delete_immutables_by_label = ["instruction"]
+unlocks_pages = ["Computer concepts/Endianness"]
 title = (31337_10102035559374, `Program`)
 dialogue = [
   (mentor_centered, (31337_58149108600515, `The instruction input component has been removed. It has been replaced by a RAM component containing the program. The RAM has a "load port" attached to it. When enable pin on the load port is enabled, it will output a value from the RAM, based on the given address. Every tick, use the counter to load the next instruction from the program's memory.`)),

@@ -1,3 +1,10 @@
+kind = combinational
+hint_kind = combinational
+size = 30
+tick_past_fail = 16
+no_score = true
+unlocks_pages = ["Computer concepts/Binary"]
+background = 5
 title = (31337_14499217305520, `Counting Signals`)
 dialogue = [
   (mentor_centered, (31337_83123268362253, `The output component of this level is a binary counter where the first three pins correspond to 1, 2 and 4.

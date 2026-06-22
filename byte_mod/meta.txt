@@ -1,3 +1,7 @@
+kind = combinational
+hint_kind = combinational
+size = 255
+unlocks_components = [com_mod]
 title = (31337_84095392269624, `Modulo`)
 dialogue = [
   (mentor_centered, (31337_87605997307596, `Output the modulo of the two inputs. If the second input (the divisor) is 0, the result should be the same as the first input (the dividend).`))

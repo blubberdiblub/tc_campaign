@@ -1,3 +1,10 @@
+kind = combinational
+hint_kind = combinational
+size = 30
+unlocks_components = [com_not_bit]
+tick_past_fail = 2
+background = 4
+unlocks_special = ["level_map"]
 title = (31337_16394937100308, `NOT Gate`)
 dialogue = [
   (mentor_centered, (31337_80163590000700, `Now that you unlocked the NAND gate, it is time for you to build a circuit yourself.`)),

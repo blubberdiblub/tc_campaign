@@ -1,3 +1,8 @@
+kind = sequential
+immutable_isa = true
+no_score = true
+size = 50
+copy_solution_to_level = ["overture_2_alu"]
 title = (31337_79626649565563, `Registers`)
 dialogue = [
   (mentor_centered, (31337_36376879506769, `It is finally time to build your first computer. I will teach you how to build the [color=#e49f44]Overture[/color] architecture, an actual Turing complete machine, a true computer in every way.`)),

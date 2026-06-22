@@ -1,3 +1,9 @@
+kind = combinational
+hint_kind = combinational
+size = 30
+tick_past_fail = 16
+no_score = true
+background = 5
 title = (31337_81647833476822, `Double Detection`)
 dialogue = [
   (mentor_centered, (31337_43068867747292, `This level has 4 inputs. 

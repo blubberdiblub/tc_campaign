@@ -1,4 +1,9 @@
-title = (31337_20456965663323, `Instruction aliases`)
+kind = sequential
+size = 255
+no_score = true
+copy_solution_to_level = ["symphony_10_stack"]
+shared_data_folder = "symphony"
+title = (31337_20456965663323, `Instruction Aliases`)
 dialogue = [
   (mentor_left, (31337_41535895646297, `Like previous levels, this level introduces new instructions. However, in this level you are not supposed to add additional hardware, but instead change the assembly specification to reuse already existing instruction hardware for new instructions.
 

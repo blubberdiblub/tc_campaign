@@ -1,3 +1,11 @@
+kind = misc
+no_score = true
+size = 3000
+no_controls = true
+no_state_ui = true
+unlocks_pages = ["Computer concepts/Negative numbers"]
+background = 5
+unlocks_special = ["signed_numbers"]
 title = (31337_20753698232132, `Negative Numbers`)
 dialogue = [
   (mentor_centered, (31337_87951492143019, `To know the difference between things, you need subtraction. To get subtraction, first you need negative numbers.`)),

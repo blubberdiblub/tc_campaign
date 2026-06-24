@@ -252,6 +252,13 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
 }
 
+def on_ui_update(input: Input, output: Output) {
+    
+    var instruction = get_ram_value("Main Memory", Int .counter, <U32>)
+    ui_set_instruction(0, Int instruction, Int .counter)
+        
+}
+
 def get_input(tick: Int) Input { 
 
     if tick < 0xff {
@@ -286,7 +293,6 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     }
 
     var instruction = get_ram_value("Main Memory", Int .counter, <U32>)
-    ui_set_instruction(0, Int instruction, Int .counter)
 
     let error = retire_instruction(Int instruction, Int input.input, output.output_enabled, Int output.output)
 

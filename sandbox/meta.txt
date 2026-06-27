@@ -1,4 +1,5 @@
 kind = architecture
-background = 4
+background = 6
 size = 255
+arch_input_word_size = 64
 title = (31337_58382627590046, `The Sandbox`)

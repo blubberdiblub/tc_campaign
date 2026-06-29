@@ -4,6 +4,15 @@ var ram = array(<U8>, 1000)
 var waiting_for_pop = 0
 var count = 0
 
+def on_ui_update(input: Input, output: Output) {
+
+    let actual_counter = get_load_port_input("Instruction")
+
+    var instruction = get_ram_value("Main Memory", Int actual_counter, <U32>)
+    ui_set_instruction(0, Int instruction, Int actual_counter)
+
+}
+
 def get_input(tick: Int) Input {
 
     var result = random(2) == 0 ? 1 + random(0xfe) : 0

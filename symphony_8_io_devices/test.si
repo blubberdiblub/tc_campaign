@@ -253,10 +253,12 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 }
 
 def on_ui_update(input: Input, output: Output) {
-    
-    var instruction = get_ram_value("Main Memory", Int .counter, <U32>)
-    ui_set_instruction(0, Int instruction, Int .counter)
-        
+
+    let actual_counter = get_load_port_input("Instruction")
+
+    var instruction = get_ram_value("Main Memory", Int actual_counter, <U32>)
+    ui_set_instruction(0, Int instruction, Int actual_counter)
+
 }
 
 def get_input(tick: Int) Input { 

@@ -3,29 +3,25 @@ name = "Overture"
 
 [fields]
 
-in_register
+register
 r0 000
 r1 001
 r2 010
 r3 011
 r4 100
 r5 101
+
+in_register
 in 110
 
 out_register
-r0 000
-r1 001
-r2 010
-r3 011
-r4 100
-r5 101
 out 110
 
 [instructions]
 
-mov %a(out_register), %b(in_register)
-10aaabbb
-# (31337_45432635426071, `Moves a value from %b to %a.`)
+mov %a(register | out_register), %b(register | in_register)
+10bbbaaa
+# Moves a value from %b to %a.
 
 imm %a(immediate | label)
 00aaaaaa

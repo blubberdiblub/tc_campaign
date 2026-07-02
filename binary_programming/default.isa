@@ -20,8 +20,8 @@ out 110
 [instructions]
 
 mov %a(register | out_register), %b(register | in_register)
-10bbbaaa
-# Moves a value from %b to %a.
+10aaabbb
+# (31337_31456617450268, `Moves a value from %b to %a.`)
 
 imm %a(immediate | label)
 00aaaaaa

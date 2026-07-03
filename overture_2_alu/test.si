@@ -25,8 +25,8 @@ while h < 6 {
     h += 1
 }
 
-var alu_opp = U8 0
 var i = 0
+var alu_opp = U8 0
 while alu_opp < 6 {
     instructions[i] = #MOVE | #INPUT | 1
     i += 1
@@ -66,6 +66,19 @@ while s <= 6 {
         d += 1
     }
     s += 1
+}
+
+alu_opp = U8 0
+while alu_opp < 6 {
+    instructions[i] = #MOVE | #INPUT | 1
+    i += 1
+    instructions[i] = #MOVE | #INPUT | 2
+    i += 1
+    instructions[i] = #CALC | alu_opp
+    i += 1
+    instructions[i] = #MOVE | U8 3 << 3 | #OUTPUT
+    i += 1
+    alu_opp += 1
 }
 
 tests = i - 1

@@ -4,9 +4,9 @@ unlocks_components = [com_register_word, com_delay_line_word]
 background = 1
 title = (31337_41663630841312, `Saving Bytes`)
 dialogue = [
-  (mentor_centered, (31337_87293777622656, `Create a circuit that can [color=#ffcc44][b]STORE[/b][/color] a byte.
+  (mentor_centered, (31337_87293777622656, `Create a circuit that can store a byte.
 
-When the "SAVE" input is [ON], [color=#ffcc44][b]STORE[/b][/color] the input byte.
+When the "SAVE" input is [ON], store the input byte.
 
 At all times output the stored value to the output.`))
 ]

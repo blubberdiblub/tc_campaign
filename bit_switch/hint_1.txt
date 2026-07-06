@@ -1,2 +1,2 @@
-[text text=(31337_76027454955517, `A switch is very similar to an AND gate so we replace both of them`) size=33 y=-25]
-[text text=(31337_45466715038362, `Now the board is just one OR gate over the budget`) size=33 y=25]
+[text text=(31337_76027454955517, `A switch is very similar to an AND gate so let's replace them`) size=33 y=-25]
+[text text=(31337_45466715038362, `Now we just need to eliminate the OR gate to stay within budget`) size=33 y=25]

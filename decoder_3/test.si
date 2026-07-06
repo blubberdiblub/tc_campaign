@@ -8,17 +8,24 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     var value = Int output.output
 
+    if output.output_is_z {
+
+        set_error((31337_67815034722964, `Output should never be Z`))
+        return fail
+
+    }
+
     if input.disable == 1 {
         if value != 0 {
 
-            set_error((31337_18073111523064, `Expected all outputs to be OFF since the disable bit is ON`))
+            set_error((31337_18073111523064, `Expected all outputs to be [OFF] since the disable bit is [ON]`))
             return fail
 
         }
 
     } elif value != 1 << tick {
 
-        set_error((31337_10870388349665, `Expected output {tick} to be ON and other outputs to be OFF`))
+        set_error((31337_10870388349665, `Expected output {tick} to be [ON] and other outputs to be [OFF]`))
         return fail
 
     }

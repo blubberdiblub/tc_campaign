@@ -37,15 +37,16 @@ def get_input(tick: Int) Input {
 
     ui_set_text("table[0][1]", text)
     ui_set_text("table[1][1]", `{num}`)
-    ui_set_text("table[2][1]", `{.last_mem}`)
 
     if overwrite == 0 {
         text = (31337_30050502504940, `Add 1`)
     } else {
         text = (31337_69821998974515, `Overwrite with {num}`)
     }
-    ui_set_text("table[3][1]", text)
-    ui_set_text("table[4][1]", `{.new_mem}`)
+    ui_set_text("table[2][1]", text)
+
+    ui_set_text("table[3][1]", `{.new_mem}`)
+    ui_set_text("table[4][1]", `{.last_mem}`)
 
     return Input {set: U1 overwrite, value: U8 num}
 

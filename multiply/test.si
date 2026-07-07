@@ -19,6 +19,11 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     ui_set_text("description", (31337_13790051293386, `{a} * {b} is {result}`))
 
+    if output.result_is_z {
+        set_error((31337_33181499064044, `Result should never be Z state`))
+        return fail
+    }
+
     if output.result != (input.a * input.b) & 0xff {
 
         let a = input.a

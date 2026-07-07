@@ -5,7 +5,11 @@ def get_input(tick: Int) Input {
 }
 
 def check_output(tick: Int, input: Input, output: Output) TestResult {
-    
+
+    if output.sum_is_z || output.carry_is_z {
+        return fail
+    }
+
     if U8 input.a + U8 input.b == U8 output.sum + U8 output.carry * 2 {
 
         if tick == 3 {

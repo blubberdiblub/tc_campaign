@@ -20,6 +20,11 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     ui_set_text("description", description)
 
+    if output.result_is_z {
+        set_error((31337_33181499064044, `Result should never be Z state`))
+        return fail
+    }
+
     if result & 0xff != output.result & 0xff {
         set_error(description)
         return fail

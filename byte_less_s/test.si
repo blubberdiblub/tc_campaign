@@ -19,6 +19,11 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     let result = expected ? "[ON]" : "[OFF]"
     ui_set_text("description", (31337_67770115019509, `{a} < {b} is {result}`))
 
+    if output.result_is_z {
+        set_error((31337_33181499064044, `Result should never be Z state`))
+        return fail
+    }
+
     if expected == actual {
 
         if tick == 0xffff { 

@@ -56,7 +56,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if output.output_is_z {
         ui_set_text("table[5][1]", `Z`)
-        set_error((31337_14151633972646, `Output should never be Z.`))
+        set_error((31337_70376380014778, `Output should never be Z state`))
         return fail
     } else {
         ui_set_text("table[5][1]", `{output.output}`)

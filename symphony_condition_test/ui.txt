@@ -1,1 +1,6 @@
-[text id="description" text=(31337_60849966858957, `Implement the Symphony flags`) size=36]
+[table id="table" size=27 x=-100 spacing_y=4]
+(31337_25959617344671, `Flags`),            "[right][ANY][ANY][ANY][/right]"
+(31337_17010689474441, `Condition`),        "[ANY][ANY][ANY][ANY]"
+(31337_59092390409834, `Desired output`),   "[ANY]"
+(31337_38271404408184, `Current output`),   "[ANY]"
+[/table]

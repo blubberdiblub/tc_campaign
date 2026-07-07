@@ -34,11 +34,14 @@ def get_input(tick: Int) Input {
 def check_output(tick: Int, input: Input, output: Output) TestResult {
     let expected = input.input >> U8 input.shift
     ui_set_text("table[2][1]", get_binary_repr(Int expected, 8))
+
     if output.result_is_z {
         ui_set_text("table[3][1]", "[right][ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]")
-    } else {
-        ui_set_text("table[3][1]", get_binary_repr(Int output.result, 8))
+        set_error((31337_33181499064044, `Result should never be Z state`))
+        return fail
     }
+
+    ui_set_text("table[3][1]", get_binary_repr(Int output.result, 8))
 
     if output.result != expected {
         return fail

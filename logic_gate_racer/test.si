@@ -80,7 +80,7 @@ def get_input(tick: Int) Input {
 
 def check_output(tick: Int, input: Input, output: Output) TestResult {
     let new_history = .test * #NUM_STATE
-    if output.output != get_expected_output(input.input) {
+    if output.output_is_z || output.output != get_expected_output(input.input) {
         update_history_ui(new_history + #FAIL)
         return fail
     }

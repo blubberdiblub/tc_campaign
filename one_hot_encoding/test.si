@@ -14,7 +14,11 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     }
 
-    
+    if output.output_is_z {
+        set_error((31337_70376380014778, `Output should never be Z state`))
+        return fail
+    }
+
     let expected = 1 << tick
     // Find difference between expected result and actual output by xoring. If they are the same the result should be 0
     let result = expected ^ Int output.output

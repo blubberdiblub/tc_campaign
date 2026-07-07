@@ -39,6 +39,10 @@ def get_input(tick: Int) Input {
 }
 
 def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    if output.output_is_z {
+        return fail
+    }
     
     ui_set_text("table[3][1]", `{output.output}`)
     ui_set_text("table[3][2]", get_binary_repr(Int output.output))

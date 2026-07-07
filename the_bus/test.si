@@ -47,7 +47,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if input.output_select == 0 {
 
-        if output.x != val {
+        if output.x_is_z || output.x != val {
 
             set_error((31337_65293894030728, `Output X should be {val}.`))
             return fail
@@ -63,7 +63,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     } else {
 
-        if output.y != val {
+        if output.y_is_z || output.y != val {
 
             set_error((31337_28173496384607, `Output Y should be {val}.`))
             return fail

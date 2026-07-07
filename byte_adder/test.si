@@ -48,10 +48,12 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if output.output_is_z {
         ui_set_text("table[4][1]", `[ANY]`)
-    } else {
-        ui_set_text("table[4][1]", `{Int output.carry_out << 8 | Int output.output}`)
+        ui_set_text("table[4][2]", `[right]    [ANY]    [ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY][/right]`)
+        set_error((31337_70376380014778, `Output should never be Z state`))
+        return fail
     }
 
+    ui_set_text("table[4][1]", `{Int output.carry_out << 8 | Int output.output}`)
     ui_set_text("table[4][2]", `[right]    {get_binary_repr(Int output.carry_out, 1)}    {get_binary_repr(Int output.output, 8)}[/right]`)
     
     var sum = Int input.a + Int input.b + Int input.carry_in

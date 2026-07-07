@@ -5,9 +5,15 @@ def get_input(tick: Int) Input {
 }
 
 def check_output(tick: Int, input: Input, output: Output) TestResult {
+
+    if output.output_is_z {
+        return fail
+    }
+
     if #CORRECT_OUTPUT[tick] != output.output {
         return fail
     }
+
     if tick == #CORRECT_OUTPUT.len() - 1 {
         return win
     }

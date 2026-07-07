@@ -102,7 +102,11 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     
     if output.result_is_z {
         ui_set_text("table[4][1]", "[ANY]")
-    } elif output.result == 0 {
+        set_error((31337_70376380014778, `Output should never be Z state`))
+        return fail
+    }
+
+    if output.result == 0 {
         ui_set_text("table[4][1]", "[OFF]")
     } else {
         ui_set_text("table[4][1]", "[ON]")

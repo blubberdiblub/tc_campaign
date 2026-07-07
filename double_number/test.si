@@ -28,10 +28,16 @@ def get_input(tick: Int) Input {
 }
 
 def check_output(tick: Int, input: Input, output: Output) TestResult {
-
     let expected = input.input * 2
     ui_set_text("table[1][1]", get_padded_number(str(expected), 3))
     ui_set_text("table[1][2]", get_binary_repr(expected, U8 8))
+
+    if output.output_is_z {
+        ui_set_text("table[2][1]", ` Z `)
+        ui_set_text("table[2][2]", `[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]`)
+        return fail
+    }
+
     ui_set_text("table[2][1]", get_padded_number(str(output.output), 3))
     ui_set_text("table[2][2]", get_binary_repr(output.output, U8 8))
 

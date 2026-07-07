@@ -15,6 +15,10 @@ def get_input(tick: Int) Input {
 
 def check_output(tick: Int, input: Input, output: Output) TestResult {
 
+    if output.output_is_z {
+        return fail
+    }
+
     let count = get_component_count() - 2
     ui_set_text("count", (31337_79968621207030, `{count} of 3`))
 

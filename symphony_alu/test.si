@@ -115,6 +115,11 @@ def get_input(tick: Int) Input {
 
 def check_output(tick: Int, input: Input, output: Output) TestResult {
 
+    if output.result_is_z {
+        set_error((31337_33181499064044, `Result should never be Z state`))
+        return fail
+    }
+
     var result = U32 0
 
     switch input.opcode

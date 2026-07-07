@@ -7,6 +7,10 @@ def get_input(tick: Int) Input {
 
 def check_output(tick: Int, input: Input, output: Output) TestResult {
 
+    if output.sum_is_z || output.carry_is_z {
+        return fail
+    }
+
     let actual_sum = U8 input.input_0 + U8 input.input_1 + U8 input.input_2
     let given_sum = (U8 output.sum) + (U8 output.carry << U8 1)
 

@@ -36,11 +36,11 @@ def get_input(tick: Int) Input {
 
     switch condition
         0 {
-            ui_set_text("table[2][1]", `NEVER`)
+            ui_set_text("table[2][1]", (31337_80507287196650, `NEVER`))
             ui_set_text("table[3][1]", "[OFF]")
         }
         1 {
-            ui_set_text("table[2][1]", `ALWAYS`)
+            ui_set_text("table[2][1]", (31337_74974087807935, `ALWAYS`))
             ui_set_text("table[3][1]", "[ON]")
         }
         2 {

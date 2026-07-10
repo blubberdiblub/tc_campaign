@@ -20,7 +20,7 @@ Say function A calls function B, who calls function C. When we want to return fr
 
 "call" is used to enter a function. It pushes the address of the next instruction on the stack (by reading the counter and adding an offset). It then jumps to the start of the function.
 
-"ret" is used to return from a function. It pops the return address off the stack and jumps to it`)),
+"ret" is used to return from a function. It pops the return address off the stack and jumps to it.`)),
   (mentor_centered, (31337_56028205797304, `As functions likely change the value of registers, we may want to push values on the stack to save them and pop them off again afterwards to restore them. It isn't important whether this is done inside or outside the called function, however it is good practice to establish a convention for this (called a "calling convention"), such that all functions are compatible with each other.`)),
   (mentor_centered, (31337_42088257134737, `This level is only here for you to observe how functions work, there is no test. Be sure you read the assembly and step through to the end so you understand how everything works. It will be necessary for future levels.`))
 ]

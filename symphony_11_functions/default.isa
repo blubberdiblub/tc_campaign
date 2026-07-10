@@ -277,7 +277,7 @@ mov %a(register), %b(register)
 00100001 aaaa0000 0000bbbb 00000000
 # (31337_53941960758392, `Moves a value from %b to %a.`)
 
-mov %a(register), %b(immediate)
+mov %a(register), %b(immediate | label)
 00110001 aaaa0000 bbbbbbbb bbbbbbbb
 # (31337_34859363394334, `Moves a value to %a.`)
 
@@ -285,7 +285,7 @@ neg %a(register), %b(register)
 00100101 aaaa0000 0000bbbb 00000000
 # (31337_72894099288447, `Negates a %b and stores it in %a.`)
 
-neg %a(register), %b(immediate)
+neg %a(register), %b(immediate | label)
 00110101 aaaa0000 bbbbbbbb bbbbbbbb
 # (31337_57504570243305, `Negates a value and stores it in %a.`)
 
@@ -293,7 +293,7 @@ not %a(register), %b(register)
 00100011 aaaa0000 0000bbbb 00000000
 # (31337_55357258069734, `Toggles the bits of %b and stores it in %a.`)
 
-not %a(register), %b(immediate)
+not %a(register), %b(immediate | label)
 00110011 aaaa0000 bbbbbbbb bbbbbbbb
 # (31337_40508048121543, `Toggles the bits of a value and stores it in %a.`)
 

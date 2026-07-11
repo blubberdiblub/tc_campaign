@@ -8,7 +8,7 @@ title = (31337_59169726539090, `Turing Complete`)
 dialogue = [
   (mentor_centered, (31337_77166984247940, `Until this point all possible programs have been confined to running in order byte by byte.`)),
   (mentor_centered, (31337_85320707451673, `Before, only code could influence memory, now memory must influence code. With the addition of conditional logic, our computer can run any algorithm, and calculate anything calculable. Like all non-theoretical computers, this machine will only be limited by having finite memory.`)),
-  (info_left, (31337_89085328104477, `The final thing we need to add is a mechanism for changing the program counter through instructions when certain conditions are met.
+  (mentor_left, (31337_89085328104477, `The final thing we need to add is a mechanism for changing the program counter through instructions when certain conditions are met.
 
 When the two largest bits are [ON][ON], we are in condition mode. In condition mode, the value in REG 3 is compared against the conditions defined by the lowest 3 bits in the instruction. If the condition is true, we overwrite the counter to the value in REG 0.
 Conditionally changing the counter means we can skip instructions based on conditions or have instructions run in a loop.

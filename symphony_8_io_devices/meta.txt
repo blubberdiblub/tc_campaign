@@ -12,17 +12,15 @@ dialogue = [
 
 Also link the screen to the RAM component named "Main Memory".
 `)),
-  (mentor_left, (31337_29247683714165, `So far IO mode has had only 3 instructions, but now it is time to add several more. These are the opcodes for the full list of IO instructions:
-
-0  nop       Do nothing
-1  in        Input
-2  out       Output
-3  keyboard  Read the keyboard value
-4  screen    Set the screen settings
-5  time_0    Read the lower 32 bits of time
-6  time_1    Read the upper 32 bits of time
-7  counter   Read the counter value
-
+  (mentor_centered, (31337_29247683714165, `So far IO mode has had only 3 instructions, but now it is time to add several more. These are the opcodes for the full list of IO instructions:[left]
+   0  nop       Do nothing
+   1  in        Input
+   2  out       Output
+   3  keyboard  Read the keyboard value
+   4  screen    Set the screen settings
+   5  time_0    Read the lower 32 bits of time
+   6  time_1    Read the upper 32 bits of time
+   7  counter   Read the counter value[/left]
 
 The screen can interpret bytes in the RAM component it is linked to in many ways (see manual). The screen has the "Enable", "Setting index" & "Value" inputs, which are the way to interact with the screen's internal registers (also explained in the manual).
 When the screen instruction is executed, the screen's register provided by argument A should be set to the value of argument B (which can be an immediate or be sourced from a register).
@@ -32,10 +30,8 @@ The time component outputs the time in nano seconds since 1st of January 1970 (T
 The counter refers to the custom component that determines the offset the Assembler reads from. This should read the current offset.
 
 The keyboard value should be a mix of the "Key Down" and "Key Value" output pins, like so:
-
 D = Key Down
 V = Key Value
-
-0000000D VVVVVVVV
+[highlight]0000000D VVVVVVVV[/highlight]
 `))
 ]

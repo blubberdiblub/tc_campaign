@@ -9,19 +9,16 @@ dialogue = [
 
 This operation is known as [b]logical shift right[/b] and in assembly it is often abbreviated as [b]lsr[/b].
 
-For example [b]180 lsr 1[/b]
-
-[ON] [OFF] [ON] [ON] [OFF] [ON] [OFF] [OFF] Shifts this by 1:
-[OFF] [ON] [OFF] [ON] [ON] [OFF] [ON] [OFF]
-
-And [b]180 lsr 3[/b]
-[ON] [OFF] [ON] [ON] [OFF] [ON] [OFF] [OFF] Shifts this by 3:
-[OFF] [OFF] [OFF] [ON] [OFF] [ON] [ON] [OFF]
-
+For example [b]180 lsr 1[/b][left]
+           [ON][OFF][ON][ON][OFF][ON][OFF][OFF] Shifts this by 1:
+           [OFF][ON][OFF][ON][ON][OFF][ON][OFF][/left]
+And [b]180 lsr 3[/b][left]
+           [ON][OFF][ON][ON][OFF][ON][OFF][OFF] Shifts this by 3:
+           [OFF][OFF][OFF][ON][OFF][ON][ON][OFF][/left]
 `)),
   (mentor_centered, (31337_26791208073532, `The task in this level is to shift the first input to the right by the value given in the second input.
 `))
 ]
 post_mortem = [
-  (mentor_left, (31337_83781539475221, `In addition to giving you a shift right component, you also get a shift left component.`))
+  (mentor_centered, (31337_83781539475221, `In addition to giving you a shift right component, you also get a shift left component.`))
 ]

@@ -7,7 +7,7 @@ immutable_isa = true
 title = (31337_72990407719621, `Assembly Programming`)
 dialogue = [
   (mentor_centered, (31337_17226968214352, `Punchcard programming is tedious. Lets try adding 5 to the input again like in the previous level, but this time using assembly programming instead.`)),
-  (mentor_left, (31337_73801373825270, `The point of an assembly language is to give human readable nicknames to the instructions that our machines execute. 
+  (mentor_centered, (31337_73801373825270, `The point of an assembly language is to give human readable nicknames to the instructions that our machines execute. 
 
 Conventionally, an instruction syntax will begin with an abbreviated word (called a "[color=#9966ff]mnemonic[/color]") that describes the instruction, followed by a list of [color=#66ccff]operands[/color] like so:
 [highlight][color=#9966ff]mov[/color] [color=#66ccff]r1[/color], [color=#66ccff]r2[/color][/highlight]

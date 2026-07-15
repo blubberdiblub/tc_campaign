@@ -256,6 +256,6 @@ def arch_check_output(test: Int, input: Int, output: Int) TestResult {
 }
 
 
-redraw()
+// redraw()
 
 

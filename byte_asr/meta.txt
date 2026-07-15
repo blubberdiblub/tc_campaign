@@ -10,7 +10,7 @@ dialogue = [
  [ON] [OFF] [OFF] [ON] [OFF] [ON] [ON] [OFF]
 Results in:
 |[ON] [ON] [ON]|[ON] [OFF] [OFF] [ON] [OFF]
-      ^                     
+      ^                    
 And here we insert [ON] instead of [OFF]
 
 `))

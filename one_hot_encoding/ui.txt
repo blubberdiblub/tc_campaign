@@ -1,1 +1,5 @@
-[text id="description" text=(31337_61210012476835, `Select the correct output`) size=36]
+[table id="table" size=27 x=-100 spacing_y=4]
+(31337_10529708471093, `Input`),            "?"
+(31337_59092390409834, `Desired output`),   "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+(31337_38271404408184, `Current output`),   "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+[/table]

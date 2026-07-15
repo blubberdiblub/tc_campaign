@@ -1,2 +1,2 @@
 [text id="bg" text="" size=25 color=0xBC8647FF]
-[text id="text" text="" size=25]
+[text id="text" text="computable numbers are the real numbers whose expressions as a decimal are calculable by finite means" size=25]

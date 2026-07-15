@@ -27,11 +27,10 @@ E [ON][ON][ON][OFF]
 F [ON][ON][ON][ON]
 
 As an example where hexadecimal is clearer, lets compare the representation of the largest 16 bit number:
-
-Binary:      1111111111111111
-Decimal:     65535
-Hexadecimal: FFFF
-
+[left]
+              Binary:      1111111111111111
+              Decimal:     65535
+              Hexadecimal: FFFF[/left]
 It is not easy to tell if the binary is missing a digit or if the decimal number is correct, the hexadecimal on the other hand is immediately clear (once you get used to the representation at least).`)),
   (mentor_centered, (31337_87098190175913, `Toggle the bits in the level panel so they add up to the hexadecimal number in the question.
 

@@ -1,5 +1,5 @@
 kind = sequential
-tests = 32
+tests = 251
 size = 128
 copy_solution_to_level = ["assembly_programming"]
 immutable_isa = true

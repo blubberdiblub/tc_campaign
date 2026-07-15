@@ -1,5 +1,5 @@
 
-var input = U8 random(250)
+var input = U8 get_test()
 
 def get_input(tick: Int) Input {
 

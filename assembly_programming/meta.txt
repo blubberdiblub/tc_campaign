@@ -1,5 +1,5 @@
 kind = sequential
-tests = 32
+tests = 251
 size = 128
 copy_solution_to_architecture = "Overture"
 unlocks_pages = ["Assembly/Language creation", "Assembly/Assembly programming"]

@@ -1,5 +1,5 @@
 
-var input = U8 get_test()
+var input = U8 ((get_test() * 207 + 168) % 251)
 
 def get_input(tick: Int) Input {
 

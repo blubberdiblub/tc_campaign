@@ -8,8 +8,8 @@ title = (31337_83283206082997, `Conditions`)
 dialogue = [
   (mentor_centered, (31337_71466914240996, `This level has a value input and 3 condition bit inputs.
 
-The 3 bits select the condition as shown below. Check the value against the selected condition and output [ON] if it is satisfied and [OFF] otherwise.
+The 3 bits select the condition as shown below. Check the value against the selected condition and output [T] if it is satisfied and [F] otherwise.
 
-Bit code:   Turn [ON] when:
-[left]          [OFF][OFF][OFF]   Never[/left][left]          [OFF][OFF][ON]   Always[/left][left]          [OFF][ON][OFF]   If value = 0[/left][left]          [OFF][ON][ON]   If value ≠ 0[/left][left]          [ON][OFF][OFF]   If value < 0[/left][left]          [ON][OFF][ON]   If value ≥ 0[/left][left]          [ON][ON][OFF]   If value ≤ 0[/left][left]          [ON][ON][ON]   If value > 0[/left]`))
+Bit code:   Turn [T] when:
+[left]          [F][F][F]   Never[/left][left]          [F][F][T]   Always[/left][left]          [F][T][F]   If value = 0[/left][left]          [F][T][T]   If value ≠ 0[/left][left]          [T][F][F]   If value < 0[/left][left]          [T][F][T]   If value ≥ 0[/left][left]          [T][T][F]   If value ≤ 0[/left][left]          [T][T][T]   If value > 0[/left]`))
 ]

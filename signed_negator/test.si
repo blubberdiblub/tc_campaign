@@ -3,7 +3,7 @@ def get_padded_number(value: String, size: Int) String {
     while text.len() < size {
         text = " " + text
     }
-    return text 
+    return text
 }
 
 def get_binary_repr(value: Int) String {
@@ -11,9 +11,9 @@ def get_binary_repr(value: Int) String {
     var i = 7
     while i >= 0 {
         if ((value >> i) & 1) == 0 {
-            text += "[OFF]"
+            text += "[F]"
         } else {
-            text += "[ON]"
+            text += "[T]"
         }
         i -= 1
     }
@@ -27,7 +27,7 @@ def get_input(tick: Int) Input {
     x ^= x >> 1
     x ^= x << 2
     let input = Input {input: U8 x}
-    
+
     var value = asr(Int input.input << 56, 56)
     ui_set_text("table[0][1]", `[right]{value}[/right]`)
     ui_set_text("table[0][2]", get_binary_repr(Int value))
@@ -44,7 +44,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if output.output_is_z {
         ui_set_text("table[2][1]", `   Z`)
-        ui_set_text("table[2][2]", `[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]`)
+        ui_set_text("table[2][2]", `[Z][Z][Z][Z][Z][Z][Z][Z]`)
         set_error((31337_70376380014778, `Output should never be Z state`))
         return fail
     }
@@ -59,6 +59,6 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     }
     if tick == 0xff {
         return win
-    } 
+    }
 
 }

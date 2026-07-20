@@ -9,7 +9,7 @@ dialogue = [
 
 We want you to build such a component.`)),
   (mentor_centered, (31337_13114757255411, `In this level you have 2 inputs.
-When the first input is [ON], update the stored value.
+When the first input is [T], update the stored value.
 The second input is the value.
 Always output what is currently stored.
 

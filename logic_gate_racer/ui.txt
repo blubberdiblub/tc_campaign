@@ -1,12 +1,12 @@
-[table id="table" size=33 x=-250 full_history h_align=left _0="[OFF]" _1="[ON]" _z="[ANY]"]
-(31337_15534865654723, `Input 0`),        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
-(31337_17025412277453, `Input 1`),        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
-(31337_59092390409834, `Desired output`), "[OFF]",  "[ON]",   "[ON]",   "[OFF]"
+[table id="table" size=33 x=-250 full_history h_align=left _0="[F]" _1="[T]" _z="[Z]"]
+(31337_15534865654723, `Input 0`),        "[F]",  "[T]",   "[F]",  "[T]"
+(31337_17025412277453, `Input 1`),        "[F]",  "[F]",  "[T]",   "[T]"
+(31337_59092390409834, `Desired output`), "[F]",  "[T]",   "[T]",   "[F]"
 (31337_38271404408184, `Current output`)
 [/table]
 
 [text id="box_title" text=(31337_32183772878666, `History`) x=-550 y=-50]
 [image id="box_border" file="gray_box.png" x=-550 y=-20]
 [table id="history" size=33 x=-400 h_align=right]
-"[ANY]","[ANY]","[ANY]","[ANY]","[ANY]"
+"[Z]","[Z]","[Z]","[Z]","[Z]"
 [/table]

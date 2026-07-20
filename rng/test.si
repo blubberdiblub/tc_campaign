@@ -1,6 +1,6 @@
 
 
-var initial_seed = 1 + random(0xfffe)
+var initial_seed = 1 + random(0xfffffffe)
 var seed = initial_seed
 var count = 0
 
@@ -36,7 +36,7 @@ def arch_check_output(test: Int, input: Int, output: Int) TestResult {
     
     }
 
-    if .count == 64 {
+    if .count == 0xffff {
         
         return win
 

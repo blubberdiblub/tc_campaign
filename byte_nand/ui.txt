@@ -1,6 +1,6 @@
 [table id="table" size=27 x=-100 spacing_y=4]
-(31337_15534865654723, `Input 0`),              "a",            "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
-(31337_17025412277453, `Input 1`),              "b",            "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
-(31337_59092390409834, `Desired output`),       "a NAND b",     "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
-(31337_38271404408184, `Current output`),       " ??? ",        "[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]"
+(31337_15534865654723, `Input 0`),              "a",            "[Z][Z][Z][Z][Z][Z][Z][Z]"
+(31337_17025412277453, `Input 1`),              "b",            "[Z][Z][Z][Z][Z][Z][Z][Z]"
+(31337_59092390409834, `Desired output`),       "a NAND b",     "[Z][Z][Z][Z][Z][Z][Z][Z]"
+(31337_38271404408184, `Current output`),       " ??? ",        "[Z][Z][Z][Z][Z][Z][Z][Z]"
 [/table]

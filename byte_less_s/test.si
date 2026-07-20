@@ -16,7 +16,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     let a = S8 input.a
     let b = S8 input.b
-    let result = expected ? "[ON]" : "[OFF]"
+    let result = expected ? "[T]" : "[F]"
     ui_set_text("description", (31337_67770115019509, `{a} < {b} is {result}`))
 
     if output.result_is_z {
@@ -26,7 +26,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if expected == actual {
 
-        if tick == 0xffff { 
+        if tick == 0xffff {
             return win
         }
 

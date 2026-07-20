@@ -7,5 +7,5 @@ background = 5
 unlocks_special = ["wire_color", "wire_comments"]
 title = (31337_44190469254011, `Odd Number of Signals`)
 dialogue = [
-  (mentor_centered, (31337_63242509760527, `Using a maximum of 3 components, output [ON] only when an odd number of inputs are [ON]`))
+  (mentor_centered, (31337_63242509760527, `Using a maximum of 3 components, output [T] only when an odd number of inputs are [T]`))
 ]

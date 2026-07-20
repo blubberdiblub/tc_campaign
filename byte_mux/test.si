@@ -13,9 +13,9 @@ def get_input(tick: Int) Input {
 
     var text = ""
     if input.select == 0 {
-        text = "[OFF]"
+        text = "[F]"
     } else {
-        text = "[ON]"
+        text = "[T]"
     }
 
     ui_set_text("table[0][1]", text)
@@ -46,7 +46,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     }
 
     ui_set_text("table[5][1]", `{output.output}`)
-    
+
     if output.output == correct {
         if tick == 0xffff {
             return win

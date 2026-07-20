@@ -6,8 +6,8 @@ no_score = true
 background = 5
 title = (31337_81647833476822, `Double Detection`)
 dialogue = [
-  (mentor_centered, (31337_43068867747292, `This level has 4 inputs. 
-Output [ON] when 2 or more of them are [ON].
+  (mentor_centered, (31337_43068867747292, `This level has 4 inputs.
+Output [T] when 2 or more of them are [T].
 
 [tip]Don't overthink this level.[/tip]`))
 ]

@@ -6,34 +6,34 @@ copy_solution_to_level = ["overture_2_alu"]
 title = (31337_79626649565563, `Registers`)
 dialogue = [
   (mentor_centered, (31337_36376879506769, `It is finally time to build your first computer. I will teach you how to build the [color=#e49f44]Overture[/color] architecture, an actual Turing complete machine, a true computer in every way.`)),
-  (mentor_centered, (31337_61875924861326, `In this level you need to create a circuit which can move to a [color=#e49f44]destination[/color] from a [color=#c54d5e]source[/color]. 
+  (mentor_centered, (31337_61875924861326, `In this level you need to create a circuit which can move to a [color=#e49f44]destination[/color] from a [color=#c54d5e]source[/color].
 
-The instruction byte in this level determines the [color=#e49f44]destination[/color] and the [color=#c54d5e]source[/color]. 
+The instruction byte in this level determines the [color=#e49f44]destination[/color] and the [color=#c54d5e]source[/color].
 
 Bits 1, 2 and 3 give the [color=#c54d5e]source[/color]. Bits 4, 5 and 6 give the [color=#e49f44]destination[/color].`)),
-  (mentor_centered, (31337_13757092116124, `[color=#c54d5e]Source[/color] and [color=#e49f44]destination[/color] can be 1 of 6 registers, we will name them REG 0 to REG 5 respectively. 
-  
+  (mentor_centered, (31337_13757092116124, `[color=#c54d5e]Source[/color] and [color=#e49f44]destination[/color] can be 1 of 6 registers, we will name them REG 0 to REG 5 respectively.
+
 Additionally, this level has a dedicated input component, which can be the [color=#c54d5e]source[/color] and an output component, which can be the [color=#e49f44]destination[/color].`)),
   (mentor_centered, (31337_87179643828952, `These are the bit patterns for each [color=#c54d5e]source[/color] and [color=#e49f44]destination[/color].
 
 [color=#c54d5e]Source[/color]:
-[OFF] [OFF] [OFF]  REG 0 
-[OFF] [OFF] [ON]  REG 1 
-[OFF] [ON] [OFF]  REG 2 
-[OFF] [ON] [ON]  REG 3 
-[ON] [OFF] [OFF]  REG 4 
-[ON] [OFF] [ON]  REG 5 
-[ON] [ON] [OFF]  #INPUT 
-[ON] [ON] [ON]  UNUSED
+[F] [F] [F]  REG 0
+[F] [F] [T]  REG 1
+[F] [T] [F]  REG 2
+[F] [T] [T]  REG 3
+[T] [F] [F]  REG 4
+[T] [F] [T]  REG 5
+[T] [T] [F]  #INPUT
+[T] [T] [T]  UNUSED
 
 [color=#e49f44]Destination[/color]:
-[OFF] [OFF] [OFF]  REG 0 
-[OFF] [OFF] [ON]  REG 1 
-[OFF] [ON] [OFF]  REG 2 
-[OFF] [ON] [ON]  REG 3 
-[ON] [OFF] [OFF]  REG 4 
-[ON] [OFF] [ON]  REG 5 
-[ON] [ON] [OFF]  #OUTPUT
-[ON] [ON] [ON]  UNUSED`)),
+[F] [F] [F]  REG 0
+[F] [F] [T]  REG 1
+[F] [T] [F]  REG 2
+[F] [T] [T]  REG 3
+[T] [F] [F]  REG 4
+[T] [F] [T]  REG 5
+[T] [T] [F]  #OUTPUT
+[T] [T] [T]  UNUSED`)),
   (overture)
 ]

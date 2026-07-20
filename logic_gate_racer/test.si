@@ -46,11 +46,11 @@ def update_history_ui(history: Int) {
     while i < #NUM_TEST {
         var expected = ""
         switch value % #NUM_STATE
-            #NOT_SET { expected = "[ANY]" }
-            #FAIL { expected = "[OFF]" }
-            #WIN { expected = "[ON]" }
+            #NOT_SET { expected = "[Z]" }
+            #FAIL { expected = "[F]" }
+            #WIN { expected = "[T]" }
         ui_set_text(`history[0][{j}]`, expected)
-        
+
         value /= #NUM_STATE
         i += 1
         j -= 1
@@ -64,9 +64,9 @@ def update_history_ui(history: Int) {
     while i < #TICK_PER_TEST {
         var expected = ""
         if get_expected_output(U2 i) == 0 {
-            expected = "[OFF]"
+            expected = "[F]"
         } else {
-            expected = "[ON]"
+            expected = "[T]"
         }
         ui_set_text(`table[2][{i + 1}]`, expected)
         ui_set_text(`table[3][{i + 1}]`, "")

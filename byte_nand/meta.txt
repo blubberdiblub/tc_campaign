@@ -8,8 +8,8 @@ dialogue = [
   (mentor_centered, (31337_52274910421610, `NAND each bit of the input bytes and output the result.
 
 For example:
-#INPUT 1 [ON][ON][OFF][OFF][OFF][ON][OFF][OFF]
-#INPUT 2 [OFF][OFF][OFF][OFF][ON][ON][OFF][OFF]
-#OUTPUT  [ON][ON][ON][ON][ON][OFF][ON][ON]
+#INPUT 1 [T][T][F][F][F][T][F][F]
+#INPUT 2 [F][F][F][F][T][T][F][F]
+#OUTPUT  [T][T][T][T][T][F][T][T]
 `))
 ]

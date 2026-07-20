@@ -1,7 +1,7 @@
 
-[table id="table" full_history size=33 x=-50 _0="[OFF]" _1="[ON]" _z="[ANY]"]
-(31337_15534865654723, `Input 0`),        "[OFF]",  "[ON]",   "[OFF]",  "[ON]"
-(31337_17025412277453, `Input 1`),        "[OFF]",  "[OFF]",  "[ON]",   "[ON]"
-(31337_59092390409834, `Desired output`), "[ON]",   "[OFF]",  "[OFF]",  "[OFF]"
+[table id="table" full_history size=33 x=-50 _0="[F]" _1="[T]" _z="[Z]"]
+(31337_15534865654723, `Input 0`),        "[F]",  "[T]",   "[F]",  "[T]"
+(31337_17025412277453, `Input 1`),        "[F]",  "[F]",  "[T]",   "[T]"
+(31337_59092390409834, `Desired output`), "[T]",   "[F]",  "[F]",  "[F]"
 (31337_38271404408184, `Current output`)
 [/table]

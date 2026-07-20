@@ -9,10 +9,29 @@ background = 5
 unlocks_pages = ["Circuits/Short circuit"]
 title = (31337_12922292218235, `Bit Switch`)
 dialogue = [
-  (mentor_centered, (31337_88100823584262, `If components output different values on the same wire, you get an error. However, some components have grey output pins, these are not outputting at all when the component is not enabled. This is the case for the Bit Switch component.
+  (mentor_centered, (31337_88100823584262, `If components output different values on the same wire, you get a short circuit error. 
+
+[center][image="short_circuit.png"][/center]
+
+However, some components have grey output pins, these are not outputting at all when the component is not enabled. This is the case for the Bit Switch component.
 
 [center][image="switch.png"][/center]
 
-When the bottom pin is [OFF], the output is disabled. More than 1 output can connect to the same wire without causing error, if no more than one of them is enabled.`)),
+When the bottom pin is [F], the output is disabled. In this case, more than 1 output can connect to the same wire without causing error.
+
+[center][image="bus_wire.png"][/center]
+
+Practically speaking, it only makes sense to connect multiple outputs to the same wire if they are switches. Components need to "take turns" to output for it to be useful.`)),
+  (mentor_centered, (31337_25663924496537, `
+Alternatively to thinking of the output as being disconnected, it can be thought of as outputting neither [F] or [T], but a third state we call "Z state" [Z].
+
+Connecting two inputs on a wire will produce the following outputs:
+
+Input 0 [F][F][F][T][T][T][Z][Z][Z]
+Input 1 [F][T][Z][T][F][Z][F][T][Z]
+Output  [F][E][F][T][E][T][F][T][Z]
+
+Note that short circuit [E] can not meaningfully be thought of as a fourth output state, as it breaks the circuit. It is included in the table for completeness anyway.
+`)),
   (mentor_centered, (31337_77268807700313, `Using 2 NOT gates and 2 Switches, build an XOR gate.`))
 ]

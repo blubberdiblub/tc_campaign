@@ -22,7 +22,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     let a = input.a
     let b = input.b
-    let value = expected ? "[ON]" : "[OFF]"
+    let value = expected ? "[T]" : "[F]"
 
     ui_set_text("description", (31337_18508994046371, `{a} == {b} is {value}`))
 

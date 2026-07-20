@@ -4,14 +4,14 @@ size = 45
 unlocks_components = [com_asr]
 title = (31337_53539145017840, `ASR`)
 dialogue = [
-  (mentor_centered, (31337_79125097012724, `The shift you built in the last level is known as [b]logical[/b] shift, logically shifting right by 1 is the same as dividing by 2 for unsigned numbers. For signed numbers, if the top bit of the value is [ON], we fill the empty bits with [ON] instead of [OFF]. This is called [b]arithmetic shift right[/b], often written as [b]asr[/b] in assembly.
+  (mentor_centered, (31337_79125097012724, `The shift you built in the last level is known as [b]logical[/b] shift, logically shifting right by 1 is the same as dividing by 2 for unsigned numbers. For signed numbers, if the top bit of the value is [T], we fill the empty bits with [T] instead of [F]. This is called [b]arithmetic shift right[/b], often written as [b]asr[/b] in assembly.
 
 [color=#e49f44]-106 asr 3[/color]
- [ON] [OFF] [OFF] [ON] [OFF] [ON] [ON] [OFF]
+ [T] [F] [F] [T] [F] [T] [T] [F]
 Results in:
-|[ON] [ON] [ON]|[ON] [OFF] [OFF] [ON] [OFF]
-      ^                    
-And here we insert [ON] instead of [OFF]
+|[T] [T] [T]|[T] [F] [F] [T] [F]
+      ^
+And here we insert [T] instead of [F]
 
 `))
 ]

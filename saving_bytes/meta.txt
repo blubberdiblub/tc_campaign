@@ -6,7 +6,7 @@ title = (31337_41663630841312, `Saving Bytes`)
 dialogue = [
   (mentor_centered, (31337_87293777622656, `Create a circuit that can store a byte.
 
-When the "SAVE" input is [ON], store the input byte.
+When the "SAVE" input is [T], store the input byte.
 
 At all times output the stored value to the output.`))
 ]

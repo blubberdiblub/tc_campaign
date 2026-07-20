@@ -1,0 +1,8 @@
+kind = sequential
+size = 255
+immutable_isa = true
+max_delay = 50
+title = (31337_35331465118106, `Fast Overture`)
+dialogue = [
+  (mentor_centered, (31337_11098191945483, ``))
+]

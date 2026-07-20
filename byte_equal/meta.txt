@@ -5,5 +5,5 @@ unlocks_components = [com_equal]
 background = 4
 title = (31337_44220989927736, `Equality`)
 dialogue = [
-  (mentor_centered, (31337_16679981460998, `Output [ON] when both inputs are the same.`))
+  (mentor_centered, (31337_16679981460998, `Output [T] when both inputs are the same.`))
 ]

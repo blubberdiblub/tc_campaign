@@ -275,7 +275,7 @@ pstore [%adr(immediate)], %value(register)
 
 mov %a(register), %b(register)
 00100001 aaaa0000 0000bbbb 00000000
-# (31337_53941960758392, `Moves a value from %b to %a.`)
+# (31337_53941960758392, `Moves a value to %a from %b.`)
 
 mov %a(register), %b(immediate | label)
 00110001 aaaa0000 bbbbbbbb bbbbbbbb

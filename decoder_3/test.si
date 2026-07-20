@@ -18,14 +18,14 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     if input.disable == 1 {
         if value != 0 {
 
-            set_error((31337_18073111523064, `Expected all outputs to be [OFF] since the disable bit is [ON]`))
+            set_error((31337_18073111523064, `Expected all outputs to be [F] since the disable bit is [T]`))
             return fail
 
         }
 
     } elif value != 1 << tick {
 
-        set_error((31337_10870388349665, `Expected output {tick} to be [ON] and other outputs to be [OFF]`))
+        set_error((31337_10870388349665, `Expected output {tick} to be [T] and other outputs to be [F]`))
         return fail
 
     }

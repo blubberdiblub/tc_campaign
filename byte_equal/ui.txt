@@ -1,1 +1,1 @@
-[text id="description" text=(31337_41065065514143, `Make a circuit that outputs [ON], when both inputs are the same.`) size=37]
+[text id="description" text=(31337_41065065514143, `Make a circuit that outputs [T], when both inputs are the same.`) size=37]

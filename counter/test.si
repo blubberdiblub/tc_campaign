@@ -29,9 +29,9 @@ def get_input(tick: Int) Input {
 
     var text = "        "
     if overwrite == 0 {
-        text += "[OFF]"
+        text += "[F]"
     } else {
-        text += "[ON]"
+        text += "[T]"
     }
     text += "        "
 

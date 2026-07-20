@@ -9,8 +9,8 @@
 [table id="actions" size=27 x=800 h_align=right v_align=bottom y=80 spacing_y=4 spacing_x=0]
 "",                                                               "",       (31337_71008031461945, `[color=#E49F44][b]   Value   [/b][/color]`), (31337_85306375920893, `[color=#E49F44][b]  Address  [/b][/color]`)
 "",                                                               "",       "[color=#E5787D][b]?[/b][/color]",                                   "[color=#E5787D][b]?[/b][/color]"
-(31337_62207646058430, `[color=#E49F44][b]Load [/b][/color]`),  "[ANY]",  "",                                                                    ""
-(31337_27457656265551, `[color=#E49F44][b]Save [/b][/color]`),  "[ANY]",  "",                                                                    ""
+(31337_62207646058430, `[color=#E49F44][b]Load [/b][/color]`),  "[Z]",  "",                                                                    ""
+(31337_27457656265551, `[color=#E49F44][b]Save [/b][/color]`),  "[Z]",  "",                                                                    ""
 [/table]
 
 [text id="load" text=(31337_57378010777762, `[left]Load ??? from ??[/left]`) size=27 y=16 x=500]

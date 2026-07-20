@@ -12,12 +12,12 @@ dialogue = [
   (mentor_centered, (31337_64052600264884, `Using NAND gates, build the NOT gate
 
 Using: [b]NAND gate[/b]
-Input 0: [OFF][ON][OFF][ON]
-Input 1: [OFF][OFF][ON][ON]
-Output:  [ON][ON][ON][OFF]
+Input 0: [F][T][F][T]
+Input 1: [F][F][T][T]
+Output:  [T][T][T][F]
 
 Build: [b]NOT gate[/b]
-Input 0: [ON][OFF]
-Output:  [OFF][ON]
+Input 0: [T][F]
+Output:  [F][T]
 `))
 ]

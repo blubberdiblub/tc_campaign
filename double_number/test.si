@@ -4,9 +4,9 @@ def get_binary_repr(value: U8, size: U8) String {
     while i > 0 {
         i -= 1
         if ((value >> i) & 1) == 0 {
-            text += "[OFF]"
+            text += "[F]"
         } else {
-            text += "[ON]"
+            text += "[T]"
         }
     }
     return text
@@ -34,7 +34,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if output.output_is_z {
         ui_set_text("table[2][1]", ` Z `)
-        ui_set_text("table[2][2]", `[ANY][ANY][ANY][ANY][ANY][ANY][ANY][ANY]`)
+        ui_set_text("table[2][2]", `[Z][Z][Z][Z][Z][Z][Z][Z]`)
         return fail
     }
 
@@ -44,8 +44,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     if expected != output.output {
         return fail
     }
-    
-    if tick == 15 { 
+
+    if tick == 15 {
         return win
     }
 

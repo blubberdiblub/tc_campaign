@@ -16,19 +16,19 @@ def get_input(tick: Int) Input {
 
     var condition_text = " "
     if (condition / 4) % 2 == 0 {
-        condition_text += "[OFF]"
+        condition_text += "[F]"
     } else {
-        condition_text += "[ON]"
+        condition_text += "[T]"
     }
     if (condition / 2) % 2 == 0 {
-        condition_text += "[OFF]"
+        condition_text += "[F]"
     } else {
-        condition_text += "[ON]"
+        condition_text += "[T]"
     }
     if (condition / 1) % 2 == 0 {
-        condition_text += "[OFF]"
+        condition_text += "[F]"
     } else {
-        condition_text += "[ON]"
+        condition_text += "[T]"
     }
     condition_text += " "
 
@@ -37,83 +37,83 @@ def get_input(tick: Int) Input {
     switch condition
         0 {
             ui_set_text("table[2][1]", (31337_80507287196650, `NEVER`))
-            ui_set_text("table[3][1]", "[OFF]")
+            ui_set_text("table[3][1]", "[F]")
         }
         1 {
             ui_set_text("table[2][1]", (31337_74974087807935, `ALWAYS`))
-            ui_set_text("table[3][1]", "[ON]")
+            ui_set_text("table[3][1]", "[T]")
         }
         2 {
             ui_set_text("table[2][1]", `{value} = 0`)
             if value == 0 {
-                ui_set_text("table[3][1]", "[ON]")
+                ui_set_text("table[3][1]", "[T]")
             } else {
-                ui_set_text("table[3][1]", "[OFF]")
+                ui_set_text("table[3][1]", "[F]")
             }
         }
         3 {
             ui_set_text("table[2][1]", `{value} ≠ 0`)
             if value == 0 {
-                ui_set_text("table[3][1]", "[OFF]")
+                ui_set_text("table[3][1]", "[F]")
             } else {
-                ui_set_text("table[3][1]", "[ON]")
+                ui_set_text("table[3][1]", "[T]")
             }
         }
         4 {
             ui_set_text("table[2][1]", `{value} < 0`)
             if value < 0 {
-                ui_set_text("table[3][1]", "[ON]")
+                ui_set_text("table[3][1]", "[T]")
             } else {
-                ui_set_text("table[3][1]", "[OFF]")
+                ui_set_text("table[3][1]", "[F]")
             }
         }
         5 {
             ui_set_text("table[2][1]", `{value} ≥ 0`)
             if value < 0 {
-                ui_set_text("table[3][1]", "[OFF]")
+                ui_set_text("table[3][1]", "[F]")
             } else {
-                ui_set_text("table[3][1]", "[ON]")
+                ui_set_text("table[3][1]", "[T]")
             }
         }
         6 {
             ui_set_text("table[2][1]", `{value} ≤ 0`)
             if value <= 0 {
-                ui_set_text("table[3][1]", "[ON]")
+                ui_set_text("table[3][1]", "[T]")
             } else {
-                ui_set_text("table[3][1]", "[OFF]")
+                ui_set_text("table[3][1]", "[F]")
             }
         }
         7 {
             ui_set_text("table[2][1]", `{value} > 0`)
             if value <= 0 {
-                ui_set_text("table[3][1]", "[OFF]")
+                ui_set_text("table[3][1]", "[F]")
             } else {
-                ui_set_text("table[3][1]", "[ON]")
+                ui_set_text("table[3][1]", "[T]")
             }
         }
 
     ui_set_text("table[0][1]", condition_text)
-    
+
     return Input {condition: U3 condition, input: U8 value}
 
 }
 
 def check_output(tick: Int, input: Input, output: Output) TestResult {
-    
+
     if output.result_is_z {
-        ui_set_text("table[4][1]", "[ANY]")
+        ui_set_text("table[4][1]", "[Z]")
         set_error((31337_70376380014778, `Output should never be Z state`))
         return fail
     }
 
     if output.result == 0 {
-        ui_set_text("table[4][1]", "[OFF]")
+        ui_set_text("table[4][1]", "[F]")
     } else {
-        ui_set_text("table[4][1]", "[ON]")
+        ui_set_text("table[4][1]", "[T]")
     }
 
     var expected = false
-    
+
     var condition = input.condition
     var value = asr(Int input.input << 56, 56)
 
@@ -152,7 +152,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
             return fail
         }
     }
-    
+
     if tick == 2047 {
         return win
     }

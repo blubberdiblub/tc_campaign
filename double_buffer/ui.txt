@@ -1,5 +1,5 @@
-[table id="table" full_history size=33 x=-20 _0="[OFF]" _1="[ON]" _z="[ANY]"]
-(31337_10529708471093, `Input`),          "[OFF]",  "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]",   "[ON]",   "[ON]"
-(31337_59092390409834, `Desired output`), "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[OFF]",  "[OFF]",  "[OFF]",  "[ON]",   "[ON]",   "[ON]"
+[table id="table" full_history size=33 x=-20 _0="[F]" _1="[T]" _z="[Z]"]
+(31337_10529708471093, `Input`),          "[F]",  "[T]",   "[F]",  "[F]",  "[T]",   "[T]",   "[F]",  "[F]",  "[F]",  "[T]",   "[T]",   "[T]",   "[T]",   "[T]"
+(31337_59092390409834, `Desired output`), "[F]",  "[F]",  "[F]",  "[T]",   "[F]",  "[F]",  "[T]",   "[T]",   "[F]",  "[F]",  "[F]",  "[T]",   "[T]",   "[T]"
 (31337_38271404408184, `Current output`)
 [/table]

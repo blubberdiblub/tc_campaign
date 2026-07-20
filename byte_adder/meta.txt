@@ -6,9 +6,8 @@ background = 5
 title = (31337_62793095496458, `Adding Bytes`)
 dialogue = [
   (mentor_centered, (31337_31490345812891, `Add the two input bytes. Each output bit in the output should be a result of the addition of the corresponding bits from the inputs, and potentially a carry.`)),
-  (mentor_centered, (31337_45061087867940, `If the result does not fit in 8 bits, turn the output carry [ON] (you can think of it as the 9th bit)
-  
-Finally, there is an input carry as well. This is useful for chaining together byte adders to add larger numbers. You can think of this carry as adding either 0 [OFF] or 1 [ON].
-.`)),
+  (mentor_centered, (31337_45061087867940, `If the result does not fit in 8 bits, turn the output carry [T] (you can think of it as the 9th bit)
+
+Finally, there is an input carry as well. This is useful for chaining together byte adders to add larger numbers. You can think of this carry as adding either 0 [F] or 1 [T].`)),
   (mentor_centered, (31337_53076615315445, `Also, this level has a lot of tests. Right click on the run button to increase the testing speed.`))
 ]

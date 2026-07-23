@@ -36,7 +36,7 @@ def arch_check_output(test: Int, input: Int, output: Int) TestResult {
     
     }
 
-    if .count == 0xffff {
+    if .count == 64 {
         
         return win
 

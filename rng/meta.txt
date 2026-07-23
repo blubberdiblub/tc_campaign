@@ -1,5 +1,5 @@
 kind = architecture
-tests = 64
+tests = 256
 size = 255
 background = 4
 arch_input_word_size = 32

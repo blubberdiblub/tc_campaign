@@ -27,7 +27,7 @@ mov %a(out_register), %b(in_register)
 10aaabbb
 # (31337_45432635426071, `Moves a value to %a from %b.`)
 
-imm %a(immediate | label)
+imm %a:U6(immediate | label)
 00aaaaaa
 # (31337_42577908074742, `Moves %a to r0.`)
 

@@ -1,8 +1,0 @@
-[table size=33 x=-50 y=-55]
-(31337_17025412277453, `Input 1`),        "[F]",  "[T]",   "[F]",  "[T]"
-(31337_15378963142694, `Input 2`),        "[F]",  "[F]",  "[T]",   "[T]"
-(31337_59092390409834, `Desired output`), "[F]",  "[T]",   "[T]",   "[F]"
-[/table]
-
-[text text=(31337_61125857472821, `The truth table tells us that the output is ON if and only if`) size=33 y=65]
-[text text=(31337_40415302067949, `either the input 0 is ON AND input 1 is OFF OR the input 0 is OFF AND input 1 is ON`) size=33 y=115]

@@ -9,7 +9,7 @@ dialogue = [
   (mentor_centered, (31337_75292456030647, `The delay line is allowed to depend on its own output. This is because its input does not influence the rest of the circuit until next tick.
 
 [image="delay_line.png"]`)),
-  (mentor_centered, (31337_60625429879527, `Orange pins in the game never affect the output in the same tick. They therefore never cause circular dependencies.
+  (mentor_centered, (31337_60625429879527, `Orange pins never affect the output in the same tick. They therefore never cause circular dependencies.
 
   [image="delay_line.png"]`)),
   (mentor_centered, (31337_85913836277587, `Output [F] on the even ticks and [T] on the odd ticks.`))

@@ -7,5 +7,8 @@ tick_past_fail = 4
 background = 4
 title = (31337_72918877035793, `NOR Gate`)
 dialogue = [
+  (mentor_centered, (31337_37240300421781, `Most creatures on Earth are aggressive and cannot focus.
+
+To succeed you must learn to think logically, while not destroying things.`)),
   (mentor_centered, (31337_56653221050913, `Create the circuit that matches the table.`))
 ]

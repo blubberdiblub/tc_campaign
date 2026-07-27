@@ -6,8 +6,13 @@ size = 46
 tick_past_fail = 0xff
 unlocks_components = [com_inc]
 unlocks_pages = ["Circuits/Delay"]
-title = (31337_35006137124869, `Score`)
+title = (31337_85893273691863, `Objective beauty`)
 dialogue = [
+  (mentor_centered, (31337_78375324732864, `Useful energy, known as exergy, is finite and if we consume it all, we will be at the heat death of the universe. This is why efficiency is important.
+
+In our society, we find inefficiency ugly and efficiency beautiful.
+
+In fact, we measure beauty in units of energy.`)),
   (mentor_centered, (31337_34375498293137, `This level introduces efficiency scoring, which is based on time and energy.`)),
   (mentor_centered, (31337_70169388789757, `These equations are equal, yet not the same:
 

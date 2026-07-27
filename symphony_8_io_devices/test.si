@@ -15,7 +15,16 @@ var saved_time = 0
 var screen_setting = array(<Int>, 8)
 screen_setting[2] = 16777200
 
-var keypresses = [0x164, 0x064, 0x161, 0x061]
+
+const #UP_DOWN    = 0x101
+const #UP_UP      = 0x001
+const #DOWN_DOWN  = 0x103
+const #DOWN_UP    = 0x003
+const #RIGHT_DOWN = 0x102
+const #RIGHT_UP   = 0x002
+
+
+var keypresses = [#DOWN_DOWN, #DOWN_UP, #RIGHT_DOWN, #RIGHT_UP, #DOWN_DOWN, #DOWN_UP, #RIGHT_DOWN, #RIGHT_UP, #RIGHT_DOWN, #RIGHT_UP, #UP_DOWN, #UP_UP, #RIGHT_DOWN, #RIGHT_UP, #RIGHT_DOWN, #RIGHT_UP, #UP_DOWN, #UP_UP, #RIGHT_DOWN, #RIGHT_UP, #RIGHT_DOWN, #RIGHT_UP, #DOWN_DOWN, #DOWN_UP]
 var keypress_index = 0
 
 {

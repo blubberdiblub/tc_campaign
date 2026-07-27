@@ -34,7 +34,7 @@ Play with the magnet manually by using the arrow keys to move and enter to toggl
 [tip]Remember to push register values to the stack to store them in function that changes them.[/tip]`))
 ]
 post_mortem = [
-  (mentor_centered, (31337_62636370223849, `Amazing, you finished the game! Look how far you have come from the NAND gate. 
+  (mentor_centered, (31337_62636370223849, `Amazing, you finished all our tests! Look how far you have come from the NAND gate. 
 
-From here you can compete for high scores with other players or build anything you want in the sandbox. And don't forget to follow us on Steam, we are still working on future levels.`))
+Humans are truly worthy of joining the Galactic Federation.`))
 ]

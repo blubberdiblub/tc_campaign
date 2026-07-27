@@ -7,6 +7,7 @@ background = 5
 unlocks_special = ["hex_numbers"]
 title = (31337_45399195121692, `Hex Racer`)
 dialogue = [
+  (mentor_centered, (31337_11327399415058, `This level is my second favorite pastime. Converting hexadecimal to binary under time pressure.`)),
   (mentor_centered, (31337_65517909958697, `When dealing with many bits, binary can become hard to read. Hexadecimal (base 16) represents each combination of 4 bits as its own character:
 
 0 [F][F][F][F]

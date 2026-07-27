@@ -40,7 +40,7 @@ Instruction encoding if argument B is an immediate value:
 
 The 'load' instructions should load the value from program memory at address [color=#66ccff]argument B[/color] and store the result in the [color=#ffe666]destination[/color] register.
 
-The 'store' instructions should store the value in the [color=#66ccff]argument A[/color] register to program memory at address [color=#66ccff]argument B[/color].
+The 'store' instructions should store the value in the [color=#66ff99]argument A[/color] register to program memory at address [color=#66ccff]argument B[/color].
 
 The numerical suffix determines the width in bits of how many bits should be written to or read from memory, so a 'load_8' instruction should load 8 bits of data & a 'store_16' should store 16 bits of data starting at that address.`)),
   (mentor_centered, (31337_43585926436336, `Note that ports act from top to bottom. A load port will read after a store port if it is placed lower, but before if it is placed higher. This matters when the ports load and store to the same address. In general all ports wait for store ports above them and therefore have a dependency on them. In this level the load ports must be above the store ports or you will get a circular dependency.`))

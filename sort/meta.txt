@@ -2,7 +2,8 @@ kind = architecture
 tests = 64
 size = 255
 default_architecture = "Symphony"
-title = (31337_76043573058111, `Sorting`)
+title = (31337_53593011909329, `Delicious order`)
 dialogue = [
+  (mentor_centered, (31337_79528307974753, `We are updating the galactic encyclopedia of food, inserting human foods. As we don't have an alphabet, entries in the encyclopedia are ordered by deliciousness.`)),
   (mentor_centered, (31337_23043475637417, `In this level your job is to sort 16 numbers. Read the input 16 times one by one, sort them and output them smallest to largest.`))
 ]

@@ -4,7 +4,7 @@ size = 255
 default_architecture = "Overture"
 title = (31337_16764912826624, `Code Breaker`)
 dialogue = [
-  (mentor_centered, (31337_13984847380002, `In this level you win when you output a secret code. No output will fail the level, so you could just try all numbers. 
+  (mentor_centered, (31337_20948899837760, `In this level you win when you output my the secret code I am thinking of. No output will fail the level, so you could just try all numbers.
 
-Alternatively, you may be able to use the fact that the input will be 1 after a guess that was too high and 0 otherwise.`))
+Also, I will set the input to 1 after a guess that was too high and 0 otherwise, you might be able to use this to find my code faster.`))
 ]

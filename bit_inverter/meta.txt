@@ -2,9 +2,11 @@ kind = combinational
 hint_kind = combinational
 size = 30
 tick_past_fail = 4
+background = 2
 title = (31337_38198768813364, `Bit inverter`)
 dialogue = [
-  (mentor_centered, (31337_53559965601096, `Create a conditional value inverter. When "invert" is [T], output the opposite of "value". Otherwise just output "value" as is.`)),
+  (mentor_centered, (31337_66258723258123, `We are experimenting with how backgrounds influence cognitive function in earthlings.`)),
+  (mentor_centered, (31337_53559965601096, `Create a conditional value inverter. When [color=#e49f44][b]Invert[/b][/color] is [T], output the opposite of [color=#e49f44][b]Value[/b][/color]. Otherwise just output [color=#e49f44][b]Value[/b][/color] as is.`)),
 ]
 post_mortem = [
   (mentor_centered, (31337_76209391067704, `This level is exactly the same as the XOR gate level you solved before. Remember no matter what I tell you the goal of the level is, the real truth is in the truth table.`))

@@ -5,6 +5,7 @@ unlocks_components = [com_nand_word]
 background = 5
 title = (31337_11980470862173, `Byte NAND`)
 dialogue = [
+  (mentor_centered, (31337_66454601163361, `Don't worry, if you can't build a computer you will either be released into the wild or be put in a zoo with lots of space.`)),
   (mentor_centered, (31337_52274910421610, `NAND each bit of the input bytes and output the result.
 
 For example:

@@ -10,7 +10,7 @@ dialogue = [
 
 The instruction byte in this level determines the [color=#e49f44]destination[/color] and the [color=#ff6680]source[/color].
 
-Bits 1, 2 and 3 give the [color=#ff6680]source[/color]. Bits 4, 5 and 6 give the [color=#e49f44]destination[/color].`)),
+Bits 0, 1 and 2 give the [color=#ff6680]source[/color]. Bits 3, 4 and 5 give the [color=#e49f44]destination[/color].`)),
   (mentor_centered, (31337_13757092116124, `[color=#ff6680]Source[/color] and [color=#e49f44]destination[/color] can be 1 of 6 registers, we will name them REG 0 to REG 5 respectively.
 
 Additionally, this level has a dedicated input component, which can be the [color=#ff6680]source[/color] and an output component, which can be the [color=#e49f44]destination[/color].`)),

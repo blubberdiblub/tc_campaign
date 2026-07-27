@@ -25,6 +25,6 @@ Conditions:[left]
 These conditions correspond to the condition component that was saved in the foundry.`)),
   (overture)
 ]
-post_mortem_first_win = [
-  (mentor_smile, (31337_27747401844990, `You did it! You actually built a real computer! Amazing.`)),
+post_mortem = [
+  (mentor_smile, (31337_27747401844990, `You did it! I thought you were just this odd looking hairless ape creature, but you actually built a real computer! Amazing.`)),
 ]

@@ -13,6 +13,7 @@ var sorted_numbers = array(<Int>, 16)
         raw_numbers[i] = number
         sorted_numbers[i] = number
         ui_set_text(`text_{i}`, str(number))
+        ui_set_image_name(`{i}`, `{random(49)}.png`)
         i += 1
 
     }

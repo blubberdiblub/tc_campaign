@@ -5,6 +5,11 @@ no_score = true
 default_architecture = "Overture"
 title = (31337_47703565240245, `Conditional Jumps`)
 dialogue = [
+  (mentor_centered, (31337_38613585637577, `Good news for you, the dolphin already dropped out.
+
+He had a hard time programming with his flippers. 
+
+We will keep the tests going though, to test how far humans can go.`)),
   (mentor_centered, (31337_40525671378957, `The goal of this level is to teach you about jumps and labels. 
 
 A jump is an instruction that overwrites the counter. 

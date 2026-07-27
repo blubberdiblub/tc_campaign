@@ -6,5 +6,10 @@ background = 4
 next_level = "nand_gate"
 title = (31337_44716420394020, `Humble Beginnings`)
 dialogue = [
-  (mentor_centered, (31337_76679675871478, `This first level of the game is a simple introduction to circuits. Here you have an input and an output with a wire in between. Turn on the input in the left hand menu to complete the level.`))
+  (mentor_centered, (31337_26182817405385, `Congratulations, you have been abducted.
+
+We are testing you on our spaceship.
+
+Build a functional computer and your species may join the galactic federation.`)),
+  (mentor_centered, (31337_76679675871478, `This first test checks your understanding of circuits. Here you have an input and an output with a wire in between. Turn on the input in the left hand menu to complete it.`))
 ]

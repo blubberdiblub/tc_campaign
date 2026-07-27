@@ -7,7 +7,7 @@ title = (31337_20456965663323, `Instruction Aliases`)
 dialogue = [
   (mentor_centered, (31337_41535895646297, `Like previous levels, this level introduces new instructions. However, in this level you are not supposed to add additional hardware, but instead change the assembly specification to reuse already existing instruction hardware for new instructions.
 
-Click on the "ISA" button in the top left corner of the Assembler window and study how instructions are implemented. Then add the following three new instructions:
+Click on the "ASM" button in the top left corner of the Assembler window and study how instructions are implemented. Then add the following three new instructions:
 [box][left]mov %a(register), %b(immediate)
 Copies the immediate value %b to register %a.
 

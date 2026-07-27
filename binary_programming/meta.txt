@@ -5,7 +5,7 @@ copy_solution_to_level = ["assembly_programming"]
 immutable_isa = true
 title = (31337_47348572622406, `Punchcard Programming`)
 dialogue = [
-  (mentor_centered, (31337_35877580485177, `Since both you and the dolphin built a computer, the competition for who gets to represent earth at the galactic federation will go on until one of you drops out. 
+  (mentor_centered, (31337_35877580485177, `Since both you and the dolphin built a computer, the competition for who gets to represent earth at the Galactic Federation will go on until one of you drops out. 
 
 The next milestone is writing a program to solve the maze.`)),
   (mentor_centered, (31337_23659479615536, `Now that you have built your first computer it is time to learn how to program it.`)),

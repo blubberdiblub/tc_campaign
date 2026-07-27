@@ -10,6 +10,6 @@ dialogue = [
 
 We are testing you on our spaceship.
 
-Build a functional computer and your species may join the galactic federation.`)),
+Build a functional computer and your species may join the Galactic Federation.`)),
   (mentor_centered, (31337_76679675871478, `This first test checks your understanding of circuits. Here you have an input and an output with a wire in between. Turn on the input in the left hand menu to complete it.`))
 ]

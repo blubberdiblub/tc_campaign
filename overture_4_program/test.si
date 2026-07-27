@@ -69,6 +69,12 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     let opcode = U8 (instruction >> 6)
 
+    let to = (instruction >> 3) & 0b111
+    
+    if output.output_enabled && (opcode != #MOVE >> 6 || to != 6) {
+        set_error((31337_19443898128380, `Output should not be enabled.`))
+        return fail
+    }
 
     switch opcode << 6
         #IMM {

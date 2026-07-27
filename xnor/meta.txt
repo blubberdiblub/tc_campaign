@@ -6,6 +6,6 @@ tick_past_fail = 4
 background = 1
 title = (31337_50956872142719, `XNOR Gate`)
 dialogue = [
-  (mentor_centered, (31337_85674599929809, `Most earthlings were giant reptiles last we were here. None of them were intelligent or polite enough to join the galactic federation.`)),
+  (mentor_centered, (31337_85674599929809, `Most earthlings were giant reptiles last we were here. None of them were intelligent or polite enough to join the Galactic Federation.`)),
   (mentor_centered, (31337_29396170535219, `Create the inverse XOR gate, known as XNOR.`))
 ]

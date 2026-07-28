@@ -12,7 +12,7 @@ switch get_test()
 
 ui_set_text("text", text)
 
-def arch_get_input(test: Int) Int {
+def arch_get_input() Int {
 
     let cursor = .input_cursor
     .input_cursor += 1
@@ -36,7 +36,7 @@ def arch_get_input(test: Int) Int {
 
 }
 
-def arch_check_output(test: Int, input: Int, output: Int) TestResult {
+def arch_check_output(output: Int) TestResult {
     var mask = U8 0b11011111
 
     if .output_cursor > .input_cursor {

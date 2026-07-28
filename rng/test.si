@@ -15,13 +15,13 @@ def show_calculations(seed: Int) {
 
 }
 
-def arch_get_input(test: Int) Int {
+def arch_get_input() Int {
 
     return .initial_seed
 
 }
 
-def arch_check_output(test: Int, input: Int, output: Int) TestResult {
+def arch_check_output(output: Int) TestResult {
 
     let this_seed = .seed
 

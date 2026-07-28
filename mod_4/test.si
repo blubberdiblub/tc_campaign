@@ -1,14 +1,16 @@
 
 var actual_input = random(256)
+var was_read = false
 
-def arch_get_input(test: Int) Int {
+def arch_get_input() Int {
+    .was_read = true
     return .actual_input
 }
 
-def arch_check_output(test: Int, input: Int, output: Int) TestResult {
+def arch_check_output(output: Int) TestResult {
 
-    if input == -1 {
-        set_error((31337_59240995307159, `Request the input first.`))
+    if !.was_read {
+        set_error((31337_59240995307159, `Read the input first.`))
         return fail
     }
 

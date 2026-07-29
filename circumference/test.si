@@ -4,7 +4,7 @@ ui_set_hidden("note", true)
 
 var size = random(41) + 1
 
-def arch_get_input() Int {
+def get_input_switched() Int {
 
     let circumference = .size
     ui_set_text("goal", (31337_18136442036625, `What is 2π × {circumference}?`))
@@ -13,7 +13,7 @@ def arch_get_input() Int {
     return .size
 }
 
-def arch_check_output(output: Int) TestResult {
+def check_output_switched(output: Int) TestResult {
 
     if output != .size * 6 {
         let circumference = .size

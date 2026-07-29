@@ -1,8 +1,15 @@
 kind = sequential
 size = 255
 immutable_isa = true
-max_delay = 50
 title = (31337_35331465118106, `Fast Overture`)
+modify_component_budget = [com_level_input_switched: 8, com_level_output_switched: 8]
+test_assembly_component = "Program"
+allow_immutable_ram_pipeline = true
+tests = 16
 dialogue = [
-  (mentor_centered, (31337_11098191945483, ``))
+  (mentor_centered, (31337_73819865818844, `This is optional level lets you experiment with how much you can optimize Overture. The level does not test register or counter state, which gives you freedom to retire more or less than one instruction per tick. Also, you are free to use more than one input and output component.
+  `)),
+  (mentor_centered, (31337_16728351790679, `An unfortunately side effect of the level not checking state is that issue are not caught in the same tick where they happen, which can be very frustrating to debug. For this reason the level simulates what the Overture state is supposed to look like, you can find and compare against the expected state in the level panel at the buttom of the screen. However, for the debug simulation to follow step with your circuit, you have to output how meny instructions you retire each tick to the output component labeled "Retired".
+`))
+  (mentor_centered, (31337_84590049728141, `Note that if you change the RAM type to DRAM, you can set the pipeline depth of the RAM. If you for example set the depth to 2, loads and stores will take two ticks, but the delay of the RAM will be divided by 3.`))
 ]

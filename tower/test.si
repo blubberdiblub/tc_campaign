@@ -203,7 +203,7 @@ def on_manual_input(input: Int) {
 }
 
 
-def arch_get_input() Int {
+def get_input_switched() Int {
 
     let count = .input
     .input = count + 1
@@ -216,7 +216,7 @@ def arch_get_input() Int {
 
 }
 
-def arch_check_output(output: Int) TestResult {
+def check_output_switched(output: Int) TestResult {
 
     level_input(output)
 

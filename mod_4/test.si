@@ -2,12 +2,12 @@
 var actual_input = random(256)
 var was_read = false
 
-def arch_get_input() Int {
+def get_input_switched() Int {
     .was_read = true
     return .actual_input
 }
 
-def arch_check_output(output: Int) TestResult {
+def check_output_switched(output: Int) TestResult {
 
     if !.was_read {
         set_error((31337_59240995307159, `Read the input first.`))

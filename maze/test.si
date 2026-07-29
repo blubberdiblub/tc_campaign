@@ -193,7 +193,7 @@ def on_manual_input(input: Int) {
 
 }
 
-def arch_get_input() Int {
+def get_input_switched() Int {
 
     var x = .x_pos
     var y = .y_pos
@@ -208,7 +208,7 @@ def arch_get_input() Int {
 
 }
 
-def arch_check_output(output: Int) TestResult {
+def check_output_switched(output: Int) TestResult {
 
     move(output)
 

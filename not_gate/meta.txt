@@ -17,7 +17,7 @@ Input 1: [F][F][T][T]
 Output:  [T][T][T][F]
 
 Build: [b]NOT gate[/b]
-Input 0: [T][F]
+Input:   [T][F]
 Output:  [F][T]
 `))
 ]

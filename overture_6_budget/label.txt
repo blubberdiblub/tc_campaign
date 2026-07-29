@@ -1,3 +1,4 @@
 {
+  `Retired instructions`: (31337_73441118999472, `Retired instructions`),
   `Program`: (31337_42538649427331, `Program`),
 }

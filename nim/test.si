@@ -4,7 +4,7 @@ var player_choice = 0
 var bot_to_move = false
 
 
-def arch_get_input() Int {
+def get_input_switched() Int {
 
     return 12 - .cards_taken
 
@@ -165,7 +165,7 @@ def on_manual_input(action: Int) {
 
 }
 
-def arch_check_output(output: Int) TestResult {
+def check_output_switched(output: Int) TestResult {
 
     let cards_left = 12 - .cards_taken
 

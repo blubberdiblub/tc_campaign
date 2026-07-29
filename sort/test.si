@@ -22,7 +22,7 @@ var sorted_numbers = array(<Int>, 16)
 sort($sorted_numbers)
 
 
-def arch_get_input() Int {
+def get_input_switched() Int {
 
     if .input_cursor >= 16 {
         return 0
@@ -33,7 +33,7 @@ def arch_get_input() Int {
 
 }
 
-def arch_check_output(output: Int) TestResult {
+def check_output_switched(output: Int) TestResult {
 
     if output != .sorted_numbers[.output_cursor] {
 

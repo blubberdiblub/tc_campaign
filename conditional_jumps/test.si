@@ -2,7 +2,7 @@
 var count = 0
 var seen = 0
 
-def arch_get_input() Int {
+def get_input_switched() Int {
     if .seen == 1{
         return 37
     }
@@ -21,7 +21,7 @@ def arch_get_input() Int {
     return value
 }
 
-def arch_check_output(output: Int) TestResult {
+def check_output_switched(output: Int) TestResult {
 
     if .seen == 37 {
         set_error((31337_39953782121467, `The last input was not 37!`))

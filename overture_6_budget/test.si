@@ -213,12 +213,10 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     var i = 0
     while i < Int output.donecount {
         let instruction = get_ram_value("Program", Int .counter, <U8>)
+        ui_set_instruction(0, Int instruction, tick) // Show the last executed instruction
         retire_instruction(instruction)
         i += 1
     }
-
-    let instruction = get_ram_value("Program", Int .counter, <U8>)
-    ui_set_instruction(0, Int instruction, tick)
 
     ui_set_text("state[0][1]", str(.counter))
     ui_set_text("state[1][1]", str(.registers[0]))

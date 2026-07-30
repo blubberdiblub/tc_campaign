@@ -1,2 +1,3 @@
-[text text=(31337_41615813866999, `The Never and Always are the easier parts`) size=33 y=-25]
-[text text=(31337_30858693828450, `So let's hook those up together with the bus`) size=33 y=25]
+[text text=(31337_41615813866999, `The Never and Always are the easier parts`) size=33 y=-50]
+[text text=(31337_30858693828450, `So let's hook those up together with the bus`) size=33 y=0]
+[text text=(31337_73479968135998, `Now, to check value = 0, we need to check all bits are [F]`) size=33 y=50]

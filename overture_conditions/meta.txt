@@ -10,6 +10,15 @@ dialogue = [
 
 The 3 bits select the condition as shown below. Check the value against the selected condition and output [T] if it is satisfied and [F] otherwise.
 
-Bit code:   Turn [T] when:
-[left]          [F][F][F]   Never[/left][left]          [F][F][T]   Always[/left][left]          [F][T][F]   If value = 0[/left][left]          [F][T][T]   If value ≠ 0[/left][left]          [T][F][F]   If value < 0[/left][left]          [T][F][T]   If value ≥ 0[/left][left]          [T][T][F]   If value ≤ 0[/left][left]          [T][T][T]   If value > 0[/left]`))
+[left]
+             Bit code:     Turn [T] when:
+              [F][F][F]       Never
+              [F][F][T]       Always
+              [F][T][F]       If value = 0
+              [F][T][T]       If value ≠ 0
+              [T][F][F]       If value < 0
+              [T][F][T]       If value ≥ 0
+              [T][T][F]       If value ≤ 0
+              [T][T][T]       If value > 0
+[/left]`))
 ]

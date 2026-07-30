@@ -1,1 +1,1 @@
-[text text=(31337_87506885530483, `We then shift Input 0 by 1, 2, 4 depending on the ON bits of Input 1`) size=37]
+[text text=(31337_87506885530483, `We then shift Input 0 by 1, 2, 4 depending on the [T] bits of Input 1`) size=37]

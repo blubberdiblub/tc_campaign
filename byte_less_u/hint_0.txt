@@ -1,5 +1,2 @@
-[text text=(31337_38704349429368, `First determine which bits are different between the 2 bytes`) y=-100]
-[text text=(31337_34091176621640, `This can be done using a byte XOR (remember XOR turns [T] when the inputs are not the same)`) y=-50]
-[text text=(31337_72421677239233, `We know the number that has the highest different bit [T] is the larger number`) y=0]
-[text text=(31337_45560562333305, `But we must only consider the highest different bit,`) y=50]
-[text text=(31337_23270172293605, `so for each bit, use a chain of OR gates to check if any higher are [T]`) y=100]
+[text text=(31337_18968293717104, `One way is comparing digit by digit like we do for decimal numbers`) size=33 y=-25]
+[text text=(31337_45223418140453, `Like 09 < 21 because 0 < 2, so 1100 > 1001 because 11XX > 10XX`) size=33 y=25]

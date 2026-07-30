@@ -1,8 +1,10 @@
-[disassembly_text_description id="instruction" size=33 default_text=(31337_65145204616501, `Add conditions to the circuit`) width=1000]
+[disassembly_text_description id="instruction" size=33 default_text=(31337_22306447815263, `Optimize Overture`) width=1000]
 
-[table id="state" size=27 x=800 h_align=right v_align=bottom y=100 spacing_y=4 spacing_x=10]
-"Counter",                                                          "0", "", ""
-"[color=#E5787D]r0[/color]",                                                               "0", "[color=#E5787D]r1[/color]",                                                               "0"
-"[color=#E5787D]r2[/color]",                                                               "0", "[color=#E5787D]r3[/color]",                                                               "0"
-"[color=#E5787D]r4[/color]",                                                               "0", "[color=#E5787D]r5[/color]",                                                               "0"
+[text id="description" text=(31337_55558214457199, `Expected state`) x=650 y=-90]
+[table id="state" size=27 x=800 h_align=right v_align=bottom y=160 spacing_y=4 spacing_x=10]
+"[color=#ffffff]Counter[/color]",                                                          "0", "", ""
+"[color=#ffffff]r0[/color]",                                                               "0", "[color=#ffffff]r1[/color]",                                                               "0"
+"[color=#ffffff]r2[/color]",                                                               "0", "[color=#ffffff]r3[/color]",                                                               "0"
+"[color=#ffffff]r4[/color]",                                                               "0", "[color=#ffffff]r5[/color]",                                                               "0"
+"",                                                               "   ", "",                                                               "   "
 [/table]

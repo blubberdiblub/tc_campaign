@@ -1,2 +1,2 @@
-[text text=(31337_47232110962068, `The Less Than Or Equal 0 is just Less Than 0 OR Equal 0`) size=33 y=-25]
-[text text=(31337_17969982700629, `Then the Greater Than 0 part is just the opposite of Less Than Or Equal 0`) size=33 y=25]
+[text text=(31337_16809493892244, `To check if a binary number is negative, we just check if the sign bit is [T]`) size=33 y=-25]
+[text text=(31337_70638453446538, `The rest of the conditions are just combinations of value = 0 and value < 0`) size=33 y=25]

@@ -1,0 +1,5 @@
+[table size=33]
+"", (31337_19520914707885, `[left]value ≥ 0 means NOT (value < 0)[/left]`)
+"", (31337_44207156733924, `[left]value ≤ 0 means (value < 0) OR (value = 0)[/left]`)
+"", (31337_75072852663289, `[left]value > 0 means NOT (value ≤ 0)[/left]`)
+[/table]

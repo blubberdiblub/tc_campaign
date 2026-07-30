@@ -1,2 +1,2 @@
-[text text=(31337_16215081868720, `Up until this point, we have worked only with bit, a signal of ON/OFF`) size=33 y=-25]
+[text text=(31337_16215081868720, `Up until this point, we have worked only with bit, a signal of [T] or [F]`) size=33 y=-25]
 [text text=(31337_13944257184132, `In this level, a byte, a group of 8 bits, is provided, so we must split and merge them`) size=33 y=25]

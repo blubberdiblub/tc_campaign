@@ -1,1 +1,1 @@
-[text text=(31337_54848313056941, `The CARRY is ON if and only if at least 2 inputs are ON`) size=37]
+[text text=(31337_54848313056941, `The CARRY is [T] if and only if at least 2 inputs are [T]`) size=37]

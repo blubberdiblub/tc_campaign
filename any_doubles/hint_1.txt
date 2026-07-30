@@ -1,1 +1,1 @@
-[text text=(31337_83867604619162, `To check if both inputs in a pair are ON, we can AND them`) size=37]
+[text text=(31337_83867604619162, `To check if both inputs in a pair are [T], we can AND them`) size=37]

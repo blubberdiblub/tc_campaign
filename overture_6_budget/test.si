@@ -211,7 +211,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
 
     var i = 0
-    while i < Int output.retired_instructions {
+    while i < Int output.donecount {
         let instruction = get_ram_value("Program", Int .counter, <U8>)
         retire_instruction(instruction)
         i += 1

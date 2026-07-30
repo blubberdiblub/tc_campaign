@@ -4,5 +4,5 @@
 (31337_59092390409834, `Desired output`), "[F]",  "[T]",   "[T]",   "[F]"
 [/table]
 
-[text text=(31337_84782011304318, `The truth table tells us that the output is ON if and only if`) size=33 y=65]
-[text text=(31337_62308032073140, `either the input 0 is ON AND input 1 is OFF OR the input 0 is OFF AND input 1 is ON`) size=33 y=115]
+[text text=(31337_84782011304318, `The truth table tells us that the output is [T] if and only if`) size=33 y=65]
+[text text=(31337_62308032073140, `either the input 0 is [T] AND input 1 is [F] OR the input 0 is [F] AND input 1 is [T]`) size=33 y=115]

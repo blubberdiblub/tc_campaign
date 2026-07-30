@@ -1,1 +1,0 @@
-[text text=(31337_52492743864774, `Otherwise, we can compare 2 7-bit unsigned numbers`) size=37]

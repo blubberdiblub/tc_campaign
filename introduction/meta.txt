@@ -5,6 +5,7 @@ no_controls = true
 background = 4
 next_level = "nand_gate"
 title = (31337_44716420394020, `Humble Beginnings`)
+forced_wire_speed = true
 dialogue = [
   (mentor_centered, (31337_26182817405385, `Congratulations, you have been abducted.
 

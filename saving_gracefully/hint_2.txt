@@ -1,2 +1,2 @@
-[text text=(31337_11101940160071, `When the Action pin is ON, or Save, we want to overwrite it with Value`) size=33 y=-25]
+[text text=(31337_11101940160071, `When the Action pin is [T], or Save, we want to overwrite it with Value`) size=33 y=-25]
 [text text=(31337_19959785727663, `But doing that will cause a short circuit`) size=33 y=25]

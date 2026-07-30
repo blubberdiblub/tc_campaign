@@ -10,4 +10,4 @@
 (31337_12087865653212, `XNOR`),           "[T]",   "[F]",  "[F]",  "[T]"
 [/table]
 
-[text text=(31337_89305883777750, `Notice how the XNOR gate output is the exact opposite of the XOR gate?`) size=37 y=180]
+[text text=(31337_89305883777750, `Notice how the XNOR gate output is the exact opposite of the XOR gate?`) size=37 y=110]

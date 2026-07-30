@@ -1,2 +1,1 @@
-[text text=(31337_14667194911431, `Finally, the last bit is considered separately for signed numbers, here it has the opposite effect `) y=-25]
-[text text=(31337_19896249626650, `(if only one number has it [T], that number is guaranteed to be lower)`) y=25]
+[text text=(31337_82755888644217, `If the sign bits of the inputs differ, we can just compare them`) size=37]

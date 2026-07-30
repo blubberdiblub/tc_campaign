@@ -1,5 +1,3 @@
-[text text=(31337_38641536609785, `First determine which bits are different between the 2 bytes`) y=-100]
-[text text=(31337_58092973836591, `This can be done using a byte XOR (remember XOR turns [T] when the inputs are not the same)`) y=-50]
-[text text=(31337_19126032411456, `We know the number that has the highest different bit [T] is the larger number`) y=0]
-[text text=(31337_30391600890516, `But we must only consider the highest different bit,`) y=50]
-[text text=(31337_45372811735584, `so for each bit, use a chain of OR gates to check if any higher are [T]`) y=100]
+[text text=(31337_41958293329044, `Comparing 2 signed numbers is similar to comparing 2 unsigned numbers`) y=-50]
+[text text=(31337_14667194911431, `Only, the last bit is considered separately for signed numbers, here it has the opposite effect`)]
+[text text=(31337_19896249626650, `If only one number has [T] for sign bit, that number is guaranteed to be lower`) y=50]

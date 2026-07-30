@@ -254,4 +254,3 @@ mov r1, r3
 sub
 mov r2, r3
 or
-stefanlund@MacBook-Pro-3 asm_generators %

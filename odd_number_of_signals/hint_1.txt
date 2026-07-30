@@ -1,2 +1,2 @@
-[text text=(31337_80670337048058, `Up until this point, the red signal has been called OFF, and the green ON`) size=33 y=-25]
-[text text=(31337_39747324204871, `But what if, instead of OFF/ON, we imagine them as even/odd?`) size=33 y=25]
+[text text=(31337_80670337048058, `Up until this point, [F] has been treated as off, and [T] as on`) size=33 y=-25]
+[text text=(31337_39747324204871, `But what if, instead of off/on, we imagine them as even/odd?`) size=33 y=25]

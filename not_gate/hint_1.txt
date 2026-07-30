@@ -4,5 +4,5 @@
 (31337_17989404583269, `NAND`),           "[T]",   "",       "",       "[F]"
 [/table]
 
-[text text=(31337_88952480145102, `When the inputs are both OFF, the output is ON`) size=33 y=65]
-[text text=(31337_20946507323050, `When the inputs are both ON, the output is OFF`) size=33 y=115]
+[text text=(31337_88952480145102, `When the inputs are both [F], the output is [T]`) size=33 y=65]
+[text text=(31337_20946507323050, `When the inputs are both [T], the output is [F]`) size=33 y=115]

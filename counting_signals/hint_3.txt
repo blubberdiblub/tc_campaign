@@ -1,2 +1,2 @@
-[text text=(31337_12139411441713, `The output 1 is ON if and only if at least 2, but not all 4, signals are ON`) size=33 y=-25]
+[text text=(31337_12139411441713, `The output 1 is [T] if and only if at least 2, but not all 4, signals are [T]`) size=33 y=-25]
 [text text=(31337_83417330967064, `The 'at least 2' part, we have already done in the "Double Detection" level`) size=33 y=25]

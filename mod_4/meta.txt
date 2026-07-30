@@ -4,13 +4,13 @@ size = 255
 default_architecture = "Overture"
 title = (31337_78836302049950, `Mod 4`)
 dialogue = [
-  (mentor_centered, (31337_71000564779980, `The length of our week is 4 days. Our weekdays are named Zero's day, One's day, Two's day and Three's day. I hear some earthlings number their Two's day incorrectly? 
-  
+  (mentor_centered, (31337_71000564779980, `The length of our week is 4 days. Our weekdays are named Zero's day, One's day, Two's day and Three's day. I hear some earthlings number their Two's day incorrectly?
+
 It doesn't really surprise me.`)),
-  (mentor_centered, (31337_76392666043520, `Anyway new year is coming up and we want you to calculate the weekday of everyone's birthday. We will give you the date and all you have to do is return the weekday within 8 ticks.`)),
+  (mentor_centered, (31337_76392666043520, `Anyway new year is coming up and we want you to calculate the weekday of everyone's birthday. We will give you the date and all you have to do is return the weekday within 8 cycles.`)),
   (mentor_centered, (31337_46388374967041, `In this level you are given a number as input and you should return that number modulo 4 as a result.
 
-The challenge is that you only have 8 ticks to output the desired result.
+The challenge is that you only have 8 cycles to output the desired result.
 
 Note: You don't need to change your hardware, you just have to figure out the trick to do modulo 4 quickly.
 `))

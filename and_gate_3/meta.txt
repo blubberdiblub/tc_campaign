@@ -2,7 +2,7 @@ kind = combinational
 hint_kind = combinational
 size = 30
 unlocks_components = [com_and_3_bit]
-tick_past_fail = 8
+cycle_past_fail = 8
 title = (31337_32912994842868, `Bigger AND Gate`)
 dialogue = [
   (mentor_centered, (31337_28751026881977, `Create an AND gate with 3 inputs.`))

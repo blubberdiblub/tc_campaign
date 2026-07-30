@@ -12,9 +12,9 @@ def get_binary_repr(value: Int, size: Int) String {
     return text
 }
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
-    var x = tick
+    var x = cycle
     x ^= x << 6
     x ^= x >> 5
     x ^= x << 7
@@ -26,7 +26,7 @@ def get_input(tick: Int) Input {
 
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     let match  = (Int input.condition & Int input.flags) > 0
     let result = match != ((input.condition & 0b1000) > 0)
@@ -48,7 +48,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     }
 
-    if tick == 0xff {
+    if cycle == 0xff {
 
         return win
 

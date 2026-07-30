@@ -1,1 +1,1 @@
-[text id="my_text" text=(31337_81792554779622, `Build a 32 bit counter which increments by 4 each tick`) size=36]
+[text id="my_text" text=(31337_81792554779622, `Build a 32 bit counter which increments by 4 each cycle`) size=36]

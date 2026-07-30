@@ -1,5 +1,5 @@
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
     switch random(5)
         0 {
@@ -25,7 +25,7 @@ def get_input(tick: Int) Input {
 
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     if output.result_is_z {
         set_error((31337_33181499064044, `Result should never be Z state`))
@@ -47,7 +47,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     }
 
-    if tick == 1_000_000 {
+    if cycle == 1_000_000 {
 
         return win
 

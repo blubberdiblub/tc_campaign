@@ -5,7 +5,7 @@ def markup(text: String) String {
     return `[color=#E5787D][b]{text}[/b][/color]`
 }
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
     var add_1 = random(2)
     var add_2 = random(2)
@@ -14,18 +14,18 @@ def get_input(tick: Int) Input {
     var save = actions >> 1
     var value = 1 + random(255)
 
-    if tick < 8 {
-        if tick % 2 == 0 {
+    if cycle < 8 {
+        if cycle % 2 == 0 {
             save = 1
             load = 0
-            add_1 = (tick / 2) & 1
-            add_2 = Int ((tick / 2) > 1)
+            add_1 = (cycle / 2) & 1
+            add_2 = Int ((cycle / 2) > 1)
 
         } else {
             save = 0
             load = 1
-            add_1 = (tick / 2) & 1
-            add_2 = Int ((tick / 2) > 1)
+            add_1 = (cycle / 2) & 1
+            add_2 = Int ((cycle / 2) > 1)
         }
     }
 
@@ -75,7 +75,7 @@ def get_input(tick: Int) Input {
     }
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     if input.load == 1 {
 
@@ -102,7 +102,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     }
 
-    if tick == 0xfff {
+    if cycle == 0xfff {
 
         return win
 

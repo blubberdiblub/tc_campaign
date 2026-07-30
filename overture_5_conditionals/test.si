@@ -158,29 +158,29 @@ while s <= 6 {
 }
 
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
     return Input {input: U8 random(256)}
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
 
-    ui_set_instruction(0, tick, 0)
-    ui_set_instruction(1, tick, 0)
-    ui_set_instruction(2, tick, 0)
-    ui_set_instruction(3, tick, 0)
-    ui_set_instruction(4, tick, 0)
-    ui_set_instruction(5, tick, 0)
+    ui_set_instruction(0, cycle, 0)
+    ui_set_instruction(1, cycle, 0)
+    ui_set_instruction(2, cycle, 0)
+    ui_set_instruction(3, cycle, 0)
+    ui_set_instruction(4, cycle, 0)
+    ui_set_instruction(5, cycle, 0)
 
     let actual_counter = get_output("Count", 0)
     let instruction = get_ram_value("Program", actual_counter, <U8>)
 
-    ui_set_instruction(0, Int instruction, tick)
+    ui_set_instruction(0, Int instruction, cycle)
 
     let opcode = instruction >> 6
 
     let to   = (instruction >> 3) & 0b111
-    
+
     if output.output_enabled && (opcode != #MOVE >> 2 || to != 6) {
         set_error((31337_17521915837347, `Output should not be enabled.`))
         return fail
@@ -236,12 +236,12 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
             } elif to == 6 {
                 if !output.output_enabled {
                     set_error((31337_36308361121667, `Output not enabled.`))
-                    return fail    
+                    return fail
                 }
                 if output.output != U8 value {
                     set_error((31337_33411257451562, `Expected output: {value}.`))
                     return fail
-                }    
+                }
             }
 
             .counter += 1
@@ -278,7 +278,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
                     set_counter = !less && !equal
                 }
 
-            
+
             if set_counter {
                 .counter = .registers[0]
             } else {
@@ -304,7 +304,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         return fail
     }
 
-    if tick == .push_index - 1 {
+    if cycle == .push_index - 1 {
         return win
     }
 }

@@ -121,36 +121,36 @@ call drawing_draw_sprite_at_map_coord
 /*
     r1, r2: now high, low
     r3, r4: initial delay high, low
-    r5, r6: next tick high, low
+    r5, r6: next cycle high, low
     r7: pointer
 */
 time_0 r2
 time_1 r1
 
 ; (31337_16841324702501, `Robot`)
-add r7, zr, ptr_timer_robot_next_tick_high
+add r7, zr, ptr_timer_robot_next_cycle_high
 load_32 r3, [r7]
-add r7, zr, ptr_timer_robot_next_tick_low
+add r7, zr, ptr_timer_robot_next_cycle_low
 load_32 r4, [r7]
 
 call u64_add
 
-add r7, zr, ptr_timer_robot_next_tick_high
+add r7, zr, ptr_timer_robot_next_cycle_high
 store_32 [r7], r5
-add r7, zr, ptr_timer_robot_next_tick_low
+add r7, zr, ptr_timer_robot_next_cycle_low
 store_32 [r7], r6
 
 ; (31337_33327526977497, `Ghost`)
-add r7, zr, ptr_timer_ghost_next_tick_high
+add r7, zr, ptr_timer_ghost_next_cycle_high
 load_32 r3, [r7]
-add r7, zr, ptr_timer_ghost_next_tick_low
+add r7, zr, ptr_timer_ghost_next_cycle_low
 load_32 r4, [r7]
 
 call u64_add
 
-add r7, zr, ptr_timer_ghost_next_tick_high
+add r7, zr, ptr_timer_ghost_next_cycle_high
 store_32 [r7], r5
-add r7, zr, ptr_timer_ghost_next_tick_low
+add r7, zr, ptr_timer_ghost_next_cycle_low
 store_32 [r7], r6
 
 game_loop:
@@ -200,12 +200,12 @@ handle_event_end:
 
     /*
     For all timers:
-        r1, r2: tick duration high, low
+        r1, r2: cycle duration high, low
         r7, r8: now high, low
     */
-    add r9, zr, ptr_tick_duration_high
+    add r9, zr, ptr_cycle_duration_high
     load_32 r1, [r9]
-    add r9, zr, ptr_tick_duration_low
+    add r9, zr, ptr_cycle_duration_low
     load_32 r2, [r9]
     time_0 r8
     time_1 r7
@@ -215,15 +215,15 @@ handle_event_end:
     push r7
     push r8
 /*  Timer comparison / update
-    r1, r2: tick duration high, low [IN]
-    r3, r4: next tick high, low
-    r5, r6: tick after this one high, low
+    r1, r2: cycle duration high, low [IN]
+    r3, r4: next cycle high, low
+    r5, r6: cycle after this one high, low
     r7, r8: now high, low [IN]
     r9: pointer
 */
-add r9, zr, ptr_timer_robot_next_tick_high
+add r9, zr, ptr_timer_robot_next_cycle_high
 load_32 r3, [r9]
-add r9, zr, ptr_timer_robot_next_tick_low
+add r9, zr, ptr_timer_robot_next_cycle_low
 load_32 r4, [r9]
 
 cmp r7, r3
@@ -233,11 +233,11 @@ cmp r8, r4
 jb timer_robot_end
 
 timer_robot_trigger:
-; (31337_23344524651761, `update next_tick`)
+; (31337_23344524651761, `update next cycle`)
 call u64_add
-add r9, zr, ptr_timer_robot_next_tick_high
+add r9, zr, ptr_timer_robot_next_cycle_high
 store_32 [r9], r5
-add r9, zr, ptr_timer_robot_next_tick_low
+add r9, zr, ptr_timer_robot_next_cycle_low
 store_32 [r9], r6
 
 
@@ -318,15 +318,15 @@ timer_robot_end:
     pop r1
 
 /*  Timer comparison / update
-    r1, r2: tick duration high, low [IN]
-    r3, r4: next tick high, low
-    r5, r6: tick after this one high, low
+    r1, r2: cycle duration high, low [IN]
+    r3, r4: next cycle high, low
+    r5, r6: cycle after this one high, low
     r7, r8: now high, low [IN]
     r9: pointer
 */
-add r9, zr, ptr_timer_ghost_next_tick_high
+add r9, zr, ptr_timer_ghost_next_cycle_high
 load_32 r3, [r9]
-add r9, zr, ptr_timer_ghost_next_tick_low
+add r9, zr, ptr_timer_ghost_next_cycle_low
 load_32 r4, [r9]
 
 cmp r7, r3
@@ -336,11 +336,11 @@ cmp r8, r4
 jb timer_ghost_end
 
 timer_ghost_trigger:
-; (31337_23344524651761, `update next_tick`)
+; (31337_23344524651761, `update next cycle`)
 call u64_add
-add r9, zr, ptr_timer_ghost_next_tick_high
+add r9, zr, ptr_timer_ghost_next_cycle_high
 store_32 [r9], r5
-add r9, zr, ptr_timer_ghost_next_tick_low
+add r9, zr, ptr_timer_ghost_next_cycle_low
 store_32 [r9], r6
 
 
@@ -1197,18 +1197,18 @@ U32 0 ; (31337_50069163371185, `ghost left`)
 U32 0 ; (31337_67744627518982, `coin`)
 
 ; (31337_75937352730902, `0.5 second = 500_000_000 nano second = 0x0000_0000_1DCD_6500`)
-ptr_tick_duration_high: U32 0x0000_0000
-ptr_tick_duration_low:  U32 0x1DCD_6500
+ptr_cycle_duration_high: U32 0x0000_0000
+ptr_cycle_duration_low:  U32 0x1DCD_6500
 
 ; (31337_10169473219025, `1 second = 1_000_000_000 nano second = 0x0000_0000_3B9A_CA00`)
-; ptr_tick_duration_high: U32 0x0000_0000
-; ptr_tick_duration_low:  U32 0x3B9A_CA00
+; ptr_cycle_duration_high: U32 0x0000_0000
+; ptr_cycle_duration_low:  U32 0x3B9A_CA00
 
-ptr_timer_robot_next_tick_high: U32 0x0000_0000
-ptr_timer_robot_next_tick_low: U32 0x1DCD_6500
+ptr_timer_robot_next_cycle_high: U32 0x0000_0000
+ptr_timer_robot_next_cycle_low: U32 0x1DCD_6500
 
-ptr_timer_ghost_next_tick_high: U32 0
-ptr_timer_ghost_next_tick_low: U32 0x0EE6_B280
+ptr_timer_ghost_next_cycle_high: U32 0
+ptr_timer_ghost_next_cycle_low: U32 0x0EE6_B280
 
 ptr_state_robot:
 U8 0 ; (31337_61792431057747, `x coord`)

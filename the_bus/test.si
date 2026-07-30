@@ -1,5 +1,5 @@
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
     var in = random(2)
     var out = random(2)
@@ -30,7 +30,7 @@ def get_input(tick: Int) Input {
 }
 
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     var val = U8 0
 
@@ -79,7 +79,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     }
 
-    if tick == 32 {
+    if cycle == 32 {
 
         return win
 

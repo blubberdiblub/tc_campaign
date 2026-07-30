@@ -77,27 +77,27 @@ while s <= 6 {
 tests = i
 
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
-    let instruction = .instructions[tick]
+    let instruction = .instructions[cycle]
 
     let opcode      = instruction & 0b1100_0000
     let operands    = instruction & 0b0011_1111
 
     switch U8 opcode
         #IMM {
-            ui_set_text("description", `imm {operands}`) 
+            ui_set_text("description", `imm {operands}`)
         }
-        #MOVE { 
+        #MOVE {
             let src = operands >> 3
             let dst = U8 (operands & 0b111)
 
             if src == 0b110 && dst == #OUTPUT {
-                ui_set_text("description", `mov in, out`) 
+                ui_set_text("description", `mov in, out`)
             } elif src == 0b110 {
                 ui_set_text("description", `mov in, r{dst}`)
             } elif dst == #OUTPUT {
-                ui_set_text("description", `mov r{src} out`) 
+                ui_set_text("description", `mov r{src} out`)
             } else {
                 ui_set_text("description", `mov r{dst}, r{src}`)
             }
@@ -105,7 +105,7 @@ def get_input(tick: Int) Input {
         #CALC {
             let opp = instruction & 0b111
 
-            switch U8 opp 
+            switch U8 opp
                 #OR   { ui_set_text("description", "or r1, r2") }
                 #NAND { ui_set_text("description", "nand r1, r2") }
                 #NOR  { ui_set_text("description", "nor r1, r2") }
@@ -119,15 +119,15 @@ def get_input(tick: Int) Input {
 
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     let instruction = Int input.instruction
     let opcode = U8 (instruction >> 6)
 
-    ui_set_instruction(0, instruction, tick)
+    ui_set_instruction(0, instruction, cycle)
 
     let to = (instruction >> 3) & 0b111
-    
+
     if output.output_enabled && (opcode != #MOVE >> 6 || to != 6) {
         set_error((31337_63497936956369, `Output should not be enabled.`))
         return fail
@@ -138,7 +138,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         #IMM {
 
             .registers[0] = instruction & 0b111111
-        
+
         }
 
         #CALC {
@@ -186,12 +186,12 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
             } elif to == 6 {
                 if !output.output_enabled {
                     set_error((31337_82564442776805, `Output not enabled.`))
-                    return fail    
+                    return fail
                 }
                 if Int output.output != value {
                     set_error((31337_17793323757435, `Expected output: {value}.`))
                     return fail
-                }    
+                }
             }
 
         }
@@ -208,7 +208,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         reg_i += 1
     }
 
-    if tick == .tests {
+    if cycle == .tests {
 
         return win
 

@@ -21,9 +21,9 @@ def check_output_switched(output: Int) TestResult {
         return fail
     }
 
-    if get_tick() > 8 {
+    if get_cycle() > 8 {
 
-        set_error((31337_13853243145042, `You must output the result before tick 8!`))
+        set_error((31337_13853243145042, `You must output the result before cycle 8!`))
         return fail
 
     }

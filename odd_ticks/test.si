@@ -1,16 +1,16 @@
-def get_input(tick: Int) Input {}
+def get_input(cycle: Int) Input {}
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     if output.output_is_z {
         return fail
     }
 
-    if Int output.output != tick % 2 {
+    if Int output.output != cycle % 2 {
         return fail
     }
 
-    if tick == 7 {
+    if cycle == 7 {
         return win
     }
 

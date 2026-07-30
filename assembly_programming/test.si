@@ -1,17 +1,17 @@
 
 var input = U8 ((get_test() * 207 + 168) % 251)
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
     return Input {input: .input}
 
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     let actual_counter = get_output("Count", 0)
     let instruction = get_ram_value("Program", actual_counter, <U8>)
-    ui_set_instruction(0, Int instruction, tick)
+    ui_set_instruction(0, Int instruction, cycle)
 
     if !output.output_enabled {
         return pass

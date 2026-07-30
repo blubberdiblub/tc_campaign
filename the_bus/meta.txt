@@ -7,8 +7,8 @@ background = 5
 title = (31337_10949534274977, `The bus`)
 dialogue = [
   (mentor_centered, (31337_25369396405852, `This level has 2 byte inputs and 2 byte outputs. Your goal is to move a number from one input to one output.
-  
+
 The first bit input, determines which input you should move from. The second bit input determines which output you should move to.
 
-At each tick, only 1 output should receive the value, the other output should receive Z (no value). This will be indicated by "-" on the output.`))
+At each cycle, only 1 output should receive the value, the other output should receive Z (no value). This will be indicated by "-" on the output.`))
 ]

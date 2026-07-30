@@ -4,12 +4,13 @@ immutable_isa = true
 title = (31337_35331465118106, `Overture`)
 modify_component_budget = [com_level_input_switched: 8, com_level_output_switched: 8]
 test_assembly_component = "Program"
-tests = 16
+tests = 64
 optional = true
+test_instruction_count = [23657, 24998, 23501, 24981, 24984, 18124, 21936, 24329, 24998, 24208, 24994, 24961, 22276, 23093, 22441, 24991, 24976, 24990, 16784, 21814, 23324, 21402, 24985, 19771, 15894, 24606, 24999, 23092, 24987, 23729, 23774, 24981, 24982, 24999, 18532, 24989, 24989, 22913, 24977, 22322, 24986, 24987, 24997, 24981, 24987, 24995, 24978, 24989, 24978, 23353, 22335, 24977, 22189, 17725, 24999, 24990, 24987, 24993, 21730, 24559, 24992, 24362, 17953, 24996]
 dialogue = [
-  (mentor_centered, (31337_73819865818844, `The only purpose of this optional level is to let you experiment with how much you can optimize Overture. The level does not test register or counter state, which gives you freedom to complete more (or less) than one instruction each tick, thus giving you a better score. Also, you are free to use more than one input and output component.
+  (mentor_centered, (31337_73819865818844, `The only purpose of this optional level is to let you experiment with how much you can optimize Overture. The level does not test register or counter state, which gives you freedom to complete more (or less) than one instruction each cycle, thus giving you a better score. Also, you are free to use more than one input and output component.
   `)),
-  (mentor_centered, (31337_16728351790679, `An unfortunate side effect of the level not checking state is that issues are not caught in the same tick where they happen, which can be very frustrating to debug. For this reason the level simulates what the Overture state is supposed to look like, you can find and compare against the expected state in the level panel at the bottom of the screen. However, for the debug simulation to follow step with your circuit, you have to output how many instructions you completed each tick to the output component labeled "DoneCount".
+  (mentor_centered, (31337_16728351790679, `An unfortunate side effect of the level not checking state is that issues are not caught in the same cycle where they happen, which can be very frustrating to debug. For this reason the level simulates what the Overture state is supposed to look like, you can find and compare against the expected state in the level panel at the bottom of the screen. However, for the debug simulation to follow step with your circuit, you have to output how many instructions you completed each cycle to the output component labeled "DoneCount".
 `))
-  (mentor_centered, (31337_84590049728141, `Note that if you change the RAM type to DRAM, you can set the pipeline depth of the RAM. If you for example set the depth to 2, loads and stores will take two ticks, but the delay of the RAM will be divided by 3.`))
+  (mentor_centered, (31337_84590049728141, `Note that if you change the RAM type to DRAM, you can set the pipeline depth of the RAM. If you for example set the depth to 2, loads and stores will take two cycles, but the delay of the RAM will be divided by 3.`))
 ]

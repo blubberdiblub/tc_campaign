@@ -1,6 +1,6 @@
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
     var result = Input {}
-    switch tick
+    switch cycle
         0 {
             result.instruction = 0
         }
@@ -15,12 +15,12 @@ def get_input(tick: Int) Input {
         }
 
     var text = ""
-    if (tick & 2) == 0 {
+    if (cycle & 2) == 0 {
         text += "[F]"
     } else {
         text += "[T]"
     }
-    if (tick & 1) == 0 {
+    if (cycle & 1) == 0 {
         text += "[F]"
     } else {
         text += "[T]"
@@ -49,9 +49,9 @@ def mode_name(value: Int) String {
     return "???"
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
-    ui_set_text("table[1][1]", mode_name(tick))
+    ui_set_text("table[1][1]", mode_name(cycle))
 
     switch input.instruction
         0 {
@@ -102,12 +102,12 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     let test_vec = Int output.immediate | Int output.alu << 1 | Int output.move << 2 | Int output.condition << 3
 
-    if error_seen || test_vec != (1 << tick) {
+    if error_seen || test_vec != (1 << cycle) {
         return fail
     }
 
 
-    if tick == 3 {
+    if cycle == 3 {
         return win
     }
 

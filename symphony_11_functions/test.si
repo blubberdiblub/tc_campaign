@@ -1,12 +1,12 @@
 
 
-def get_input(tick: Int) Input {
-    
-    if tick == 0 {
+def get_input(cycle: Int) Input {
+
+    if cycle == 0 {
 
         return Input {input: U32 2}
 
-    } elif tick == 1 {
+    } elif cycle == 1 {
 
         return Input {input: U32 5}
 
@@ -18,13 +18,13 @@ def get_input(tick: Int) Input {
 }
 
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     let actual_counter = get_load_port_input("Instruction")
     var instruction = get_ram_value("Main Memory", Int actual_counter, <U32>)
     ui_set_instruction(0, Int instruction, Int actual_counter)
-    
-    if tick == 165 {
+
+    if cycle == 165 {
 
         return win
 

@@ -25,7 +25,7 @@ Also link the screen to the RAM component named "Main Memory".
 The screen can interpret bytes in the RAM component it is linked to in many ways (see manual). The screen has the "Enable", "Setting index" & "Value" inputs, which are the way to interact with the screen's internal registers (also explained in the manual).
 When the screen instruction is executed, the screen's register provided by argument A should be set to the value of argument B (which can be an immediate or be sourced from a register).
 
-The time component outputs the time in nano seconds since 1st of January 1970 (The Unix epoch) as a 64 bit number. Since this architecture only deals with 32 bits, the value is split into 2 parts that can be read separately. However, combining time values from two separate ticks can actually produce values from the future or past, due to overflows. To avoid this issue, we only read the timer when executing "time_0" and store the result so "time_1" can read it later. This means that "time_1" should be 0 if "time_0" has not been executed yet.
+The time component outputs the time in nano seconds since 1st of January 1970 (The Unix epoch) as a 64 bit number. Since this architecture only deals with 32 bits, the value is split into 2 parts that can be read separately. However, combining time values from two separate cycles can actually produce values from the future or past, due to overflows. To avoid this issue, we only read the timer when executing "time_0" and store the result so "time_1" can read it later. This means that "time_1" should be 0 if "time_0" has not been executed yet.
 
 The counter refers to the custom component that determines the offset the Assembler reads from. This should read the current offset.
 

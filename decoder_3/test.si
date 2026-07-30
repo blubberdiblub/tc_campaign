@@ -1,10 +1,10 @@
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
-    return Input {input: U3 tick, disable: U1 (tick >> 3)}
+    return Input {input: U3 cycle, disable: U1 (cycle >> 3)}
 
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     var value = Int output.output
 
@@ -23,15 +23,15 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
         }
 
-    } elif value != 1 << tick {
+    } elif value != 1 << cycle {
 
-        set_error((31337_10870388349665, `Expected output {tick} to be [T] and other outputs to be [F]`))
+        set_error((31337_10870388349665, `Expected output {cycle} to be [T] and other outputs to be [F]`))
         return fail
 
     }
 
 
-    if tick == 15 {
+    if cycle == 15 {
 
         return win
 

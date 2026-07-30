@@ -51,26 +51,26 @@ while s <= 6 {
 }
 
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
     return Input {input: U8 random(256)}
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
-    if get_memory("Count") != tick + 1 {
-        let expected_value = tick + 1
+    if get_memory("Count") != cycle + 1 {
+        let expected_value = cycle + 1
         set_error((31337_73023200204536, `Counter should have value {expected_value}.`))
         return fail
     }
 
-    let instruction = get_ram_value("Program", tick, <U8>)
+    let instruction = get_ram_value("Program", cycle, <U8>)
 
-    ui_set_instruction(0, Int instruction, tick)
+    ui_set_instruction(0, Int instruction, cycle)
 
     let opcode = U8 (instruction >> 6)
 
     let to = (instruction >> 3) & 0b111
-    
+
     if output.output_enabled && (opcode != #MOVE >> 6 || to != 6) {
         set_error((31337_19443898128380, `Output should not be enabled.`))
         return fail
@@ -123,12 +123,12 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
             } elif to == 6 {
                 if !output.output_enabled {
                     set_error((31337_50052313044113, `Output not enabled.`))
-                    return fail    
+                    return fail
                 }
                 if output.output != U8 value {
                     set_error((31337_88140381331491, `Expected output: {value}.`))
                     return fail
-                }    
+                }
             }
         }
 
@@ -144,7 +144,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         reg_i += 1
     }
 
-    if tick == .push_index - 1 {
+    if cycle == .push_index - 1 {
         return win
     }
 }

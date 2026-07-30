@@ -13,7 +13,7 @@ def on_ui_update(input: Input, output: Output) {
 
 }
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
     var result = random(2) == 0 ? 1 + random(0xfe) : 0
 
@@ -27,7 +27,7 @@ def get_input(tick: Int) Input {
 
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     {
 
@@ -60,8 +60,8 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     }
 
-    if !output.output_enabled { 
-        return pass 
+    if !output.output_enabled {
+        return pass
     }
 
     if .waiting_for_pop == 0 {

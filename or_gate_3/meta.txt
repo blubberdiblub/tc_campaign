@@ -2,7 +2,7 @@ kind = combinational
 hint_kind = combinational
 size = 30
 unlocks_components = [com_or_3_bit]
-tick_past_fail = 8
+cycle_past_fail = 8
 title = (31337_68089739910654, `Bigger OR Gate`)
 dialogue = [
   (mentor_centered, (31337_29275887429601, `Create an OR gate with 3 inputs.`))

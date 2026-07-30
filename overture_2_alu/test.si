@@ -84,21 +84,21 @@ while alu_opp < 6 {
 tests = i - 1
 
 
-def get_input(tick: Int) Input {
-    let instruction = .instructions[tick]
+def get_input(cycle: Int) Input {
+    let instruction = .instructions[cycle]
 
     return Input {instruction: U8 instruction, input: U8 random(256)}
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     let instruction = Int input.instruction
     let opcode = U8 (instruction >> 6)
 
-    ui_set_instruction(0, instruction, tick)
+    ui_set_instruction(0, instruction, cycle)
 
     let to = (instruction >> 3) & 0b111
-    
+
     if output.output_enabled && (opcode != #MOVE >> 6 || to != 6) {
         set_error((31337_84026509534190, `Output should not be enabled.`))
         return fail
@@ -148,12 +148,12 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
             } elif to == 6 {
                 if !output.output_enabled {
                     set_error((31337_27417572090527, `Output not enabled.`))
-                    return fail    
+                    return fail
                 }
                 if Int output.output != value {
                     set_error((31337_45837083894306, `Expected output: {value}.`))
                     return fail
-                }    
+                }
             }
         }
 
@@ -169,7 +169,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         reg_i += 1
     }
 
-    if tick == .tests {
+    if cycle == .tests {
         return win
     }
 }

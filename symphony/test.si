@@ -241,9 +241,9 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
 }
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
-    if tick < 0xff {
+    if cycle < 0xff {
 
         return Input {input: U32 random(0xff)}
 
@@ -255,7 +255,7 @@ def get_input(tick: Int) Input {
 
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     let actual_counter = get_load_port_input("Instruction")
 
@@ -263,7 +263,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
         ui_set_instruction(0, 0, 0)
         let expected_value = .counter
-        set_error((31337_17745932940157, `You should have read address {expected_value} from the Main Memory, not {actual_counter}. You must have not updated the counter correctly last tick.`))
+        set_error((31337_17745932940157, `You should have read address {expected_value} from the Main Memory, not {actual_counter}. You must have not updated the counter correctly last cycle.`))
         return fail
 
     }
@@ -348,7 +348,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         }
     }
 
-    if tick > 0xfff {
+    if cycle > 0xfff {
         return win
     }
 

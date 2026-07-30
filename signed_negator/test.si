@@ -20,9 +20,9 @@ def get_binary_repr(value: Int) String {
     return text
 }
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
-    var x = tick + 1
+    var x = cycle + 1
     x ^= x << 1
     x ^= x >> 1
     x ^= x << 2
@@ -40,7 +40,7 @@ def get_input(tick: Int) Input {
 
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     if output.output_is_z {
         ui_set_text("table[2][1]", `   Z`)
@@ -57,7 +57,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     if output.output != (~input.input + 1) {
         return fail
     }
-    if tick == 0xff {
+    if cycle == 0xff {
         return win
     }
 

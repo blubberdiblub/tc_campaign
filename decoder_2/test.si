@@ -1,22 +1,22 @@
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
-    return Input {input: U2 tick}
+    return Input {input: U2 cycle}
 
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     if output.output_is_z {
         set_error((31337_70376380014778, `Output should never be Z state`))
         return fail
     }
 
-    if Int output.output != (1 << tick) {
-        set_error((31337_58804917157759, `Expected only output {tick} to be ON`))
+    if Int output.output != (1 << cycle) {
+        set_error((31337_58804917157759, `Expected only output {cycle} to be ON`))
         return fail
     }
 
-    if tick == 3 {
+    if cycle == 3 {
         return win
     }
 

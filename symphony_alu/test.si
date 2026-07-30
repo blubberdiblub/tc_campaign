@@ -8,13 +8,13 @@ def flag_result(a: U32, b: U32) U32 {
     return (sless << 2) | (uless << 1) | equal
 }
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
     var code = random(11)
     var a = U32 0
     var b = U32 0
 
-    if tick < 0xfff {
+    if cycle < 0xfff {
 
         a = U32 random(0x100)
         b = U32 random(0x100)
@@ -53,59 +53,59 @@ def get_input(tick: Int) Input {
     }
 
     switch code
-        0 { 
+        0 {
 
             ui_set_text("description", `{a} NAND {b} = {U32 ~(a & b)}`)
 
         }
-        1 { 
+        1 {
 
-            ui_set_text("description", `{a} OR {b} = {a | b}`) 
-
-        }
-        2 { 
-
-            ui_set_text("description", `{a} AND {b} = {a & b}`) 
+            ui_set_text("description", `{a} OR {b} = {a | b}`)
 
         }
-        3 { 
+        2 {
 
-            ui_set_text("description", `{a} NOR {b} = {U32 ~(a | b)}`) 
-
-        }
-        4 { 
-
-            ui_set_text("description", `{a} ADD {b} = {U32 (a + b)}`) 
+            ui_set_text("description", `{a} AND {b} = {a & b}`)
 
         }
-        5 { 
+        3 {
 
-            ui_set_text("description", `{a} SUB {b} = {a - b}`) 
-
-        }
-        6 { 
-
-            ui_set_text("description", `{a} XOR {b} = {a ^ b}`) 
+            ui_set_text("description", `{a} NOR {b} = {U32 ~(a | b)}`)
 
         }
-        7 { 
+        4 {
 
-            ui_set_text("description", `{a} LSL {b} = {U32 (a << b)}`) 
-
-        }
-        8 { 
-
-            ui_set_text("description", `{a} LSR {b} = {a >> b}`) 
+            ui_set_text("description", `{a} ADD {b} = {U32 (a + b)}`)
 
         }
-        9 { 
+        5 {
 
-            ui_set_text("description", `{a} ASR {b} = {asr(a, b)}`) 
+            ui_set_text("description", `{a} SUB {b} = {a - b}`)
 
         }
-        10 { 
+        6 {
 
-            ui_set_text("description", `CMP {a}, {b} = {flag_result(a, b)}`) 
+            ui_set_text("description", `{a} XOR {b} = {a ^ b}`)
+
+        }
+        7 {
+
+            ui_set_text("description", `{a} LSL {b} = {U32 (a << b)}`)
+
+        }
+        8 {
+
+            ui_set_text("description", `{a} LSR {b} = {a >> b}`)
+
+        }
+        9 {
+
+            ui_set_text("description", `{a} ASR {b} = {asr(a, b)}`)
+
+        }
+        10 {
+
+            ui_set_text("description", `CMP {a}, {b} = {flag_result(a, b)}`)
 
         }
 
@@ -113,7 +113,7 @@ def get_input(tick: Int) Input {
 
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     if output.result_is_z {
         set_error((31337_33181499064044, `Result should never be Z state`))
@@ -125,9 +125,9 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     switch input.opcode
         0  { result = ~(input.argument_a &  input.argument_b) }
         1  { result =   input.argument_a |  input.argument_b }
-        2  { result =   input.argument_a &  input.argument_b } 
-        3  { result = ~(input.argument_a |  input.argument_b) } 
-        4  { result =   input.argument_a +  input.argument_b } 
+        2  { result =   input.argument_a &  input.argument_b }
+        3  { result = ~(input.argument_a |  input.argument_b) }
+        4  { result =   input.argument_a +  input.argument_b }
         5  { result =   input.argument_a -  input.argument_b }
         6  { result =   input.argument_a ^  input.argument_b }
         7  { result =   input.argument_a << input.argument_b }
@@ -142,7 +142,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     }
 
-    if tick == 1000_000 {
+    if cycle == 1000_000 {
 
         return win
 

@@ -3,194 +3,201 @@ mov r1, in
 mov r2, in
 mov r4, in
 mov r5, in
-add
+nand
 mov r1, r3
-or
 mov r2, r3
-or
+and
 mov r1, r3
+nand
+mov r1, r3
+nand
+mov r1, r3
+mov r2, r3
 sub
 mov r1, r3
 mov r2, r3
-and
-mov r2, r3
-and
-mov r2, in
+add
 mov out, r0
 mov r0, in
-mov out, r0
-mov r0, r3
-add
+mov r1, r3
 mov r2, r3
 sub
-mov r1, r3
 mov r2, r3
-nop
 add
-mov r2, r3
-mov r0, r3
-nor
 mov r1, r3
 mov r2, r3
+or
+mov r1, r3
+and
+nop
+mov r0, r3
+mov r1, r3
+mov r2, r3
+nand
+mov r1, r3
+or
+mov r2, r3
+mov r1, r3
+add
+mov r2, in
+mov out, r3
 and
 mov r1, r3
-mov r2, r3
-sub
-mov r2, r3
-mov r1, r3
-or
-mov r1, r3
 add
-mov r2, r3
-or
-mov r2, r3
 mov out, r0
-mov out, r2
-imm 3
+imm 15
 mov r2, r0
 mov r0, r3
 mov r2, r3
-nor
-mov out, r0
-mov r0, in
+nand
 mov r1, r3
+or
+mov r1, r3
+and
+mov r1, r3
+mov r2, r3
+nand
 jz
-sub
 mov r0, r3
 mov r1, r3
 mov r2, r3
-nand
+add
+mov r1, r3
+sub
+mov r1, r3
 mov r2, r3
 or
 mov r1, r3
-mov r2, r3
-and
+or
+mov r1, r3
 mov r2, r3
 nand
+mov r2, r3
+and
+mov r1, r3
+mov r2, r3
+or
+mov r2, in
+mov out, r0
+mov r0, in
+mov r1, r3
+nand
+mov r1, r3
+or
 mov r1, r3
 mov r2, r3
 sub
-mov r1, r3
-and
-mov r1, r3
-mov r2, in
-add
 mov r2, r3
-mov r1, r3
-add
 jnz
 mov r0, r3
-mov r2, r3
 or
 mov r1, r3
-or
-mov r2, r3
+nand
+mov r1, r3
 add
-mov r2, r3
-add
-mov r2, r3
-nor
 mov r1, r3
 mov r2, r3
-nor
+or
 mov r1, r3
 mov r2, r3
 nand
 mov r1, r3
-mov r2, r3
-add
 mov r2, r3
 sub
-mov r2, r3
-nor
-mov r2, r3
-mov r1, r3
-nand
-mov r1, r3
-nand
 mov r1, r3
 mov r2, r3
-or
-mov r2, r3
-nand
-mov r1, r3
-mov r2, r3
-or
-mov r1, r3
-mov r2, in
 add
 mov r1, r3
+sub
+mov r2, r3
+add
+mov r1, in
+mov r2, r3
+or
+mov r1, r3
+mov r2, r3
+nor
 jl
 mov r0, r3
-mov r2, r3
-nor
+sub
 mov r1, r3
-and
-mov r2, r3
-mov r1, in
 nand
-mov r2, r3
-sub
-mov r2, r3
-add
-mov r2, r3
-and
-mov r2, r3
-or
 mov r1, r3
-or
-mov r1, r3
-mov r2, r3
-sub
-mov r1, r3
-mov out, r0
-mov out, r1
-imm 23
-mov r1, r0
-mov r2, in
-mov r0, r3
-mov r1, r3
-and
 mov r2, r3
 nor
 mov r1, r3
-or
+and
+mov r2, in
+mov out, r0
+mov r0, r3
+sub
 mov r1, r3
+sub
+mov r1, r3
+mov r2, r3
+and
+mov r1, r3
+mov r2, r3
+and
+mov r1, r3
+mov r2, r3
+or
+mov out, r0
+mov r0, in
+mov r1, r3
+mov r2, r3
+sub
+mov r2, r3
 jge
+sub
 mov r0, r3
+mov r1, r3
+nand
+mov r1, r3
+mov r2, in
+sub
+mov r2, r3
+or
+mov r1, r3
+mov r2, r3
+nor
+mov r2, r3
+or
+mov r1, r3
+mov r2, r3
+and
+mov r2, r3
+add
+mov r2, r3
+nor
+mov r1, r3
+add
+mov r1, r3
 mov r2, r3
 sub
 mov r1, r3
-add
-mov r2, r3
-nand
-mov r1, in
-mov r2, r3
-and
+nor
 mov r1, r3
-mov r2, in
-nand
 mov r2, r3
-add
-mov r1, r3
-mov r2, in
 mov out, r0
 mov r0, in
 add
+mov r1, r3
 jle
+and
+mov r1, r3
 mov r0, r3
-add
-mov r1, in
+nor
+mov r1, r3
 mov r2, r3
 sub
 mov r1, r3
-add
 mov r2, r3
-nor
-mov r2, r3
-and
-mov r2, r3
-and
+nand
+mov r1, r3
+nand
+mov r1, r3
+or
 mov r1, r3
 mov r2, r3
 add
@@ -198,59 +205,52 @@ mov r1, r3
 or
 mov r2, r3
 sub
-mov r1, r3
-nand
-mov r1, r3
+mov r1, in
+mov r2, r3
 sub
 mov r2, r3
-nand
+nor
 mov r1, r3
 mov r2, r3
+and
+mov out, r0
+mov r0, in
+mov r1, r3
+mov r2, r3
+or
+mov r1, r3
 jg
-mov r0, in
-nand
-mov r1, r3
+nor
 mov r2, r3
+mov r1, r3
+nor
+mov r0, r3
+mov r1, r3
 add
-mov r1, r3
 mov r2, r3
 nor
 mov r1, r3
+and
 mov r2, r3
-nor
+or
 mov r1, r3
 add
 mov r1, in
 mov out, r0
 mov r0, r3
-nor
-mov r2, r3
-nand
-mov r2, r3
-mov r1, r3
-and
-mov r1, r3
-or
-mov r1, r3
-nor
-mov r2, r3
-sub
-mov r1, r3
-sub
-mov r1, r3
-nor
-mov r1, r3
-nand
-mov r2, r3
-mov r1, r3
-nand
-mov r1, r3
-add
 mov out, r0
 mov r0, in
-mov r1, r3
-add
-mov r1, r3
-mov r2, r3
+sub
 jmp
 mov r0, r3
+mov r1, r3
+mov r2, r3
+and
+mov r2, r3
+add
+mov r1, r3
+mov r2, r3
+or
+mov r1, r3
+mov r2, r3
+sub

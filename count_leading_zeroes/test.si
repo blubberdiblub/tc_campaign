@@ -1,14 +1,14 @@
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
-    return Input {input: U8 tick}
+    return Input {input: U8 cycle}
 
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     let count = clz(input.input)
-    
+
     if count != output.result {
 
         let input_value = input.input
@@ -33,7 +33,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
     }
 
 
-    if tick == 0x100 {
+    if cycle == 0x100 {
 
         return win
 

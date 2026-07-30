@@ -1,7 +1,7 @@
 kind = combinational
 hint_kind = combinational
 size = 30
-tick_past_fail = 4
+cycle_past_fail = 4
 background = 2
 title = (31337_38198768813364, `Bit inverter`)
 dialogue = [

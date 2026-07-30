@@ -3,7 +3,7 @@ hint_kind = combinational
 no_score = true
 size = 30
 unlocks_components = [com_and_bit]
-tick_past_fail = 4
+cycle_past_fail = 4
 title = (31337_70892117360845, `AND Gate`)
 dialogue = [
   (mentor_centered, (31337_28388869498626, `Right now the elephant is dominating all the other test subjects from earth. Adjusting for brain size, you are also doing well.`)),

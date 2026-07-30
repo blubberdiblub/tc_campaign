@@ -1,7 +1,7 @@
 kind = combinational
 hint_kind = combinational
 size = 30
-tick_past_fail = 4
+cycle_past_fail = 4
 background = 5
 title = (31337_64470174232265, `Half Adder`)
 dialogue = [

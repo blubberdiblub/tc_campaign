@@ -3,10 +3,10 @@ no_score = true
 size = 30
 unlocks_components = [com_delay_line_bit]
 components_available = [com_delay_line_bit: -1]
-tick_past_fail = 14
+cycle_past_fail = 14
 background = 1
 title = (31337_81657957055974, `Delayed Lines`)
 dialogue = [
-  (mentor_centered, (31337_66914768639545, `This level introduces the Delay Line component. It takes its input and outputs it 1 tick later.`)),
-  (mentor_centered, (31337_28070798445412, `Construct a circuit that outputs the same as the input, just delayed by 2 ticks.`))
+  (mentor_centered, (31337_66914768639545, `This level introduces the Delay Line component. It takes its input and outputs it 1 cycle later.`)),
+  (mentor_centered, (31337_28070798445412, `Construct a circuit that outputs the same as the input, just delayed by 2 cycles.`))
 ]

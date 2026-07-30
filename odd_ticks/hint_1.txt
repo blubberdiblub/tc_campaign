@@ -1,2 +1,2 @@
 [text text=(31337_14188568517859, `The Delay Line can be looped back into itself`) size=33 y=-25]
-[text text=(31337_88356074900046, `to create signal based on the tick count`) size=33 y=25]
+[text text=(31337_88356074900046, `to create signal based on the cycle count`) size=33 y=25]

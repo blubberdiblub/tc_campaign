@@ -1,16 +1,16 @@
 kind = sequential
 no_score = true
 size = 30
-tick_past_fail = 8
+cycle_past_fail = 8
 background = 1
-title = (31337_54648226811178, `Odd Ticks`)
+title = (31337_54648226811178, `Odd cycles`)
 dialogue = [
   (mentor_centered, (31337_17699211754487, `In a previous level you learned how we don't allow circular dependencies. Now you must learn the one exception.`)),
-  (mentor_centered, (31337_75292456030647, `The delay line is allowed to depend on its own output. This is because its input does not influence the rest of the circuit until next tick.
+  (mentor_centered, (31337_75292456030647, `The delay line is allowed to depend on its own output. This is because its input does not influence the rest of the circuit until next cycle.
 
 [image="delay_line.png"]`)),
-  (mentor_centered, (31337_60625429879527, `Orange pins never affect the output in the same tick. They therefore never cause circular dependencies.
+  (mentor_centered, (31337_60625429879527, `Orange pins never affect the output in the same cycle. They therefore never cause circular dependencies.
 
   [image="delay_line.png"]`)),
-  (mentor_centered, (31337_85913836277587, `Output [F] on the even ticks and [T] on the odd ticks.`))
+  (mentor_centered, (31337_85913836277587, `Output [F] on the even cycles and [T] on the odd cycles.`))
 ]

@@ -1,10 +1,10 @@
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
     return Input {instruction: U32 random(0xffffffff)}
 
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     let instruction     =  Int input.instruction
     let mode            = (instruction >> 29) & 0b11
@@ -65,7 +65,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     }
 
-    if tick == 0xffff {
+    if cycle == 0xffff {
 
         return win
 

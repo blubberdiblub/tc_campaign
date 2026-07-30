@@ -1,6 +1,6 @@
 
-def get_input(tick: Int) Input {
-    var x = tick
+def get_input(cycle: Int) Input {
+    var x = cycle
     x ^= x << 1
     x ^= x >> 5
     x ^= x << 8
@@ -98,7 +98,7 @@ def get_input(tick: Int) Input {
 
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     if output.result_is_z {
         ui_set_text("table[4][1]", "[Z]")
@@ -153,7 +153,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         }
     }
 
-    if tick == 2047 {
+    if cycle == 2047 {
         return win
     }
 }

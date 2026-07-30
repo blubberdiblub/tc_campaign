@@ -20,14 +20,14 @@ def get_padded_number(value: String, size: Int) String {
     return "[right]" + text + "[/right]"
 }
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
     let input = U8 random(128)
     ui_set_text("table[0][1]", get_padded_number(str(input), 3))
     ui_set_text("table[0][2]", get_binary_repr(input, U8 8))
     return Input {input: input}
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
     let expected = input.input * 2
     ui_set_text("table[1][1]", get_padded_number(str(expected), 3))
     ui_set_text("table[1][2]", get_binary_repr(expected, U8 8))
@@ -45,7 +45,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         return fail
     }
 
-    if tick == 15 {
+    if cycle == 15 {
         return win
     }
 

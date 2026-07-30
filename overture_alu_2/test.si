@@ -13,7 +13,7 @@ def get_binary_repr(value: Int, size: Int) String {
     return text
 }
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
     var code = random(6)
     var num1 = random(255)
@@ -31,7 +31,7 @@ def get_input(tick: Int) Input {
 
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
     var op_text = "    "
 
     var result = U8 0
@@ -81,7 +81,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
         return fail
     }
 
-    if tick == 0xffff {
+    if cycle == 0xffff {
         return win
     }
 

@@ -4,7 +4,7 @@ size = 24
 no_score = true
 copy_solution_to_foundry = "Overture/Dec"
 background = 6
-tick_past_fail = 4
+cycle_past_fail = 4
 title = (31337_81732613304305, `Instruction Decoder`)
 dialogue = [
   (mentor_centered, (31337_44644153822563, `The circuit you built in the "Registers" level can copy values between registers, while the "Arithmetic Logic Unit" can do different operations on 2 inputs. But you need to be able to do both in the same circuit. To do this, build a "decoder", which will decide which mode our computer is in, based on the 2 bits we haven't used yet.`)),

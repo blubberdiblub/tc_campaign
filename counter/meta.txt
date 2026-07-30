@@ -4,7 +4,7 @@ unlocks_components = [com_counter]
 title = (31337_68850421394935, `Counter`)
 dialogue = [
   (mentor_centered, (31337_51274378991709, `Counting is so fundamental even insects do it. From counting, species can evolve to compare and do arithmetic. And before you know it, you have apes building computers.`)),
-  (mentor_centered, (31337_42949183679479, `Build a counter that will increase by 1 each tick.
+  (mentor_centered, (31337_42949183679479, `Build a counter that will increase by 1 each cycle.
 
 Additionally, there should be an option for overwriting the counter with a given value.
 

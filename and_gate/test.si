@@ -1,20 +1,20 @@
 const #CORRECT_OUTPUT = [U1 0,0,0,1]
 
-def get_input(tick: Int) Input {
-    return Input {input: U2 tick}
+def get_input(cycle: Int) Input {
+    return Input {input: U2 cycle}
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     if output.output_is_z {
         return fail
     }
 
-    if #CORRECT_OUTPUT[tick] != output.output {
+    if #CORRECT_OUTPUT[cycle] != output.output {
         return fail
     }
 
-    if tick == #CORRECT_OUTPUT.len() - 1 {
+    if cycle == #CORRECT_OUTPUT.len() - 1 {
         return win
     }
 

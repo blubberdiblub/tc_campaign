@@ -1,2 +1,2 @@
 [text text=(31337_64973475823722, `The only component we have that has 'memory' is the Delay Line`) size=33 y=-25]
-[text text=(31337_16548183735739, `It, however, only stores for 1 tick, so we loop it into itself to keep refreshing it`) size=33 y=25]
+[text text=(31337_16548183735739, `It, however, only stores for 1 cycle, so we loop it into itself to keep refreshing it`) size=33 y=25]

@@ -54,7 +54,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
             switch opcode & 0xf
                 #INPUT    { .registers[dest] = U32 input }
-                #OUTPUT   { 
+                #OUTPUT   {
                     let expected_output = Int b_value
 
                     if !output_enabled {
@@ -100,9 +100,9 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
             switch opcode
                 0  { result = ~(a_value &  b_value) }
                 1  { result =   a_value |  b_value }
-                2  { result =   a_value &  b_value } 
-                3  { result = ~(a_value |  b_value) } 
-                4  { result =   a_value +  b_value } 
+                2  { result =   a_value &  b_value }
+                3  { result = ~(a_value |  b_value) }
+                4  { result =   a_value +  b_value }
                 5  { result =   a_value -  b_value }
                 6  { result =   a_value ^  b_value }
                 7  { result =   a_value << b_value }
@@ -121,7 +121,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
             let met     = matched != ((opcode & 0b1000) > 0)
 
             if met {
-                
+
                 .counter = b_value
 
             } else {
@@ -169,7 +169,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
                 #LOAD_32 {
 
                     if b_value < #MAX_RAM - 4 {
-                        
+
                         .registers[dest] = (U32 .ram[b_value] << 24) | (U32 .ram[b_value + 1] << 16) | (U32 .ram[b_value + 2] << 8) | (U32 .ram[b_value + 3])
 
                     }
@@ -240,9 +240,9 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
 }
 
-def get_input(tick: Int) Input { }
+def get_input(cycle: Int) Input { }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     let actual_counter = get_load_port_input("Instruction")
 
@@ -250,7 +250,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
         ui_set_instruction(0, 0, 0)
         let expected_value = .counter
-        set_error((31337_34545926188340, `You should have read address {expected_value} from the Main Memory, not {actual_counter}. You must have not updated the counter correctly last tick.`))
+        set_error((31337_34545926188340, `You should have read address {expected_value} from the Main Memory, not {actual_counter}. You must have not updated the counter correctly last cycle.`))
         return fail
 
     }
@@ -346,7 +346,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     }
 
-    if tick > 1000 {
+    if cycle > 1000 {
         return win
     }
 

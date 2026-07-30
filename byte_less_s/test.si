@@ -1,7 +1,7 @@
 
-def get_input(tick: Int) Input {
+def get_input(cycle: Int) Input {
 
-    var x = tick
+    var x = cycle
     x ^= x << 7
     x ^= x >> 9
     x ^= x << 8
@@ -9,7 +9,7 @@ def get_input(tick: Int) Input {
 
 }
 
-def check_output(tick: Int, input: Input, output: Output) TestResult {
+def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     let expected = (S8 input.a < S8 input.b)
     let actual = (output.result != 0)
@@ -26,7 +26,7 @@ def check_output(tick: Int, input: Input, output: Output) TestResult {
 
     if expected == actual {
 
-        if tick == 0xffff {
+        if cycle == 0xffff {
             return win
         }
 

@@ -12,7 +12,7 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
     }
 
     if Int output.output != (1 << cycle) {
-        set_error((31337_58804917157759, `Expected only output {cycle} to be ON`))
+        set_error((31337_10870388349665, `Expected output {cycle} to be [T] and other outputs to be [F]`))
         return fail
     }
 

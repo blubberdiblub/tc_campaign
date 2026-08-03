@@ -21,7 +21,8 @@ Conditions:[left]
                     [T][F][F] If [color=#e49f44]REG 3[/color] < 0
                     [T][F][T] If [color=#e49f44]REG 3[/color] ≥ 0
                     [T][T][F] If [color=#e49f44]REG 3[/color] ≤ 0
-                    [T][T][T] If [color=#e49f44]REG 3[/color] > 0[/left]
+                    [T][T][T] If [color=#e49f44]REG 3[/color] > 0
+[/left]
 These conditions correspond to the condition component that was saved in the foundry.`)),
   (overture)
 ]

@@ -17,23 +17,27 @@ Additionally, this level has a dedicated input component, which can be the [colo
   (mentor_centered, (31337_87179643828952, `These are the bit patterns for each [color=#ff6680]source[/color] and [color=#e49f44]destination[/color].
 
 [color=#ff6680]Source[/color]:
-[F] [F] [F]  REG 0
-[F] [F] [T]  REG 1
-[F] [T] [F]  REG 2
-[F] [T] [T]  REG 3
-[T] [F] [F]  REG 4
-[T] [F] [T]  REG 5
-[T] [T] [F]  #INPUT
-[T] [T] [T]  UNUSED
+[left]
+                      [F] [F] [F]  REG 0
+                      [F] [F] [T]  REG 1
+                      [F] [T] [F]  REG 2
+                      [F] [T] [T]  REG 3
+                      [T] [F] [F]  REG 4
+                      [T] [F] [T]  REG 5
+                      [T] [T] [F]  INPUT
+                      [T] [T] [T]  UNUSED
+[/left]
 
 [color=#e49f44]Destination[/color]:
-[F] [F] [F]  REG 0
-[F] [F] [T]  REG 1
-[F] [T] [F]  REG 2
-[F] [T] [T]  REG 3
-[T] [F] [F]  REG 4
-[T] [F] [T]  REG 5
-[T] [T] [F]  #OUTPUT
-[T] [T] [T]  UNUSED`)),
+[left]
+                      [F] [F] [F]  REG 0
+                      [F] [F] [T]  REG 1
+                      [F] [T] [F]  REG 2
+                      [F] [T] [T]  REG 3
+                      [T] [F] [F]  REG 4
+                      [T] [F] [T]  REG 5
+                      [T] [T] [F]  OUTPUT
+                      [T] [T] [T]  UNUSED
+[/left]`)),
   (overture)
 ]

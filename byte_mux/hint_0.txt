@@ -1,2 +1,2 @@
 [text text=(31337_37740515704094, `This level is very similar to "Bit Switch"`) size=33 y=-25]
-[text text=(31337_71057700033977, `But A in place of Input 0 and B in place of NOT Input 0`) size=33 y=25]
+[text text=(31337_71057700033977, `But with A in place of Input 0 and B in place of NOT Input 0`) size=33 y=25]

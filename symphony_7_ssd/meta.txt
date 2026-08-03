@@ -11,12 +11,14 @@ dialogue = [
 Then add two new memory instructions 'pload', 'pstore', which should function like the 32 bit variants of the load and store instructions from the previous level, but accessing the 'Persistent Memory' RAM component instead of the program memory.
 
 These are all of the [color=#ff6680]opcode[/color] encodings when in memory mode:
-[color=#ff6680]0[/color] load_8
-[color=#ff6680]1[/color] load_16
-[color=#ff6680]2[/color] load_32
-[color=#ff6680]3[/color] pload
-[color=#ff6680]4[/color] store_8
-[color=#ff6680]5[/color] store_16
-[color=#ff6680]6[/color] store_32
-[color=#ff6680]7[/color] pstore`))
+[left]
+                        [color=#ff6680]0[/color] load_8
+                        [color=#ff6680]1[/color] load_16
+                        [color=#ff6680]2[/color] load_32
+                        [color=#ff6680]3[/color] pload
+                        [color=#ff6680]4[/color] store_8
+                        [color=#ff6680]5[/color] store_16
+                        [color=#ff6680]6[/color] store_32
+                        [color=#ff6680]7[/color] pstore
+[/left]`))
 ]

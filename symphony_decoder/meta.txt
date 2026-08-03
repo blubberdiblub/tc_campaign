@@ -14,13 +14,15 @@ Build a circuit that splits Symphony instructions into their different parts. Th
 
 There are two encodings for Symphony instructions, depending on whether we are using immediate values or not:
 
-[color=#ff9800]M[/color] = Mode
-[color=#ff6680]O[/color] = Opcode
-[color=#9966ff]I[/color] = Immediate bit
-[color=#ffe666]D[/color] = Destination register
-[color=#66ff99]A[/color] = Argument A
-[color=#66ccff]B[/color] = Argument B (possibly immediate)
-[color=#bbbbbb]0[/color] = Unused / zero
+[left]
+              [color=#ff9800]M[/color] = Mode
+              [color=#ff6680]O[/color] = Opcode
+            [color=#9966ff]0[/color]/[color=#9966ff]1[/color] = Immediate mode
+              [color=#ffe666]D[/color] = Destination register
+              [color=#66ff99]A[/color] = Argument A
+              [color=#66ccff]B[/color] = Argument B (possibly immediate)
+              [color=#bbbbbb]0[/color] = Unused / zero
+[/left]
 
 [color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
 

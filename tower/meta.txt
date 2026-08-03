@@ -11,14 +11,16 @@ source - Which location number to move from
 destination - Where to move the pile to
 spare - The 3rd spot that is neither the source nor the destination
 
-Control the magnet with the following outputs:[left]
-          0 - Move the magnet to spot 0
-          1 - Move the magnet to spot 1
-          2 - Move the magnet to spot 2
-          5 - Toggle the magnet on or off[/left]
+Control the magnet with the following outputs:
+[left]
+                0 - Move the magnet to spot 0
+                1 - Move the magnet to spot 1
+                2 - Move the magnet to spot 2
+                5 - Toggle the magnet on or off
+[/left]
 
 Play with the magnet manually by using the arrow keys to move and enter to toggle.`)),
-  (mentor_centered, (31337_81427576809439, `This level is difficult, but it is a good opportunity for you to use functions. In fact the following solution to the level contains a "recursive function", which means a function that calls itself:
+  (mentor_centered, (31337_81427576809439, `This level is difficult, but it is a good opportunity for you to use functions. In fact the following solution to the level contains a "recursive function", which means a function that calls itself.
 
 [b]Tower of Hanoi algorithm:[/b]
 [box][left]func move(disk_nr, source, dest, spare) {

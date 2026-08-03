@@ -7,7 +7,7 @@ unlocks_pages = ["Circuits/The foundry", "Circuits/Auto size"]
 unlocks_components = [com_probe_wire_bit, com_probe_wire_word, com_probe_memory_bit, com_probe_memory_word, com_probe_wire_asm]
 title = (31337_72171231322685, `The Foundry`)
 dialogue = [
-  (mentor_centered, (31337_24718289227251, `Welcome to the foundry, the circuits you create in here will be usable as components in architectures.
+  (mentor_centered, (31337_24718289227251, `Welcome to the foundry, the circuits you create in here will be usable as components in other levels.
 The circuitry you create defines the behavior of the component and the layout defines its shape.`)),
   (mentor_centered, (31337_88436914545275, `Components can be added, renamed or deleted using the schematics menu.`)),
   (mentor_centered, (31337_62612312608874, `Since this level is a tool and not a challenge, you can go to the level map and continue on when you want.`))

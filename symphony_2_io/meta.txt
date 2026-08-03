@@ -10,12 +10,14 @@ dialogue = [
 
 Again, this is how instructions are encoded:
 
-[color=#ff9800]M[/color] = Mode
-[color=#ff6680]O[/color] = Opcode
-[color=#ffe666]D[/color] = Destination register
-[color=#66ff99]A[/color] = Argument A
-[color=#66ccff]B[/color] = Argument B
-[color=#bbbbbb]0[/color] = Unused / zero
+[left]
+                      [color=#ff9800]M[/color] = Mode
+                      [color=#ff6680]O[/color] = Opcode
+                      [color=#ffe666]D[/color] = Destination register
+                      [color=#66ff99]A[/color] = Argument A
+                      [color=#66ccff]B[/color] = Argument B
+                      [color=#bbbbbb]0[/color] = Unused / zero
+[/left]
 
 [color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#bbbbbb]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
 

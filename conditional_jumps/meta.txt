@@ -20,7 +20,8 @@ Overwriting the counter means we "jump" to an instruction somewhere else in our 
 
 Instead you can use a feature called a [color=#66ccff]label[/color] to mark a location in the program that automatically updates when you change anything, like so:
 
-[box][left][color=#66ccff]my_label[/color]:     [color=#aaaaaa]; This is a label[/color]
+[box][left]
+[color=#66ccff]my_label[/color]:     [color=#aaaaaa]; This is a label[/color]
 [color=#9966ff]imm[/color] [color=#66ccff]my_label[/color]  [color=#aaaaaa]; Load the offset of the label[/color]
 [/left][/box]
   `)),

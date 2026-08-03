@@ -1,11 +1,11 @@
 const #CORRECT_OUTPUT = [U1 0,1,1,0, 1,0,0,1, 1,0,0,1, 0,1,1,0]
+const #MAX_MUTABLE_COMPONENT = 3
 
-def on_manual_input(action: Int) {
-
-    let count = get_component_count() - 2
-    ui_set_text("count", (31337_36609687959808, `{count} of 3`))
-
+let count = get_component_count() - 2
+if count > #MAX_MUTABLE_COMPONENT {
+    ui_set_color("count", 0xC54D5EFF)
 }
+ui_set_text("count", (31337_36609687959808, `{count} of 3`))
 
 def get_input(cycle: Int) Input {
 
@@ -19,10 +19,7 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
         return fail
     }
 
-    let count = get_component_count() - 2
-    ui_set_text("count", (31337_79968621207030, `{count} of 3`))
-
-    if get_component_count() > 5 {
+    if .count > #MAX_MUTABLE_COMPONENT {
 
         set_error((31337_40553112323959, `You may not use more than 3 components in this level`))
         return fail

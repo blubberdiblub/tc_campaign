@@ -13,22 +13,24 @@ Most instructions take 2 arguments and produce 1 result (like ADD, OR etc).
 [color=#e49f44]Symphony[/color] uses 4 bytes per instruction and can encode all three in each instruction, which are stored in the RAM component named "Main Memory". This means we can for example ADD any two registers and store the result in any other register.`)),
   (mentor_centered, (31337_88649654188267, `These are the names of the 16 registers of [color=#e49f44]Symphony[/color]:
 
-0 zr
-1 r1
-2 r2
-3 r3
-4 r4
-5 r5
-6 r6
-7 r7
-8 r8
-9 r9
-10 r10
-11 r11
-12 r12
-13 r13
-14 sp
-15 flags
+[left]
+                            0  zr
+                            1  r1
+                            2  r2
+                            3  r3
+                            4  r4
+                            5  r5
+                            6  r6
+                            7  r7
+                            8  r8
+                            9  r9
+                            10 r10
+                            11 r11
+                            12 r12
+                            13 r13
+                            14 sp
+                            15 flags
+[left]
 
 "zr" will always produce 0 when read, so any write to "zr" will be discarded, we can use this to simplify our hardware. "sp" and "flags" are normal registers that just happen to have different names. They will be reserved for special purposes later.
 
@@ -37,12 +39,14 @@ Instead of using individual registers, use the provided RAM component that is na
 
 This is how the instructions are encoded:
 
-[color=#ff9800]M[/color] = Mode
-[color=#ff6680]O[/color] = Opcode
-[color=#ffe666]D[/color] = Destination register
-[color=#66ff99]A[/color] = Argument A
-[color=#66ccff]B[/color] = Argument B
-[color=#bbbbbb]0[/color] = Unused / zero
+[left]
+                      [color=#ff9800]M[/color] = Mode
+                      [color=#ff6680]O[/color] = Opcode
+                      [color=#ffe666]D[/color] = Destination register
+                      [color=#66ff99]A[/color] = Argument A
+                      [color=#66ccff]B[/color] = Argument B
+                      [color=#bbbbbb]0[/color] = Unused / zero
+[/left]
 
 [color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#bbbbbb]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
 

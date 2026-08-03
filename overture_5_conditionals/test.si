@@ -27,137 +27,6 @@ const #NOP   = #COND | #NEVER
 var registers = [U8 0,0,0,0,0,0]
 var counter   = U8 0
 
-var push_index = 0
-def ram_push(value: U8) {
-    set_ram_value("Program", .push_index, value)
-    .push_index += 1
-}
-
-
-
-var h = 0
-while h < 6 {
-    registers[h] = 0
-    h += 1
-}
-
-// Test against 0
-
-ram_push(#COND | #NEVER)
-
-ram_push(U8 push_index + 3)
-ram_push(#COND | #EQ)
-ram_push(#NOP)
-
-ram_push(#COND | #LT)
-
-ram_push(U8 push_index + 3)
-ram_push(#COND | #LE)
-ram_push(#NOP)
-
-ram_push(U8 push_index + 3)
-ram_push(#COND | #ALWAYS)
-ram_push(#NOP)
-
-ram_push(#COND | #NE)
-
-ram_push(U8 push_index + 3)
-ram_push(#COND | #GE)
-ram_push(#NOP)
-
-ram_push(#COND | #GT)
-
-
-// Test against 1
-
-ram_push(U8 1)
-ram_push(#MOVE | 0 | 3)
-
-ram_push(#COND | #NEVER)
-ram_push(#COND | #EQ)
-ram_push(#COND | #LT)
-ram_push(#COND | #LE)
-
-ram_push(U8 push_index + 3)
-ram_push(#COND | #ALWAYS)
-ram_push(#NOP)
-
-ram_push(U8 push_index + 3)
-ram_push(#COND | #NE)
-ram_push(#NOP)
-
-ram_push(U8 push_index + 3)
-ram_push(#COND | #GE)
-ram_push(#NOP)
-
-ram_push(U8 push_index + 3)
-ram_push(#COND | #GT)
-ram_push(#NOP)
-
-
-// Test against -1
-
-ram_push(#MOVE | (U8 3 << 3) | 2)
-ram_push(#CALC | #SUB)
-
-ram_push(#COND | #NEVER)
-ram_push(#COND | #EQ)
-
-ram_push(U8 push_index + 3)
-ram_push(#COND | #LT)
-ram_push(#NOP)
-
-ram_push(U8 push_index + 3)
-ram_push(#COND | #LE)
-ram_push(#NOP)
-
-ram_push(U8 push_index + 3)
-ram_push(#COND | #ALWAYS)
-ram_push(#NOP)
-
-ram_push(U8 push_index + 3)
-ram_push(#COND | #NE)
-ram_push(#NOP)
-
-ram_push(#COND | #GE)
-ram_push(#COND | #GT)
-
-var imm = U8 0
-while imm < 64 {
-    ram_push(imm)
-    imm += 1
-}
-
-var alu_opp = U8 0
-while alu_opp < 6 {
-    ram_push(#MOVE | #INPUT | 1)
-    ram_push(#MOVE | #INPUT | 2)
-    ram_push(#CALC | alu_opp)
-    ram_push(#MOVE | U8 3 << 3 | #OUTPUT)
-    alu_opp += 1
-}
-
-var s = U8 0
-var d = U8 0
-ram_push(#MOVE | #INPUT | #OUTPUT)
-ram_push(#MOVE | #INPUT | 0)
-ram_push(#MOVE | #INPUT | 1)
-ram_push(#MOVE | #INPUT | 2)
-ram_push(#MOVE | #INPUT | 3)
-ram_push(#MOVE | #INPUT | 4)
-ram_push(#MOVE | #INPUT | 5)
-
-while s <= 6 {
-    d = 0
-    ram_push(#MOVE | #INPUT | s)
-    while d <= 6 {
-        ram_push(#MOVE | (s << 3) | d)
-        d += 1
-    }
-    s += 1
-}
-
-
 def get_input(cycle: Int) Input {
     return Input {input: U8 random(256)}
 }
@@ -181,7 +50,7 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     let to   = (instruction >> 3) & 0b111
 
-    if output.output_enabled && (opcode != #MOVE >> 2 || to != 6) {
+    if output.output_enabled && (opcode != #MOVE >> 6 || to != 6) {
         set_error((31337_17521915837347, `Output should not be enabled.`))
         return fail
     }
@@ -304,7 +173,7 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
         return fail
     }
 
-    if cycle == .push_index - 1 {
+    if cycle == 255 {
         return win
     }
 }

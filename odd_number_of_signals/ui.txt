@@ -1,5 +1,5 @@
 [text bold text=(31337_74552564780850, `Components spent`) x=600 y=80]
-[text id="count" bold text=(31337_72852145327670, `0 of 3`) x=600 y=110]
+[text id="count" bold x=600 y=110]
 
 [table id="table" full_history size=24 x=-100 _0="[F]" _1="[T]" _z="[Z]" spacing_x=4]
 (31337_15534865654723, `Input 0`),        "[F]",  "[T]",   "[F]",  "[T]",   "[F]",  "[T]",   "[F]",  "[T]",   "[F]",  "[T]",   "[F]",  "[T]",   "[F]",  "[T]",   "[F]",  "[T]"

@@ -6,9 +6,11 @@ copy_solution_to_level = ["symphony_11_functions"]
 no_score = true
 title = (31337_29798404581087, `Stack`)
 dialogue = [
-  (mentor_centered, (31337_68315222097089, `The challenge of this level is to implement a common programming structure called a "stack". You are supposed to do this in assembly. You can do two things with a stack:[left]
+  (mentor_centered, (31337_68315222097089, `The challenge of this level is to implement a common programming structure called a "stack". You are supposed to do this in assembly. You can do two things with a stack:
+[left]
   [color=#66ccff]PUSH[/color] - Adds a number to the stack
-  [color=#66ccff]POP[/color]  - Removes the last added number from the stack[/left]
+  [color=#66ccff]POP[/color]  - Removes the last added number from the stack
+[/left]
 You can think of the stack data structure like a physical stack of plates in a busy restaurant. The dishwasher will [color=#66ccff]push[/color] plates on top of the stack and the chef will [color=#66ccff]pop[/color] them off.
 
 Read the input in this level to get the next operation. 
@@ -20,10 +22,14 @@ post_mortem = [
   (mentor_centered, (31337_90806029597852, `Since the stack is so useful for programming, a "push" and "pop" instruction will be added to the next Symphony level. Both of these are synonyms for two other instructions and they both use the "sp" register (short for stack pointer) to keep track of the stack.
 
 "push" is a synonym for:
-[box][left]sub sp, sp, 4
-store_32 [sp], %value[/left][/box]
+[box][left]
+sub sp, sp, 4
+store_32 [sp], %value
+[/left][/box]
 "pop" is a synonym for:
-[box][left]load_32 %destination, [sp]
-add sp, sp, 4[/left][/box]
+[box][left]
+load_32 %destination, [sp]
+add sp, sp, 4
+[/left][/box]
 You may notice that "push" subtracts from "sp" so that the stack grows downwards from the high addresses. This leaves the low addresses for you to use as you see fit.`))
 ]

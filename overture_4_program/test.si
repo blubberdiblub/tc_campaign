@@ -16,41 +16,6 @@ const #SUB  = U8 5
 var registers = [U8 0,0,0,0,0,0]
 
 
-var push_index = 0
-
-def ram_push(value: U8) {
-    set_ram_value("Program", .push_index, value)
-    .push_index += 1
-}
-
-
-var h = 0
-while h < 6 {
-    registers[h] = 0
-    h += 1
-}
-
-var s = U8 0
-var d = U8 0
-ram_push(#MOVE | #INPUT | #OUTPUT)
-ram_push(#MOVE | #INPUT | 0)
-ram_push(#MOVE | #INPUT | 1)
-ram_push(#MOVE | #INPUT | 2)
-ram_push(#MOVE | #INPUT | 3)
-ram_push(#MOVE | #INPUT | 4)
-ram_push(#MOVE | #INPUT | 5)
-
-while s <= 6 {
-    d = 0
-    ram_push(#MOVE | #INPUT | s)
-    while d <= 6 {
-        ram_push(#MOVE | (s << 3) | d)
-        d += 1
-    }
-    s += 1
-}
-
-
 def get_input(cycle: Int) Input {
     return Input {input: U8 random(256)}
 }
@@ -144,7 +109,7 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
         reg_i += 1
     }
 
-    if cycle == .push_index - 1 {
+    if cycle == 254 {
         return win
     }
 }

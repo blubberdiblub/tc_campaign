@@ -1,6 +1,19 @@
-def get_input(cycle: Int) Input {
+let test = get_test()
+if test == 0 {
+    ui_set_hidden("table", false)
+    ui_set_hidden("text", true)
+} else {
+    ui_set_hidden("table", true)
+    ui_set_hidden("text", false)
+}
 
-    return Input {input: U3 cycle, disable: U1 (cycle >> 3)}
+def get_input(cycle: Int) Input {
+    var disable = U1 1
+    if .test == 0 {
+        disable = 0
+    }
+
+    return Input {input: U3 cycle, disable: disable}
 
 }
 
@@ -31,7 +44,7 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
     }
 
 
-    if cycle == 15 {
+    if cycle == 7 {
 
         return win
 

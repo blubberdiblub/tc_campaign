@@ -6,7 +6,7 @@ copy_solution_to_foundry = "Overture/Cond"
 background = 6
 title = (31337_83283206082997, `Conditions`)
 dialogue = [
-  (mentor_centered, (31337_71466914240996, `This level has a value input and 3 condition bit inputs.
+  (mentor_centered, (31337_71466914240996, `This level has a value input and a 3-bit condition input.
 
 The 3 bits select the condition as shown below. Check the value against the selected condition and output [T] if it is satisfied and [F] otherwise.
 

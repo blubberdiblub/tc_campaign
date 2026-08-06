@@ -21,11 +21,11 @@ out 110
 
 mov %a(register | out_register), %b(register | in_register)
 10aaabbb
-# (31337_58396790216558, `Moves a value to %a from %b.`)
+# (31337_58396790216558, `Move a value to %a from %b.`)
 
 imm %a:U6(immediate | label)
 00aaaaaa
-# (31337_42577908074742, `Moves %a to r0.`)
+# (31337_42577908074742, `Move %a to r0.`)
 
 nand
 01000000
@@ -53,7 +53,7 @@ sub
 
 nop
 11000000
-# (31337_71072332861445, `Does nothing.`)
+# (31337_71072332861445, `Do nothing.`)
 
 jmp
 11000001

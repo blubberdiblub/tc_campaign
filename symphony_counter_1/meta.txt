@@ -6,7 +6,7 @@ copy_solution_to_foundry = "Symphony/count"
 no_score = true
 title = (31337_56387381898532, `Symphony Counter`)
 dialogue = [
-  (mentor_centered, (31337_77897142643435, `Build a 32 bit counter that increments by 4 by default, but can alternatively be overwritten with a specific value.
+  (mentor_centered, (31337_77897142643435, `Build a 32 bit counter that increments by 4, but can alternatively be overwritten with a specific value.
 
 Also, connect the provided memory probe to a 32-bit component holding the counter memory value.`)),
   (mentor_centered, (31337_76860406179468, `To change word component width, you will need to use a Bit size tool near the left panel (looks like a bidirectional arrow and a number).

@@ -7,17 +7,18 @@ title = (31337_20456965663323, `Instruction Aliases`)
 dialogue = [
   (mentor_centered, (31337_41535895646297, `Like previous levels, this level introduces new instructions. However, in this level you are not supposed to add additional hardware, but instead change the assembly specification to reuse already existing instruction hardware for new instructions.
 
-Click on the "ASM" button in the top left corner of the Assembler window and study how instructions are implemented. Then add the following three new instructions:
-[box][left]
-mov %a(register), %b:U16(immediate)
-Copies the immediate value %b to register %a.
+Click on the "spec.isa" tab in the Assembler window and study how instructions are implemented. Then add the following three new instructions:
 
-neg %a(register), %b(register)
-Negate register %b and store the result in %a.
+[b]mov[/b]
+"[b]mov[/b]" is short for "move" and takes two operands. Move the value of the second operand to the first.
 
-not %a(register), %b(register)
-Bitwise NOT each bit in register %b and store the result in %a.
-[/left][/box]
+[b]neg[/b]
+"[b]neg[/b] is short for "negate" and takes two operands. Negate the value of the second operand and store the result in the first.
+
+[b]not[/b]
+"[b]not[/b]" takes two operands. Not the value of the second operand and store the result in the first.
+
+
 Once these instructions are added, the assembly code will be valid and running it will complete the level.
 `))
 ]

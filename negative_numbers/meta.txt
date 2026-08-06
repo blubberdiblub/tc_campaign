@@ -13,7 +13,7 @@ dialogue = [
   
 Here the highest digit is negated. For bytes this means the 8th digit changes its value from 128 to -128.
 
-You finish this level when you get to level 3 or beyond.
+You must beat level 2 to pass.
 
 `))
 ]

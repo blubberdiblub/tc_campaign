@@ -6,7 +6,7 @@ copy_solution_to_level = ["overture_2_alu"]
 title = (31337_79626649565563, `Registers`)
 dialogue = [
   (mentor_centered, (31337_36376879506769, `It is finally time to build your first computer. I will teach you how to build the [color=#e49f44]Overture[/color] architecture, an actual Turing complete machine, a true computer in every way.`)),
-  (mentor_centered, (31337_61875924861326, `In this level you need to create a circuit which can move to a [color=#e49f44]destination[/color] from a [color=#ff6680]source[/color].
+  (mentor_centered, (31337_61875924861326, `In this level you need to create a circuit which can move a value to a [color=#e49f44]destination[/color] from a [color=#ff6680]source[/color].
 
 The instruction byte in this level determines the [color=#e49f44]destination[/color] and the [color=#ff6680]source[/color].
 

@@ -25,11 +25,11 @@ Practically speaking, it only makes sense to connect multiple outputs to the sam
   (mentor_centered, (31337_25663924496537, `
 Alternatively to thinking of the output as being disconnected, it can be thought of as outputting neither [F] or [T], but a third state we call "Z state" [Z].
 
-Connecting two inputs on a wire will produce the following outputs:
+Connecting two outputs to a wire will produce the following states:
 
-Input 0 [F][F][F][T][T][T][Z][Z][Z]
-Input 1 [F][T][Z][T][F][Z][F][T][Z]
-Output  [F][E][F][T][E][T][F][T][Z]
+Output 0 [F][F][F][T][T][T][Z][Z][Z]
+Output 1 [F][T][Z][T][F][Z][F][T][Z]
+   State [F][E][F][T][E][T][F][T][Z]
 
 Note that short circuit [E] can not meaningfully be thought of as a fourth output state, as it breaks the circuit. It is included in the table for completeness anyway.
 `)),

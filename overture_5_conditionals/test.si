@@ -56,39 +56,39 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
     }
 
     switch U8 opcode
-        #IMM {
+        case #IMM {
             .registers[0] = instruction
             .counter += 1
         }
-        #CALC >> 6 {
+        case #CALC >> 6 {
             let alu_code = instruction & 0b111
             let r1 = .registers[1]
             let r2 = .registers[2]
 
             switch U8 alu_code
-                #OR {
+                case #OR {
                     .registers[3] = r1 | r2
                 }
-                #NAND {
+                case #NAND {
                     .registers[3] = ~(r1 & r2) & 0xff
                 }
-                #NOR {
+                case #NOR {
                     .registers[3] = ~(r1 | r2) & 0xff
                 }
-                #AND {
+                case #AND {
                     .registers[3] = r1 & r2
                 }
-                #ADD {
+                case #ADD {
                     .registers[3] = (r1 + r2) & 0xff
                 }
-                #SUB {
+                case #SUB {
                     .registers[3] = (r1 - r2) & 0xff
                 }
 
             .counter += 1
 
         }
-        #MOVE >> 6 {
+        case #MOVE >> 6 {
 
             let from = instruction & 0b111
             let to   = (instruction >> 3) & 0b111
@@ -115,7 +115,7 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
             .counter += 1
         }
-        #COND >> 6 {
+        case #COND >> 6 {
             let cond = instruction & 0b111
 
             let equal = .registers[3] == 0
@@ -124,26 +124,26 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
             var set_counter = false
 
             switch U8 cond
-                #NEVER {}
-                #ALWAYS {
+                case #NEVER {}
+                case #ALWAYS {
                     set_counter = true
                 }
-                #EQ {
+                case #EQ {
                     set_counter = equal
                 }
-                #NE {
+                case #NE {
                     set_counter = !equal
                 }
-                #LT {
+                case #LT {
                     set_counter = less
                 }
-                #GE {
+                case #GE {
                     set_counter = !less
                 }
-                #LE {
+                case #LE {
                     set_counter = less || equal
                 }
-                #GT {
+                case #GT {
                     set_counter = !less && !equal
                 }
 

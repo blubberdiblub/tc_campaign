@@ -85,10 +85,10 @@ def get_input(cycle: Int) Input {
     let operands    = instruction & 0b0011_1111
 
     switch U8 opcode
-        #IMM {
+        case #IMM {
             ui_set_text("description", `imm {operands}`)
         }
-        #MOVE {
+        case #MOVE {
             let src = operands >> 3
             let dst = U8 (operands & 0b111)
 
@@ -102,16 +102,16 @@ def get_input(cycle: Int) Input {
                 ui_set_text("description", `mov r{dst}, r{src}`)
             }
         }
-        #CALC {
+        case #CALC {
             let opp = instruction & 0b111
 
             switch U8 opp
-                #OR   { ui_set_text("description", "or r1, r2") }
-                #NAND { ui_set_text("description", "nand r1, r2") }
-                #NOR  { ui_set_text("description", "nor r1, r2") }
-                #AND  { ui_set_text("description", "and r1, r2") }
-                #ADD  { ui_set_text("description", "add r1, r2") }
-                #SUB  { ui_set_text("description", "sub r1, r2") }
+                case #OR   { ui_set_text("description", "or r1, r2") }
+                case #NAND { ui_set_text("description", "nand r1, r2") }
+                case #NOR  { ui_set_text("description", "nor r1, r2") }
+                case #AND  { ui_set_text("description", "and r1, r2") }
+                case #ADD  { ui_set_text("description", "add r1, r2") }
+                case #SUB  { ui_set_text("description", "sub r1, r2") }
 
         }
 
@@ -135,41 +135,41 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     switch opcode << 6
 
-        #IMM {
+        case #IMM {
 
             .registers[0] = instruction & 0b111111
 
         }
 
-        #CALC {
+        case #CALC {
 
             let alu_code = instruction & 0b111
             let r1 = .registers[1]
             let r2 = .registers[2]
 
             switch U8 alu_code
-                #NAND {
+                case #NAND {
                     .registers[3] = ~(r1 & r2) & 0xff
                 }
-                #OR {
+                case #OR {
                     .registers[3] = r1 | r2
                 }
-                #AND {
+                case #AND {
                     .registers[3] = r1 & r2
                 }
-                #NOR {
+                case #NOR {
                     .registers[3] = ~(r1 | r2) & 0xff
                 }
-                #ADD {
+                case #ADD {
                     .registers[3] = (r1 + r2) & 0xff
                 }
-                #SUB {
+                case #SUB {
                     .registers[3] = (r1 - r2) & 0xff
                 }
 
         }
 
-        #MOVE {
+        case #MOVE {
 
             let from = instruction & 0b111
             let to   = (instruction >> 3) & 0b111

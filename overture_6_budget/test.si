@@ -68,70 +68,70 @@ const #OUTPUTS_63 = [U8 195, 68, 255, 211, 24, 207, 0, 0, 109, 255, 117, 214, 25
 var outputs = [U8] []
 
 switch get_test()
-    0 { outputs = #OUTPUTS_0 }
-    1 { outputs = #OUTPUTS_1 }
-    2 { outputs = #OUTPUTS_2 }
-    3 { outputs = #OUTPUTS_3 }
-    4 { outputs = #OUTPUTS_4 }
-    5 { outputs = #OUTPUTS_5 }
-    6 { outputs = #OUTPUTS_6 }
-    7 { outputs = #OUTPUTS_7 }
-    8 { outputs = #OUTPUTS_8 }
-    9 { outputs = #OUTPUTS_9 }
-    10 { outputs = #OUTPUTS_10 }
-    11 { outputs = #OUTPUTS_11 }
-    12 { outputs = #OUTPUTS_12 }
-    13 { outputs = #OUTPUTS_13 }
-    14 { outputs = #OUTPUTS_14 }
-    15 { outputs = #OUTPUTS_15 }
-    16 { outputs = #OUTPUTS_16 }
-    17 { outputs = #OUTPUTS_17 }
-    18 { outputs = #OUTPUTS_18 }
-    19 { outputs = #OUTPUTS_19 }
-    20 { outputs = #OUTPUTS_20 }
-    21 { outputs = #OUTPUTS_21 }
-    22 { outputs = #OUTPUTS_22 }
-    23 { outputs = #OUTPUTS_23 }
-    24 { outputs = #OUTPUTS_24 }
-    25 { outputs = #OUTPUTS_25 }
-    26 { outputs = #OUTPUTS_26 }
-    27 { outputs = #OUTPUTS_27 }
-    28 { outputs = #OUTPUTS_28 }
-    29 { outputs = #OUTPUTS_29 }
-    30 { outputs = #OUTPUTS_30 }
-    31 { outputs = #OUTPUTS_31 }
-    32 { outputs = #OUTPUTS_32 }
-    33 { outputs = #OUTPUTS_33 }
-    34 { outputs = #OUTPUTS_34 }
-    35 { outputs = #OUTPUTS_35 }
-    36 { outputs = #OUTPUTS_36 }
-    37 { outputs = #OUTPUTS_37 }
-    38 { outputs = #OUTPUTS_38 }
-    39 { outputs = #OUTPUTS_39 }
-    40 { outputs = #OUTPUTS_40 }
-    41 { outputs = #OUTPUTS_41 }
-    42 { outputs = #OUTPUTS_42 }
-    43 { outputs = #OUTPUTS_43 }
-    44 { outputs = #OUTPUTS_44 }
-    45 { outputs = #OUTPUTS_45 }
-    46 { outputs = #OUTPUTS_46 }
-    47 { outputs = #OUTPUTS_47 }
-    48 { outputs = #OUTPUTS_48 }
-    49 { outputs = #OUTPUTS_49 }
-    50 { outputs = #OUTPUTS_50 }
-    51 { outputs = #OUTPUTS_51 }
-    52 { outputs = #OUTPUTS_52 }
-    53 { outputs = #OUTPUTS_53 }
-    54 { outputs = #OUTPUTS_54 }
-    55 { outputs = #OUTPUTS_55 }
-    56 { outputs = #OUTPUTS_56 }
-    57 { outputs = #OUTPUTS_57 }
-    58 { outputs = #OUTPUTS_58 }
-    59 { outputs = #OUTPUTS_59 }
-    60 { outputs = #OUTPUTS_60 }
-    61 { outputs = #OUTPUTS_61 }
-    62 { outputs = #OUTPUTS_62 }
-    63 { outputs = #OUTPUTS_63 }
+    case 0 { outputs = #OUTPUTS_0 }
+    case 1 { outputs = #OUTPUTS_1 }
+    case 2 { outputs = #OUTPUTS_2 }
+    case 3 { outputs = #OUTPUTS_3 }
+    case 4 { outputs = #OUTPUTS_4 }
+    case 5 { outputs = #OUTPUTS_5 }
+    case 6 { outputs = #OUTPUTS_6 }
+    case 7 { outputs = #OUTPUTS_7 }
+    case 8 { outputs = #OUTPUTS_8 }
+    case 9 { outputs = #OUTPUTS_9 }
+    case 10 { outputs = #OUTPUTS_10 }
+    case 11 { outputs = #OUTPUTS_11 }
+    case 12 { outputs = #OUTPUTS_12 }
+    case 13 { outputs = #OUTPUTS_13 }
+    case 14 { outputs = #OUTPUTS_14 }
+    case 15 { outputs = #OUTPUTS_15 }
+    case 16 { outputs = #OUTPUTS_16 }
+    case 17 { outputs = #OUTPUTS_17 }
+    case 18 { outputs = #OUTPUTS_18 }
+    case 19 { outputs = #OUTPUTS_19 }
+    case 20 { outputs = #OUTPUTS_20 }
+    case 21 { outputs = #OUTPUTS_21 }
+    case 22 { outputs = #OUTPUTS_22 }
+    case 23 { outputs = #OUTPUTS_23 }
+    case 24 { outputs = #OUTPUTS_24 }
+    case 25 { outputs = #OUTPUTS_25 }
+    case 26 { outputs = #OUTPUTS_26 }
+    case 27 { outputs = #OUTPUTS_27 }
+    case 28 { outputs = #OUTPUTS_28 }
+    case 29 { outputs = #OUTPUTS_29 }
+    case 30 { outputs = #OUTPUTS_30 }
+    case 31 { outputs = #OUTPUTS_31 }
+    case 32 { outputs = #OUTPUTS_32 }
+    case 33 { outputs = #OUTPUTS_33 }
+    case 34 { outputs = #OUTPUTS_34 }
+    case 35 { outputs = #OUTPUTS_35 }
+    case 36 { outputs = #OUTPUTS_36 }
+    case 37 { outputs = #OUTPUTS_37 }
+    case 38 { outputs = #OUTPUTS_38 }
+    case 39 { outputs = #OUTPUTS_39 }
+    case 40 { outputs = #OUTPUTS_40 }
+    case 41 { outputs = #OUTPUTS_41 }
+    case 42 { outputs = #OUTPUTS_42 }
+    case 43 { outputs = #OUTPUTS_43 }
+    case 44 { outputs = #OUTPUTS_44 }
+    case 45 { outputs = #OUTPUTS_45 }
+    case 46 { outputs = #OUTPUTS_46 }
+    case 47 { outputs = #OUTPUTS_47 }
+    case 48 { outputs = #OUTPUTS_48 }
+    case 49 { outputs = #OUTPUTS_49 }
+    case 50 { outputs = #OUTPUTS_50 }
+    case 51 { outputs = #OUTPUTS_51 }
+    case 52 { outputs = #OUTPUTS_52 }
+    case 53 { outputs = #OUTPUTS_53 }
+    case 54 { outputs = #OUTPUTS_54 }
+    case 55 { outputs = #OUTPUTS_55 }
+    case 56 { outputs = #OUTPUTS_56 }
+    case 57 { outputs = #OUTPUTS_57 }
+    case 58 { outputs = #OUTPUTS_58 }
+    case 59 { outputs = #OUTPUTS_59 }
+    case 60 { outputs = #OUTPUTS_60 }
+    case 61 { outputs = #OUTPUTS_61 }
+    case 62 { outputs = #OUTPUTS_62 }
+    case 63 { outputs = #OUTPUTS_63 }
 
 var output_index = 0
 var input_index  = 0
@@ -195,39 +195,39 @@ def retire_instruction(instruction: U8) {
     let to = (instruction >> 3) & 0b111
 
     switch U8 opcode
-        #IMM {
+        case #IMM {
             .registers[0] = instruction
             .counter += 1
         }
-        #CALC >> 6 {
+        case #CALC >> 6 {
             let alu_code = instruction & 0b111
             let r1 = .registers[1]
             let r2 = .registers[2]
 
             switch U8 alu_code
-                #OR {
+                case #OR {
                     .registers[3] = r1 | r2
                 }
-                #NAND {
+                case #NAND {
                     .registers[3] = ~(r1 & r2) & 0xff
                 }
-                #NOR {
+                case #NOR {
                     .registers[3] = ~(r1 | r2) & 0xff
                 }
-                #AND {
+                case #AND {
                     .registers[3] = r1 & r2
                 }
-                #ADD {
+                case #ADD {
                     .registers[3] = (r1 + r2) & 0xff
                 }
-                #SUB {
+                case #SUB {
                     .registers[3] = (r1 - r2) & 0xff
                 }
 
             .counter += 1
 
         }
-        #MOVE >> 6 {
+        case #MOVE >> 6 {
 
             let from = instruction & 0b111
             let to   = (instruction >> 3) & 0b111
@@ -246,7 +246,7 @@ def retire_instruction(instruction: U8) {
 
             .counter += 1
         }
-        #COND >> 6 {
+        case #COND >> 6 {
             let cond = instruction & 0b111
 
             let equal = .registers[3] == 0
@@ -255,26 +255,26 @@ def retire_instruction(instruction: U8) {
             var set_counter = false
 
             switch U8 cond
-                #NEVER {}
-                #ALWAYS {
+                case #NEVER {}
+                case #ALWAYS {
                     set_counter = true
                 }
-                #EQ {
+                case #EQ {
                     set_counter = equal
                 }
-                #NE {
+                case #NE {
                     set_counter = !equal
                 }
-                #LT {
+                case #LT {
                     set_counter = less
                 }
-                #GE {
+                case #GE {
                     set_counter = !less
                 }
-                #LE {
+                case #LE {
                     set_counter = less || equal
                 }
-                #GT {
+                case #GT {
                     set_counter = !less && !equal
                 }
 

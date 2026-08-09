@@ -95,11 +95,11 @@ def redraw() {
         let x = -200 + 200 * .mag_pos
 
         switch .mag_lifted 
-            0 { ui_set_position("0", x, -50) }
-            1 { ui_set_position("1", x, -50) }
-            2 { ui_set_position("2", x, -50) }
-            3 { ui_set_position("3", x, -50) }
-            4 { ui_set_position("4", x, -50) }
+            case 0 { ui_set_position("0", x, -50) }
+            case 1 { ui_set_position("1", x, -50) }
+            case 2 { ui_set_position("2", x, -50) }
+            case 3 { ui_set_position("3", x, -50) }
+            case 4 { ui_set_position("4", x, -50) }
 
     }
 
@@ -108,22 +108,22 @@ def redraw() {
 def level_input(input: Int) {
     
     switch input
-        0 {
+        case 0 {
 
             .mag_pos = 0
 
         }
-        1 {
+        case 1 {
 
             .mag_pos = 1
 
         }
-        2 {
+        case 2 {
 
             .mag_pos = 2
 
         }
-        5 {
+        case 5 {
 
             if .mag_lifted == -1 {
 
@@ -175,7 +175,7 @@ def level_input(input: Int) {
 def on_manual_input(input: Int) {
 
     switch input
-        0 { // left
+        case 0 { // left
 
             if .mag_pos > 0 {
 
@@ -184,7 +184,7 @@ def on_manual_input(input: Int) {
             }
 
         }
-        2 { // right
+        case 2 { // right
 
             if .mag_pos < 2 {
 
@@ -193,7 +193,7 @@ def on_manual_input(input: Int) {
             }
 
         }
-        5 { // enter
+        case 5 { // enter
 
 
             level_input(5)
@@ -209,10 +209,10 @@ def get_input_switched() Int {
     .input = count + 1
 
     switch count
-        0 { return .height - 1 }
-        1 { return .source }
-        2 { return .destination}
-        3 { return 3 - .source - .destination }
+        case 0 { return .height - 1 }
+        case 1 { return .source }
+        case 2 { return .destination}
+        case 3 { return 3 - .source - .destination }
 
 }
 

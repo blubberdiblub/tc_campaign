@@ -1,43 +1,43 @@
 
 def get_input(cycle: Int) Input {
     switch cycle
-        0 {
+        case 0 {
             return Input {input: U1 0}
         }
-        1 {
+        case 1 {
             return Input {input: U1 1}
         }
-        2 {
+        case 2 {
             return Input {input: U1 0}
         }
-        3 {
+        case 3 {
             return Input {input: U1 0}
         }
-        4 {
+        case 4 {
             return Input {input: U1 1}
         }
-        5 {
+        case 5 {
             return Input {input: U1 1}
         }
-        6 {
+        case 6 {
             return Input {input: U1 0}
         }
-        7 {
+        case 7 {
             return Input {input: U1 0}
         }
-        8 {
+        case 8 {
             return Input {input: U1 0}
         }
-        9 {
+        case 9 {
             return Input {input: U1 1}
         }
-        10 {
+        case 10 {
             return Input {input: U1 1}
         }
-        11 {
+        case 11 {
             return Input {input: U1 1}
         }
-        12 {
+        case 12 {
             return Input {input: U1 1}
         }
 }

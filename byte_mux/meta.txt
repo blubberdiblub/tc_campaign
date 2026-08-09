@@ -5,7 +5,7 @@ unlocks_components = [com_mux]
 background = 5
 title = (31337_75861961518456, `Multiplexer`)
 dialogue = [
-  (mentor_centered, (31337_66984132947598, `Even though he did not pass our tests we decided to keep the dog. Unlike most earthlings he is fluffy and can follow simple instructions. 
+  (mentor_centered, (31337_66984132947598, `Even though he did not pass our tests we decided to keep the dog. Unlike most Earthlings he is fluffy and can follow simple instructions. 
 
 We might want to team you two up, since you complement each other's shortcomings well.`)),
   (mentor_centered, (31337_44523532982427, `When the bit selector input is [F], output Byte A, otherwise output Byte B.`))

@@ -37,27 +37,27 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
     var result = U8 0
 
     switch input.opcode
-        0 {
+        case 0 {
             op_text = "NAND"
             result =   ~(input.a & input.b)
         }
-        1 {
+        case 1 {
             op_text = " OR "
             result = input.a | input.b
         }
-        2 {
+        case 2 {
             op_text = " AND"
             result = input.a & input.b
         }
-        3 {
+        case 3 {
             op_text = "NOR "
             result =  ~(input.a | input.b)
         }
-        4 {
+        case 4 {
             op_text = " ADD"
             result = input.a + input.b
         }
-        5 {
+        case 5 {
             op_text = " SUB"
             result = input.a - input.b
         }

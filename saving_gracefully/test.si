@@ -2,43 +2,43 @@ const #CORRECT_OUTPUT = [U1 0,1,1,0,0,0,0,0,1,1,1,1,0]
 
 def get_input(cycle: Int) Input {
     switch cycle
-        0 {
+        case 0 {
             return Input {save: U1 1, value: U1 1}
         }
-        1 {
+        case 1 {
             return Input {save: U1 1, value: U1 1}
         }
-        2 {
+        case 2 {
             return Input {save: U1 1, value: U1 0}
         }
-        3 {
+        case 3 {
             return Input {save: U1 1, value: U1 0}
         }
-        4 {
+        case 4 {
             return Input {save: U1 0, value: U1 0}
         }
-        5 {
+        case 5 {
             return Input {save: U1 0, value: U1 1}
         }
-        6 {
+        case 6 {
             return Input {save: U1 1, value: U1 0}
         }
-        7 {
+        case 7 {
             return Input {save: U1 1, value: U1 1}
         }
-        8 {
+        case 8 {
             return Input {save: U1 1, value: U1 1}
         }
-        9 {
+        case 9 {
             return Input {save: U1 0, value: U1 1}
         }
-        10 {
+        case 10 {
             return Input {save: U1 0, value: U1 0}
         }
-        11 {
+        case 11 {
             return Input {save: U1 1, value: U1 0}
         }
-        12 {
+        case 12 {
             return Input {save: U1 1, value: U1 0}
         }
 }

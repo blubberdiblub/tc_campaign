@@ -19,22 +19,22 @@ def get_expected_output(input: U2) U1 {
     let input_0 = U1 (input & 1)
     let input_1 = U1 (input >> 1)
     switch .gate
-        #AND {
+        case #AND {
             return input_0 & input_1
         }
-        #NAND {
+        case #NAND {
             return ~(input_0 & input_1)
         }
-        #OR {
+        case #OR {
             return input_0 | input_1
         }
-        #NOR {
+        case #NOR {
             return ~(input_0 | input_1)
         }
-        #XOR {
+        case #XOR {
             return input_0 ^ input_1
         }
-        #XNOR {
+        case #XNOR {
             return ~(input_0 ^ input_1)
         }
 }
@@ -46,9 +46,9 @@ def update_history_ui(history: Int) {
     while i < #NUM_TEST {
         var expected = ""
         switch value % #NUM_STATE
-            #NOT_SET { expected = "[Z]" }
-            #FAIL { expected = "[F]" }
-            #WIN { expected = "[T]" }
+            case #NOT_SET { expected = "[Z]" }
+            case #FAIL { expected = "[F]" }
+            case #WIN { expected = "[T]" }
         ui_set_text(`history[0][{j}]`, expected)
 
         value /= #NUM_STATE

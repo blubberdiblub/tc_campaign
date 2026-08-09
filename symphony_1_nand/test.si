@@ -41,7 +41,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
     switch mode
 
-        #OP_IO {
+        case #OP_IO {
 
             const #NOP      = 0
             const #INPUT    = 1
@@ -53,8 +53,8 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
             const #COUNTER  = 7
 
             switch opcode & 0xf
-                #INPUT    { .registers[dest] = U32 input }
-                #OUTPUT   {
+                case #INPUT    { .registers[dest] = U32 input }
+                case #OUTPUT   {
                     let expected_output = Int b_value
 
                     if !output_enabled {
@@ -71,13 +71,13 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
                     }
 
                 }
-                #KEYBOARD { .registers[dest] = 0x01ff }
-                #SCREEN   { .screen_setting = Int b_value }
-                #TIME_0   {
+                case #KEYBOARD { .registers[dest] = 0x01ff }
+                case #SCREEN   { .screen_setting = Int b_value }
+                case #TIME_0   {
                     .saved_time = get_last_time()
                     .registers[dest] = U32 .saved_time
                 }
-                #TIME_1   {
+                case #TIME_1   {
                     .registers[dest] = U32 (.saved_time >> 32)
 
                     if .registers[dest] != U32 get_ram_value("Register File", dest * 4, <U32>) {
@@ -85,36 +85,36 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
                         return true
                     }
                 }
-                #COUNTER  { .registers[dest] = .counter }
+                case #COUNTER  { .registers[dest] = .counter }
 
             .counter += 4
 
         }
 
-        #OP_ALU {
+        case #OP_ALU {
 
             .counter += 4
 
             var result = U32 0
 
             switch opcode
-                0  { result = ~(a_value &  b_value) }
-                1  { result =   a_value |  b_value }
-                2  { result =   a_value &  b_value }
-                3  { result = ~(a_value |  b_value) }
-                4  { result =   a_value +  b_value }
-                5  { result =   a_value -  b_value }
-                6  { result =   a_value ^  b_value }
-                7  { result =   a_value << b_value }
-                8  { result =   a_value >> b_value }
-                9  { result =  U32 asr(S32 a_value, S32 b_value) }
-                10 { result =  flag_result(a_value, b_value) }
+                case 0  { result = ~(a_value &  b_value) }
+                case 1  { result =   a_value |  b_value }
+                case 2  { result =   a_value &  b_value }
+                case 3  { result = ~(a_value |  b_value) }
+                case 4  { result =   a_value +  b_value }
+                case 5  { result =   a_value -  b_value }
+                case 6  { result =   a_value ^  b_value }
+                case 7  { result =   a_value << b_value }
+                case 8  { result =   a_value >> b_value }
+                case 9  { result =  U32 asr(S32 a_value, S32 b_value) }
+                case 10 { result =  flag_result(a_value, b_value) }
 
             .registers[dest] = result & 0xffff_ffff
 
         }
 
-        #OP_JMP {
+        case #OP_JMP {
 
             let flags   = Int a_value & 0b111
             let matched = (opcode & flags) > 0
@@ -132,7 +132,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
         }
 
-        #OP_RAM {
+        case #OP_RAM {
             .counter += 4
 
             const #LOAD_8    = 0b0000
@@ -146,7 +146,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
             switch opcode
 
-                #LOAD_8{
+                case #LOAD_8{
 
                     if b_value < #MAX_RAM - 1 {
 
@@ -156,7 +156,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                 }
 
-                #LOAD_16 {
+                case #LOAD_16 {
 
                     if b_value < #MAX_RAM - 2 {
 
@@ -166,7 +166,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                 }
 
-                #LOAD_32 {
+                case #LOAD_32 {
 
                     if b_value < #MAX_RAM - 4 {
 
@@ -176,7 +176,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                 }
 
-                #STORE_8 {
+                case #STORE_8 {
 
                     if b_value < #MAX_RAM - 1 {
 
@@ -186,7 +186,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                 }
 
-                #STORE_16 {
+                case #STORE_16 {
 
                     if b_value < #MAX_RAM - 2 {
 
@@ -197,7 +197,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                 }
 
-                #STORE_32 {
+                case #STORE_32 {
 
                     if b_value < #MAX_RAM - 4 {
 
@@ -210,7 +210,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                 }
 
-                #PLOAD {
+                case #PLOAD {
 
                     if b_value < #MAX_SSD - 4 {
 
@@ -220,7 +220,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                 }
 
-                #PSTORE {
+                case #PSTORE {
 
                     if b_value < #MAX_SSD - 4 {
 
@@ -283,8 +283,8 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
                     var register = ""
                     switch reg
-                        14 { register = "'sp'" }
-                        15 { register = "'flags'" }
+                        case 14 { register = "'sp'" }
+                        case 15 { register = "'flags'" }
                         default { register = `r{reg}`}
 
                     let address = reg * 4

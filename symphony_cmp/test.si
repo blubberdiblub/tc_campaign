@@ -2,22 +2,22 @@
 def get_input(cycle: Int) Input {
 
     switch random(5)
-        0 {
+        case 0 {
             let value = U32 random(0x10000_0000)
             return Input {argument_a: value, argument_b: value}
         }
-        1 {
+        case 1 {
             let value = U32 random(0x10000_0000)
             return Input {argument_a: U32 value, argument_b: U32 value + 1}
         }
-        2 {
+        case 2 {
             let value = U32 random(0x10000_0000)
             return Input {argument_a: U32 value + 1, argument_b: U32 value}
         }
-        3 {
+        case 3 {
             return Input {argument_a: U32 random(0x10000_0000), argument_b: U32 random(0x10000_0000)}
         }
-        4 {
+        case 4 {
             let value = U32 random(0x10000_0000)
             let mask = U32 1 << U32 random(32)
             return Input {argument_a: value, argument_b: value ^ mask}

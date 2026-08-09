@@ -8,7 +8,7 @@ next_level = "not_gate"
 title = (31337_39082333495604, `NAND Gate`)
 forced_wire_speed = true
 dialogue = [
-  (mentor_centered, (31337_36846418389807, `All the animal species of earth are going through the same test, to see if you have the intelligence to learn to build a computer.`)),
+  (mentor_centered, (31337_36846418389807, `All the animal species of Earth are going through the same test, to see if you have the intelligence to learn to build a computer.`)),
   (mentor_centered, (31337_65167079914703, `The first section is about "Boolean logic". Boolean logic describes the simplest forms of calculation computers can do. In fact these calculations are what every other calculation in the computer is made out of.`)),
   (mentor_centered, (31337_68865507501612, `This circuit contains a "NAND gate" that I want you to examine. I want you to document its behavior by filling in the "truth table" in the panel you see below. Only the two input rows of the truth table are filled out. Your task is to experiment with the inputs to the circuit, observe what the NAND gate does and fill the last row of the truth table.`))
 ]

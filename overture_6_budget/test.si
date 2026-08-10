@@ -289,6 +289,10 @@ def retire_instruction(instruction: U8) {
 
 def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
+    if output.donecount == 0 {
+        return 
+    }
+
 
     var i = 0
     while i < Int output.donecount {

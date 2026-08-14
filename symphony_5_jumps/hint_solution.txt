@@ -1,1 +1,1 @@
-[text text=(31337_30888506574129, `The white wires implement the JUMP mode`) size=33]
+[text text=(31337_30888506574129, `The orange wires implement the JUMP mode`) size=33]

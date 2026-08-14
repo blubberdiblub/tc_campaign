@@ -80,7 +80,7 @@ mov r1, 0
 screen r1, 2
 
 mov r1, 1
-add r2, zr, screen
+add r2, zr, visual_data
 screen r1, r2
 
 mov r1, 2
@@ -538,7 +538,7 @@ get_tile_address:
         cmp r3, 5
         jne get_tile_address_offset_per_row_loop
 
-    add r13, zr, screen
+    add r13, zr, visual_data
 
     mov r3, 0
     get_tile_address_margin_top_loop:
@@ -1222,7 +1222,7 @@ U8 0 ; (31337_11549850182703, `y coord`)
 U8 0 ; (31337_22405816552972, `direction`)
 U8 0 ; (31337_62236058044269, `[padding]`)
 
-screen:
+visual_data:
 U8 0
 U8 0
 U8 0
@@ -6023,7 +6023,7 @@ U8 0
 U8 0
 U8 0
 U8 0
-screen_end:
+visual_data_end:
 U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
 U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)
 U8 0 ; (31337_55673115734516, `padding to preserve 32 bits alignment`)

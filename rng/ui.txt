@@ -1,5 +1,5 @@
 [table id="table" size=36 h_align=right x=500]
-"(308620329)",      "temp1  = seed  xor (seed  lsr 13)"
-"(1245129769)",     "temp2  = temp1 xor (temp1 lsl 17)"
-"(1214682440)",     "result = temp2 xor (temp2 lsr  5)"
+"(308620329)",      (31337_61237583870430, `temp1  = seed  xor (seed  lsr 13)`)
+"(1245129769)",     (31337_39532238682660, `temp2  = temp1 xor (temp1 lsl 17)`)
+"(1214682440)",     (31337_10218141520252, `result = temp2 xor (temp2 lsr  5)`)
 [/table]

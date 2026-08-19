@@ -18,7 +18,7 @@ Also link the screen to the RAM component named "Main Memory".
 [b]Index  Name     Operands       Description[/b]
   0    nop                     Do nothing
   1    in       dest           Input
-  2    out      src_A          Output
+  2    out      src_B          Output
   3    keyboard dest           Read keyboard value
   4    screen   src_A, src_B   Set screen setting
   5    time_0   dest           Read lower 32 time bits

@@ -25,60 +25,60 @@ mov %a(register | out_register), %b(register | in_register)
 
 imm %a:U6(immediate | label)
 00aaaaaa
-# (31337_42577908074742, `Move %a to r0.`)
+# (31337_42577908074742, `Moves %a to r0.`)
 
 nand
 01000000
-# (31337_26704206992933, `NAND r1 and r2 and store the result in r3.`)
+# (31337_26704206992933, `NAND r1 and r2 and stores the result in r3.`)
 
 or
 01000001
-# (31337_58823897430160, `OR r1 and r2 and store the result in r3.`)
+# (31337_58823897430160, `OR r1 and r2 and stores the result in r3.`)
 
 and
 01000010
-# (31337_21095867785396, `AND r1 and r2 and store the result in r3.`)
+# (31337_21095867785396, `AND r1 and r2 and stores the result in r3.`)
 
 nor
 01000011
-# (31337_75067212691206, `NOR r1 and r2 and store the result in r3.`)
+# (31337_75067212691206, `NOR r1 and r2 and stores the result in r3.`)
 
 add
 01000100
-# (31337_75524550463342, `ADD r1 and r2 and store the result in r3.`)
+# (31337_75524550463342, `ADD r1 and r2 and stores the result in r3.`)
 
 sub
 01000101
-# (31337_33850592701591, `SUB r1 and r2 and store the result in r3.`)
+# (31337_33850592701591, `SUB r1 and r2 and stores the result in r3.`)
 
 nop
 11000000
-# (31337_71072332861445, `Do nothing.`)
+# (31337_71072332861445, `Does nothing.`)
 
 jmp
 11000001
-# (31337_18505654344513, `Jump to r0.`)
+# (31337_18505654344513, `Jumps to r0.`)
 
 jz
 11000010
-# (31337_46599288949396, `Jump to r0 if r3 is 0.`)
+# (31337_46599288949396, `Jumps to r0 if r3 is 0.`)
 
 jnz
 11000011
-# (31337_43876958520450, `Jump to r0 if r3 is not 0.`)
+# (31337_43876958520450, `Jumps to r0 if r3 is not 0.`)
 
 jl
 11000100
-# (31337_24147817394058, `Jump to r0 if r3 is less than 0.`)
+# (31337_24147817394058, `Jumps to r0 if r3 is less than 0.`)
 
 jge
 11000101
-# (31337_64808551937719, `Jump to r0 if r3 is greater or equal to 0.`)
+# (31337_64808551937719, `Jumps to r0 if r3 is greater or equal to 0.`)
 
 jle
 11000110
-# (31337_48758564562305, `Jump to r0 if r3 is less or equal to 0.`)
+# (31337_48758564562305, `Jumps to r0 if r3 is less or equal to 0.`)
 
 jg
 11000111
-# (31337_88048573834702, `Jump to r0 if r3 is greater than 0.`)
+# (31337_88048573834702, `Jumps to r0 if r3 is greater than 0.`)

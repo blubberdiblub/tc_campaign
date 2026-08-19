@@ -1,2 +1,2 @@
 [text text=(31337_46518640933018, `But we have 8-bit unsigned inputs`) size=33 y=-25]
-[text text=(31337_21199347421587, `To represent them in signed form, we must work with 9-bit bytes`) size=33 y=25]
+[text text=(31337_21199347421587, `To represent them in signed form, we must work with 9-bit words`) size=33 y=25]

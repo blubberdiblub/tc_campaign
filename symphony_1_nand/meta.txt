@@ -10,7 +10,7 @@ dialogue = [
   (mentor_centered, (31337_36086882016175, `
 Most instructions take 2 arguments and produce 1 result (like ADD, OR etc). 
 
-[color=#e49f44]Symphony[/color] uses 4 bytes per instruction and can encode all three in each instruction, which are stored in the RAM component named "Main Memory". This means we can for example ADD any two registers and store the result in any other register.`)),
+[color=#e49f44]Symphony[/color] uses 4 bytes per instruction and can encode all three registers in each instruction, which are stored in the RAM component named "Main Memory". This means we can for example ADD any two registers and store the result in any register.`)),
   (mentor_centered, (31337_88649654188267, `These are the names of the 16 registers of [color=#e49f44]Symphony[/color]:
 
 [left]

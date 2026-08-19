@@ -1,2 +1,4 @@
-[text text=(31337_40521556880682, `One of the methods is to divide the problem:`) size=33 y=-25]
-[text text=(31337_46035077948196, `What is log2 of a 2-bit non-zero binary number (i.e. 1, 2, or 3)?`) size=33 y=25]
+[text text=(31337_53162725062672, `Which looks like this.`) size=33 y=-100]
+[text text=(31337_59578426597502, `If its Select pin is [T], then the Output is 0, else, it's not yet known.`) size=33 y=-50]
+[text text=(31337_71533792298415, `Now if the left-most is [F], the next thing we check is:`) size=33 y=25]
+[text text=(31337_68508904580143, `[b]If the second-left-most bit is [T], the count is 1[/b]`) size=33 y=75]

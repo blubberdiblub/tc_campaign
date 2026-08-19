@@ -1,3 +1,4 @@
-[text text=(31337_75683304945175, `Except for when Input is 0, this is the same as finding 8 - 1 - log2(Input),`) size=33 y=-50]
-[text text=(31337_15352671410916, `with 8 being the number of bits and log2 the position of the first [T] bit.`) size=33 y=0]
-[text text=(31337_83745112465243, `Finding log2 of binary numbers is very well-trodden ground in computer science`) size=33 y=50]
+[text text=(31337_23994602977419, `The MUX component is the one to look to.`) size=33 y=-100]
+[text text=(31337_79990775560303, `If its Select pin is 0, then the Output is Value 0, else, it's Value 1.`) size=33 y=-50]
+[text text=(31337_19743874669099, `So let's make a circuit that says:`) size=33 y=25]
+[text text=(31337_29809872297075, `[b]If the left-most bit is [T], the count is 0[/b]`) size=33 y=75]

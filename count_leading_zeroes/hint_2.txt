@@ -1,3 +1,2 @@
-[text text=(31337_88309764896321, `If the number is less than 2, log2 is 0; otherwise, it is 1`) size=33 y=-50]
-[text text=(31337_32041142528569, `Subtracting from (2 - 1) = 1, there are 1 and 0 leading zero, respectively`) size=33 y=0]
-[text text=(31337_88044062357651, `Then how about 4-bit number?`) size=33 y=50]
+[text text=(31337_79874752069368, `It is basically the same circitry we did before!`) size=33 y=-25]
+[text text=(31337_18339465995702, `We just need to repeat until all bits are checked.`) size=33 y=25]

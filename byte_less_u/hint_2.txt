@@ -1,2 +1,2 @@
-[text text=(31337_73589178770254, `Another way is comparing the difference with 0`) size=33 y=-25]
-[text text=(31337_37315430614523, `09 < 11 so 09 - 11 < 0; 1100 > 1001 so 1100 - 1001 > 0`) size=33 y=25]
+[text text=(31337_73589178770254, `Another way is comparing the difference of the numbers with 0`) size=33 y=-25]
+[text text=(31337_37315430614523, `09 < 11 because 09 - 11 < 0, and 1100 > 1001 because 1100 - 1001 > 0`) size=33 y=25]

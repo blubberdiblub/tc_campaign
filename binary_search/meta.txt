@@ -6,5 +6,5 @@ title = (31337_16764912826624, `Code Breaker`)
 dialogue = [
   (mentor_centered, (31337_20948899837760, `In this level you win when you output my the secret code I am thinking of. No output will fail the level, so you could just try all numbers.
 
-Also, I will set the input to 1 after a guess that was too high and 0 otherwise, you might be able to use this to find my code faster.`))
+Also, I will set the input to 1 after a guess that was too high and 0 otherwise. You might be able to use this to find my code faster.`))
 ]

@@ -1,2 +1,2 @@
 [text text=(31337_18968293717104, `One way is comparing digit by digit like we do for decimal numbers`) size=33 y=-25]
-[text text=(31337_45223418140453, `Like 09 < 21 because 0 < 2, so 1100 > 1001 because 11XX > 10XX`) size=33 y=25]
+[text text=(31337_45223418140453, `Like 09 < 21 because 0X < 2X, and 1100 > 1001 because 11XX > 10XX`) size=33 y=25]

@@ -1,1 +1,1 @@
-[text text=(31337_82755888644217, `If the sign bits of the inputs differ, we can just compare them`) size=37]
+[text text=(31337_82755888644217, `If the sign bits of the inputs differ, the one with sign bit [T] is automatically smaller`) size=33]

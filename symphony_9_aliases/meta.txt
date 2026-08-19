@@ -13,7 +13,7 @@ Click on the "spec.isa" tab in the Assembler window and study how instructions a
 "[b]mov[/b]" is short for "move" and takes two operands. Move the value of the second operand to the first.
 
 [b]neg[/b]
-"[b]neg[/b] is short for "negate" and takes two operands. Negate the value of the second operand and store the result in the first.
+"[b]neg[/b]" is short for "negate" and takes two operands. Negate the value of the second operand and store the result in the first.
 
 [b]not[/b]
 "[b]not[/b]" takes two operands. Not the value of the second operand and store the result in the first.

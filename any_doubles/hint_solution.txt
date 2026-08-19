@@ -1,2 +1,2 @@
-[text text=(31337_43216513907358, `This solution is by no means the most elegant or optimal`) size=33 y=-25]
-[text text=(31337_34521278233301, `That, though, is left as an exercise to the player!`) size=33 y=25]
+[text text=(31337_30671593085518, `This solution is by no means the most elegant or optimal`) size=33 y=-25]
+[text text=(31337_16623524168613, `That, though, is left as an exercise to the player!`) size=33 y=25]

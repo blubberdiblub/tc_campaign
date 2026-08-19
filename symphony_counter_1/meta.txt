@@ -9,7 +9,7 @@ dialogue = [
   (mentor_centered, (31337_77897142643435, `Build a 32 bit counter that increments by 4, but can alternatively be overwritten with a specific value.
 
 Also, connect the provided memory probe to a 32-bit component holding the counter memory value.`)),
-  (mentor_centered, (31337_76860406179468, `To change word component width, you will need to use a Bit size tool near the left panel (looks like a bidirectional arrow and a number).
+  (mentor_centered, (31337_76860406179468, `To change word component width, you will need to use a Bit size tool  near the left panel.
 
 Right click on the Bit size tool to specify the target width.
 Left click on components when the tool is active will set the component's bit width.

@@ -1,2 +1,0 @@
-[text text=(31337_82513296271559, `Apply the same steps to reduce the problem from 8 bits to 4 bits`) size=33 y=-25]
-[text text=(31337_12591714876491, `The only thing missing is the case when Input is 0`) size=33 y=25]

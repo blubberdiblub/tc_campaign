@@ -24,7 +24,7 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
     var instruction = get_ram_value("Main Memory", Int actual_counter, <U32>)
     ui_set_instruction(0, Int instruction, Int actual_counter)
 
-    if cycle == 165 {
+    if cycle == 136 {
 
         return win
 

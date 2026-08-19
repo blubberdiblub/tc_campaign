@@ -11,5 +11,5 @@ dialogue = [
   (mentor_centered, (31337_59797408403606, `The only purpose of this optional level is to let you experiment with how much you can optimize Overture. Unlike previous levels, this level does not require you to complete exactly one instruction per cycle.
   `)),
   (mentor_centered, (31337_59818810946218, `By default, this level only checks that you write the correct values to output. You may opt in to having your register state checked as well, which is very useful for debugging, but this is optional. To have your register state be checked, send the number of instructions you finished each cycle to the component labeled "DoneCount".`))
-  (mentor_centered, (31337_84590049728141, `Note that if you change the RAM type to DRAM, you can set the pipeline depth of the RAM. If you for example set the depth to 2, loads and stores will take two cycles, but the delay of the RAM will be divided by 3.`))
+  (mentor_centered, (31337_84590049728141, `Note that if you change the RAM type to DRAM, you can set the pipeline depth of the RAM. If you for example set the depth to 2, loads will take two cycles, but the delay of the RAM will be divided by 3.`))
 ]

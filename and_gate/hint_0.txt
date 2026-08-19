@@ -1,1 +1,1 @@
-[text text=(31337_68158507707802, `The AND gate can be interpreted as a NOT-NOT-AND gate, or a NOT-NAND gate`) size=37]
+[text text=(31337_14349743750598, `The AND gate is the same as NOT + NAND gates put together`) size=37]

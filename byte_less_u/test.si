@@ -18,7 +18,7 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
     let b = U8 input.b
     let value = expected ? "[T]" : "[F]"
 
-    ui_set_text("description", (31337_75551771019196, `{a} < {b}  is  {value}`))
+    ui_set_text("description", (31337_75551771019196, `{a} < {b} is {value}`))
 
     if output.result_is_z {
         set_error((31337_33181499064044, `Result should never be Z state`))

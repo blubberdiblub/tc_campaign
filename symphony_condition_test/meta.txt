@@ -5,7 +5,7 @@ background = 6
 copy_solution_to_foundry = "Symphony/cond"
 title = (31337_90224867995967, `Condition Match`)
 dialogue = [
-  (mentor_centered, (31337_20911185106374, `In this level the first input contains flags and the second argument contains a condition. We need to test if the flags match the condition. Compare the three flag input bits pairwise with the first three bits of the condition input. If any of the three pairs the inputs are both [T], the condition is matched.
+  (mentor_centered, (31337_20911185106374, `In this level the first input contains flags and the second input contains a condition. We need to test if the flags match the condition. Compare the three flag input bits pairwise with the first three bits of the condition input. If any of the three pairs the inputs are both [T], the condition is matched.
 
 Finally, the 4th bit of the condition inverts the result. So if the condition matched, but the 4th bit is [T], output [F].
 `))

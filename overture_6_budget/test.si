@@ -303,7 +303,7 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
     }
 
     if .emulator_input_index != 0 && .emulator_input_index != .input_index {
-        set_error((31337_45858569181521, `Your have read {.input_index} inputs, but you were supposed to have read {.emulator_input_index}.`))
+        set_error((31337_45858569181521, `You have read {.input_index} inputs, but you were supposed to have read {.emulator_input_index}.`))
         return fail
     }
 

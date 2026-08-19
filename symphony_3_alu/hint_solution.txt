@@ -1,2 +1,2 @@
 [text text=(31337_23277299590423, `Replace the NAND gate with the ALU component`) size=33 y=-25]
-[text text=(31337_90347458725803, `The new orange wires feed the opcode to the ALU`) size=33 y=25]
+[text text=(31337_90347458725803, `The new pink wire feeds the opcode to the ALU`) size=33 y=25]

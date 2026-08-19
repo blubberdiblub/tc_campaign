@@ -35,7 +35,7 @@ def redraw() {
 
         } elif .player_choice == 0 {
 
-            ui_set_text("description", (31337_85502688597126, `Use the arrow keys to take cards`))
+            ui_set_text("description", (31337_79378464416004, `Use the arrow keys to pick cards`))
 
         } else {
 

@@ -87,7 +87,7 @@ var y_pos = 0
 var rot = 3
 
 def looking_at(x: Int, y: Int) Int {
-    let row = #MAZES[.maze * 9 + y]
+    let row = #MAZES[maze * 9 + y]
     return ((row >> (25 - x)) & 1)
 }
 
@@ -95,11 +95,11 @@ def is_wall(x: Int, y: Int) Bool {
     return looking_at(x, y) == 1
 }
 
-def set_state(x: Int, y: Int, rotation: Int) {
+def set_state(x: Int, y: Int, rotation: Int) None {
 
-    .x_pos = x
-    .y_pos = y
-    .rot = rotation
+    x_pos = x
+    y_pos = y
+    rot = rotation
 
     ui_set_hidden("robot_0", true)
     ui_set_hidden("robot_1", true)
@@ -114,35 +114,35 @@ def set_state(x: Int, y: Int, rotation: Int) {
     var wall = false
 
     switch rotation
-        case 0 { 
+        case 0 {
             lx = x_px
             ly = y_px - 24
             ui_set_position("robot_0", x_px, y_px)
             ui_set_hidden("robot_0", false)
             wall = is_wall(x, y - 1)
         }
-        case 1 { 
+        case 1 {
             lx = x_px + 24
             ly = y_px
             ui_set_position("robot_1", x_px, y_px)
             ui_set_hidden("robot_1", false)
             wall = is_wall(x + 1, y)
         }
-        case 2 { 
+        case 2 {
             lx = x_px
             ly = y_px + 24
             ui_set_position("robot_2", x_px, y_px)
             ui_set_hidden("robot_2", false)
             wall = is_wall(x, y + 1)
         }
-        case 3 { 
+        case 3 {
             lx = x_px - 24
             ly = y_px
             ui_set_position("robot_3", x_px, y_px)
             ui_set_hidden("robot_3", false)
             wall = is_wall(x - 1, y)
         }
-    
+
     if wall {
         ui_set_position("looking_at_1", lx, ly)
         ui_set_hidden("looking_at_0", true)
@@ -152,13 +152,13 @@ def set_state(x: Int, y: Int, rotation: Int) {
         ui_set_hidden("looking_at_0", false)
         ui_set_hidden("looking_at_1", true)
     }
-    
+
 }
 
-def move(rotation: Int) {
-    var x = .x_pos
-    var y = .y_pos
-    var r = .rot
+def move(rotation: Int) None {
+    var x = x_pos
+    var y = y_pos
+    var r = rot
 
     switch rotation
         case 0 {
@@ -172,8 +172,8 @@ def move(rotation: Int) {
                 case 3 { x -= 1 }
 
             if is_wall(x, y) {
-                x = .x_pos
-                y = .y_pos
+                x = x_pos
+                y = y_pos
             }
 
         }
@@ -185,7 +185,7 @@ def move(rotation: Int) {
 
 }
 
-def on_manual_input(input: Int) {
+def on_manual_input(input: Int) None {
 
     if input < 4 {
         move(input)
@@ -195,10 +195,10 @@ def on_manual_input(input: Int) {
 
 def get_input_switched() Int {
 
-    var x = .x_pos
-    var y = .y_pos
+    var x = x_pos
+    var y = y_pos
 
-    switch .rot
+    switch rot
         case 0 { y -= 1 }
         case 1 { x += 1 }
         case 2 { y += 1 }
@@ -212,9 +212,9 @@ def check_output_switched(output: Int) TestResult {
 
     move(output)
 
-    let x = .x_pos
-    let y = .y_pos
-    let r = .rot
+    let x = x_pos
+    let y = y_pos
+    let r = rot
 
     if x == 2 && y == 1 && r == 0 {
         return win

@@ -6,6 +6,7 @@ no_score = true
 unlocks_pages = ["Computer concepts/Binary"]
 background = 5
 title = (31337_14499217305520, `Counting Signals`)
+unlocks_special= [(31337_88935986845804, `Pain is temporary, glory is forever`)]
 dialogue = [
   (mentor_centered, (31337_83123268362253, `The output component of this level is a binary counter where the three pins correspond to 1, 2 and 4.
 Use the binary counter to display the number of signals.

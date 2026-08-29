@@ -1,6 +1,6 @@
 kind = misc
 no_score = true
-size = 3000
+size = 255
 no_controls = true
 no_state_ui = true
 unlocks_pages = ["Computer concepts/Negative numbers"]

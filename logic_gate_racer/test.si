@@ -18,7 +18,7 @@ let test = get_test() / #NUM_GATE
 def get_expected_output(input: U2) U1 {
     let input_0 = U1 (input & 1)
     let input_1 = U1 (input >> 1)
-    switch .gate
+    switch gate
         case #AND {
             return input_0 & input_1
         }
@@ -39,7 +39,7 @@ def get_expected_output(input: U2) U1 {
         }
 }
 
-def update_history_ui(history: Int) {
+def update_history_ui(history: Int) None {
     var i = 0
     var j = #NUM_TEST - 1
     var value = history
@@ -79,7 +79,7 @@ def get_input(cycle: Int) Input {
 }
 
 def check_output(cycle: Int, input: Input, output: Output) TestResult {
-    let new_history = .test * #NUM_STATE
+    let new_history = test * #NUM_STATE
     if output.output_is_z || output.output != get_expected_output(input.input) {
         update_history_ui(new_history + #FAIL)
         return fail

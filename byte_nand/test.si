@@ -1,4 +1,4 @@
-def get_binary_repr(value: Int) String {
+def get_binary_repr(value: Int) Str {
     var text = ""
     var i = 7
     while i >= 0 {

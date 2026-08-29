@@ -4,12 +4,12 @@ var max = 255 // Inclusive
 var over = 0
 
 def get_input_switched() Int {
-    return .over
+    return over
 }
 
 def check_output_switched(output: Int) TestResult {
 
-    if (.min == .max) && (.min == output) {
+    if (min == max) && (min == output) {
 
         // The value is pinned down
         return win
@@ -17,18 +17,18 @@ def check_output_switched(output: Int) TestResult {
     }
 
     // If the player guessed below the interval where the correct value could possibly be found.
-    if output < .min {
+    if output < min {
 
-        .over = 0
+        over = 0
 
         return pass
 
     }
 
     // If the player guessed above the interval where the correct value could possibly be found.
-    if output > .max {
+    if output > max {
 
-        .over = 1
+        over = 1
 
         return pass
 
@@ -39,19 +39,19 @@ def check_output_switched(output: Int) TestResult {
     // The reason is that any of the comparisons "<", ">", "<=" or ">=" (of which we use ">" below)
     // splits the interval between two adjacent integers rather than exactly _at_ a single one.
     // (Or in other words value a cannot be simultaneously > than value b AND NOT > than value b.)
-    let sample = .min + random(.max - .min)
+    let sample = min + random(max - min)
 
     // Select one of the intervals [min .. guess - 1] or [guess + 1 .. max]
     // probabilistically (with the help of the random sample) based on their relative sizes.
     if output > sample {
 
-        .max  = output - 1
-        .over = 1
+        max  = output - 1
+        over = 1
 
     } else {
 
-        .min  = output + 1
-        .over = 0
+        min  = output + 1
+        over = 0
 
     }
 

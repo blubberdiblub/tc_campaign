@@ -4,6 +4,7 @@ size = 30
 cycle_past_fail = 4
 no_score = true
 title = (31337_69913560783046, `Second Cycle`)
+unlocks_special= [(31337_27709177681938, `There is no shame in using pen and paper`)]
 dialogue = [
   (mentor_centered, (31337_11961528105462, `Output [T] on the second cycle only.`))
 ]

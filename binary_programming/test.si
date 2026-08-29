@@ -3,7 +3,7 @@ var input = U8 ((get_test() * 207 + 168) % 251)
 
 def get_input(cycle: Int) Input {
 
-    return Input {input: .input}
+    return Input {input: input}
 
 }
 

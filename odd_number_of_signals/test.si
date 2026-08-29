@@ -19,7 +19,7 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
         return fail
     }
 
-    if .count > #MAX_MUTABLE_COMPONENT {
+    if count > #MAX_MUTABLE_COMPONENT {
 
         set_error((31337_40553112323959, `You may not use more than 3 components in this level`))
         return fail

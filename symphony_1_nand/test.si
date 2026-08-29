@@ -36,8 +36,8 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
     let immediate       = (instruction >> 28) & 1 != 0
     let immediate_value =  U32 (instruction & 0xffff)
 
-    let a_value = .registers[a]
-    let b_value = immediate ? immediate_value : .registers[b]
+    let a_value = registers[a]
+    let b_value = immediate ? immediate_value : registers[b]
 
     switch mode
 
@@ -53,7 +53,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
             const #COUNTER  = 7
 
             switch opcode & 0xf
-                case #INPUT    { .registers[dest] = U32 input }
+                case #INPUT    { registers[dest] = U32 input }
                 case #OUTPUT   {
                     let expected_output = Int b_value
 
@@ -71,29 +71,29 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
                     }
 
                 }
-                case #KEYBOARD { .registers[dest] = 0x01ff }
-                case #SCREEN   { .screen_setting = Int b_value }
+                case #KEYBOARD { registers[dest] = 0x01ff }
+                case #SCREEN   { screen_setting = Int b_value }
                 case #TIME_0   {
-                    .saved_time = get_last_time()
-                    .registers[dest] = U32 .saved_time
+                    saved_time = get_last_time()
+                    registers[dest] = U32 saved_time
                 }
                 case #TIME_1   {
-                    .registers[dest] = U32 (.saved_time >> 32)
+                    registers[dest] = U32 (saved_time >> 32)
 
-                    if .registers[dest] != U32 get_ram_value("Register File", dest * 4, <U32>) {
+                    if registers[dest] != U32 get_ram_value("Register File", dest * 4, <U32>) {
                         set_error((31337_35453700742253, `The time component shouldn't have been enabled since the last time_0 instruction's execution.`))
                         return true
                     }
                 }
-                case #COUNTER  { .registers[dest] = .counter }
+                case #COUNTER  { registers[dest] = counter }
 
-            .counter += 4
+            counter += 4
 
         }
 
         case #OP_ALU {
 
-            .counter += 4
+            counter += 4
 
             var result = U32 0
 
@@ -110,7 +110,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
                 case 9  { result =  U32 asr(S32 a_value, S32 b_value) }
                 case 10 { result =  flag_result(a_value, b_value) }
 
-            .registers[dest] = result & 0xffff_ffff
+            registers[dest] = result & 0xffff_ffff
 
         }
 
@@ -122,18 +122,18 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
             if met {
 
-                .counter = b_value
+                counter = b_value
 
             } else {
 
-                .counter += 4
+                counter += 4
 
             }
 
         }
 
         case #OP_RAM {
-            .counter += 4
+            counter += 4
 
             const #LOAD_8    = 0b0000
             const #LOAD_16   = 0b0001
@@ -150,7 +150,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                     if b_value < #MAX_RAM - 1 {
 
-                        .registers[dest] = U32 .ram[b_value]
+                        registers[dest] = U32 ram[b_value]
 
                     }
 
@@ -160,7 +160,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                     if b_value < #MAX_RAM - 2 {
 
-                        .registers[dest] = (U32 .ram[b_value] << 8) | (U32 .ram[b_value + 1])
+                        registers[dest] = (U32 ram[b_value] << 8) | (U32 ram[b_value + 1])
 
                     }
 
@@ -170,7 +170,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                     if b_value < #MAX_RAM - 4 {
 
-                        .registers[dest] = (U32 .ram[b_value] << 24) | (U32 .ram[b_value + 1] << 16) | (U32 .ram[b_value + 2] << 8) | (U32 .ram[b_value + 3])
+                        registers[dest] = (U32 ram[b_value] << 24) | (U32 ram[b_value + 1] << 16) | (U32 ram[b_value + 2] << 8) | (U32 ram[b_value + 3])
 
                     }
 
@@ -180,7 +180,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                     if b_value < #MAX_RAM - 1 {
 
-                        .ram[b_value + 0] = U8 a_value
+                        ram[b_value + 0] = U8 a_value
 
                     }
 
@@ -190,8 +190,8 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                     if b_value < #MAX_RAM - 2 {
 
-                        .ram[b_value + 1] = U8 a_value
-                        .ram[b_value + 0] = U8 (a_value >> 8)
+                        ram[b_value + 1] = U8 a_value
+                        ram[b_value + 0] = U8 (a_value >> 8)
 
                     }
 
@@ -201,10 +201,10 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                     if b_value < #MAX_RAM - 4 {
 
-                        .ram[b_value + 3] = U8 a_value
-                        .ram[b_value + 2] = U8 (a_value >> 8)
-                        .ram[b_value + 1] = U8 (a_value >> 16)
-                        .ram[b_value + 0] = U8 (a_value >> 24)
+                        ram[b_value + 3] = U8 a_value
+                        ram[b_value + 2] = U8 (a_value >> 8)
+                        ram[b_value + 1] = U8 (a_value >> 16)
+                        ram[b_value + 0] = U8 (a_value >> 24)
 
                     }
 
@@ -214,7 +214,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                     if b_value < #MAX_SSD - 4 {
 
-                        .registers[dest] = (U32 .ssd[b_value] << 24) | (U32 .ssd[b_value + 1] << 16) | (U32 .ssd[b_value + 2] << 8) | (U32 .ssd[b_value + 3])
+                        registers[dest] = (U32 ssd[b_value] << 24) | (U32 ssd[b_value + 1] << 16) | (U32 ssd[b_value + 2] << 8) | (U32 ssd[b_value + 3])
 
                     }
 
@@ -224,10 +224,10 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
                     if b_value < #MAX_SSD - 4 {
 
-                        .ssd[b_value + 3] = U8 a_value
-                        .ssd[b_value + 2] = U8 (a_value >> 8)
-                        .ssd[b_value + 1] = U8 (a_value >> 16)
-                        .ssd[b_value + 0] = U8 (a_value >> 24)
+                        ssd[b_value + 3] = U8 a_value
+                        ssd[b_value + 2] = U8 (a_value >> 8)
+                        ssd[b_value + 1] = U8 (a_value >> 16)
+                        ssd[b_value + 0] = U8 (a_value >> 24)
 
                     }
 
@@ -236,7 +236,7 @@ def retire_instruction(instruction: Int, input: Int, output_enabled: Bool, outpu
 
         }
 
-    .registers[0] = 0
+    registers[0] = 0
 
 }
 
@@ -246,17 +246,17 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     let actual_counter = get_load_port_input("Instruction")
 
-    if U32 actual_counter != .counter {
+    if U32 actual_counter != counter {
 
         ui_set_instruction(0, 0, 0)
-        let expected_value = .counter
+        let expected_value = counter
         set_error((31337_34545926188340, `You should have read address {expected_value} from the Main Memory, not {actual_counter}. You must have not updated the counter correctly last cycle.`))
         return fail
 
     }
 
-    var instruction = get_ram_value("Main Memory", Int .counter, <U32>)
-    ui_set_instruction(0, Int instruction, Int .counter)
+    var instruction = get_ram_value("Main Memory", Int counter, <U32>)
+    ui_set_instruction(0, Int instruction, Int counter)
 
     let error = retire_instruction(Int instruction, 0, false, 0)
 
@@ -273,7 +273,7 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
             let value = U32 get_ram_value("Register File", reg * 4, <U32>)
 
-            if value != .registers[reg] {
+            if value != registers[reg] {
 
                 if reg == 0 {
 
@@ -288,7 +288,7 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
                         default { register = `r{reg}`}
 
                     let address = reg * 4
-                    let expected_value = "0x" + hex(8, Int .registers[reg])
+                    let expected_value = "0x" + hex(8, Int registers[reg])
                     let actual_value = "0x" + hex(8, Int value)
                     set_error((31337_84654787309709, `{register} ('Register File' address {address}) should have hex value {expected_value}, not {actual_value}`))
 
@@ -310,8 +310,8 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
         while i < 11000 {
             let value = get_ram_value("Main Memory", i, <U8>)
-            if .ram[i] != value {
-                let expected_value = .ram[i]
+            if ram[i] != value {
+                let expected_value = ram[i]
                 set_error((31337_55420494010123, `Main Memory address {i} is supposed to have value {expected_value}, not {value}`))
                 return fail
             }
@@ -326,8 +326,8 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
         while i < 1000 {
             let value = get_ram_value("Persistent Memory", i, <U8>)
-            if .ssd[i] != value {
-                let expected_value = .ssd[i]
+            if ssd[i] != value {
+                let expected_value = ssd[i]
                 set_error((31337_68153781027719, `Persistent Memory address {i} is supposed to have value {expected_value}, not {value}`))
                 return fail
             }
@@ -338,8 +338,8 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
     {
 
         let value = get_screen_settings("screen", 3)
-        if value != .screen_setting {
-            let expected_value = .screen_setting
+        if value != screen_setting {
+            let expected_value = screen_setting
             set_error((31337_40674051088628, `Screen setting 3 is supposed to be {expected_value}, not {value}`))
             return fail
         }

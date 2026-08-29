@@ -57,35 +57,35 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
     switch U8 opcode
         case #IMM {
-            .registers[0] = instruction
-            .counter += 1
+            registers[0] = instruction
+            counter += 1
         }
         case #CALC >> 6 {
             let alu_code = instruction & 0b111
-            let r1 = .registers[1]
-            let r2 = .registers[2]
+            let r1 = registers[1]
+            let r2 = registers[2]
 
             switch U8 alu_code
                 case #OR {
-                    .registers[3] = r1 | r2
+                    registers[3] = r1 | r2
                 }
                 case #NAND {
-                    .registers[3] = ~(r1 & r2) & 0xff
+                    registers[3] = ~(r1 & r2) & 0xff
                 }
                 case #NOR {
-                    .registers[3] = ~(r1 | r2) & 0xff
+                    registers[3] = ~(r1 | r2) & 0xff
                 }
                 case #AND {
-                    .registers[3] = r1 & r2
+                    registers[3] = r1 & r2
                 }
                 case #ADD {
-                    .registers[3] = (r1 + r2) & 0xff
+                    registers[3] = (r1 + r2) & 0xff
                 }
                 case #SUB {
-                    .registers[3] = (r1 - r2) & 0xff
+                    registers[3] = (r1 - r2) & 0xff
                 }
 
-            .counter += 1
+            counter += 1
 
         }
         case #MOVE >> 6 {
@@ -95,13 +95,13 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
             var value = U8 0
             if from <= 5 {
-                value = .registers[from]
+                value = registers[from]
             } elif from == 6 {
                 value = U8 input.input
             }
 
             if to <= 5 {
-                .registers[to] = value
+                registers[to] = value
             } elif to == 6 {
                 if !output.output_enabled {
                     set_error((31337_36308361121667, `Output not enabled.`))
@@ -113,13 +113,13 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
                 }
             }
 
-            .counter += 1
+            counter += 1
         }
         case #COND >> 6 {
             let cond = instruction & 0b111
 
-            let equal = .registers[3] == 0
-            let less  = .registers[3] > 127
+            let equal = registers[3] == 0
+            let less  = registers[3] > 127
 
             var set_counter = false
 
@@ -149,17 +149,17 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
 
 
             if set_counter {
-                .counter = .registers[0]
+                counter = registers[0]
             } else {
-                .counter += 1
+                counter += 1
             }
         }
 
     var reg_i = 0
     while reg_i < 6 {
         let value = U8 get_memory(`Reg {reg_i}`)
-        if .registers[reg_i] != value {
-            let value = .registers[reg_i]
+        if registers[reg_i] != value {
+            let value = registers[reg_i]
             set_error((31337_35224907301551, `Register {reg_i} should have value {value}.`))
             return fail
         }
@@ -167,8 +167,8 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
         reg_i += 1
     }
 
-    if U8 get_memory("Count") != .counter {
-        let expected_value = .counter
+    if U8 get_memory("Count") != counter {
+        let expected_value = counter
         set_error((31337_24524168624111, `Counter memory should be {expected_value}.`))
         return fail
     }

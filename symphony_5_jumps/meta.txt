@@ -8,29 +8,26 @@ title = (31337_39122914366346, `Jumps`)
 dialogue = [
   (mentor_centered, (31337_57225943470132, `These are the [color=#ff9800]Modes[/color] of [color=#e49f44]Symphony[/color]:
 
-0 IO
-1 ALU
-2 JUMP
-3 RAM
+[center]
+[color=#ff9800]0[/color] IO  
+[color=#ff9800]1[/color] ALU 
+[color=#ff9800]2[/color] JUMP
+[color=#ff9800]3[/color] RAM 
+[/center]
 
 In this level we implement the JUMP mode. As always the instruction encoding is as follows:
 
-[left]
-              [color=#ff9800]M[/color] = Mode
-              [color=#ff6680]O[/color] = Opcode
-            [color=#9966ff]0[/color]/[color=#9966ff]1[/color] = Immediate mode
-              [color=#ffe666]D[/color] = Destination register
-              [color=#66ff99]A[/color] = Argument A
-              [color=#66ccff]B[/color] = Argument B (possibly immediate)
-              [color=#bbbbbb]0[/color] = Unused / zero
-[/left]
+Imm bit [color=#9966ff]0[/color]: [color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
+Imm bit [color=#9966ff]1[/color]: [color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]1[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#66ccff]IIIIIIII IIIIIIII[/color]
 
-Instruction encoding if argument B is not an immediate value:
-[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]0[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#bbbbbb]0000[/color][color=#66ccff]BBBB[/color] [color=#bbbbbb]00000000[/color]
-Instruction encoding if argument B is an immediate value:
-[color=#bbbbbb]0[/color][color=#ff9800]MM[/color][color=#9966ff]1[/color][color=#ff6680]OOOO[/color] [color=#ffe666]DDDD[/color][color=#66ff99]AAAA[/color] [color=#66ccff]BBBBBBBB BBBBBBBB[/color]
+[center]
+[color=#ff9800]M[/color] = Mode                [color=#ffe666]D[/color] = Destination register
+[color=#ff6680]O[/color] = Opcode              [color=#66ff99]A[/color] = Register A          
+[color=#9966ff]0[/color]/[color=#9966ff]1[/color] = Immediate mode    [color=#66ccff]B[/color] = Register B          
+[color=#bbbbbb]0[/color] = Unused / zero       [color=#66ccff]I[/color] = Immediate value     
+[/center]
 
-In JUMP mode, the value in the register specified by [color=#66ff99]argument A[/color] are the flags and should be compared with the condition, which is the [color=#ff6680]opcode[/color]. To compare them, use the "cond" custom component you built earlier.
+In JUMP mode, the value in the register specified by [color=#66ff99]register A[/color] are the flags and should be compared with the condition, which is the [color=#ff6680]opcode[/color]. To compare them, use the "cond" custom component you built earlier.
 
-If the flags match the condition, overwrite the counter value with [color=#66ccff]argument B[/color].`))
+If the flags match the condition, overwrite the counter value with [color=#66ccff]operand B[/color].`))
 ]

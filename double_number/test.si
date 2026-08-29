@@ -1,4 +1,4 @@
-def get_binary_repr(value: U8, size: U8) String {
+def get_binary_repr(value: U8, size: U8) Str {
     var text = ""
     var i = size
     while i > 0 {
@@ -12,7 +12,7 @@ def get_binary_repr(value: U8, size: U8) String {
     return text
 }
 
-def get_padded_number(value: String, size: Int) String {
+def get_padded_number(value: Str, size: Int) Str {
     var text = value
     while text.len() < size {
         text = " " + text

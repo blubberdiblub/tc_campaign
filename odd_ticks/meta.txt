@@ -4,6 +4,7 @@ size = 30
 cycle_past_fail = 8
 background = 1
 title = (31337_54648226811178, `Odd cycles`)
+unlocks_special= [(31337_75306092656939, `Double click a component to select it and all attached wires.`)]
 dialogue = [
   (mentor_centered, (31337_17699211754487, `In a previous level you learned how we don't allow circular dependencies. Now you must learn the one exception.`)),
   (mentor_centered, (31337_75292456030647, `The delay line is allowed to depend on its own output. This is because its input does not influence the rest of the circuit until next cycle.

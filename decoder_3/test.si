@@ -9,7 +9,7 @@ if test == 0 {
 
 def get_input(cycle: Int) Input {
     var disable = U1 1
-    if .test == 0 {
+    if test == 0 {
         disable = 0
     }
 

@@ -3,19 +3,19 @@ var count = 0
 var seen = 0
 
 def get_input_switched() Int {
-    if .seen == 1 {
+    if seen == 1 {
         return 37
     }
 
-    .count += 1
+    count += 1
 
     var value = random(256)
-    if .count >= 255 {
+    if count >= 255 {
         value = 37
     }
 
     if value == 37 {
-        .seen = 1
+        seen = 1
     }
 
     return value
@@ -23,13 +23,13 @@ def get_input_switched() Int {
 
 def check_output_switched(output: Int) TestResult {
 
-    if .seen != 1 {
+    if seen != 1 {
         set_error((31337_39953782121467, `The last input was not 37!`))
-        return fail    
+        return fail
     }
 
-    if output != .count {
-        let read_count = .count
+    if output != count {
+        let read_count = count
         set_error((31337_75138288162938, `You read the input {read_count} times, not {output}.`))
         return fail
     }

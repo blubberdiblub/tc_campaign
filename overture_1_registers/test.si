@@ -35,7 +35,7 @@ while s <= 6 {
 
 def get_input(cycle: Int) Input {
 
-    let instruction = .instructions[cycle]
+    let instruction = instructions[cycle]
 
     return Input {instruction: U8 instruction, input: U8 random(256)}
 
@@ -57,14 +57,14 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
     var value = U8 0
 
     if from <= 5 {
-        value = .registers[from]
+        value = registers[from]
     } elif from == 6 {
         value = input.input
     }
 
 
     if to <= 5 {
-        .registers[to] = value
+        registers[to] = value
     } elif to == 6 {
         if !output.output_enabled {
             set_error((31337_51132330915663, `Output not enabled.`))
@@ -79,8 +79,8 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
     var reg_i = 0
     while reg_i < 6 {
         let value = U8 get_memory(`Reg {reg_i}`)
-        if .registers[reg_i] != value {
-            let value = .registers[reg_i]
+        if registers[reg_i] != value {
+            let value = registers[reg_i]
             set_error((31337_18540192543555, `Register {reg_i} should have value {value}.`))
             return fail
         }

@@ -151,12 +151,12 @@ def get_input_switched() Int {
 }
 
 def check_output_switched(value: Int) TestResult {
-    if U8 value != .outputs[.output_index] {
-        set_error(`Output should be {.outputs[.output_index]}`)
+    if U8 value != outputs[output_index] {
+        set_error(`Output should be {outputs[output_index]}`)
         return fail
     }
-    .output_index += 1
-    if .output_index >= .outputs.len() {
+    output_index += 1
+    if output_index >= outputs.len() {
         return win
     }
 }

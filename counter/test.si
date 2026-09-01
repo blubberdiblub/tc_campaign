@@ -13,13 +13,13 @@ def get_input(cycle: Int) Input {
     } elif cycle == 127 {
         overwrite = 1
         num = 3
-    } elif cycle >= 128 {
+    } elif cycle < 0x180 {
         overwrite = 0
     }
 
     last_mem = new_mem
 
-    if overwrite == 0{
+    if overwrite == 0 {
         new_mem = (last_mem + 1) % 256
     } else {
         new_mem = num
@@ -68,7 +68,7 @@ def check_output(cycle: Int, input: Input, output: Output) TestResult {
         return fail
     }
 
-    if cycle == 384 {
+    if cycle == 0x3ffff {
         return win
     }
 

@@ -1,5 +1,5 @@
 kind = architecture
-tests = 42
+tests = 256
 size = 255
 default_architecture = "Overture"
 title = (31337_21808795465233, `Circumference`)

@@ -22,7 +22,7 @@ Instead you can use a feature called a [color=#66ccff]label[/color] to mark a lo
 
 [box][left]
 [color=#66ccff]my_label[/color]:     [color=#aaaaaa]; This is a label[/color]
-[color=#9966ff]imm[/color] [color=#66ccff]my_label[/color]  [color=#aaaaaa]; Load the offset of the label[/color]
+[color=#9966ff]imm[/color] [color=#66ccff]my_label[/color]  [color=#aaaaaa]; Load the address of the label[/color]
 [/left][/box]
   `)),
   (mentor_centered, (31337_38150072401115, `To finish this level, read the input until you see the number 37. 
